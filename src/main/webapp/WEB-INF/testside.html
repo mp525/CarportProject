@@ -1,0 +1,190 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>MainPage</title>
+    <meta charset="utf-8">
+    <style>
+        body {background-color: #174986;}
+    </style>
+
+</head>
+<body>
+
+<div class="container" align="center">
+
+    <img src="Images/fogs.jpg" class="img-fluid">
+    <div>
+
+        <h1 class="text-white">Carporte</h1>
+<h1>Hello ${sessionScope.email} </h1>
+<br>
+        <form name="order" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="order">
+            <div class="shadow p-3 mb-5 bg-darkblue rounded">
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Size</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="bot">
+
+                        <option selected>Choose...</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Længde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <br>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
+
+                        <option selected>Choose...</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <br>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum bredde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum Længde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <br>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
+                    <div class="form-group">
+                        <label for="Antal"></label>
+
+
+                        <input type="text" name="amount" class="form-control" placeholder="Navn" id="Antal">
+</div>
+                        <div class="col-4">
+                            </div>
+                            <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Email</label>
+                            <div class="form-group">
+                                <label for="Antal"></label>
+
+
+                                <input type="email" name="amount" class="form-control" placeholder="Email" id="Email">
+                            </div>
+                    <div class="col-4">
+                        <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Alder</label>
+                        <div class="form-group">
+                            <label for="Antal"></label>
+                        </div>
+                        </div>
+                            <input type="text" name="amount" class="form-control" placeholder="Alder" id="Alder">
+
+                        <div class="col-4">
+                        </div>
+
+                        <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
+                        <div class="form-group">
+                            <label for="Antal"></label>
+
+
+                            <input type="email" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
+                        </div>
+                <br><br>
+                <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
+
+    </div>
+            </div>
+
+        </form>
+
+</body>
+</html>
