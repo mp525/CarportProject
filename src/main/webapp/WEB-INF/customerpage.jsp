@@ -18,7 +18,7 @@
             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="bot">
 
                 <option selected>Choose...</option>
-                <option value=""></option>
+                <option value="240">240</option>
                 <option value=""></option>
                 <option value=""></option>
                 <option value=""></option>
