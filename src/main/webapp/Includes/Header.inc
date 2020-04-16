@@ -11,7 +11,7 @@
     <title>MainPage</title>
     <meta charset="utf-8">
     <style>
-    body {background-color: #3C1460;}
+    body {background-color: #174986;}
     </style>
 
 </head>

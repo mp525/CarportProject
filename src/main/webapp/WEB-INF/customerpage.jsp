@@ -7,9 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../Includes/Header.inc"%>
 
-<h1 class="text-white">Carporte</h1>
-<h1>Hello ${sessionScope.email} </h1>
+<h1 class="text-white">Carport</h1>
+
 <br>
+<h1 class="text-white">Here you can customize your Carport</h1>
 <form name="order" action="FrontController" method="POST">
     <input type="hidden" name="taget" value="order">
     <div class="shadow p-3 mb-5 bg-darkblue rounded">
@@ -160,6 +161,7 @@
                 <option value="720">720 cm</option>
             </select>
         </div>
+        <h1 class="text-white">Personal Information so we can reach you</h1>
         <br>
         <div class="col-4">
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
