@@ -163,23 +163,27 @@
         </div>
         <h1 class="text-white">Personal Information so we can reach you</h1>
         <br>
-        <div class="col-4">
+
+
+            <%--        Navn--%>
+            <div class="col-4">
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
             <div class="form-group">
                 <label for="Antal"></label>
-
-
                 <input type="text" name="amount" class="form-control" placeholder="Navn" id="Antal">
             </div>
+
+            <%--        Email--%>
             <div class="col-4">
             </div>
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Email</label>
             <div class="form-group">
-                <label for="Antal"></label>
-
-
-                <input type="email" name="amount" class="form-control" placeholder="Email" id="Email">
+            <label for="Antal"></label>
+            <input type="email" name="amount" class="form-control" placeholder="Email" id="Email">
             </div>
+
+
+             <%--        Alder--%>
             <div class="col-4">
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Alder</label>
                 <div class="form-group">
@@ -187,17 +191,18 @@
                 </div>
             </div>
             <input type="text" name="amount" class="form-control" placeholder="Alder" id="Alder">
-
             <div class="col-4">
             </div>
 
+
+            <%--        Adresse--%>
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
             <div class="form-group">
                 <label for="Antal"></label>
-
-
                 <input type="email" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
             </div>
+
+             <%--        Submit--%>
             <br><br>
             <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
 
