@@ -12,6 +12,9 @@
     <meta charset="utf-8">
     <style>
         body {background-color: #174986;}
+        div.image {
+            content:url(Images/wood.jpg);
+        }​
     </style>
 
 </head>
@@ -24,11 +27,12 @@
 
         <h1 class="text-white">Carport</h1>
 
+
 <br>
         <h1 class="text-white">Here you can customize your Carport</h1>
         <form name="order" action="FrontController" method="POST">
             <input type="hidden" name="taget" value="order">
-            <div class="shadow p-3 mb-5 bg-darkblue rounded">
+            <div>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="bot">
