@@ -9,17 +9,30 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>MainPage</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <style>
         body {background-color: #174986;}
+        select:disabled {background-color: red;}
     </style>
+    <script>
+        function disable() {
+            document.getElementById("skråTag1").disabled=true;
+            document.getElementById("skråTag2").disabled=true;
+            document.getElementById("fladtag").disabled=false;
+        }
+        function enable() {
+            document.getElementById("skråTag1").disabled=false;
+            document.getElementById("skråTag2").disabled=false;
+            document.getElementById("fladtag").disabled=true;
+        }
+    </script>
 
 </head>
 <body>
 
 <div class="container" align="center">
 
-    <img src="Images/fogs.jpg" class="img-fluid">
+    <img src="WEB-INF/Images/fogs.jpg" class="img-fluid">
     <div>
 
         <h1 class="text-white">Carport</h1>
@@ -81,8 +94,32 @@
                 </div>
 
                 <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <br>
+                    <br>
+
+                    <form>
+                        <div class="form-check-inline">
+                            <label class="form-check-label text-white">
+                                <input type="radio" class="form-check-input" onclick="disable()" name="optradio">Fladt tag
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label text-white">
+                                <input type="radio" class="form-check-input" onclick="enable()" name="optradio">Skråt tag
+                            </label>
+                        </div>
+                        <br><br>
+                    </form>
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
+                    <select id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                        <option selected>Choose...</option>
+                        <option value="Plasttrapezplader">Plasttrapezplader</option>
+                    </select>
+                    <br>
+                    <br>
+
+                   <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - skråt tag</label>
+                    <select id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
 
                         <option selected>Choose...</option>
                         <option value="BetonTagsten1">Betontagsten - rød</option>
@@ -101,16 +138,16 @@
                         <option value="Eternittag10">Eternittag - b7 teglrød</option>
                         <option value="Eternittag11">Eternittag - b7 rødflammet</option>
 
-
                     </select>
+
                 </div>
                 <br>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
+                    <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
 
                         <option selected>Choose...</option>
-                        <option value="Fladt tag">Fladt tag</option>
+                        <!--<option value="Fladt tag">Fladt tag</option>-->
                         <option value="15 grader">15 grader</option>
                         <option value="20 grader">20 grader</option>
                         <option value="25 grader">25 grader</option>
