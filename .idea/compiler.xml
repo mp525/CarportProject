@@ -6,19 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="prejektSkabelon" />
-        <module name="ProjektSkabelon-master" />
         <module name="Projektskabelon-master" />
         <module name="Projektskabelon" />
+        <module name="ProjektSkabelon-master" />
+        <module name="CarportProject" />
+        <module name="prejektSkabelon" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+<<<<<<< HEAD
       <module name="ProjektSkabelon-master" options="-endorseddirs &quot;C:/Users/Mathias/Desktop/DAT2sem/Systemudvikling/Carport/Projektskabelon-master/Projektskabelon-master/target/endorsed&quot;" />
       <module name="Projektskabelon" options="-endorseddirs &quot;C:/Users/Mathias/Desktop/DAT2sem/Systemudvikling/Carport/Projektskabelon-master/Projektskabelon-master/target/endorsed&quot;" />
       <module name="Projektskabelon-master" options="-endorseddirs C:\Users\Mathias\Desktop\DAT2sem\Systemudvikling\Carport\Projektskabelon-master\Projektskabelon-master\target/endorsed" />
       <module name="prejektSkabelon" options="-endorseddirs &quot;C:/Users/Mathias/Desktop/DAT2sem/Systemudvikling/Carport/Projektskabelon-master/Projektskabelon-master/target/endorsed&quot;" />
+=======
+      <module name="CarportProject" options="-endorseddirs C:\Users\matti\Desktop\gitfolder\CarportProject\target/endorsed" />
+      <module name="ProjektSkabelon-master" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
+      <module name="Projektskabelon" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
+      <module name="Projektskabelon-master" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
+      <module name="prejektSkabelon" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
+>>>>>>> faf2aef7e745fcd5a47e77076d602be3d46ccc44
     </option>
   </component>
 </project>
