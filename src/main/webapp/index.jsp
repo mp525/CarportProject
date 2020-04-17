@@ -1,68 +1,226 @@
-<%-- 
-    Document   : index
-    Created on : Aug 22, 2017, 2:01:06 PM
-    Author     : kasper
---%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome page</title>
-    </head>
-    <body>
-        <h1>Welcome to Sem 2</h1>
-        
-        <table>
-            <tr><td>Login</td>
-                <td>
-                    <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="taget" value="login">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </td>
-                <td>Or Register</td>
-                <td>
-                    <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="taget" value="register">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password1" value="sesam">
-                        <br>
-                        Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </td>
-            </tr>
-        </table>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>MainPage</title>
+    <meta charset="utf-8">
+    <style>
+        body {background-color: #174986;}
+    </style>
+
+</head>
+<body>
+
+<div class="container" align="center">
+
+    <img src="Images/fogs.jpg" class="img-fluid">
+    <div>
+
+        <h1 class="text-white">Carport</h1>
+
+        <br>
+        <h1 class="text-white">Here you can customize your Carport</h1>
+        <form name="order" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="order">
+            <div class="shadow p-3 mb-5 bg-darkblue rounded">
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="bot">
+
+                        <option selected>Choose...</option>
+                        <option value="240">240 cm</option>
+                        <option value="270">270 cm</option>
+                        <option value="300">300 cm</option>
+                        <option value="330">330 cm</option>
+                        <option value="360">360 cm</option>
+                        <option value="390">390 cm</option>
+                        <option value="420">420 cm</option>
+                        <option value="450">450 cm</option>
+                        <option value="480">480 cm</option>
+                        <option value="510">510 cm</option>
+                        <option value="540">540 cm</option>
+                        <option value="570">570 cm</option>
+                        <option value="600">600 cm</option>
+                        <option value="630">630 cm</option>
+                        <option value="660">660 cm</option>
+                        <option value="690">690 cm</option>
+                        <option value="720">720 cm</option>
+                        <option value="750">750 cm</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Længde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value="240">240 cm</option>
+                        <option value="270">270 cm</option>
+                        <option value="300">300 cm</option>
+                        <option value="330">330 cm</option>
+                        <option value="360">360 cm</option>
+                        <option value="390">390 cm</option>
+                        <option value="420">420 cm</option>
+                        <option value="450">450 cm</option>
+                        <option value="480">480 cm</option>
+                        <option value="510">510 cm</option>
+                        <option value="540">540 cm</option>
+                        <option value="570">570 cm</option>
+                        <option value="600">600 cm</option>
+                        <option value="630">630 cm</option>
+                        <option value="660">660 cm</option>
+                        <option value="690">690 cm</option>
+                        <option value="720">720 cm</option>
+                        <option value="750">750 cm</option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value="BetonTagsten1">Betontagsten - rød</option>
+                        <option value="BetonTagsten2">Betontagsten - teglrød</option>
+                        <option value="BetonTagsten3">Betontagsten - brun</option>
+                        <option value="BetonTagsten4">Betontagsten - sort</option>
+                        <option value="Eternittag1">Eternittag - b6 grå</option>
+                        <option value="Eternittag2">Eternittag - b6 sort</option>
+                        <option value="Eternittag3">Eternittag - b6 mokka</option>
+                        <option value="Eternittag4">Eternittag - b6 rødbrun</option>
+                        <option value="Eternittag5">Eternittag - b6 teglrød</option>
+                        <option value="Eternittag6">Eternittag - b7 grå</option>
+                        <option value="Eternittag7">Eternittag - b7 sort</option>
+                        <option value="Eternittag8">Eternittag - b7 mokka</option>
+                        <option value="Eternittag9">Eternittag - b7 rødbrun</option>
+                        <option value="Eternittag10">Eternittag - b7 teglrød</option>
+                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>
 
 
-<%--        Bare lige se I har en ide om hvad vi forslå I ikke gør ! det hedder scpript lets --%>
-<%--        <% String error = (String) request.getAttribute( "error");--%>
-<%--           if ( error != null) { --%>
-<%--               out.println("<H2>Error!!</h2>");--%>
-<%--               out.println(error);--%>
-<%--           }--%>
-<%--        %>--%>
+                    </select>
+                </div>
+                <br>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
 
-        <c:if test = "${requestScope.error!= null}" >
+                        <option selected>Choose...</option>
+                        <option value="Fladt tag">Fladt tag</option>
+                        <option value="15 grader">15 grader</option>
+                        <option value="20 grader">20 grader</option>
+                        <option value="25 grader">25 grader</option>
+                        <option value="30 grader">30 grader</option>
+                        <option value="35 grader">35 grader</option>
+                        <option value="40 grader">40 grader</option>
+                        <option value="45 grader">45 grader</option>
 
-           <h2>Error ! </h2>
-            ${requestScope.error}
+                    </select>
+                </div>
+                <br>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum bredde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
 
-        </c:if>
-    </body>
+                        <option selected>Choose...</option>
+                        <option value="Ingen">Ønsker ikke</option>
+                        <option value="210">210 cm</option>
+                        <option value="240">240 cm</option>
+                        <option value="270">270 cm</option>
+                        <option value="300">300 cm</option>
+                        <option value="330">330 cm</option>
+                        <option value="360">360 cm</option>
+                        <option value="390">390 cm</option>
+                        <option value="420">420 cm</option>
+                        <option value="450">450 cm</option>
+                        <option value="480">480 cm</option>
+                        <option value="510">510 cm</option>
+                        <option value="540">540 cm</option>
+                        <option value="570">570 cm</option>
+                        <option value="600">600 cm</option>
+                        <option value="630">630 cm</option>
+                        <option value="660">660 cm</option>
+                        <option value="690">690 cm</option>
+                        <option value="720">720 cm</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum Længde</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+
+                        <option selected>Choose...</option>
+                        <option value="Ingen">Ønsker ikke</option>
+                        <option value="150">150 cm</option>
+                        <option value="180">180 cm</option>
+                        <option value="210">210 cm</option>
+                        <option value="240">240 cm</option>
+                        <option value="270">270 cm</option>
+                        <option value="300">300 cm</option>
+                        <option value="330">330 cm</option>
+                        <option value="360">360 cm</option>
+                        <option value="390">390 cm</option>
+                        <option value="420">420 cm</option>
+                        <option value="450">450 cm</option>
+                        <option value="480">480 cm</option>
+                        <option value="510">510 cm</option>
+                        <option value="540">540 cm</option>
+                        <option value="570">570 cm</option>
+                        <option value="600">600 cm</option>
+                        <option value="630">630 cm</option>
+                        <option value="660">660 cm</option>
+                        <option value="690">690 cm</option>
+                        <option value="720">720 cm</option>
+                    </select>
+                </div>
+                <h1 class="text-white">Personal Information so we can reach you</h1>
+                <br>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
+                    <div class="form-group">
+                        <label for="Antal"></label>
+
+
+                        <input type="text" name="amount" class="form-control" placeholder="Navn" id="Antal">
+                    </div>
+                    <div class="col-4">
+                    </div>
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Email</label>
+                    <div class="form-group">
+                        <label for="Antal"></label>
+
+
+                        <input type="email" name="amount" class="form-control" placeholder="Email" id="Email">
+                    </div>
+                    <div class="col-4">
+                        <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Alder</label>
+                        <div class="form-group">
+                            <label for="Antal"></label>
+                        </div>
+                    </div>
+                    <input type="text" name="amount" class="form-control" placeholder="Alder" id="Alder">
+
+                    <div class="col-4">
+                    </div>
+
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
+                    <div class="form-group">
+                        <label for="Antal"></label>
+
+
+                        <input type="email" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
+                    </div>
+                    <br><br>
+                    <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
 </html>
