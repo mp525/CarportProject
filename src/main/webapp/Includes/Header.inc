@@ -19,5 +19,5 @@
 
 <div class="container" align="center">
 
-    <img src="Images/" class="img-fluid">
+    <img src="Images/fogs.jpg" class="img-fluid">
     <div >

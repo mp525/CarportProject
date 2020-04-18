@@ -19,15 +19,15 @@
 
 <div class="container" align="center">
 
-    <img src="Images/fogs.jpg" class="img-fluid">
+    <img src="WEB-INF/Images/fogs.jpg" class="img-fluid">
     <div>
 
         <h1 class="text-white">Carport</h1>
 
         <br>
         <h1 class="text-white">Here you can customize your Carport</h1>
-        <form name="order" action="FrontController" method="POST">
-            <input type="hidden" name="taget" value="order">
+        <form name="form" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="form">
             <div class="shadow p-3 mb-5 bg-darkblue rounded">
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Længde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="length">
 
                         <option selected>Choose...</option>
                         <option value="240">240 cm</option>
@@ -82,7 +82,7 @@
 
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roof">
 
                         <option selected>Choose...</option>
                         <option value="BetonTagsten1">Betontagsten - rød</option>
@@ -107,7 +107,8 @@
                 <br>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
+<%--                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">--%>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
 
                         <option selected>Choose...</option>
                         <option value="Fladt tag">Fladt tag</option>
@@ -124,7 +125,7 @@
                 <br>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum bredde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
 
                         <option selected>Choose...</option>
                         <option value="Ingen">Ønsker ikke</option>
@@ -150,7 +151,7 @@
                 </div>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum Længde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
 
                         <option selected>Choose...</option>
                         <option value="Ingen">Ønsker ikke</option>
@@ -215,7 +216,6 @@
                     </div>
                     <br><br>
                     <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
-
                 </div>
             </div>
 
