@@ -7,8 +7,8 @@
     <br>
     <h2 class="text-white">Customize your Carport</h2>
     <br>
-    <form name="order" action="FrontController" method="POST">
-        <input type="hidden" name="taget" value="order">
+    <form name="form" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="form">
 
         <div>
 
