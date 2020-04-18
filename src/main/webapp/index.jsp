@@ -30,7 +30,7 @@
                 <div class="col-4">
 
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="bot">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="width">
 
                         <option selected>Choose...</option>
                         <option value="240">240 cm</option>
@@ -181,14 +181,14 @@
 
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
-                    <select id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofF">
                         <option selected>Choose...</option>
                         <option value="Plasttrapezplader">Plasttrapezplader</option>
                     </select>
                 </div>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - skråt tag</label>
-                    <select id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofS">
 
                         <option selected>Choose...</option>
                         <option value="BetonTagsten1">Betontagsten - rød</option>

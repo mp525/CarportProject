@@ -18,16 +18,17 @@
 
 <h1>Din bestilling</h1>
 
-<p>Bredde: ${requestScope.bot}</p>
-<p>Længde: </p>
-<p>Redskabsrum bredde: </p>
-<p>Redskabsrum længde: </p>
-<p>Tagmateriale - fladt tag: </p>
-<p>Tagmateriale - skråt tag: </p>
-<p>Hældning: </p>
+<p>Bredde: ${requestScope.width} cm</p>
+<p>Længde: ${requestScope.length} cm</p>
+<p>Tag: ${requestScope.roof}</p>
+<p>Hældning: ${requestScope.slope} grader</p>
+<p>Redskabsrum bredde: ${requestScope.shedW} cm</p>
+<p>Redskabsrum længde: ${requestScope.shedL} cm</p>
+<p>Tagmateriale - fladt tag: ${requestScope.roofF}</p>
+<p>Tagmateriale - skråt tag: ${requestScope.roofS}</p>
+<p>Hældning: ??</p>
 
 <div style="text-align: center">
-    <p>Test 1:</p>
     <button type="button" class="btn btn-primary" name="back" onclick="history.back()">Tilføj ændring</button>
 </div>
 
