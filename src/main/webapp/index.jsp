@@ -245,7 +245,7 @@
                     <label for="Navn"></label>
                 </div>
 
-                <input type="text" name="amount" class="form-control" placeholder="Navn" id="Navn">
+                <input type="text" name="Navn" class="form-control" placeholder="Navn" id="Navn">
             </div>
 
 
@@ -254,7 +254,7 @@
                 <div class="form-group">
                     <label for="email"></label>
 
-                    <input type="email" name="amount" class="form-control" placeholder="Email" id="Email">
+                    <input type="email" name="Email" class="form-control" placeholder="Email" id="Email">
                 </div>
             </div>
 
@@ -264,7 +264,7 @@
                     <label for="Alder"></label>
                 </div>
 
-                <input type="text" name="amount" class="form-control" placeholder="Alder" id="Alder">
+                <input type="text" name="Alder" class="form-control" placeholder="Alder" id="Alder">
             </div>
 
 
@@ -273,7 +273,7 @@
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
                 <div class="form-group">
                     <label for="Adresse"></label>
-                    <input type="text" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
+                    <input type="text" name="Adresse" class="form-control" placeholder="Adresse" id="Adresse">
                 </div>
             </div>
 
@@ -283,7 +283,7 @@
                     <label for="By"></label>
                 </div>
 
-                <input type="text" name="amount" class="form-control" placeholder="by" id="by">
+                <input type="text" name="by" class="form-control" placeholder="by" id="by">
             </div>
 
 
@@ -292,7 +292,7 @@
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Post NR</label>
                 <div class="form-group">
                     <label for="PostNR"></label>
-                    <input type="number" name="amount" class="form-control" placeholder="postNR" id="postNR">
+                    <input type="number" name="postNR" class="form-control" placeholder="postNR" id="postNR">
                 </div>
 
             </div>
