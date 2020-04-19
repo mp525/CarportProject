@@ -292,7 +292,7 @@
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Post NR</label>
                 <div class="form-group">
                     <label for="PostNR"></label>
-                    <input type="number" name="postNR" class="form-control" placeholder="postNR" id="postNR">
+                    <input type="number" name="postNR" class="form-control" placeholder="postNR" id="postNR" min="1000" max="9999">
                 </div>
 
             </div>
