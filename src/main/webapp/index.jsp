@@ -245,7 +245,7 @@
                     <label for="Navn"></label>
                 </div>
 
-                <input type="text" name="amount" class="form-control" placeholder="Navn" id="Antal">
+                <input type="text" name="amount" class="form-control" placeholder="Navn" id="Navn">
             </div>
 
 
@@ -273,7 +273,7 @@
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
                 <div class="form-group">
                     <label for="Adresse"></label>
-                    <input type="email" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
+                    <input type="text" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
                 </div>
             </div>
 
@@ -283,7 +283,7 @@
                     <label for="By"></label>
                 </div>
 
-                <input type="text" name="amount" class="form-control" placeholder="Alder" id="Alder">
+                <input type="text" name="amount" class="form-control" placeholder="by" id="by">
             </div>
 
 
@@ -292,7 +292,7 @@
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Post NR</label>
                 <div class="form-group">
                     <label for="PostNR"></label>
-                    <input type="number" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
+                    <input type="number" name="amount" class="form-control" placeholder="postNR" id="postNR">
                 </div>
 
             </div>
