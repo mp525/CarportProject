@@ -10,13 +10,56 @@
     <meta charset="utf-8">
     <style>
         body {background-color: #174986;}
-        h1 {color: white; text-align: center}
-        p {color: white; text-align: center}
+        h1 {color: white; text-align: center;}
+        p {color: white; text-align: center;}
+        table {border: 1px solid white; border-collapse: collapse; width: 100%; text-align: center;}
+        td {border: 1px solid white; border-collapse: collapse; width: 50%;}
     </style>
 </head>
 <body>
 
+<div class="container" align="center">
+    <img src="Images/fogs.jpg" class="img-fluid">
+</div>
+
 <h1>Din bestilling</h1>
+
+<div class="container" align="center">
+    <table>
+        <tr>
+            <td><p>Bredde:</p></td>
+            <td><p>${requestScope.width} cm</p></td>
+        </tr>
+        <tr>
+            <td><p>Længde:</p></td>
+            <td><p>${requestScope.length} cm</p></td>
+        </tr>
+        <tr>
+            <td><p>Tag:</p></td>
+            <td><p>${requestScope.roof}</p></td>
+        </tr>
+        <tr>
+            <td><p>Hældning:</p></td>
+            <td><p>${requestScope.slope} grader</p></td>
+        </tr>
+        <tr>
+            <td><p>Redskabsrum bredde:</p></td>
+            <td><p>${requestScope.shedW} cm</p></td>
+        </tr>
+        <tr>
+            <td><p>Redskabsrum længde:</p></td>
+            <td><p>${requestScope.shedL} cm</p></td>
+        </tr>
+        <tr>
+            <td><p>Tagmateriale - fladt tag:</p></td>
+            <td><p>${requestScope.roofF}</p></td>
+        </tr>
+        <tr>
+            <td><p>Tagmateriale - skråt tag:</p></td>
+            <td><p>${requestScope.roofS}</p></td>
+        </tr>
+    </table>
+</div>
 
 <p>Bredde: ${requestScope.width} cm</p>
 <p>Længde: ${requestScope.length} cm</p>

@@ -14,18 +14,7 @@
         body {background-color: #174986;}
         select:disabled {background-color: red;}
     </style>
-    <script>
-        function disable() {
-            document.getElementById("skråTag1").disabled=true;
-            document.getElementById("skråTag2").disabled=true;
-            document.getElementById("fladtag").disabled=false;
-        }
-        function enable() {
-            document.getElementById("skråTag1").disabled=false;
-            document.getElementById("skråTag2").disabled=false;
-            document.getElementById("fladtag").disabled=true;
-        }
-    </script>
+
 
 </head>
 <body>
