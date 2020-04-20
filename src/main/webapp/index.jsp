@@ -184,7 +184,7 @@
         </div>
         <div class="col-4">
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-            <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
+            <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
 
                 <option selected>Choose...</option>
                 <!--<option value="Fladt tag">Fladt tag</option>-->
