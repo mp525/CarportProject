@@ -2,6 +2,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/Includes/Header.inc"%>
 
+<script>
+    function disable() {
+        document.getElementById("skråTag1").disabled=true;
+        document.getElementById("skråTag2").disabled=true;
+        document.getElementById("fladtag").disabled=false;
+    }
+    function enable() {
+        document.getElementById("skråTag1").disabled=false;
+        document.getElementById("skråTag2").disabled=false;
+        document.getElementById("fladtag").disabled=true;
+    }
+</script>
+
     <h1 class="text-white">Carport</h1>
 
     <br>
@@ -79,48 +92,6 @@
                     </select>
                 </div>
                 
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roof">
-
-                        <option selected>Choose...</option>
-                        <option value="BetonTagsten1">Betontagsten - rød</option>
-                        <option value="BetonTagsten2">Betontagsten - teglrød</option>
-                        <option value="BetonTagsten3">Betontagsten - brun</option>
-                        <option value="BetonTagsten4">Betontagsten - sort</option>
-                        <option value="Eternittag1">Eternittag - b6 grå</option>
-                        <option value="Eternittag2">Eternittag - b6 sort</option>
-                        <option value="Eternittag3">Eternittag - b6 mokka</option>
-                        <option value="Eternittag4">Eternittag - b6 rødbrun</option>
-                        <option value="Eternittag5">Eternittag - b6 teglrød</option>
-                        <option value="Eternittag6">Eternittag - b7 grå</option>
-                        <option value="Eternittag7">Eternittag - b7 sort</option>
-                        <option value="Eternittag8">Eternittag - b7 mokka</option>
-                        <option value="Eternittag9">Eternittag - b7 rødbrun</option>
-                        <option value="Eternittag10">Eternittag - b7 teglrød</option>
-                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>
-
-
-                    </select>
-                </div>
-                <br>
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-<%--                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">--%>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
-
-                        <option selected>Choose...</option>
-                        <option value="Fladt tag">Fladt tag</option>
-                        <option value="15 grader">15 grader</option>
-                        <option value="20 grader">20 grader</option>
-                        <option value="25 grader">25 grader</option>
-                        <option value="30 grader">30 grader</option>
-                        <option value="35 grader">35 grader</option>
-                        <option value="40 grader">40 grader</option>
-                        <option value="45 grader">45 grader</option>
-
-                    </select>
-                </div>
                 <br>
 
                 <div class="col-4">
