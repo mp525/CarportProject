@@ -15,10 +15,16 @@
     }
 </script>
 
-    <h1 class="text-white">Carport</h1>
+</head>
+<body>
+
+<div class="container" align="center">
+
+    <img src="WEB-INF/Images/fogs.jpg" class="img-fluid">
+    <h1 class="display-1 text-white">Carport</h1>
 
     <br>
-    <h2 class="text-white">Customize your Carport</h2>
+    <h2 class="display-4 text-white">Customize your Carport</h2>
     <br>
     <form name="form" action="FrontController" method="POST">
         <input type="hidden" name="taget" value="form">
@@ -92,6 +98,48 @@
                     </select>
                 </div>
 
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roof">
+
+                        <option selected>Choose...</option>
+                        <option value="BetonTagsten1">Betontagsten - rød</option>
+                        <option value="BetonTagsten2">Betontagsten - teglrød</option>
+                        <option value="BetonTagsten3">Betontagsten - brun</option>
+                        <option value="BetonTagsten4">Betontagsten - sort</option>
+                        <option value="Eternittag1">Eternittag - b6 grå</option>
+                        <option value="Eternittag2">Eternittag - b6 sort</option>
+                        <option value="Eternittag3">Eternittag - b6 mokka</option>
+                        <option value="Eternittag4">Eternittag - b6 rødbrun</option>
+                        <option value="Eternittag5">Eternittag - b6 teglrød</option>
+                        <option value="Eternittag6">Eternittag - b7 grå</option>
+                        <option value="Eternittag7">Eternittag - b7 sort</option>
+                        <option value="Eternittag8">Eternittag - b7 mokka</option>
+                        <option value="Eternittag9">Eternittag - b7 rødbrun</option>
+                        <option value="Eternittag10">Eternittag - b7 teglrød</option>
+                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>
+
+
+                    </select>
+                </div>
+                <br>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
+
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
+
+                        <option selected>Choose...</option>
+                        <option value="Fladt tag">Fladt tag</option>
+                        <option value="15 grader">15 grader</option>
+                        <option value="20 grader">20 grader</option>
+                        <option value="25 grader">25 grader</option>
+                        <option value="30 grader">30 grader</option>
+                        <option value="35 grader">35 grader</option>
+                        <option value="40 grader">40 grader</option>
+                        <option value="45 grader">45 grader</option>
+
+                    </select>
+                </div>
                 <br>
 
                 <div class="col-4">
@@ -184,10 +232,10 @@
         </div>
         <div class="col-4">
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-            <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
+            <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
 
                 <option selected>Choose...</option>
-                <!--<option value="Fladt tag">Fladt tag</option>-->
+
                 <option value="15 grader">15 grader</option>
                 <option value="20 grader">20 grader</option>
                 <option value="25 grader">25 grader</option>
@@ -263,7 +311,7 @@
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Post NR</label>
                 <div class="form-group">
                     <label for="PostNR"></label>
-                    <input type="number" name="postNR" class="form-control" placeholder="postNR" id="postNR" min="999" max="9999">
+                    <input type="number" name="postNR" class="form-control" placeholder="postNR" id="postNR" min="1000" max="9999">
                 </div>
 
             </div>
@@ -277,37 +325,17 @@
 
 
     </form>
-
 </div>
 
-
-<!-- Footer -->
-<footer class="page-footer font-small unique-color-dark pt-4">
-
-
-    <div class="container">
-
-
-        <ul class="list-unstyled list-inline text-center py-2">
-            <li class="list-inline-item">
-                <h5 class="mb-1">Register for free</h5>
-            </li>
-            <li class="list-inline-item">
-                <a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>
-            </li>
-        </ul>
-
-
-    </div>
-
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
 </body>
+<footer class="shadow-lg p-3 mb-5 bg-black rounded">
+    <div align="center">
+        <blockquote class="blockquote text-right">
+            <p class="mb-0">"We wanted to perfect user choice so I asked them to create opportunity..."</p>
+            <p>Creative director of BSH Production <cite title="Source Title">Washington Post</cite><p>
+
+        </blockquote>
+        <input type="submit" value="Employee login Page" class="btn btn-dark btn-lg">
+    </div>
+</footer>
 </html>
