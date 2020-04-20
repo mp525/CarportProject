@@ -1,50 +1,36 @@
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>MainPage</title>
-    <meta charset="UTF-8">
-    <style>
-        body {background-color: #174986;}
-        select:disabled {background-color: red;}
-    </style>
-    <script>
-        function disable() {
-            document.getElementById("skråTag1").disabled=true;
-            document.getElementById("skråTag2").disabled=true;
-            document.getElementById("fladtag").disabled=false;
-        }
-        function enable() {
-            document.getElementById("skråTag1").disabled=false;
-            document.getElementById("skråTag2").disabled=false;
-            document.getElementById("fladtag").disabled=true;
-        }
-    </script>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/Includes/Header.inc"%>
 
-</head>
-<body>
+    <h1 class="text-white">Carport</h1>
 
-<div class="container" align="center">
+    <br>
+    <h2 class="text-white">Customize your Carport</h2>
+    <br>
+    <form name="form" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="form">
 
-    <img src="WEB-INF/Images/fogs.jpg" class="img-fluid">
-    <div>
+        <div>
 
-        <h1 class="text-white">Carport</h1>
+            <div class="form-check-inline">
+                <label class="form-check-label text-white">
+                    <input type="radio" class="form-check-input" onclick="disable()" name="optradio">Fladt tag
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label text-white">
+                    <input type="radio" class="form-check-input" onclick="enable()" name="optradio">Skråt tag
+                </label>
+            </div>
+            <br><br>
 
-        <br>
-        <h1 class="text-white">Here you can customize your Carport</h1>
-        <form name="order" action="FrontController" method="POST">
-            <input type="hidden" name="taget" value="order">
-            <div class="shadow p-3 mb-5 bg-darkblue rounded">
+
+            <div class="row">
+
                 <div class="col-4">
+
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="bot">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="width">
 
                         <option selected>Choose...</option>
                         <option value="240">240 cm</option>
@@ -69,7 +55,7 @@
                 </div>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Længde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="length">
 
                         <option selected>Choose...</option>
                         <option value="240">240 cm</option>
@@ -92,34 +78,10 @@
                         <option value="750">750 cm</option>
                     </select>
                 </div>
-
+                
                 <div class="col-4">
-                    <br>
-                    <br>
-
-                    <form>
-                        <div class="form-check-inline">
-                            <label class="form-check-label text-white">
-                                <input type="radio" class="form-check-input" onclick="disable()" name="optradio">Fladt tag
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label text-white">
-                                <input type="radio" class="form-check-input" onclick="enable()" name="optradio">Skråt tag
-                            </label>
-                        </div>
-                        <br><br>
-                    </form>
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
-                    <select id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
-                        <option selected>Choose...</option>
-                        <option value="Plasttrapezplader">Plasttrapezplader</option>
-                    </select>
-                    <br>
-                    <br>
-
-                   <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - skråt tag</label>
-                    <select id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roof">
 
                         <option selected>Choose...</option>
                         <option value="BetonTagsten1">Betontagsten - rød</option>
@@ -138,16 +100,17 @@
                         <option value="Eternittag10">Eternittag - b7 teglrød</option>
                         <option value="Eternittag11">Eternittag - b7 rødflammet</option>
 
-                    </select>
 
+                    </select>
                 </div>
                 <br>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-                    <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
+<%--                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">--%>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
 
                         <option selected>Choose...</option>
-                        <!--<option value="Fladt tag">Fladt tag</option>-->
+                        <option value="Fladt tag">Fladt tag</option>
                         <option value="15 grader">15 grader</option>
                         <option value="20 grader">20 grader</option>
                         <option value="25 grader">25 grader</option>
@@ -159,9 +122,10 @@
                     </select>
                 </div>
                 <br>
+
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum bredde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
 
                         <option selected>Choose...</option>
                         <option value="Ingen">Ønsker ikke</option>
@@ -187,7 +151,7 @@
                 </div>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum Længde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="top">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
 
                         <option selected>Choose...</option>
                         <option value="Ingen">Ønsker ikke</option>
@@ -213,51 +177,135 @@
                         <option value="720">720 cm</option>
                     </select>
                 </div>
-                <h1 class="text-white">Personal Information so we can reach you</h1>
-                <br>
+
+
                 <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
-                    <div class="form-group">
-                        <label for="Antal"></label>
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
+                    <select id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofF">
+                        <option selected>Choose...</option>
+                        <option value="Plasttrapezplader">Plasttrapezplader</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - skråt tag</label>
+                    <select id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofS">
+
+                        <option selected>Choose...</option>
+                        <option value="BetonTagsten1">Betontagsten - rød</option>
+                        <option value="BetonTagsten2">Betontagsten - teglrød</option>
+                        <option value="BetonTagsten3">Betontagsten - brun</option>
+                        <option value="BetonTagsten4">Betontagsten - sort</option>
+                        <option value="Eternittag1">Eternittag - b6 grå</option>
+                        <option value="Eternittag2">Eternittag - b6 sort</option>
+                        <option value="Eternittag3">Eternittag - b6 mokka</option>
+                        <option value="Eternittag4">Eternittag - b6 rødbrun</option>
+                        <option value="Eternittag5">Eternittag - b6 teglrød</option>
+                        <option value="Eternittag6">Eternittag - b7 grå</option>
+                        <option value="Eternittag7">Eternittag - b7 sort</option>
+                        <option value="Eternittag8">Eternittag - b7 mokka</option>
+                        <option value="Eternittag9">Eternittag - b7 rødbrun</option>
+                        <option value="Eternittag10">Eternittag - b7 teglrød</option>
+                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
+            <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
+
+                <option selected>Choose...</option>
+                <!--<option value="Fladt tag">Fladt tag</option>-->
+                <option value="15 grader">15 grader</option>
+                <option value="20 grader">20 grader</option>
+                <option value="25 grader">25 grader</option>
+                <option value="30 grader">30 grader</option>
+                <option value="35 grader">35 grader</option>
+                <option value="40 grader">40 grader</option>
+                <option value="45 grader">45 grader</option>
+
+            </select>
+        </div>
 
 
-                        <input type="text" name="amount" class="form-control" placeholder="Navn" id="Antal">
-                    </div>
-                    <div class="col-4">
-                    </div>
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Email</label>
-                    <div class="form-group">
-                        <label for="Antal"></label>
 
 
-                        <input type="email" name="amount" class="form-control" placeholder="Email" id="Email">
-                    </div>
-                    <div class="col-4">
-                        <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Alder</label>
-                        <div class="form-group">
-                            <label for="Antal"></label>
-                        </div>
-                    </div>
-                    <input type="text" name="amount" class="form-control" placeholder="Alder" id="Alder">
 
-                    <div class="col-4">
-                    </div>
-
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
-                    <div class="form-group">
-                        <label for="Antal"></label>
+        <br><br>
 
 
-                        <input type="email" name="amount" class="form-control" placeholder="Adresse" id="Adresse">
-                    </div>
-                    <br><br>
-                    <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
+        <h2 class="text-white">Personal Information</h2>
+        <br>
+        <div class="row">
 
+            <div class="col-4">
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
+                <div class="form-group">
+                    <label for="Navn"></label>
+                </div>
+
+                <input type="text" name="Navn" class="form-control" placeholder="Navn" id="Navn">
+            </div>
+
+
+            <div class="col-4">
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Email</label>
+                <div class="form-group">
+                    <label for="email"></label>
+
+                    <input type="email" name="Email" class="form-control" placeholder="Email" id="Email">
                 </div>
             </div>
 
-        </form>
-    </div>
+            <div class="col-4">
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Alder</label>
+                <div class="form-group">
+                    <label for="Alder"></label>
+                </div>
+
+                <input type="text" name="Alder" class="form-control" placeholder="Alder" id="Alder">
+            </div>
+
+
+            <div class="col-4">
+
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
+                <div class="form-group">
+                    <label for="Adresse"></label>
+                    <input type="text" name="Adresse" class="form-control" placeholder="Adresse" id="Adresse">
+                </div>
+            </div>
+
+            <div class="col-4">
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">By</label>
+                <div class="form-group">
+                    <label for="By"></label>
+                </div>
+
+                <input type="text" name="by" class="form-control" placeholder="by" id="by">
+            </div>
+
+
+            <div class="col-4">
+
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Post NR</label>
+                <div class="form-group">
+                    <label for="PostNR"></label>
+                    <input type="number" name="postNR" class="form-control" placeholder="postNR" id="postNR" min="1000" max="9999">
+                </div>
+
+            </div>
+        </div>
+        <br><br>
+        <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
+
+
+
+
+
+
+    </form>
 </div>
 </body>
 </html>
