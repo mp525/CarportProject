@@ -15,6 +15,7 @@ abstract class Command {
         commands.put( "register", new Register() );
         commands.put( "form", new Form() );
         commands.put( "toindex", new ToIndex() );
+        commands.put( "sendRequest", new SendRequest());
     }
 
     static Command from( HttpServletRequest request ) {

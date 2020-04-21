@@ -26,6 +26,17 @@ public class Request {
         this.lengthS = lengthS;
         this.widthS = widthS;
     }
+    public Request(String email, int width, int length, String cladding, boolean rooftype, String roofmat, int slopeangle, int lengthS, int widthS){
+        this.email = email;
+        this.width = width;
+        this.length = length;
+        this.cladding = cladding;
+        this.rooftype = rooftype;
+        this.roofmat = roofmat;
+        this.slopeangle = slopeangle;
+        this.lengthS = lengthS;
+        this.widthS = widthS;
+    }
 
     public int getRequestID() { return requestID; }
 
