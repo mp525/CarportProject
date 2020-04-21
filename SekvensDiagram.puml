@@ -1,0 +1,22 @@
+@startuml
+actor User
+User -> index.jsp: Fill out form
+index.jsp -> Form.java: Send info from form
+Form.java -> Form.java: Saves info
+Form.java -> formpage.jsp: Sends info
+formpage.jsp -> formpage.jsp: Displays info
+
+group User wants to make changes
+formpage.jsp --> index.jsp: Press button to\nmake changes
+index.jsp --> index.jsp: Make changes
+index.jsp --> Form.java: Send new info\nfrom form
+Form.java --> Form.java: Saves info
+Form.java --> formpage.jsp: Sends info
+end
+
+database Database
+formpage.jsp -> Database: Send to\ndatabase
+Database -> emppage.jsp: Send to page
+actor Fog
+Fog -> emppage.jsp: See form
+@enduml
