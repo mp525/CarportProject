@@ -5,7 +5,7 @@
 
 <div class="container" align="center">
 
-    <img src="WEB-INF/Images/fogs.jpg" class="img-fluid">
+    <img src="Images/fogs.jpg" class="img-fluid">
 
 <script>
     function disable() {
@@ -25,7 +25,7 @@
 
 <div class="container" align="center">
 
-    <img src="WEB-INF/Images/fogs.jpg" class="img-fluid">
+
     <h1 class="display-1 text-white">Carport</h1>
 
     <br>

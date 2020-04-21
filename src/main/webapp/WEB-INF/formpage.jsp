@@ -20,7 +20,7 @@
 <body>
 
 <div class="container" align="center">
-    <img src="Images/fogs.jpg" class="img-fluid">
+    <img src="../../../../target/prejektSkabelon-1.0-SNAPSHOT/Images/fogs.jpg" class="img-fluid">
 </div>
 
 <h1>Din bestilling</h1>
