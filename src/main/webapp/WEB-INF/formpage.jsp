@@ -119,14 +119,42 @@
                 </c:otherwise>
             </c:choose>
         </tr>
-        <%--<tr>
-            <td><p>Redskabsrum bredde:</p></td>
-            <td><p>${requestScope.shedW} cm</p></td>
-        </tr>--%>
-        <%--<tr>
-            <td><p>Redskabsrum længde:</p></td>
-            <td><p>${requestScope.shedL} cm</p></td>
-        </tr>--%>
+        <tr>
+            <c:set var="shedWC" scope="session" value="${requestScope.shedW}"/>
+            <c:choose>
+                <c:when test="${shedWC == null}"></c:when>
+                <c:when test="${shedWC == 'choose'}">
+                    <td><p>Redskabsrum bredde:</p></td>
+                    <td><p>Ikke valgt endnu</p></td>
+                </c:when>
+                <c:when test="${shedWC == 'Ingen'}">
+                    <td><p>Redskabsrum bredde:</p></td>
+                    <td><p>Ønsker ikke</p></td>
+                </c:when>
+                <c:otherwise>
+                    <td><p>Redskabsrum bredde:</p></td>
+                    <td><p>${requestScope.shedW} cm</p></td>
+                </c:otherwise>
+            </c:choose>
+        </tr>
+        <tr>
+            <c:set var="shedLC" scope="session" value="${requestScope.shedL}"/>
+            <c:choose>
+                <c:when test="${shedLC == null}"></c:when>
+                <c:when test="${shedLC == 'choose'}">
+                    <td><p>Redskabsrum længde:</p></td>
+                    <td><p>Ikke valgt endnu</p></td>
+                </c:when>
+                <c:when test="${shedLC == 'Ingen'}">
+                    <td><p>Redskabsrum længde:</p></td>
+                    <td><p>Ønsker ikke</p></td>
+                </c:when>
+                <c:otherwise>
+                    <td><p>Redskabsrum længde:</p></td>
+                    <td><p>${requestScope.shedL} cm</p></td>
+                </c:otherwise>
+            </c:choose>
+        </tr>
     </table>
 </div>
 
