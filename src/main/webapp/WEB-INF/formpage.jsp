@@ -12,20 +12,55 @@
     <style>
         body {background-color: #174986;}
         h1 {color: white; text-align: center;}
-        p {color: white; text-align: center;}
+        /*p {color: white; text-align: center;}
         table {border: 1px solid white; border-collapse: collapse; width: 100%; text-align: center;}
-        td {border: 1px solid white; border-collapse: collapse; width: 50%;}
+        td {border: 1px solid white; border-collapse: collapse; width: 50%;}*/
+
+        #info {
+            border: 1px solid white;
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        #info td {
+            border: 1px solid white;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        #info p {
+            color: white;
+            text-align: center;
+        }
+
+        #customer {
+            border-bottom: 1px solid white;
+            border-collapse: collapse;
+            width: 50%;
+            text-align: left;
+        }
+        #customer td {
+            border-bottom: 1px solid white;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        #customer p {
+            color: white;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
 
 <div class="container" align="center">
-    <img src="../../../../target/prejektSkabelon-1.0-SNAPSHOT/Images/fogs.jpg" class="img-fluid">
+    <img src="Images/fogs.jpg" class="img-fluid">
 </div>
 
 <h1>Din bestilling</h1>
 
-<div class="container" align="center">
+<%--<div class="container" align="center">
     <table>
         <tr>
             <td><p>Bredde:</p></td>
@@ -35,10 +70,10 @@
             <td><p>Længde:</p></td>
             <td><p>${requestScope.length} cm</p></td>
         </tr>
-        <%--<tr>
+        &lt;%&ndash;<tr>
             <td><p>Tag:</p></td>
             <td><p>${requestScope.roof}</p></td>
-        </tr>--%>
+        </tr>&ndash;%&gt;
         <tr>
             <td><p>Hældning:</p></td>
             <td><p>${requestScope.slope}</p></td>
@@ -60,12 +95,12 @@
             <td><p>${requestScope.roofS}</p></td>
         </tr>
     </table>
-</div>
+</div>--%>
 
-<h1>Version 2:</h1>
+<%--<h1>Version 2:</h1>--%>
 
 <div class="container" align="center">
-    <table>
+    <table id="info">
         <tr>
             <td><p>Bredde:</p></td>
             <td><p>${requestScope.width} cm</p></td>
@@ -158,23 +193,42 @@
     </table>
 </div>
 
-<%--<p>Bredde: 240 : ${requestScope.width}</p>
-    <c:set var="wid" scope="session" value="${requestScope.width}"/>
-    <c:if test="${wid == 240}">
-        <p>If statement:</p>
-        <p>Bredde: <c:out value="${wid}"/> </p>
-    </c:if>--%>
+<br>
+<br>
+<br>
+
+<h1>Kontakt informationer</h1>
+
+<div class="container" align="center">
+    <table id="customer">
+        <tr>
+            <td><p>Navn: ${requestScope.name}</p></td>
+        </tr>
+        <tr>
+            <td><p>Email: ${requestScope.email}</p></td>
+        </tr>
+        <tr>
+            <td><p>Alder: ${requestScope.age}</p></td>
+        </tr>
+        <tr>
+            <td><p>Adresse: ${requestScope.adr}</p></td>
+        </tr>
+        <tr>
+            <td><p>By: ${requestScope.city}</p></td>
+        </tr>
+        <tr>
+            <td><p>Postnummer: ${requestScope.zip}</p></td>
+        </tr>
+    </table>
+</div>
+
+<br>
+<br>
+<br>
 
 <div style="text-align: center">
     <button type="button" class="btn btn-primary" name="back" onclick="history.back()">Tilføj ændring</button>
 </div>
-
-<%--<div style="text-align: center">
-    <form name="index" action="FrontController" method="POST">
-        <input type="hidden" name="taget" value="index">
-        <button type="submit" class="btn btn-primary">Virker ikke</button>
-    </form>
-</div>--%>
 
 </body>
 </html>
