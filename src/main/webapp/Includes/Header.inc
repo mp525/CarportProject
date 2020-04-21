@@ -27,8 +27,4 @@
 
 
 </head>
-<body>
 
-<div class="container" align="center">
-
-    <img src="WEB-INF/Images/fogs.jpg" class="img-fluid">
