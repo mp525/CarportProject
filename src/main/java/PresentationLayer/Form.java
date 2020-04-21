@@ -40,9 +40,6 @@ public class Form extends Command {
             String roofSMat = request.getParameter("roofSMat");
             request.setAttribute("roofS", roofSMat);
 
-            String email = request.getParameter("Email");
-            request.setAttribute("email", email);
-
             String cladding = request.getParameter("cladding");
             request.setAttribute("cladding", cladding);
 
@@ -69,9 +66,29 @@ public class Form extends Command {
             shedWInt = Integer.parseInt(shedW);
         }
 
+        //Name
+        String name = request.getParameter("Navn");
+        request.setAttribute("name", name);
+        //Email
+        String email = request.getParameter("Email");
+        request.setAttribute("email", email);
+        //Age
+        String age = request.getParameter("Alder");
+        request.setAttribute("age", age);
+        //Adress
+        String adress = request.getParameter("Adresse");
+        request.setAttribute("adr", adress);
+        //City
+        String city = request.getParameter("by");
+        request.setAttribute("city", city);
+        //Postal code
+        String zip = request.getParameter("postNR");
+        request.setAttribute("zip", zip);
+
             //String email, int width, int length, String cladding, boolean rooftype, String roofmat, int slopeangle, int lengthS, int widthS
             Request carportRequest = new Request(email, width, length, cladding, rooftype, roofMat, slope, shedLInt, shedWInt);
             request.setAttribute("carportRequest", carportRequest);
+
 
         return "form" + "page";
     }
