@@ -51,7 +51,8 @@
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="width">
 
-                        <option selected>Choose...</option>
+<%--                        <option selected>Choose...</option>--%>
+                        <option value="Ikke valgt endnu">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -76,7 +77,8 @@
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Længde</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="length">
 
-                        <option selected>Choose...</option>
+<%--                        <option selected>Choose...</option>--%>
+                        <option value="Ikke valgt endnu">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -98,11 +100,12 @@
                     </select>
                 </div>
 
-                <div class="col-4">
+                <%--<div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tag</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roof">
 
                         <option selected>Choose...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="BetonTagsten1">Betontagsten - rød</option>
                         <option value="BetonTagsten2">Betontagsten - teglrød</option>
                         <option value="BetonTagsten3">Betontagsten - brun</option>
@@ -122,13 +125,14 @@
 
                     </select>
                 </div>
-                <br>
-                <div class="col-4">
+                <br>--%>
+                <%--<div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
 
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
 
                         <option selected>Choose...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="Fladt tag">Fladt tag</option>
                         <option value="15 grader">15 grader</option>
                         <option value="20 grader">20 grader</option>
@@ -140,13 +144,14 @@
 
                     </select>
                 </div>
-                <br>
+                <br>--%>
 
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum bredde</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
 
-                        <option selected>Choose...</option>
+<%--                        <option selected>Choose...</option>--%>
+                        <option value="choose">Vælg...</option>
                         <option value="Ingen">Ønsker ikke</option>
                         <option value="210">210 cm</option>
                         <option value="240">240 cm</option>
@@ -168,11 +173,47 @@
                         <option value="720">720 cm</option>
                     </select>
                 </div>
+
+
+
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
+                    <select id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofF">
+<%--                        <option selected>Choose...</option>--%>
+                        <option value="choose">Vælg...</option>
+                        <option value="Plasttrapezplader">Plasttrapezplader</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - skråt tag</label>
+                    <select id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofS">
+
+<%--                        <option selected>Choose...</option>--%>
+                        <option value="choose">Vælg...</option>
+                        <option value="BetonTagsten1">Betontagsten - rød</option>
+                        <option value="BetonTagsten2">Betontagsten - teglrød</option>
+                        <option value="BetonTagsten3">Betontagsten - brun</option>
+                        <option value="BetonTagsten4">Betontagsten - sort</option>
+                        <option value="Eternittag1">Eternittag - b6 grå</option>
+                        <option value="Eternittag2">Eternittag - b6 sort</option>
+                        <option value="Eternittag3">Eternittag - b6 mokka</option>
+                        <option value="Eternittag4">Eternittag - b6 rødbrun</option>
+                        <option value="Eternittag5">Eternittag - b6 teglrød</option>
+                        <option value="Eternittag6">Eternittag - b7 grå</option>
+                        <option value="Eternittag7">Eternittag - b7 sort</option>
+                        <option value="Eternittag8">Eternittag - b7 mokka</option>
+                        <option value="Eternittag9">Eternittag - b7 rødbrun</option>
+                        <option value="Eternittag10">Eternittag - b7 teglrød</option>
+                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>
+
+                    </select>
+                </div>
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum Længde</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
 
-                        <option selected>Choose...</option>
+                        <%--                        <option selected>Choose...</option>--%>
+                        <option value="choose">Vælg...</option>
                         <option value="Ingen">Ønsker ikke</option>
                         <option value="150">150 cm</option>
                         <option value="180">180 cm</option>
@@ -196,46 +237,14 @@
                         <option value="720">720 cm</option>
                     </select>
                 </div>
-
-
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
-                    <select id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofF">
-                        <option selected>Choose...</option>
-                        <option value="Plasttrapezplader">Plasttrapezplader</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - skråt tag</label>
-                    <select id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofS">
-
-                        <option selected>Choose...</option>
-                        <option value="BetonTagsten1">Betontagsten - rød</option>
-                        <option value="BetonTagsten2">Betontagsten - teglrød</option>
-                        <option value="BetonTagsten3">Betontagsten - brun</option>
-                        <option value="BetonTagsten4">Betontagsten - sort</option>
-                        <option value="Eternittag1">Eternittag - b6 grå</option>
-                        <option value="Eternittag2">Eternittag - b6 sort</option>
-                        <option value="Eternittag3">Eternittag - b6 mokka</option>
-                        <option value="Eternittag4">Eternittag - b6 rødbrun</option>
-                        <option value="Eternittag5">Eternittag - b6 teglrød</option>
-                        <option value="Eternittag6">Eternittag - b7 grå</option>
-                        <option value="Eternittag7">Eternittag - b7 sort</option>
-                        <option value="Eternittag8">Eternittag - b7 mokka</option>
-                        <option value="Eternittag9">Eternittag - b7 rødbrun</option>
-                        <option value="Eternittag10">Eternittag - b7 teglrød</option>
-                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>
-
-                    </select>
-                </div>
             </div>
         </div>
         <div class="col-4">
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-            <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="Hældning Eller Fladt Tag">
+            <select id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope2">
 
-                <option selected>Choose...</option>
-
+                <option value="choose">Vælg...</option>
+                <option value="Fladt tag">Fladt tag</option>
                 <option value="15 grader">15 grader</option>
                 <option value="20 grader">20 grader</option>
                 <option value="25 grader">25 grader</option>

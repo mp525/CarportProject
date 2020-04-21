@@ -80,6 +80,9 @@
                 <c:when test="${roofFC == null}">
 
                 </c:when>
+                <c:when test="${roofFC == 'choose'}">
+
+                </c:when>
                 <c:otherwise>
                     <td><p>Tagmateriale - fladt tag:</p></td>
                     <td><p>${requestScope.roofF}</p></td>
@@ -89,7 +92,12 @@
         <tr>
             <c:set var="roofSC" scope="session" value="${requestScope.roofS}"/>
             <c:choose>
-                <c:when test="${roofSC == null}"></c:when>
+                <c:when test="${roofSC == null}">
+
+                </c:when>
+                <c:when test="${roofSC == 'choose'}">
+
+                </c:when>
                 <c:otherwise>
                     <td><p>Tagmateriale - skråt tag:</p></td>
                     <td><p>${requestScope.roofS}</p></td>
@@ -100,6 +108,9 @@
             <c:set var="slopeC" scope="session" value="${requestScope.slope}"/>
             <c:choose>
                 <c:when test="${slopeC == null}">
+
+                </c:when>
+                <c:when test="${slopeC == 'choose'}">
 
                 </c:when>
                 <c:otherwise>

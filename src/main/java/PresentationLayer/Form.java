@@ -19,7 +19,7 @@ public class Form extends Command {
             String roof = request.getParameter("roof");
             request.setAttribute("roof", roof);
         //        Slope
-            String slope = request.getParameter("slope");
+            String slope = request.getParameter("slope2");
             request.setAttribute("slope", slope);
         //        Shed width
             String shedW = request.getParameter("shedW");
