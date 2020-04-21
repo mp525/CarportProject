@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
 @Vibeke
 --%>
@@ -34,13 +35,13 @@
             <td><p>Længde:</p></td>
             <td><p>${requestScope.length} cm</p></td>
         </tr>
-        <tr>
+        <%--<tr>
             <td><p>Tag:</p></td>
             <td><p>${requestScope.roof}</p></td>
-        </tr>
+        </tr>--%>
         <tr>
             <td><p>Hældning:</p></td>
-            <td><p>${requestScope.slope} grader</p></td>
+            <td><p>${requestScope.slope}</p></td>
         </tr>
         <tr>
             <td><p>Redskabsrum bredde:</p></td>
@@ -61,15 +62,80 @@
     </table>
 </div>
 
-<p>Bredde: ${requestScope.width} cm</p>
-<p>Længde: ${requestScope.length} cm</p>
-<p>Tag: ${requestScope.roof}</p>
-<p>Hældning: ${requestScope.slope} grader</p>
-<p>Redskabsrum bredde: ${requestScope.shedW} cm</p>
-<p>Redskabsrum længde: ${requestScope.shedL} cm</p>
-<p>Tagmateriale - fladt tag: ${requestScope.roofF}</p>
-<p>Tagmateriale - skråt tag: ${requestScope.roofS}</p>
-<p>Hældning: ??</p>
+<h1>Version 2:</h1>
+
+<div class="container" align="center">
+    <table>
+        <tr>
+            <td><p>Bredde:</p></td>
+            <td><p>${requestScope.width} cm</p></td>
+        </tr>
+        <tr>
+            <td><p>Længde:</p></td>
+            <td><p>${requestScope.length} cm</p></td>
+        </tr>
+        <tr>
+            <c:set var="roofFC" scope="session" value="${requestScope.roofF}"/>
+            <c:choose>
+                <c:when test="${roofFC == null}">
+
+                </c:when>
+                <c:when test="${roofFC == 'choose'}">
+
+                </c:when>
+                <c:otherwise>
+                    <td><p>Tagmateriale - fladt tag:</p></td>
+                    <td><p>${requestScope.roofF}</p></td>
+                </c:otherwise>
+            </c:choose>
+        </tr>
+        <tr>
+            <c:set var="roofSC" scope="session" value="${requestScope.roofS}"/>
+            <c:choose>
+                <c:when test="${roofSC == null}">
+
+                </c:when>
+                <c:when test="${roofSC == 'choose'}">
+
+                </c:when>
+                <c:otherwise>
+                    <td><p>Tagmateriale - skråt tag:</p></td>
+                    <td><p>${requestScope.roofS}</p></td>
+                </c:otherwise>
+            </c:choose>
+        </tr>
+        <tr>
+            <c:set var="slopeC" scope="session" value="${requestScope.slope}"/>
+            <c:choose>
+                <c:when test="${slopeC == null}">
+
+                </c:when>
+                <c:when test="${slopeC == 'choose'}">
+
+                </c:when>
+                <c:otherwise>
+                    <td><p>Hældning:</p></td>
+                    <td><p>${requestScope.slope}</p></td>
+                </c:otherwise>
+            </c:choose>
+        </tr>
+        <%--<tr>
+            <td><p>Redskabsrum bredde:</p></td>
+            <td><p>${requestScope.shedW} cm</p></td>
+        </tr>--%>
+        <%--<tr>
+            <td><p>Redskabsrum længde:</p></td>
+            <td><p>${requestScope.shedL} cm</p></td>
+        </tr>--%>
+    </table>
+</div>
+
+<%--<p>Bredde: 240 : ${requestScope.width}</p>
+    <c:set var="wid" scope="session" value="${requestScope.width}"/>
+    <c:if test="${wid == 240}">
+        <p>If statement:</p>
+        <p>Bredde: <c:out value="${wid}"/> </p>
+    </c:if>--%>
 
 <div style="text-align: center">
     <button type="button" class="btn btn-primary" name="back" onclick="history.back()">Tilføj ændring</button>

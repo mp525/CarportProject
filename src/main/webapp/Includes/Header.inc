@@ -11,9 +11,19 @@
     <title>MainPage</title>
     <meta charset="UTF-8">
     <style>
-        body {background-color: #174986;}
-        select:disabled {background-color: red;}
-    </style>
+            body {background-color: #174986;}
+            select:disabled {background-color: red;}
+
+            footer {
+                background-color: #143d6d;
+                margin-top: 10%;
+
+            }
+            p {
+                color: azure;
+                font-weight: 100;
+            }
+        </style>
 
 
 </head>
