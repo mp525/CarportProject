@@ -175,6 +175,16 @@
         <button type="submit" class="btn btn-primary">Virker ikke</button>
     </form>
 </div>--%>
+<br>
+<div class="col" align="center">
+    <form name="form" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="sendRequest">
+        <input type="submit" class="btn btn-outline-success">
+    </form>
+
+</div>
+<br>
+<br>
 
 </body>
 </html>

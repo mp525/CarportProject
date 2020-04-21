@@ -18,6 +18,17 @@
         document.getElementById("skråTag2").disabled=false;
         document.getElementById("fladtag").disabled=true;
     }
+    function disable2() {
+        document.getElementById("skur1").disabled=true;
+        document.getElementById("skur2").disabled=true;
+        document.getElementById("skur3").disabled=true;
+    }
+    function enable2() {
+        document.getElementById("skur1").disabled=false;
+        document.getElementById("skur2").disabled=false;
+        document.getElementById("skur3").disabled=false;
+    }
+
 </script>
 
 <div class="container" align="center">
@@ -31,6 +42,9 @@
         <input type="hidden" name="taget" value="form">
 
         <div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
 
             <div class="form-check-inline">
                 <label class="form-check-label text-white">
@@ -39,11 +53,26 @@
             </div>
             <div class="form-check-inline">
                 <label class="form-check-label text-white">
-                    <input type="radio" class="form-check-input" onclick="enable()" name="optradio">Skråt tag
+                    <input type="radio" class="form-check-input" onclick="enable()" name="optradio">Tag med rejsning
                 </label>
             </div>
-            <br><br>
+                </div>
+                <div class="col-4">
+                    <div class="form-check-inline">
+                        <label class="form-check-label text-white">
+                            <input type="radio" class="form-check-input" onclick="enable2()" name="optradio">Redskabsrum
+                        </label>
+                    </div>
 
+                    <div class="form-check-inline">
+                        <label class="form-check-label text-white">
+                            <input type="radio" class="form-check-input" onclick="disable2()" name="optradio">Intet redskabsrum
+                        </label>
+                    </div>
+                </div>
+
+        </div>
+        <br>
 
             <div class="row">
 
@@ -53,7 +82,7 @@
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="width">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="Ikke valgt endnu">Vælg...</option>
+                        <option value="Vælg">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -79,7 +108,7 @@
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="length">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="Ikke valgt endnu">Vælg...</option>
+                        <option value="Vælg">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -103,10 +132,10 @@
 
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum bredde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
+                    <select id="skur1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
+                        <option value="Vælg">Vælg...</option>
                         <option value="Ingen">Ønsker ikke</option>
                         <option value="210">210 cm</option>
                         <option value="240">240 cm</option>
@@ -133,20 +162,20 @@
 
                 <div class="col-4">
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
-                    <select disabled id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofF">
+                    <select disabled id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofFMat">
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
+                        <option value="Vælg">Vælg...</option>
                         <option value="Plasttrapezplader">Plasttrapezplader</option>
                         <option value="Tagpap">Tagpap</option>
                         <option value="Ståltag">Ståltag</option>
                     </select>
                 </div>
                 <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - skråt tag</label>
-                    <select disabled id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofS">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - tag med rejsning</label>
+                    <select disabled id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofSMat">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
+                        <option value="Vælg">Vælg...</option>
                         <option value="BetonTagsten1">Betontagsten - rød</option>
                         <option value="BetonTagsten2">Betontagsten - teglrød</option>
                         <option value="BetonTagsten3">Betontagsten - brun</option>
@@ -166,11 +195,11 @@
                     </select>
                 </div>
                 <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum Længde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
+                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum længde</label>
+                    <select id="skur2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
 
                         <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
+                        <option value="Vælg">Vælg...</option>
                         <option value="Ingen">Ønsker ikke</option>
                         <option value="150">150 cm</option>
                         <option value="180">180 cm</option>
@@ -196,11 +225,13 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-4"></div>
         <div class="col-4">
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-            <select disabled id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope2">
+            <select disabled id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
 
-                <option value="choose">Vælg...</option>
+                <option value="Vælg">Vælg...</option>
                 <option value="Fladt tag">Fladt tag</option>
                 <option value="15 grader">15 grader</option>
                 <option value="20 grader">20 grader</option>
@@ -213,6 +244,18 @@
             </select>
         </div>
 
+        <div class="col-4">
+            <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum beklædning</label>
+            <select id="skur3" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="cladding">
+
+                <%--                        <option selected>Choose...</option>--%>
+                <option value="Vælg">Vælg...</option>
+                <option value="Ingen">Ønsker ikke</option>
+                <option value="Lærketræ">Lærketræ klinke</option>
+                <option value="Hardieplank">Hardieplank</option>
+            </select>
+        </div>
+        </div>
 
 
 
