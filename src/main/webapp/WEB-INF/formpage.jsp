@@ -145,7 +145,7 @@
                 <c:when test="${slopeC == null}">
 
                 </c:when>
-                <c:when test="${slopeC == 'choose'}">
+                <c:when test="${slopeC == 0}">
 
                 </c:when>
                 <c:otherwise>
@@ -189,6 +189,8 @@
                     <td><p>${requestScope.shedL} cm</p></td>
                 </c:otherwise>
             </c:choose>
+        </tr>
+        <tr>
         </tr>
     </table>
 </div>
