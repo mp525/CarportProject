@@ -191,6 +191,22 @@
             </c:choose>
         </tr>
         <tr>
+            <c:set var="cladC" scope="session" value="${requestScope.cladding}"/>
+            <c:choose>
+                <c:when test="${cladC == null}"></c:when>
+                <c:when test="${cladC == 'choose'}">
+                    <td><p>Redskabsrum beklædning:</p></td>
+                    <td><p>Ikke valgt endnu</p></td>
+                </c:when>
+                <c:when test="${cladC == 'Ingen'}">
+                    <td><p>Redskabsrum beklædning:</p></td>
+                    <td><p>Ønsker ikke</p></td>
+                </c:when>
+                <c:otherwise>
+                    <td><p>Redskabsrum beklædning:</p></td>
+                    <td><p>${requestScope.cladding}</p></td>
+                </c:otherwise>
+            </c:choose>
         </tr>
     </table>
 </div>
