@@ -7,10 +7,10 @@ public class Contact {
     private String name;
     private int phoneNumber;
     private String streetName;
-    private int houseNumber;
+    private String houseNumber;
     private int postalCode;
 
-    public Contact(String email, String name, int phoneNumber, String streetName, int houseNumber, int postalCode){
+    public Contact(String email, String name, int phoneNumber, String streetName, String houseNumber, int postalCode){
         
         this.email = email;
         this.name = name;
@@ -41,9 +41,9 @@ public class Contact {
     public void setStreetName (String streetName) {this.streetName = streetName;}
 
 
-    public int getHouseNumber () { return houseNumber;}
+    public String getHouseNumber () { return houseNumber;}
 
-    public void setHouseNumber (int houseNumber) {this.houseNumber = houseNumber;}
+    public void setHouseNumber (String houseNumber) {this.houseNumber = houseNumber;}
 
 
     public int getPostalCode () { return postalCode;}
