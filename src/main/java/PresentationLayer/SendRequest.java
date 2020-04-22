@@ -11,8 +11,14 @@ public class SendRequest extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
+
+
+
+
         Request carportRequest = (Request) request.getAttribute("carportRequest");
         RequestMapper.insertRequest(carportRequest);
+
+
 
         return "receiptpage";
     }
