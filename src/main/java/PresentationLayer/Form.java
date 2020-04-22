@@ -10,11 +10,11 @@ public class Form extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        if(request.getParameter("width").equalsIgnoreCase("Vælg")){
+        if(request.getParameter("width").equalsIgnoreCase("choose")){
             request.setAttribute("besked", "Længde og bredde på carport skal vælges.");
             return "index";
         }
-        if(request.getParameter("length").equalsIgnoreCase("Vælg")){
+        if(request.getParameter("length").equalsIgnoreCase("choose")){
             request.setAttribute("besked", "Længde og bredde på carport skal vælges.");
             return "index";
         }
@@ -50,14 +50,17 @@ public class Form extends Command {
             int shedLInt = 0;
             int shedWInt = 0;
 
-        if (roofFMat.equalsIgnoreCase("Vælg")) {
+        if (roofFMat.isEmpty()) {
             rooftype = true;
             roofMat = roofSMat;
-        } else{
+        } else if (roofFMat.contains("choose")) {
+            rooftype = true;
+            roofMat = roofSMat;
+        } else {
             rooftype = false;
             roofMat = roofFMat;
         }
-        if (shedL.equalsIgnoreCase("Vælg")){
+        if (shedL.equalsIgnoreCase("choose")){
             shedL = null;
             shedW = null;
             cladding = null;

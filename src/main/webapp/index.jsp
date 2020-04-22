@@ -82,7 +82,7 @@
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="width">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="Vælg">Vælg...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -108,7 +108,7 @@
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="length">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="Vælg">Vælg...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -135,7 +135,7 @@
                     <select id="skur1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="Vælg">Vælg...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="Ingen">Ønsker ikke</option>
                         <option value="210">210 cm</option>
                         <option value="240">240 cm</option>
@@ -164,7 +164,7 @@
                     <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
                     <select disabled id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofFMat">
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="Vælg">Vælg...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="Plasttrapezplader">Plasttrapezplader</option>
                         <option value="Tagpap">Tagpap</option>
                         <option value="Ståltag">Ståltag</option>
@@ -175,7 +175,7 @@
                     <select disabled id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofSMat">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="Vælg">Vælg...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="BetonTagsten1">Betontagsten - rød</option>
                         <option value="BetonTagsten2">Betontagsten - teglrød</option>
                         <option value="BetonTagsten3">Betontagsten - brun</option>
@@ -199,7 +199,7 @@
                     <select id="skur2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
 
                         <%--                        <option selected>Choose...</option>--%>
-                        <option value="Vælg">Vælg...</option>
+                        <option value="choose">Vælg...</option>
                         <option value="Ingen">Ønsker ikke</option>
                         <option value="150">150 cm</option>
                         <option value="180">180 cm</option>
@@ -231,15 +231,14 @@
             <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
             <select disabled id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
 
-                <option value="Vælg">Vælg...</option>
-                <option value="Fladt tag">Fladt tag</option>
-                <option value="15 grader">15 grader</option>
-                <option value="20 grader">20 grader</option>
-                <option value="25 grader">25 grader</option>
-                <option value="30 grader">30 grader</option>
-                <option value="35 grader">35 grader</option>
-                <option value="40 grader">40 grader</option>
-                <option value="45 grader">45 grader</option>
+                <option value="0">Vælg...</option>
+                <option value="15">15 grader</option>
+                <option value="20">20 grader</option>
+                <option value="25">25 grader</option>
+                <option value="30">30 grader</option>
+                <option value="35">35 grader</option>
+                <option value="40">40 grader</option>
+                <option value="45">45 grader</option>
 
             </select>
         </div>
@@ -249,7 +248,7 @@
             <select id="skur3" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="cladding">
 
                 <%--                        <option selected>Choose...</option>--%>
-                <option value="Vælg">Vælg...</option>
+                <option value="choose">Vælg...</option>
                 <option value="Ingen">Ønsker ikke</option>
                 <option value="Lærketræ">Lærketræ klinke</option>
                 <option value="Hardieplank">Hardieplank</option>

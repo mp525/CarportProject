@@ -145,7 +145,7 @@
                 <c:when test="${slopeC == null}">
 
                 </c:when>
-                <c:when test="${slopeC == 'choose'}">
+                <c:when test="${slopeC == 0}">
 
                 </c:when>
                 <c:otherwise>
