@@ -323,6 +323,25 @@
                 </div>
 
             </div>
+
+            <div class="col-4">
+
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Husnummer</label>
+                <div class="form-group">
+                    <label for="husnummer"></label>
+                    <input type="text" name="husnummer" class="form-control" placeholder="husnummer" id="husnummer">
+                </div>
+
+            </div>
+            <div class="col-4">
+
+                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Telefon</label>
+                <div class="form-group">
+                    <label for="telefon"></label>
+                    <input type="number" name="telefon" class="form-control" placeholder="telefon" id="telefon" min="00000001" max="99999999">
+                </div>
+
+            </div>
         </div>
         <br><br>
         <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">

@@ -229,7 +229,7 @@
             <td><p>Alder: ${requestScope.age}</p></td>
         </tr>
         <tr>
-            <td><p>Adresse: ${requestScope.adr}</p></td>
+            <td><p>Adresse: ${requestScope.adr} ${requestScope.husnummer}</p></td>
         </tr>
         <tr>
             <td><p>By: ${requestScope.city}</p></td>

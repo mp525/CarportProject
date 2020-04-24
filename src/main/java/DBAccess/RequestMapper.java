@@ -15,14 +15,14 @@ public class RequestMapper {
                     "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString( 1, request.getEmail());
-            ps.setInt( 1, request.getWidth());
-            ps.setInt( 1, request.getLength());
-            ps.setString( 1, request.getCladding());
-            ps.setBoolean( 1, request.getRooftype());
-            ps.setString( 1, request.getRoofmat());
-            ps.setInt( 1, request.getSlopeangle());
-            ps.setInt( 1, request.getLengthS());
-            ps.setInt( 1, request.getWidthS());
+            ps.setInt( 2, request.getWidth());
+            ps.setInt( 3, request.getLength());
+            ps.setString( 4, request.getCladding());
+            ps.setBoolean( 5, request.getRooftype());
+            ps.setString( 6, request.getRoofmat());
+            ps.setInt( 7, request.getSlopeangle());
+            ps.setInt( 8, request.getLengthS());
+            ps.setInt( 9, request.getWidthS());
             ps.execute();
 
         } catch (ClassNotFoundException e) {
