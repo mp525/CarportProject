@@ -82,7 +82,7 @@
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="width">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
+                        <option value="0">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -108,7 +108,7 @@
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="length">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
+                        <option value="0">Vælg...</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
                         <option value="300">300 cm</option>
@@ -135,8 +135,8 @@
                     <select id="skur1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
 
 <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
-                        <option value="Ingen">Ønsker ikke</option>
+                        <option value="0">Vælg...</option>
+                        <option value="1">Ønsker ikke</option>
                         <option value="210">210 cm</option>
                         <option value="240">240 cm</option>
                         <option value="270">270 cm</option>
@@ -199,8 +199,8 @@
                     <select id="skur2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
 
                         <%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
-                        <option value="Ingen">Ønsker ikke</option>
+                        <option value="0">Vælg...</option>
+                        <option value="1">Ønsker ikke</option>
                         <option value="150">150 cm</option>
                         <option value="180">180 cm</option>
                         <option value="210">210 cm</option>
@@ -347,7 +347,14 @@
         <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
 
 
+<div class="container" align="center">
+    <c:if test = "${requestScope.error!= null}" >
 
+        <h2>Error ! </h2>
+        ${requestScope.error}
+
+    </c:if>
+</div>
 
 
 

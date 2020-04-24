@@ -5,9 +5,9 @@ import FunctionLayer.LoginSampleException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ToIndex extends Command {
+public class ToLogin extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        return "index";
+        return "loginpage";
     }
 }

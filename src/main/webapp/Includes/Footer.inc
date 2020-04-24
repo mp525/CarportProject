@@ -5,7 +5,10 @@
             <p>Creative director of BSH Production <cite title="Source Title">Washington Post</cite><p>
 
         </blockquote>
-        <input type="submit" value="Employee login Page" class="btn btn-dark btn-lg">
+        <form name="form" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="tologin">
+            <input type="submit" value="Employee login Page" class="btn btn-dark btn-lg">
+        </form>
     </div>
 </footer>
 </html>
