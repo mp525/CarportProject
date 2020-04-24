@@ -32,11 +32,11 @@ public class Login extends Command {
         inde.put(email,password);
 
         if(user.getRole().equals("customer")){
-            return "";
+            return "employeepage";
         }
 
 //        return user.getRole() + "page";
-        return "employee" + "page";
+        return "employeepage";
     }
 
 }

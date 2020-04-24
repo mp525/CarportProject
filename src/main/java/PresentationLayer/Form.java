@@ -35,10 +35,10 @@ public class Form extends Command {
         int shedWInt = 0;
         int shedLInt = 0;
 
-        if (shedW.equalsIgnoreCase("Ingen")) {
+        if (shedW.equalsIgnoreCase("1")) {
             shedL = "Ingen";
             clad = "Ingen";
-        } else if (shedL.equalsIgnoreCase("Ingen")) {
+        } else if (shedL.equalsIgnoreCase("1")) {
             shedW = "Ingen";
             clad = "Ingen";
         } else if (clad.equalsIgnoreCase("Ingen")) {
@@ -49,7 +49,7 @@ public class Form extends Command {
             shedLInt = Integer.parseInt(shedL);
         }
 
-        if (shedL.equalsIgnoreCase("choose") && shedW.equalsIgnoreCase("choose") && clad.equalsIgnoreCase("choose")) {
+        if (shedL.equalsIgnoreCase("0") && shedW.equalsIgnoreCase("0") && clad.equalsIgnoreCase("0")) {
             shedL = null;
             shedW = null;
             clad = null;
