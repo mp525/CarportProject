@@ -12,7 +12,7 @@ public class RequestMapper {
         try {
             Connection con = Connector.connection();
             String query = "insert into requests (email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS)" +
-                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString( 1, request.getEmail());
             ps.setInt( 2, request.getWidth());
@@ -62,11 +62,47 @@ public class RequestMapper {
 
         return reqList;
     }
-    public static ArrayList<Request> searchRequest(){
+    public static ArrayList<Request> searchEmailRequest(){
         ArrayList<Request> reqList = new ArrayList();
         try {
             Connection con = Connector.connection();
-            String query = "select * from requests where email ?";
+            String query = "select * from requests where email = ?;";
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ResultSet rs = ps.getResultSet();
+            while(rs.next()){
+                String email = rs.getString("email");
+
+                int id = rs.getInt("requestID");
+                int width = rs.getInt("width");
+                int length = rs.getInt("length");
+
+                String cladding = rs.getString("cladding");
+                boolean rooftype = rs.getBoolean("rooftype");
+                String roofmat = rs.getString("roofmat");
+
+                int slope = rs.getInt("slope");
+                int lengthS = rs.getInt("lengthS");
+                int widthS = rs.getInt("widthS");
+
+                Request tmpRequest = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
+                reqList.add(tmpRequest);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return reqList;
+    }
+
+    public static ArrayList<Request> searchIDRequest(){
+        ArrayList<Request> reqList = new ArrayList();
+        try {
+            Connection con = Connector.connection();
+            String query = "select * from requests where requestID = ?;";
             PreparedStatement ps = con.prepareStatement(query);
 
             ResultSet rs = ps.getResultSet();
