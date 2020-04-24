@@ -14,7 +14,7 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
         commands.put( "form", new Form() );
-        commands.put( "toindex", new ToIndex() );
+        commands.put( "tologin", new ToLogin() );
         commands.put( "sendRequest", new SendRequest());
     }
 
