@@ -14,10 +14,14 @@ public class RequestList extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         ArrayList<Request> requestlist = RequestMapper.getRequests();
         request.setAttribute("requestList", requestlist);
+        int id= Integer.parseInt(request.getParameter("id"));
+        ArrayList<Request> searchlistID = RequestMapper.searchIDRequest(id);
 
-        ArrayList<Request> searchlist = RequestMapper.searchRequest();
-        request.setAttribute("searchList", searchlist);
+        request.setAttribute("searchList", searchlistID);
 
+        String email=request.getParameter("email");
+        ArrayList<Request> searchlistEmail = RequestMapper.searchEmailRequest(email);
+        request.setAttribute("searchList", searchlistEmail);
         return "listPage";
     }
 }

@@ -62,7 +62,7 @@ public class RequestMapper {
 
         return reqList;
     }
-    public static ArrayList<Request> searchEmailRequest(){
+    public static ArrayList<Request> searchEmailRequest(String emailInput){
         ArrayList<Request> reqList = new ArrayList();
         try {
             Connection con = Connector.connection();
@@ -71,7 +71,7 @@ public class RequestMapper {
 
             ResultSet rs = ps.getResultSet();
             while(rs.next()){
-                String email = rs.getString("email");
+                String email = emailInput;
 
                 int id = rs.getInt("requestID");
                 int width = rs.getInt("width");
@@ -98,7 +98,7 @@ public class RequestMapper {
         return reqList;
     }
 
-    public static ArrayList<Request> searchIDRequest(){
+    public static ArrayList<Request> searchIDRequest(int IDInput){
         ArrayList<Request> reqList = new ArrayList();
         try {
             Connection con = Connector.connection();
@@ -109,7 +109,7 @@ public class RequestMapper {
             while(rs.next()){
                 String email = rs.getString("email");
 
-                int id = rs.getInt("requestID");
+                int id = IDInput;
                 int width = rs.getInt("width");
                 int length = rs.getInt("length");
 
