@@ -3,6 +3,7 @@ package FunctionLayer;
 public class Request {
 
 
+    private int area;
     private int requestID;
     private String email;
     private int width;
@@ -25,7 +26,16 @@ public class Request {
         this.slopeangle = slopeangle;
         this.lengthS = lengthS;
         this.widthS = widthS;
+        this.area=findArea(length,width);
     }
+
+
+    private int findArea(int length, int width) {
+        int area = 0;
+        area=length+width;
+        return area;
+    }
+
     public Request(String email, int width, int length, String cladding, boolean rooftype, String roofmat, int slopeangle, int lengthS, int widthS){
         this.email = email;
         this.width = width;
@@ -36,6 +46,14 @@ public class Request {
         this.slopeangle = slopeangle;
         this.lengthS = lengthS;
         this.widthS = widthS;
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public boolean isRooftype() {
+        return rooftype;
     }
 
     public int getRequestID() { return requestID; }
