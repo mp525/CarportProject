@@ -15,38 +15,51 @@ En simpel loginside hvor medarbejdere hos Fog kan logge ind.
     <style>
         body {background-color: #174986;}
         h1 {color: white; text-align: center;}
+        h2 {color: white; text-align: center;}
         p {color: white; text-align: center;}
     </style>
 </head>
 <body>
 <div class="container" align="center">
+
     <img src="Images/fogs.jpg" class="img-fluid">
 
-    <h1>Login for Ansatte</h1>
+    <div class="col-4"></div>
 
-    <h2 align="center">Login</h2>
-    <form name="login" action="FrontController" method="POST">
-        <input type="hidden" name="taget" value="login">
+    <div class="col-4">
+        <h1 align="center">Login</h1>
+        <form name="login" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="login">
 
 
-        <div class="form-group">
-            <input type="email" name="email" class="form-control" value="email">
-        </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" value="email">
+            </div>
 
-        <div class="form-group">
-            <input type="password" name="password" class="form-control" value="password">
-        </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" value="password">
+            </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    <div class="col-4"></div>
+
 </div>
 
-<c:if test = "${requestScope.error!= null}" >
+<br>
+<br>
+<br>
 
-    <h2>Error ! </h2>
-    ${requestScope.error}
+<div class="container" align="center">
+    <c:if test = "${requestScope.error!= null}" >
 
-</c:if>
+        <h2>Error ! </h2>
+        <p>${requestScope.error}</p>
+
+    </c:if>
+</div>
 
 </body>
 </html>
