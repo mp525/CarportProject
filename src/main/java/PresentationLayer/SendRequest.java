@@ -13,13 +13,12 @@ public class SendRequest extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-
-        Contact carportContact = (Contact) request.getAttribute("carportContact");
+        Contact carportContact = (Contact) request.getSession().getAttribute("carportContact");
         ContactMapper.insertContact(carportContact);
 
-        Request carportRequest = (Request) request.getAttribute("carportRequest");
+        Request carportRequest = (Request) request.getSession().getAttribute("carportRequest");
         RequestMapper.insertRequest(carportRequest);
 
-        return "receiptpage";
+        return "formpage";
     }
 }

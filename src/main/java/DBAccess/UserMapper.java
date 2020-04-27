@@ -36,8 +36,8 @@ public class UserMapper {
     public static User login( String email, String password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT id, role FROM Users "
-                    + "WHERE email=? AND password=?";
+            String SQL = "SELECT id, role FROM carbase.users "
+                    + "WHERE user=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
             ps.setString( 2, password );
