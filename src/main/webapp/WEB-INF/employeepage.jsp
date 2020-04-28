@@ -27,5 +27,14 @@
         <p>Du er logget ind som Ansat.</p>
     </div>
 
+    <div style="text-align: center;display: block">
+        <form name="requestLists" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left"
+              action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="requestLists">
+            <button type="submit" class="btn btn-primary">Gå til liste over alle anmodninger</button>
+        </form>
+    </div>
+
+
     </body>
 </html>
