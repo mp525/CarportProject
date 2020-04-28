@@ -20,6 +20,7 @@ abstract class Command {
         commands.put("requestLists", new RequestLists());
         commands.put("newMaterialPage", new NewMaterial() );
         commands.put("toEmpPage", new Employeepage() );
+        commands.put("CarportPortal", new CarportPortal());
         commands.put("addMaterial", new AddMaterial() );
         commands.put("getOnesRequests", new GetOnesRequests() );
 
