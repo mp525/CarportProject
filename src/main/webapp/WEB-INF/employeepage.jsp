@@ -52,6 +52,17 @@
     </div>
     </div>
 
+    <div class="container" align="center">
+        <c:if test = "${requestScope.error!= null}" >
+
+            <h2>Error ! </h2>
+            <p>${requestScope.error}</p>
+
+        </c:if>
+    </div>
+
+
+
     <br><br>
     <div class="col" align="center">
         <form name="newMaterial" action="FrontController" method="POST">

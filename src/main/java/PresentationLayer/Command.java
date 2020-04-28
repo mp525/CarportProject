@@ -34,7 +34,7 @@ abstract class Command {
         return commands.getOrDefault(TagetName, new UnknownCommand() );   // unknowncommand er default.
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
+    abstract String execute( HttpServletRequest request, HttpServletResponse response )
             throws LoginSampleException;
 
 }

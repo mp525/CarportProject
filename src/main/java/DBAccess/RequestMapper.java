@@ -2,6 +2,7 @@
 
 package DBAccess;
 
+import FunctionLayer.LoginSampleException;
 import FunctionLayer.Request;
 
 import java.sql.*;
@@ -66,7 +67,7 @@ public class RequestMapper {
         return reqList;
     }
 
-    public static ArrayList<Request> searchEmailRequest(String emailInput){
+    public static ArrayList<Request> searchEmailRequest(String emailInput) throws LoginSampleException {
         ArrayList<Request> reqList = new ArrayList();
         try {
             Connection con = Connector.connection();
@@ -74,7 +75,13 @@ public class RequestMapper {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, emailInput);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+
+
+
+            if(rs.first() == false){
+                throw new LoginSampleException( "Could not validate user" );
+            } else {
+
                 String email = emailInput;
                 int id = rs.getInt("requestID");
                 int width = rs.getInt("width");
@@ -90,52 +97,35 @@ public class RequestMapper {
 
                 Request tmpRequest = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
                 reqList.add(tmpRequest);
+
+                while (rs.next()) {
+                    email = emailInput;
+                     id = rs.getInt("requestID");
+                     width = rs.getInt("width");
+                     length = rs.getInt("length");
+
+                     cladding = rs.getString("cladding");
+                     rooftype = rs.getBoolean("rooftype");
+                     roofmat = rs.getString("roofmat");
+
+                     slope = rs.getInt("slope");
+                     lengthS = rs.getInt("lengthS");
+                     widthS = rs.getInt("widthS");
+
+                     tmpRequest = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
+                    reqList.add(tmpRequest);
+                }
+
             }
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            return reqList;
+        } catch ( ClassNotFoundException | SQLException ex ) {
+            throw new LoginSampleException(ex.getMessage());
         }
 
-        return reqList;
     }
 
-  /*  public static ArrayList<Request> searchEmailRequest(String emailInput){
-        ArrayList<Request> reqList = new ArrayList();
-        try {
-            Connection con = Connector.connection();
-            String query = "select * from carbase.requests where email = ?;";
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.getResultSet();
-            while(rs.next()){
-                String email = emailInput;
 
-                int id = rs.getInt("requestID");
-                int width = rs.getInt("width");
-                int length = rs.getInt("length");
-
-                String cladding = rs.getString("cladding");
-                boolean rooftype = rs.getBoolean("rooftype");
-                String roofmat = rs.getString("roofmat");
-
-                int slope = rs.getInt("slope");
-                int lengthS = rs.getInt("lengthS");
-                int widthS = rs.getInt("widthS");
-
-                Request tmpRequest = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
-                reqList.add(tmpRequest);
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return reqList;
-    }
-*/
     public static ArrayList<Request> searchIDRequest(int IDInput){
         ArrayList<Request> reqList = new ArrayList();
         try {

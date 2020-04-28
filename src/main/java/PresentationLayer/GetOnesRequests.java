@@ -12,9 +12,17 @@ public class GetOnesRequests extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         String emaill = request.getParameter("emaill");
-        ArrayList<Request> requestsSolo = RequestMapper.searchEmailRequest(emaill);
 
+        try {
+
+        ArrayList<Request> requestsSolo = RequestMapper.searchEmailRequest(emaill);
         request.setAttribute("requests", requestsSolo);
+        } catch (Exception e) {
+            request.setAttribute("errorDel", e.getMessage() );
+            e.printStackTrace();
+            return "employee" + "page";
+        }
+
         return "solist";
 
 
