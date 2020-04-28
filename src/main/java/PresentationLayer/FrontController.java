@@ -52,12 +52,12 @@ public class FrontController extends HttpServlet {
             Command action = Command.from( request );
             String view = action.execute( request, response );
             if(view == "index") {
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("Emp.jsp").forward(request, response);
             }
             request.getRequestDispatcher( "/WEB-INF/" + view + ".jsp" ).forward( request, response );
         } catch ( LoginSampleException ex ) {
             request.setAttribute( "error", ex.getMessage() );
-//            request.getRequestDispatcher( "index.jsp" ).forward( request, response );
+//            request.getRequestDispatcher( "Emp.jsp" ).forward( request, response );
             request.getRequestDispatcher( "/WEB-INF/loginpage.jsp" ).forward( request, response );
         }
     }
