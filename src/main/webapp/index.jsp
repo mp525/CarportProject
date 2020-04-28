@@ -265,7 +265,7 @@
 
         <h2 class="text-white">Personal Information</h2>
         <br>
-        <div class="row">
+        <div class="row"> 
 
             <div class="col-4">
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
