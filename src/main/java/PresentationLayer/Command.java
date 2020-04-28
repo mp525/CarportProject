@@ -17,13 +17,11 @@ abstract class Command {
         commands.put( "tologin", new ToLogin() );
         commands.put( "sendRequest", new SendRequest());
         commands.put("getRequestList", new RequestList() );
-<<<<<<< HEAD
         commands.put("requestLists", new RequestLists());
-=======
         commands.put("newMaterialPage", new NewMaterial() );
         commands.put("toEmpPage", new Employeepage() );
         commands.put("addMaterial", new AddMaterial() );
->>>>>>> cd3dd504ae91fde0d348e582d6a2b3fe7df581bf
+        commands.put("getOnesRequests", new GetOnesRequests() );
     }
 
     static Command from( HttpServletRequest request ) {
