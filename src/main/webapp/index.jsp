@@ -29,6 +29,7 @@
         document.getElementById("skur3").disabled=false;
     }
 
+
 </script>
 
 <div class="container" align="center">
@@ -165,9 +166,12 @@
                     <select disabled id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofFMat">
 <%--                        <option selected>Choose...</option>--%>
                         <option value="choose">Vælg...</option>
-                        <option value="Plasttrapezplader">Plasttrapezplader</option>
+                        <c:forEach items="${requestScope.flatSet}" var="element">
+                            <option value="${element}">${element}</option>
+                        </c:forEach>
+                        <!--<option value="Plasttrapezplader">Plasttrapezplader</option>
                         <option value="Tagpap">Tagpap</option>
-                        <option value="Ståltag">Ståltag</option>
+                        <option value="Ståltag">Ståltag</option>-->
                     </select>
                 </div>
                 <div class="col-4">
@@ -176,7 +180,10 @@
 
 <%--                        <option selected>Choose...</option>--%>
                         <option value="choose">Vælg...</option>
-                        <option value="BetonTagsten1">Betontagsten - rød</option>
+                        <c:forEach items="${requestScope.slopeSet}" var="element">
+                            <option value="${element}">${element}</option>
+                        </c:forEach>
+                        <!--<option value="BetonTagsten1">Betontagsten - rød</option>
                         <option value="BetonTagsten2">Betontagsten - teglrød</option>
                         <option value="BetonTagsten3">Betontagsten - brun</option>
                         <option value="BetonTagsten4">Betontagsten - sort</option>
@@ -190,7 +197,7 @@
                         <option value="Eternittag8">Eternittag - b7 mokka</option>
                         <option value="Eternittag9">Eternittag - b7 rødbrun</option>
                         <option value="Eternittag10">Eternittag - b7 teglrød</option>
-                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>
+                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>-->
 
                     </select>
                 </div>
@@ -244,20 +251,17 @@
         </div>
 
         <div class="col-4">
-            <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum beklædning</label>
-            <select id="skur3" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="cladding">
+            <label class="mr-sm-2 text-white" for="skur3">Redskabsrum beklædning</label>
+            <select id="skur3" class="custom-select mr-sm-2" name="cladding">
 
-                <%--                        <option selected>Choose...</option>--%>
                 <option value="choose">Vælg...</option>
                 <option value="Ingen">Ønsker ikke</option>
                 <option value="Lærketræ">Lærketræ klinke</option>
                 <option value="Hardieplank">Hardieplank</option>
+                <option value="Trykimpr">Trykimpr</option>
             </select>
         </div>
         </div>
-
-
-
 
         <br><br>
 

@@ -24,7 +24,27 @@
 
         <h1>Hej ${sessionScope.email} </h1>
 
-        <p>Du er logget ind som Ansat.</p>
+        <p>Du er logget ind som ansat.</p>
+    </div>
+
+
+    <div style="text-align: center;display: block">
+        <form name="requestLists" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left"
+              action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="requestLists">
+            <button type="submit" class="btn btn-primary">Gå til liste over alle anmodninger</button>
+        </form>
+    </div>
+
+
+
+    <br><br>
+    <div class="col" align="center">
+        <form name="newMaterial" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="newMaterialPage">
+            <input type="submit" value="Tilføj nyt materiale til systemet" class="btn btn-light">
+        </form>
+
     </div>
 
     </body>

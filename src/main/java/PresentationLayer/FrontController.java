@@ -5,13 +5,19 @@
  */
 package PresentationLayer;
 
+import DBAccess.MaterialMapper;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.MaterialHelper;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
 
@@ -32,6 +38,17 @@ public class FrontController extends HttpServlet {
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         try {
+
+            //ArrayList<String> claddingList = MaterialMapper.getCladdingList();
+            ArrayList<String> flatRoofList = MaterialMapper.getFlat();
+            ArrayList<String> slopeRoofList = MaterialMapper.getSlope();
+            Set<String> flatSet = MaterialHelper.flatSet(flatRoofList);
+            Set<String> slopeSet = MaterialHelper.slopeSet(slopeRoofList);
+            //request.setAttribute("claddingList", claddingList);
+            request.setAttribute("flatSet", flatSet);
+            request.setAttribute("slopeSet", slopeSet);
+            System.out.println(flatSet.toString());
+
             Command action = Command.from( request );
             String view = action.execute( request, response );
             if(view == "index") {

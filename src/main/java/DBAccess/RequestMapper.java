@@ -1,3 +1,5 @@
+//Author: Nikolaj
+
 package DBAccess;
 
 import FunctionLayer.Request;
@@ -11,7 +13,7 @@ public class RequestMapper {
     public static void insertRequest(Request request){
         try {
             Connection con = Connector.connection();
-            String query = "insert into requests (email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS)" +
+            String query = "insert into carbase.requests (email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS)" +
                     "values (?, ?, ?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString( 1, request.getEmail());
@@ -36,12 +38,12 @@ public class RequestMapper {
         ArrayList<Request> reqList = new ArrayList();
         try {
             Connection con = Connector.connection();
-            String query = "select * from requests";
+            String query = "select * from carbase.requests";
             PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.getResultSet();
+            ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                String email = rs.getString("email");
                 int id = rs.getInt("requestID");
+                String email = rs.getString("email");
                 int width = rs.getInt("width");
                 int length = rs.getInt("length");
                 String cladding = rs.getString("cladding");
@@ -52,6 +54,7 @@ public class RequestMapper {
                 int widthS = rs.getInt("widthS");
                 Request tmpRequest = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
                 reqList.add(tmpRequest);
+
             }
 
         } catch (ClassNotFoundException e) {
@@ -66,7 +69,7 @@ public class RequestMapper {
         ArrayList<Request> reqList = new ArrayList();
         try {
             Connection con = Connector.connection();
-            String query = "select * from requests where email = ?;";
+            String query = "select * from carbase.requests where email = ?;";
             PreparedStatement ps = con.prepareStatement(query);
 
             ResultSet rs = ps.getResultSet();
@@ -102,7 +105,7 @@ public class RequestMapper {
         ArrayList<Request> reqList = new ArrayList();
         try {
             Connection con = Connector.connection();
-            String query = "select * from requests where requestID = ?;";
+            String query = "select * from carbase.requests where requestID = ?;";
             PreparedStatement ps = con.prepareStatement(query);
 
             ResultSet rs = ps.getResultSet();

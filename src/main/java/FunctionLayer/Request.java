@@ -107,16 +107,16 @@ public class Request {
 
     @Override
     public String toString() {
-        return  "Request ID: " + requestID +
-                "Email: " + getEmail() +
-                "Width: " + getWidth() +
-                "Length: " + getLength() +
-                "Cladding: " + getCladding() +
-                "Roof type: " + getRooftype() +
-                "Roof material: " + getRoofmat() +
-                "Slope angle: " + getSlopeangle() +
-                "Shed Length: " + getLengthS() +
-                "Shed Width: " + getWidthS();
+        return  "Anmodning " + getRequestID() + ": " + "\n" +
+                "Email for anmodningen: " + getEmail() +
+                "\n" + "Brede på carporten : " + getWidth() +
+                "\n" + "Længden af carporten: " + getLength() +
+                "\n" + "Belægning på carporten: " + getCladding() +
+                "\n" + "Tagets type: " + getRooftype() +
+                "\n" + "Tagets marteriale: " + getRoofmat() +
+                "\n" + "Tagets hældning i grader: " + getSlopeangle() +
+                "\n" + "Skurets længde: " + getLengthS() +
+                "\n" + "Skurets bredde: " + getWidthS();
     }
 
 
