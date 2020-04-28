@@ -35,10 +35,10 @@
             <select class="custom-select mr-sm-2" id="kategori" name="kategori">
 
                 <option value="choose">Vælg...</option>
-                <option value="Træ">Træ</option>
-                <option value="TagF">Tagmateriale - fladt tag</option>
-                <option value="TagS">Tagmateriale - med rejsning</option>
-                <option value="BeslagSkruer">Beslag og skruer</option>
+                <option value="Trae">Træ</option>
+                <option value="TagFlat">Tagmateriale - fladt tag</option>
+                <option value="TagHaeld">Tagmateriale - med rejsning</option>
+                <option value="Beslag & Skruer">Beslag og skruer</option>
             </select>
         </div>
     <br>
@@ -62,7 +62,7 @@
             </div>-->
             <p>Materialets længde</p>
 
-            <input type="text" name="matLængde" class="form-control" placeholder="Længde" id="matLængde">
+            <input type="number" name="matLaengde" class="form-control" placeholder="Længde" id="matLaengde">
         </div>
 
         <div class="col-3">
@@ -83,6 +83,16 @@
             <p>Beskrivelse</p>
 
             <input type="text" name="beskrivelse" class="form-control" placeholder="Beskrivelse" id="beskrivelse">
+        </div>
+
+        <div class="col-3">
+            <!--<label class="mr-sm-2 text-white">Beskrivelse</label>
+            <div class="form-group">
+                <label for="beskrivelse"></label>
+            </div>-->
+            <p>Pris/meterpris</p>
+
+            <input type="text" name="pris" class="form-control" placeholder="pris" id="pris">
         </div>
 
     </div>
