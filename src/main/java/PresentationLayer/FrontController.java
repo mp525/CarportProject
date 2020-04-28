@@ -42,7 +42,6 @@ public class FrontController extends HttpServlet {
             request.setAttribute("flatRoofList", flatRoofList);
             request.setAttribute("slopeRoofList", slopeRoofList);
             */
-            //HttpSession session = request.getSession();
             ArrayList<String> claddingList = new ArrayList();
             claddingList.add("Lærketræ klinke");
             claddingList.add("Hardieplank");
