@@ -7,11 +7,13 @@ package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
 
@@ -32,6 +34,20 @@ public class FrontController extends HttpServlet {
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         try {
+            /*
+            ArrayList<String> claddingList = MaterialMapper.getCladdingList();
+            ArrayList<String> flatRoofList = MaterialMapper.getFlatList();
+            ArrayList<String> slopeRoofList = MaterialMapper.getSlopeList();
+            request.setAttribute("claddingList", claddingList);
+            request.setAttribute("flatRoofList", flatRoofList);
+            request.setAttribute("slopeRoofList", slopeRoofList);
+            */
+            //HttpSession session = request.getSession();
+            ArrayList<String> claddingList = new ArrayList();
+            claddingList.add("Lærketræ klinke");
+            claddingList.add("Hardieplank");
+            request.setAttribute("claddingList", claddingList);
+
             Command action = Command.from( request );
             String view = action.execute( request, response );
             if(view == "index") {

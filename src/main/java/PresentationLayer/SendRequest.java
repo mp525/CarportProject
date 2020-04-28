@@ -19,6 +19,6 @@ public class SendRequest extends Command {
         Request carportRequest = (Request) request.getSession().getAttribute("carportRequest");
         RequestMapper.insertRequest(carportRequest);
 
-        return "formpage";
+        return "receipt";
     }
 }

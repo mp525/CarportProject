@@ -29,6 +29,7 @@
         document.getElementById("skur3").disabled=false;
     }
 
+
 </script>
 
 <div class="container" align="center">
@@ -244,27 +245,27 @@
         </div>
 
         <div class="col-4">
-            <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum beklædning</label>
-            <select id="skur3" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="cladding">
+            <label class="mr-sm-2 text-white" for="skur3">Redskabsrum beklædning</label>
+            <select id="skur3" class="custom-select mr-sm-2" name="cladding">
 
-                <%--                        <option selected>Choose...</option>--%>
                 <option value="choose">Vælg...</option>
                 <option value="Ingen">Ønsker ikke</option>
-                <option value="Lærketræ">Lærketræ klinke</option>
-                <option value="Hardieplank">Hardieplank</option>
+                    <c:forEach items="${requestScope.claddingList}" var="element">
+                        <option value="${element}">${element}</option>
+                    </c:forEach>
+
+                <!--<option value="Lærketræ">Lærketræ klinke</option>
+                <option value="Hardieplank">Hardieplank</option>-->
             </select>
         </div>
         </div>
-
-
-
 
         <br><br>
 
 
         <h2 class="text-white">Personal Information</h2>
         <br>
-        <div class="row">
+        <div class="row"> 
 
             <div class="col-4">
                 <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
