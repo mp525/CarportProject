@@ -47,7 +47,6 @@ public class FrontController extends HttpServlet {
             //request.setAttribute("claddingList", claddingList);
             request.setAttribute("flatSet", flatSet);
             request.setAttribute("slopeSet", slopeSet);
-            System.out.println(flatSet.toString());
 
             Command action = Command.from( request );
             String view = action.execute( request, response );
