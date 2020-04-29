@@ -180,7 +180,7 @@
 
 <%--                        <option selected>Choose...</option>--%>
                         <option value="choose">Vælg...</option>
-                        <c:forEach items="${requestScope.slopeSet}" var="element">
+                        <c:forEach items="${requestScope.slopeRoofList}" var="element">
                             <option value="${element}">${element}</option>
                         </c:forEach>
                         <!--<option value="BetonTagsten1">Betontagsten - rød</option>
@@ -256,9 +256,7 @@
 
                 <option value="choose">Vælg...</option>
                 <option value="Ingen">Ønsker ikke</option>
-                <option value="Lærketræ">Lærketræ klinke</option>
-                <option value="Hardieplank">Hardieplank</option>
-                <option value="Trykimpr">Trykimpr</option>
+                <option value="Trykimpr">Trykimprægneret</option>
             </select>
         </div>
         </div>
