@@ -1,369 +1,137 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: matti
+  Date: 4/22/2020
+  Time: 2:19 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/Includes/Header.inc"%>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>MainPage</title>
+    <meta charset="UTF-8">
+    <style>
+        html,
+        body,
+        header,
+        .view {
+            height: 100%;
+        }
+
+        @media (max-width: 740px) {
+            html,
+            body,
+            header,
+            .view {
+                height: 100vh;
+            }
+        }
+
+
+        .top-nav-collapse {
+            background-color: #78909c !important;
+        }
+
+        .navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #78909c !important;
+            }
+        }
+
+        h1 {
+            letter-spacing: 8px;
+            color: white;
+            font-size: 500%;
+
+        }
+
+        h5 {
+            letter-spacing: 3px;
+            color: white;
+            font-size: 250%;
+        }
+
+        .hr-light {
+            border-top: 3px solid #fff;
+            width: 80px;
+        }
+    </style>
+
+
+</head>
+
 <body>
 
-<div class="container" align="center">
+<header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <div class="container">
+            <a class="navbar-brand" href=""><strong>Fog</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
 
-    <img src="Images/fogs.jpg" class="img-fluid">
+                <form class="form-inline">
 
-<script>
-    function disable() {
-        document.getElementById("skråTag1").disabled=true;
-        document.getElementById("skråTag2").disabled=true;
-        document.getElementById("fladtag").disabled=false;
-    }
-    function enable() {
-        document.getElementById("skråTag1").disabled=false;
-        document.getElementById("skråTag2").disabled=false;
-        document.getElementById("fladtag").disabled=true;
-    }
-    function disable2() {
-        document.getElementById("skur1").disabled=true;
-        document.getElementById("skur2").disabled=true;
-        document.getElementById("skur3").disabled=true;
-    }
-    function enable2() {
-        document.getElementById("skur1").disabled=false;
-        document.getElementById("skur2").disabled=false;
-        document.getElementById("skur3").disabled=false;
-    }
-
-
-</script>
-
-<div class="container" align="center">
-
-    <h1 class="display-1 text-white">Carport</h1>
-
-    <br>
-    <h2 class="display-4 text-white">Customize your Carport</h2>
-    <br>
-    <form name="form" action="FrontController" method="POST">
-        <input type="hidden" name="taget" value="form">
-
-        <div>
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-4">
-
-            <div class="form-check-inline">
-                <label class="form-check-label text-white">
-                    <input type="radio" class="form-check-input" onclick="disable()" name="optradio">Fladt tag
-                </label>
+                </form>
             </div>
-            <div class="form-check-inline">
-                <label class="form-check-label text-white">
-                    <input type="radio" class="form-check-input" onclick="enable()" name="optradio">Tag med rejsning
-                </label>
-            </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-check-inline">
-                        <label class="form-check-label text-white">
-                            <input type="radio" class="form-check-input" onclick="enable2()" name="optradio">Redskabsrum
-                        </label>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <!-- Full Page Intro -->
+    <div class="view" style="background-image: url('https://i.pinimg.com/originals/0a/ce/58/0ace58924eaac57684bb073c3b779684.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light align-items-center">
+            <!-- Content -->
+            <div class="container">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 mb-4 white-text text-center">
+                        <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown" data-wow-delay="0.3s"><strong>Fog Carport</strong></h1>
+                        <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>We Build, You design</strong></h5>
+
+
+
+                        <div align="center">
+                            <br>
+                            <br>
+                            
+
+                            <form name="CarportPortal" action="FrontController" method="POST">
+
+
+                                <button type="submit" class="btn btn-dark rounded-pill btn-lg">Start Customizing</button>
+                            </form>
+                        </div>
+
                     </div>
 
-                    <div class="form-check-inline">
-                        <label class="form-check-label text-white">
-                            <input type="radio" class="form-check-input" onclick="disable2()" name="optradio">Intet redskabsrum
-                        </label>
-                    </div>
-                </div>
-
-        </div>
-        <br>
-
-            <div class="row">
-
-                <div class="col-4">
-
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Bredde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="width">
-
-<%--                        <option selected>Choose...</option>--%>
-                        <option value="0">Vælg...</option>
-                        <option value="240">240 cm</option>
-                        <option value="270">270 cm</option>
-                        <option value="300">300 cm</option>
-                        <option value="330">330 cm</option>
-                        <option value="360">360 cm</option>
-                        <option value="390">390 cm</option>
-                        <option value="420">420 cm</option>
-                        <option value="450">450 cm</option>
-                        <option value="480">480 cm</option>
-                        <option value="510">510 cm</option>
-                        <option value="540">540 cm</option>
-                        <option value="570">570 cm</option>
-                        <option value="600">600 cm</option>
-                        <option value="630">630 cm</option>
-                        <option value="660">660 cm</option>
-                        <option value="690">690 cm</option>
-                        <option value="720">720 cm</option>
-                        <option value="750">750 cm</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Længde</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="length">
-
-<%--                        <option selected>Choose...</option>--%>
-                        <option value="0">Vælg...</option>
-                        <option value="240">240 cm</option>
-                        <option value="270">270 cm</option>
-                        <option value="300">300 cm</option>
-                        <option value="330">330 cm</option>
-                        <option value="360">360 cm</option>
-                        <option value="390">390 cm</option>
-                        <option value="420">420 cm</option>
-                        <option value="450">450 cm</option>
-                        <option value="480">480 cm</option>
-                        <option value="510">510 cm</option>
-                        <option value="540">540 cm</option>
-                        <option value="570">570 cm</option>
-                        <option value="600">600 cm</option>
-                        <option value="630">630 cm</option>
-                        <option value="660">660 cm</option>
-                        <option value="690">690 cm</option>
-                        <option value="720">720 cm</option>
-                        <option value="750">750 cm</option>
-                    </select>
-                </div>
-
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum bredde</label>
-                    <select id="skur1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedW">
-
-<%--                        <option selected>Choose...</option>--%>
-                        <option value="0">Vælg...</option>
-                        <option value="1">Ønsker ikke</option>
-                        <option value="210">210 cm</option>
-                        <option value="240">240 cm</option>
-                        <option value="270">270 cm</option>
-                        <option value="300">300 cm</option>
-                        <option value="330">330 cm</option>
-                        <option value="360">360 cm</option>
-                        <option value="390">390 cm</option>
-                        <option value="420">420 cm</option>
-                        <option value="450">450 cm</option>
-                        <option value="480">480 cm</option>
-                        <option value="510">510 cm</option>
-                        <option value="540">540 cm</option>
-                        <option value="570">570 cm</option>
-                        <option value="600">600 cm</option>
-                        <option value="630">630 cm</option>
-                        <option value="660">660 cm</option>
-                        <option value="690">690 cm</option>
-                        <option value="720">720 cm</option>
-                    </select>
-                </div>
-
-
-
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - fladt tag</label>
-                    <select disabled id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofFMat">
-<%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
-                        <c:forEach items="${requestScope.flatSet}" var="element">
-                            <option value="${element}">${element}</option>
-                        </c:forEach>
-                        <!--<option value="Plasttrapezplader">Plasttrapezplader</option>
-                        <option value="Tagpap">Tagpap</option>
-                        <option value="Ståltag">Ståltag</option>-->
-                    </select>
-                </div>
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Tagmateriale - tag med rejsning</label>
-                    <select disabled id="skråTag1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofSMat">
-
-<%--                        <option selected>Choose...</option>--%>
-                        <option value="choose">Vælg...</option>
-                        <c:forEach items="${requestScope.slopeSet}" var="element">
-                            <option value="${element}">${element}</option>
-                        </c:forEach>
-                        <!--<option value="BetonTagsten1">Betontagsten - rød</option>
-                        <option value="BetonTagsten2">Betontagsten - teglrød</option>
-                        <option value="BetonTagsten3">Betontagsten - brun</option>
-                        <option value="BetonTagsten4">Betontagsten - sort</option>
-                        <option value="Eternittag1">Eternittag - b6 grå</option>
-                        <option value="Eternittag2">Eternittag - b6 sort</option>
-                        <option value="Eternittag3">Eternittag - b6 mokka</option>
-                        <option value="Eternittag4">Eternittag - b6 rødbrun</option>
-                        <option value="Eternittag5">Eternittag - b6 teglrød</option>
-                        <option value="Eternittag6">Eternittag - b7 grå</option>
-                        <option value="Eternittag7">Eternittag - b7 sort</option>
-                        <option value="Eternittag8">Eternittag - b7 mokka</option>
-                        <option value="Eternittag9">Eternittag - b7 rødbrun</option>
-                        <option value="Eternittag10">Eternittag - b7 teglrød</option>
-                        <option value="Eternittag11">Eternittag - b7 rødflammet</option>-->
-
-                    </select>
-                </div>
-                <div class="col-4">
-                    <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Redskabsrum længde</label>
-                    <select id="skur2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="shedL">
-
-                        <%--                        <option selected>Choose...</option>--%>
-                        <option value="0">Vælg...</option>
-                        <option value="1">Ønsker ikke</option>
-                        <option value="150">150 cm</option>
-                        <option value="180">180 cm</option>
-                        <option value="210">210 cm</option>
-                        <option value="240">240 cm</option>
-                        <option value="270">270 cm</option>
-                        <option value="300">300 cm</option>
-                        <option value="330">330 cm</option>
-                        <option value="360">360 cm</option>
-                        <option value="390">390 cm</option>
-                        <option value="420">420 cm</option>
-                        <option value="450">450 cm</option>
-                        <option value="480">480 cm</option>
-                        <option value="510">510 cm</option>
-                        <option value="540">540 cm</option>
-                        <option value="570">570 cm</option>
-                        <option value="600">600 cm</option>
-                        <option value="630">630 cm</option>
-                        <option value="660">660 cm</option>
-                        <option value="690">690 cm</option>
-                        <option value="720">720 cm</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4"></div>
-        <div class="col-4">
-            <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Hældning</label>
-            <select disabled id="skråTag2" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="slope">
-
-                <option value="0">Vælg...</option>
-                <option value="15">15 grader</option>
-                <option value="20">20 grader</option>
-                <option value="25">25 grader</option>
-                <option value="30">30 grader</option>
-                <option value="35">35 grader</option>
-                <option value="40">40 grader</option>
-                <option value="45">45 grader</option>
-
-            </select>
-        </div>
-
-        <div class="col-4">
-            <label class="mr-sm-2 text-white" for="skur3">Redskabsrum beklædning</label>
-            <select id="skur3" class="custom-select mr-sm-2" name="cladding">
-
-                <option value="choose">Vælg...</option>
-                <option value="Ingen">Ønsker ikke</option>
-                <option value="Lærketræ">Lærketræ klinke</option>
-                <option value="Hardieplank">Hardieplank</option>
-                <option value="Trykimpr">Trykimpr</option>
-            </select>
-        </div>
-        </div>
-
-        <br><br>
-
-
-        <h2 class="text-white">Personal Information</h2>
-        <br>
-        <div class="row">
-
-            <div class="col-4">
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Navn</label>
-                <div class="form-group">
-                    <label for="Navn"></label>
-                </div>
-
-                <input type="text" name="Navn" class="form-control" placeholder="Navn" id="Navn">
-            </div>
-
-
-            <div class="col-4">
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Email</label>
-                <div class="form-group">
-                    <label for="email"></label>
-
-                    <input type="email" name="Email" class="form-control" placeholder="Email" id="Email">
-                </div>
-            </div>
-
-            <div class="col-4">
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Alder</label>
-                <div class="form-group">
-                    <label for="Alder"></label>
-                </div>
-
-                <input type="text" name="Alder" class="form-control" placeholder="Alder" id="Alder">
-            </div>
-
-
-            <div class="col-4">
-
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Adresse</label>
-                <div class="form-group">
-                    <label for="Adresse"></label>
-                    <input type="text" name="Adresse" class="form-control" placeholder="Adresse" id="Adresse">
-                </div>
-            </div>
-
-            <div class="col-4">
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">By</label>
-                <div class="form-group">
-                    <label for="By"></label>
-                </div>
-
-                <input type="text" name="by" class="form-control" placeholder="by" id="by">
-            </div>
-
-
-            <div class="col-4">
-
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Post NR</label>
-                <div class="form-group">
-                    <label for="PostNR"></label>
-                    <input type="number" name="postNR" class="form-control" placeholder="postNR" id="postNR" min="1000" max="9999">
-                </div>
-
-            </div>
-
-            <div class="col-4">
-
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Husnummer</label>
-                <div class="form-group">
-                    <label for="husnummer"></label>
-                    <input type="text" name="husnummer" class="form-control" placeholder="husnummer" id="husnummer">
-                </div>
-
-            </div>
-            <div class="col-4">
-
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Telefon</label>
-                <div class="form-group">
-                    <label for="telefon"></label>
-                    <input type="number" name="telefon" class="form-control" placeholder="telefon" id="telefon" min="00000001" max="99999999">
+                    <div class="col-4"></div>
                 </div>
 
             </div>
         </div>
-        <br><br>
-        <input type="submit" value="Send anmodning" class="btn btn-primary btn-lg">
+    </div>
 
 
-<div class="container" align="center">
-    <c:if test = "${requestScope.error!= null}" >
-
-        <h2>Error ! </h2>
-        ${requestScope.error}
-
-    </c:if>
-</div>
+</header>
 
 
-
-    </form>
-</div>
-</div>
 </body>
-<%@include file="/Includes/Footer.inc"%>
+</html>

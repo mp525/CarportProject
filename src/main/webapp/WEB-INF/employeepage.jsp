@@ -29,11 +29,36 @@
 
 
     <div style="text-align: center;display: block">
-        <form name="requestLists" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left"
-              action="FrontController" method="POST">
+        <form name="requestLists" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left" action="FrontController" method="POST">
             <input type="hidden" name="taget" value="requestLists">
             <button type="submit" class="btn btn-primary">Gå til liste over alle anmodninger</button>
         </form>
+    </div>
+
+    </div>
+
+
+    <br>
+    <h2 align="center">Søg på requests via specific mail</h2>
+    <div style="text-align: center; display: block">
+        <form name="getOnesRequests" action="FrontController" align="center" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left">
+            <input type="hidden" name="taget" value="getOnesRequests">
+            <label for="uzi">Se en specific email's tilhørende anmodninger:</label><br>
+            <input type="email" id="uzi" name="emaill" value="Indtast emailen på kontakten"><br>
+            <br>
+            <%--        <input type="submit" value="Slet">--%>
+            <button align="center" type="submit" class="btn btn-danger">Søg på denne mail</button>
+        </form>
+    </div>
+    </div>
+
+    <div class="container" align="center">
+        <c:if test = "${requestScope.error!= null}" >
+
+            <h2>Error ! </h2>
+            <p>${requestScope.error}</p>
+
+        </c:if>
     </div>
 
 
