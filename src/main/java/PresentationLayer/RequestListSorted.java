@@ -18,7 +18,7 @@ public class RequestListSorted extends Command {
 
 
         int id= Integer.parseInt(request.getParameter("id"));
-        ArrayList<Request> searchlistID = RequestMapper.searchIDRequest(id);
+        ArrayList<Request> searchlistID = RequestMapper.searchIDRequestList(id);
 
         request.setAttribute("searchList", searchlistID);
 
