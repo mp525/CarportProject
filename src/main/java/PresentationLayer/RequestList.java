@@ -18,7 +18,7 @@ public class RequestList extends Command {
         ArrayList<Request> requestlist = RequestMapper.getRequests();
         request.setAttribute("requestList", requestlist);
         int id= Integer.parseInt(request.getParameter("id"));
-        ArrayList<Request> searchlistID = RequestMapper.searchIDRequest(id);
+        ArrayList<Request> searchlistID = RequestMapper.searchIDRequestList(id);
 
         request.setAttribute("searchList", searchlistID);
 

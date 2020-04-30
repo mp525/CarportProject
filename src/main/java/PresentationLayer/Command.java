@@ -23,6 +23,7 @@ abstract class Command {
         commands.put("CarportPortal", new CarportPortal());
         commands.put("addMaterial", new AddMaterial() );
         commands.put("getOnesRequests", new GetOnesRequests() );
+        commands.put("review", new Review() );
 
     }
 
