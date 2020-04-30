@@ -1,10 +1,7 @@
 package FunctionLayer;
 
 
-
-import com.sun.javafx.binding.StringFormatter;
-
-    public class SVG {
+public class SVG {
 
         private int width;
         private int height;
@@ -74,4 +71,4 @@ import com.sun.javafx.binding.StringFormatter;
             return svg.toString() + "</svg>" ;
         }
     }
-}
+
