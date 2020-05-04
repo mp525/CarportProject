@@ -158,11 +158,11 @@
             <c:set var="shedWC" scope="session" value="${requestScope.shedW}"/>
             <c:choose>
                 <c:when test="${shedWC == null}"></c:when>
-                <c:when test="${shedWC == 'choose'}">
+                <c:when test="${shedWC == '0'}">
                     <td><p>Redskabsrum bredde:</p></td>
                     <td><p>Ikke valgt endnu</p></td>
                 </c:when>
-                <c:when test="${shedWC == 'Ingen'}">
+                <c:when test="${shedWC == '1'}">
                     <td><p>Redskabsrum bredde:</p></td>
                     <td><p>Ønsker ikke</p></td>
                 </c:when>
@@ -176,7 +176,7 @@
             <c:set var="shedLC" scope="session" value="${requestScope.shedL}"/>
             <c:choose>
                 <c:when test="${shedLC == null}"></c:when>
-                <c:when test="${shedLC == 'choose'}">
+                <c:when test="${shedLC == '0'}">
                     <td><p>Redskabsrum længde:</p></td>
                     <td><p>Ikke valgt endnu</p></td>
                 </c:when>
