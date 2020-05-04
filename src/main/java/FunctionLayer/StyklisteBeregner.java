@@ -6,17 +6,9 @@ public class StyklisteBeregner {
     private ArrayList<Material> matList = new ArrayList();
 
 
-    public static int antalSpær(Request request){
-     int spær = 2;
-        int længde = request.getLength();
-        int bredde = request.getWidth();
-
-        int antal = længde/55;
-        for (int i = 0; i <= længde; i++){
-
-        }
-
-
+    public static int antalSpær(int length){
+        double antal = Math.round((length/55.0)) + 1.0;
+        int spær = (int) antal;
         return spær;
     }
 }

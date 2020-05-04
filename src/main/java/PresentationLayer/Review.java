@@ -29,6 +29,8 @@ public class Review extends Command {
         request.setAttribute("reviewWidthS", reviewReq.getWidthS());
         request.setAttribute("reviewID", reviewReq.getRequestID());
 
+
+
         return "requestReview";
     }
 }
