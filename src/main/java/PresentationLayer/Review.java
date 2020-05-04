@@ -1,0 +1,36 @@
+package PresentationLayer;
+
+import DBAccess.RequestMapper;
+import FunctionLayer.LoginSampleException;
+import FunctionLayer.Request;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Review extends Command {
+    @Override
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+
+        String reqIDBefore = request.getParameter("reqID");
+        String reqIDAfter = reqIDBefore.replace("Se forespoergsel ", "");
+        int reqID = Integer.parseInt(reqIDAfter);
+        Request reviewReq = RequestMapper.searchIDRequest(reqID);
+
+        request.setAttribute("reviewEmail", reviewReq.getEmail());
+        request.setAttribute("reviewLength", reviewReq.getLength());
+        request.setAttribute("reviewWidth", reviewReq.getWidth());
+        request.setAttribute("reviewRoofType", reviewReq.getRooftype());
+        request.setAttribute("reviewRoofMat", reviewReq.getRoofmat());
+        request.setAttribute("reviewArea", reviewReq.getArea());
+        request.setAttribute("reviewSlope", reviewReq.getSlopeangle());
+        request.setAttribute("reviewLengthS", reviewReq.getLengthS());
+        request.setAttribute("reviewWidthS", reviewReq.getWidthS());
+        request.setAttribute("reviewID", reviewReq.getRequestID());
+
+
+
+        return "requestReview";
+    }
+}

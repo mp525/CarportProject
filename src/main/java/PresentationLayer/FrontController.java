@@ -43,21 +43,20 @@ public class FrontController extends HttpServlet {
             ArrayList<String> flatRoofList = MaterialMapper.getFlat();
             ArrayList<String> slopeRoofList = MaterialMapper.getSlope();
             Set<String> flatSet = MaterialHelper.flatSet(flatRoofList);
-            Set<String> slopeSet = MaterialHelper.slopeSet(slopeRoofList);
+            //Set<String> slopeSet = MaterialHelper.slopeSet(slopeRoofList);
             //request.setAttribute("claddingList", claddingList);
             request.setAttribute("flatSet", flatSet);
-            request.setAttribute("slopeSet", slopeSet);
-            System.out.println(flatSet.toString());
+            request.setAttribute("slopeRoofList", slopeRoofList);
 
             Command action = Command.from( request );
             String view = action.execute( request, response );
             if(view == "index") {
-                request.getRequestDispatcher("Emp.jsp").forward(request, response);
+                request.getRequestDispatcher("Carport.jsp").forward(request, response);
             }
             request.getRequestDispatcher( "/WEB-INF/" + view + ".jsp" ).forward( request, response );
         } catch ( LoginSampleException ex ) {
             request.setAttribute( "error", ex.getMessage() );
-//            request.getRequestDispatcher( "Emp.jsp" ).forward( request, response );
+//            request.getRequestDispatcher( "Carport.jsp" ).forward( request, response );
             request.getRequestDispatcher( "/WEB-INF/loginpage.jsp" ).forward( request, response );
         }
     }

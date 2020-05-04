@@ -67,9 +67,9 @@
     <br>
 </div>
 
-<form align="center" name="logout" action="FrontController" method="POST">
-    <input type="hidden" name="taget" value="logout">
-    <input type="submit" value="Logout" class="btn btn-outline-light" style="color:White">
+<form align="center" name="tilbage" action="FrontController" method="POST">
+    <input type="hidden" name="taget" value="toEmpPage">
+    <input type="submit" value="Tilbage" class="btn btn-outline-light" style="color:White">
 </form>
 </body>
 

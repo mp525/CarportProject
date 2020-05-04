@@ -16,13 +16,18 @@ abstract class Command {
         commands.put( "form", new Form() );
         commands.put( "tologin", new ToLogin() );
         commands.put( "sendRequest", new SendRequest());
-        commands.put("getRequestList", new RequestList() );
+        commands.put("getRequestList", new RequestListSorted() );
         commands.put("requestLists", new RequestLists());
         commands.put("newMaterialPage", new NewMaterial() );
         commands.put("toEmpPage", new Employeepage() );
+        commands.put("CarportPortal", new CarportPortal());
         commands.put("addMaterial", new AddMaterial() );
         commands.put("getOnesRequests", new GetOnesRequests() );
         commands.put("requestById", new RequestById() );
+        commands.put("review", new Review() );
+        commands.put("svgdrawing", new Drawing() );
+
+
     }
 
     static Command from( HttpServletRequest request ) {

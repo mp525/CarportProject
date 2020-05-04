@@ -126,14 +126,16 @@ public class RequestMapper {
     }
 
 
-    public static ArrayList<Request> searchIDRequest(int IDInput){
-        ArrayList<Request> reqList = new ArrayList();
+    public static Request searchIDRequest(int IDInput){
+        //ArrayList<Request> reqList = new ArrayList();
+        Request returnReq = null;
         try {
             Connection con = Connector.connection();
-            String query = "select * from carbase.requests where requestID = ?;";
+            String query = "select * from requests where requestID = ?;";
             PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, IDInput);
 
-            ResultSet rs = ps.getResultSet();
+            ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 String email = rs.getString("email");
 
@@ -149,8 +151,44 @@ public class RequestMapper {
                 int lengthS = rs.getInt("lengthS");
                 int widthS = rs.getInt("widthS");
 
-                Request tmpRequest = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
-                reqList.add(tmpRequest);
+                returnReq = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return returnReq;
+    }
+
+    public static ArrayList<Request> searchIDRequestList(int IDInput){
+        ArrayList<Request> reqList = new ArrayList();
+        try {
+            Connection con = Connector.connection();
+            String query = "select * from requests where requestID = ?;";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, IDInput);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String email = rs.getString("email");
+
+                int id = IDInput;
+                int width = rs.getInt("width");
+                int length = rs.getInt("length");
+
+                String cladding = rs.getString("cladding");
+                boolean rooftype = rs.getBoolean("rooftype");
+                String roofmat = rs.getString("roofmat");
+
+                int slope = rs.getInt("slope");
+                int lengthS = rs.getInt("lengthS");
+                int widthS = rs.getInt("widthS");
+
+                Request tmpReq = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
+                reqList.add(tmpReq);
             }
 
         } catch (ClassNotFoundException e) {

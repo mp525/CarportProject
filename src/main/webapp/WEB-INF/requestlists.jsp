@@ -13,6 +13,10 @@
     container {background-color: #174986;}
     h1 {color: white; text-align: center;}
     p {color: white; text-align: center;}
+    input[type=submit] {
+        background-color: #3CBC8D;
+        color: white;
+    }
 </style>
 <body>
 <br>
@@ -23,7 +27,7 @@
     <div align="container">
         <h2>Liste over anmodninger:</h2>
         <table class="table table-striped">
-            <thread>
+            <thead>
                 <tr>
                 <th>Andmodningens nummer:</th>
                 <th>Personens email:</th>
@@ -38,28 +42,32 @@
                 <th>Skurets bredde:</th>
 
             </tr>
-            </thread>
+            </thead>
             <tbody>
 
 
              <%--   <td valign="top"> --%>
                     <c:forEach var="requezt" items="${requestScope.requests}">
              <tr>
-                 <td>${requezt.requestID}</td>
-                 <td>${requezt.email}</td>
-                 <td>${requezt.width}</td>
-                 <td>${requezt.length}</td>
-                 <td>${requezt.cladding}</td>
-                 <td>${requezt.rooftype}</td>
-                 <td>${requezt.area}</td>
-                 <td>${requezt.roofmat}</td>
-                 <td>${requezt.slopeangle}</td>
-                 <td>${requezt.lengthS}</td>
-                 <td>${requezt.widthS}</td>
-                         <br>
+                 <td>
+                 <form name="review" action="FrontController" method="POST">
+                     <input type="hidden" name="taget" value="review">
+                     <input type="submit" name="reqID" value="Se forespoergsel ${requezt.requestID}">
+                 </form>
+                 </td>
+                        <td>${requezt.email}</td>
+                        <td>${requezt.width}</td>
+                        <td>${requezt.length}</td>
+                        <td>${requezt.cladding}</td>
+                        <td>${requezt.rooftype}</td>
+                        <td>${requezt.area}</td>
+                        <td>${requezt.roofmat}</td>
+                        <td>${requezt.slopeangle}</td>
+                        <td>${requezt.lengthS}</td>
+                        <td>${requezt.widthS}</td>
              </tr>
                     </c:forEach>
-                     </tbody>
+            </tbody>
         </table>
     </div>
 
@@ -67,9 +75,9 @@
     <br>
 </div>
 
-<form align="center" name="logout" action="FrontController" method="POST">
-    <input type="hidden" name="taget" value="logout">
-    <input type="submit" value="Logout" class="btn btn-outline-light" style="color:White">
+<form align="center" name="tilbage" action="FrontController" method="POST">
+    <input type="hidden" name="taget" value="toEmpPage">
+    <input type="submit" value="Tilbage" class="btn btn-outline-light" style="color:White">
 </form>
 </body>
 

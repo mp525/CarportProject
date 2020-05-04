@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-public class RequestList extends Command {
+public class RequestListSorted extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         ListSorter l= new ListSorter();
 
-        ArrayList<Request> requestlist = RequestMapper.getRequests();
-        request.setAttribute("requestList", requestlist);
+
+
         int id= Integer.parseInt(request.getParameter("id"));
-        ArrayList<Request> searchlistID = RequestMapper.searchIDRequest(id);
+        ArrayList<Request> searchlistID = RequestMapper.searchIDRequestList(id);
 
         request.setAttribute("searchList", searchlistID);
 
