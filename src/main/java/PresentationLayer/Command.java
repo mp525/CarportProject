@@ -25,6 +25,7 @@ abstract class Command {
         commands.put("getOnesRequests", new GetOnesRequests() );
         commands.put("review", new Review() );
         commands.put("svgdrawing", new Drawing() );
+        commands.put("Stykliste", new Styklisten());
 
     }
 
