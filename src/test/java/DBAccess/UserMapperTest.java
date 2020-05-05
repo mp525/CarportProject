@@ -65,6 +65,13 @@ public class UserMapperTest {
 
         System.out.println("Materialer kan sættes ind");
     }
+    @Test (expected = java.lang.AssertionError.class)
+    public void testOmMaterialeKanKommeIndNegativ(){
+
+        assertTrue(getMats().contains("Super ikke sejt materiale"));
+
+        System.out.println("Materialer kan sættes ind");
+    }
 /*
 
     @Test
