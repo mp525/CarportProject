@@ -7,6 +7,7 @@ public class Material {
     private String kategori;
     private int laengde;
     private double pris;
+    private int antal;
 
     public Material(String navn, String beskrivelse, String enhed, String kategori, int laengde, double pris) {
         this.navn = navn;
@@ -15,6 +16,24 @@ public class Material {
         this.kategori = kategori;
         this.laengde = laengde;
         this.pris = pris;
+    }
+
+    public Material(String navn, String beskrivelse, String enhed, String kategori, int laengde, double pris, int antal) {
+        this.navn = navn;
+        this.beskrivelse = beskrivelse;
+        this.enhed = enhed;
+        this.kategori = kategori;
+        this.laengde = laengde;
+        this.pris = pris;
+        this.antal = antal;
+    }
+
+    public int getAntal() {
+        return antal;
+    }
+
+    public void setAntal(int antal) {
+        this.antal = antal;
     }
 
     public String getNavn() {

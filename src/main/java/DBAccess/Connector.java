@@ -14,9 +14,7 @@ public class Connector {
 
     private static final String URL = "jdbc:mysql://localhost:3306/carbase?serverTimezone=CET&useSSL=false";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "SwordsAndSandals1337";
-
-
+    private static final String PASSWORD = "cph39178";
 
     private static Connection singleton;
 
