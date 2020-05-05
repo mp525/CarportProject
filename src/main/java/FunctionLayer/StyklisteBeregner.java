@@ -6,12 +6,62 @@ import java.util.ArrayList;
 
 public class StyklisteBeregner {
 
-    //private ArrayList<Material> matList = new ArrayList();
-
     public static int antalSpær(int length){
+        //Samme antal universal 190mm højre og venstre som der er spær
+        //4,0x50mm.	beslagskruer 250 stk, 3 pakker
         double antal = Math.round((length / 55.0)) + 1.0;
         int spær = (int) antal;
         return spær;
+    }
+    public static int længdeSpær(int width){
+        int længde = 0;
+        // int længde = width;
+        /*if (width > 600){
+        * længde = (width/2);
+        * }
+        * Spærlængder må ikke overskride 6m? Er det ligemeget i vores tilfælde, og så bare lave spær
+        * længere end 6m? Behøves længdeSpær metoden, hvis spærets længde bare kan være width?
+        */
+        switch(width){
+            case 240: længde = 420;
+            case 270: længde = 420;
+            case 300: længde = 420;
+            case 330: længde = 420;
+            case 360: længde = 420;
+            case 390: længde = 420;
+            case 420: længde = 420;
+            case 450: længde = 540;
+            case 480: længde = 540;
+            case 510: længde = 540;
+            case 540: længde = 540;
+            case 570: længde = 600;
+            case 600: længde = 600;
+            case 630: længde = 600;
+            case 660: længde = 660;
+            case 690: længde = 600;
+            case 720: længde = 600;
+            case 750: længde = 600;
+        }
+        return længde;
+    }
+    public static double spærPris(int spærLængde, int spærAntal){
+        double spærPris = spærLængde * spærAntal * 54.95; //meterprisen
+        return spærPris;
+    }
+    public static double remPris(int remLængde, int remAntal){
+        double remPris = remLængde * remAntal * 54.95; //meterprisen
+        return remPris;
+    }
+    public static int beslagSkrueAntal(int længde){
+        int antalPakker = 0;
+        if(længde <= 260){
+            antalPakker = 1;
+        } else if(længde <= 520){
+            antalPakker = 2;
+        } else if(længde <= 780){
+            antalPakker = 3;
+        }
+        return antalPakker;
     }
 
      public int stolpeAntal(Request r){
