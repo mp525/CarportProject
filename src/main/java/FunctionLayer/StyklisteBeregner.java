@@ -27,7 +27,7 @@ public class StyklisteBeregner {
     if(lengths!=0){
         shed=true;
     }
-
+//340 højde
      //set i brochuren... //Forreste stolper skal være 208 cm. Høje og bagerste skal være 202 cm.
      int width  = r.getWidth();
      int length = r.getLength();
@@ -55,6 +55,11 @@ public class StyklisteBeregner {
         stolpeAntal=stolpeAntal+stolpeAntalBcLength+stolpeAntalBcWidth+stolpeAntalShed;
      return stolpeAntal;
  }
+
+    public void prisStolpe(Request r){
+       int antal = stolpeAntal(r);
+       double pris=antal*3.40*41.95;
+    }
 
  // @Vibeke
  public void shed() {

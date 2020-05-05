@@ -142,7 +142,7 @@ public class MaterialMapper {
 
             try {
                 Connection con = Connector.connection();
-                String query = "select ? from materials";
+                String query = "select ? from materials;";
                 PreparedStatement ps = con.prepareStatement(query);
                 ps.setString(1, materialenavnet);
                 ResultSet rs = ps.executeQuery();
