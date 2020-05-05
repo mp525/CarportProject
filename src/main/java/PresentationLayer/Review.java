@@ -55,7 +55,7 @@ public class Review extends Command {
                 "stk", "Beslag og skruer", 0, beslagPris, antalSpær);
         Material beslagSkruer = new Material("4,0x50mm. beslagskruer 250 stk.", "Til montering af universalbeslag " +
                 "+ hulbånd", "pakke", "Beslag og skruer", 0, beslagSkruePris, beslagSkrueAntal);
-        
+
         stykliste.add(spær);
         stykliste.add(remme);
         stykliste.add(beslagHøjre);
