@@ -27,7 +27,7 @@ public class StyklisteBeregner {
     if(lengths!=0){
         shed=true;
     }
-
+//340 højde
      //set i brochuren... //Forreste stolper skal være 208 cm. Høje og bagerste skal være 202 cm.
      int width  = r.getWidth();
      int length = r.getLength();
@@ -55,4 +55,34 @@ public class StyklisteBeregner {
         stolpeAntal=stolpeAntal+stolpeAntalBcLength+stolpeAntalBcWidth+stolpeAntalShed;
      return stolpeAntal;
  }
+
+    public void prisStolpe(Request r){
+       int antal = stolpeAntal(r);
+       double pris=antal*3.40*41.95;
+    }
+
+ // @Vibeke
+ public void shed() {
+     // Regnestykke: (b*h*2)+(l*h*2)+dørtilbehør
+     // Antagelser:
+     // Dør i meter
+     double doorH = 2.15;
+     double doorW = 1.0;
+     // Dør vil blive placeret på en bredde side
+
+     // Skur højde i meter
+     double shedH = 2.5;
+
+     // Test mål i meter:
+     double length = 1.80;
+     double width = 2.40;
+     double area = length*width;
+
+     // Wood for walls:
+     double woodPriceM = 22.95;
+     double woodPriceOne = shedH*woodPriceM;
+
+     double wallL1 = length/0.16;
+ }
+
 }
