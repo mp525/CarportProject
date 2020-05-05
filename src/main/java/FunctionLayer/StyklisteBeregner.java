@@ -61,28 +61,251 @@ public class StyklisteBeregner {
         double pris = antal * 3.40 * 41.95;
     }
 
+
+    
     // @Vibeke
-    public void shed() {
-        // Regnestykke: (b*h*2)+(l*h*2)+dørtilbehør
-        // Antagelser:
-        // Dør i meter
-        double doorH = 2.15;
-        double doorW = 1.0;
-        // Dør vil blive placeret på en bredde side
+    // Antagelser og værdier:
+    // Dør i meter
+    private double doorH = 2.15;
+    private double doorW = 1.0;
 
-        // Skur højde i meter
-        double shedH = 2.5;
+    // Skur højde i meter
+    private double shedH = 2.5;
 
-        // Test mål i meter:
-        double length = 1.80;
-        double width = 2.40;
-        double area = length * width;
+    // Test mål i meter:
+    private double length = 1.80;
+    private double width = 2.40;
 
-        // Wood for walls:
-        double woodPriceM = 22.95;
-        double woodPriceOne = shedH * woodPriceM;
+    // Pris for et bræt:
+    private double woodPriceM = 22.95;
+    private double woodPriceOne = shedH * woodPriceM;
 
-        double wallL1 = length / 0.16;
+    // Brædder til længden (en side) af skuret
+    private double amountWoodL = amountLengthWood(length);
+    private double priceWoodL = priceLengthWood(amountWoodL, woodPriceOne);
+
+        /*System.out.println("Vi skal bruge: "+amountWoodL +" bræder til en side længde");
+        System.out.println("Det vil koste: "+priceWoodL +" kr.");*/
+
+    //Brædder til bredden (en side) af skuret
+    private double amountWoodW = amountWidthWood(width);
+    private double priceWoodW = priceWidthWood(amountWoodW, woodPriceOne);
+
+        /*System.out.println("Vi skal bruge: "+amountWoodW +" bræder til en side bredde");
+        System.out.println("Det vil koste: "+priceWoodW +" kr.");
+        System.out.println("");*/
+
+    // Løsholter:
+    private double amountLos = losholter();
+    private double priceLos = priceLosholter(length, width);
+
+        /*System.out.println("Løsholter antal brædder: "+amountLos);
+        System.out.println("Løsholter pris: "+priceLos);
+        System.out.println("");*/
+
+    // Antal skruer til brædderne og pris:
+    public double beregnSkruer() {
+        double screws = 0.0;
+        screws += amountScrews(amountWoodL) *2;
+        screws += amountScrews(amountWoodW) *2;
+        return screws;
+    }
+    private double screws = beregnSkruer();
+    private double priceScrewsTotal = priceScrews(screws);
+
+    // Antal brædder i alt:
+    private double amountWoodTotal = (amountWoodL * 2) + (amountWoodW * 2);
+    private double priceWoodTotal = (priceWoodL * 2) + (priceWoodW * 2);
+
+        /*System.out.println("Træ total: "+amountWoodTotal);
+        System.out.println("Pris for bræder total: "+priceWoodTotal);
+        System.out.println("");
+        System.out.println("Skruer total: "+screws);
+        System.out.println("Skruer pris total: "+priceScrewsTotal);*/
+
+    // Dør tilbehør pris:
+    public double doorAccesPrice() {
+        double doorAccess = 0.0;
+        if(length !=0 && width !=0) {
+            int angleBracket = 4;
+            int hinge = 2;
+            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
+            // int abScrews = angleBracket * 4;
+            int abScrews = 1;
+            int doorHandle = 1;
+
+            doorAccess = doorAccesPrice(angleBracket, hinge, abScrews, doorHandle);
+        }
+        return doorAccess;
+    }
+
+    // For én side - længde, med begge lag
+    public double amountLengthWood(double length) {
+        // Bræder og afstand mellem dem:
+        double woodWidth = 0.10;
+        double distanceBetWood = 0.06;
+
+        double wallL = length / (woodWidth + distanceBetWood);
+        double rest = wallL % 1;
+
+        //System.out.println("wallL: " + wallL);
+        //System.out.println("rest: " + rest);
+
+        // Inderste lag:
+        double lag1;
+        if (rest != 0) {
+            double addOn = 1 - rest;
+            lag1 = wallL + addOn;
+        } else {
+            lag1 = wallL;
+        }
+
+        // Yderste lag:
+        double lag2 = lag1 - 1;
+
+        // Brædder ialt:
+        double ialt = lag1 + lag2;
+
+        return ialt;
+    }
+
+    // Pris for en af længde siderne, begge lag:
+    public double priceLengthWood(double amountWoodL, double woodPriceOne) {
+        double price = amountWoodL * woodPriceOne;
+
+        return price;
+    }
+
+    // For én side - bredde, med begge lag
+    public double amountWidthWood(double width) {
+        // Bræder og afstand mellem dem:
+        double woodWidth = 0.10;
+        double distanceBetWood = 0.06;
+
+        double wallW = width / (woodWidth + distanceBetWood);
+        double rest = wallW % 1;
+
+        //System.out.println("wallL: " + wallL);
+        //System.out.println("rest: " + rest);
+
+        // Inderste lag:
+        double lag1;
+        if (rest != 0) {
+            double addOn = 1 - rest;
+            lag1 = wallW + addOn;
+        } else {
+            lag1 = wallW;
+        }
+
+        // Yderste lag:
+        double lag2 = lag1 - 1;
+
+        // Brædder ialt:
+        double ialt = lag1 + lag2;
+
+        return ialt;
+    }
+
+    // Pris for en af bredde siderne, begge lag:
+    public double priceWidthWood(double amountWoodW, double woodPriceOne) {
+        double price = amountWoodW * woodPriceOne;
+
+        return price;
+    }
+
+    // Mængden af skruer der skal bruges:
+    public double amountScrews(double amountWood) {
+        double amtScrews = 0.0;
+
+        double innerLayer = (amountWood / 2) + 0.5;
+        double outerLayer = (amountWood / 2) - 0.5;
+
+        double amtScrewsInner = innerLayer * 3;
+        double amtScrewsOuter = outerLayer * 6;
+
+        //System.out.println(amtScrewsInner);
+        //System.out.println(amtScrewsOuter);
+
+        amtScrews += amtScrewsInner + amtScrewsOuter;
+
+        return amtScrews;
+    }
+
+    // Mængden af løsholter brædder:
+    public double losholter() {
+        double amount = 0.0;
+
+        amount += 4 * 3;
+
+        return amount;
+    }
+
+    // Prisen for løsholter brædder:
+    public double priceLosholter(double length, double width) {
+        double price = 0.0;
+        double priceM = 59.95;
+
+        double priceLengthWood = (length * priceM) * 3;
+        double priceWidthWood = (width * priceM) * 3;
+
+        price += (priceLengthWood * 2) + (priceWidthWood * 2);
+
+        return price;
+    }
+
+    // Dør tilbehør pris sammenlagt:
+    public double doorAccesPrice(int angleBracket, int hinge, int abScrews, int doorHandle) {
+        double price = 0.0;
+        double abPrice = 7.95;
+        double hingePrice = 99.95;
+        double abScrewsPrice = 259.0;
+        double dhPrice = 189.0;
+
+        price += abPrice * angleBracket;
+        price += hingePrice * hinge;
+        price += abScrewsPrice * abScrews;
+        price += dhPrice * doorHandle;
+
+        return price;
+    }
+
+    // Pris for skruerne:
+    // En tredjedel cirka går til de inderste brædder, resten til de yderste
+    public double priceScrews(double screws) {
+        double innerScrews = screws / 3;
+        double outerScrews = innerScrews * 2;
+
+        double priceScrewsTotal = 0.0;
+
+        if (innerScrews <= 300) {
+            double inScrPrice = 99.95;
+            int inScrAmt = 1;
+            priceScrewsTotal += inScrPrice * inScrAmt;
+        } else if (301 <= innerScrews && innerScrews <= 350) {
+            double inScrPrice = 109.95;
+            int inScrAmt = 1;
+            priceScrewsTotal += inScrPrice * inScrAmt;
+        } else if (innerScrews >= 351) {
+            double inScrPrice = 99.95;
+            int inScrAmt = 2;
+            priceScrewsTotal += inScrPrice * inScrAmt;
+        }
+
+        if (outerScrews <= 300) {
+            double inScrPrice = 99.95;
+            int inScrAmt = 1;
+            priceScrewsTotal += inScrPrice * inScrAmt;
+        } else if (301 <= outerScrews && outerScrews <= 350) {
+            double inScrPrice = 109.95;
+            int inScrAmt = 1;
+            priceScrewsTotal += inScrPrice * inScrAmt;
+        } else if (outerScrews >= 351) {
+            double inScrPrice = 99.95;
+            int inScrAmt = 2;
+            priceScrewsTotal += inScrPrice * inScrAmt;
+        }
+
+        return priceScrewsTotal;
     }
 
 }
