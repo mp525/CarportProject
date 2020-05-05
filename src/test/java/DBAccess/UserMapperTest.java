@@ -1,29 +1,29 @@
 package DBAccess;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Material;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 import org.junit.Test;
+
+import static DBAccess.MaterialMapper.*;
 import static org.junit.Assert.*;
 import org.junit.Before;
 
+import javax.validation.constraints.AssertTrue;
+
 public class UserMapperTest {
-//    Test date in the UsersTest table
-//    INSERT INTO `UsersTest` VALUES 
-//    (1,'jens@somewhere.com','jensen','customer'),
-//    (2,'ken@somewhere.com','kensen','customer'),
-//    (3,'robin@somewhere.com','batman','employee'),
-//    (4,'someone@nowhere.com','sesam','customer');
 
     private static Connection testConnection;
-    private static String USER = "testinguser";
-    private static String USERPW = "try1try2tryAgain";
-    private static String DBNAME = "useradminTest";
-    private static String HOST = "46.101.253.149";
-
+    private static String USER = "root";
+    private static String USERPW = "Matti12345h";
+    private static String DBNAME = "carbaseTest";
+    private static String HOST = "localhost";
     @Before
     public void setUp() {
         try {
@@ -38,9 +38,11 @@ public class UserMapperTest {
             }
             // reset test database
             try ( Statement stmt = testConnection.createStatement() ) {
-                stmt.execute( "drop table if exists Users" );
-                stmt.execute( "create table Users like UsersTest" );
-                stmt.execute( "insert into Users select * from UsersTest" );
+                stmt.execute( "drop table if exists materials" );
+                stmt.execute( "create table materials like carbase.materials" );
+                stmt.execute( "insert into materials select * from carbase.materials" );
+                Material m = new Material("Super sejt materiale", "kan bruges på alt", "stk", "træ", 200, 25);
+                insertMat(m);
             }
 
         } catch ( ClassNotFoundException | SQLException ex ) {
@@ -53,7 +55,17 @@ public class UserMapperTest {
     public void testSetUpOK() {
         // Just check that we have a connection.
         assertNotNull( testConnection );
+        System.out.println("Der er forbindelse");
     }
+
+    @Test
+    public void testOmMaterialeKanKommeInd(){
+
+        assertTrue(getMats().contains("Super sejt materiale"));
+
+        System.out.println("Materialer kan sættes ind");
+    }
+/*
 
     @Test
     public void testLogin01() throws LoginSampleException {
@@ -83,5 +95,5 @@ public class UserMapperTest {
         UserMapper.createUser( original );
         User retrieved = UserMapper.login( "king@kong.com", "uhahvorhemmeligt" );
         assertEquals( "konge", retrieved.getRole() );
-    }
+    }*/
 }
