@@ -76,8 +76,6 @@ public class RequestMapper {
             ps.setString(1, emailInput);
             ResultSet rs = ps.executeQuery();
 
-
-
             if(rs.first() == false){
                 throw new LoginSampleException( "Could not validate user" );
             } else {

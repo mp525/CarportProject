@@ -6,11 +6,10 @@ import java.util.ArrayList;
 
 public class StyklisteBeregner {
 
-
     //private ArrayList<Material> matList = new ArrayList();
 
     public static int antalSpær(int length){
-        double antal = Math.round((length/55.0)) + 1.0;
+        double antal = Math.round((length / 55.0)) + 1.0;
         int spær = (int) antal;
         return spær;
     }
@@ -56,8 +55,8 @@ public class StyklisteBeregner {
      return stolpeAntal;
  }
 
- // @Vibeke
- public void shed() {
+     // @Vibeke
+    public void shed() {
      // Regnestykke: (b*h*2)+(l*h*2)+dørtilbehør
      // Antagelser:
      // Dør i meter
