@@ -106,7 +106,24 @@ public class TagBeregner {
         return  numbOfPlanks;
     }
 
+    public int Cal25x125x360Sides(Request req) {
+        // it calculates via a number of 300, because it will measure so it fits the length. Using
 
+        int max = 600;
+        int half = max / 2;
+        int quart = half / 2;
+        double l = req.getWidth();
+        int numbOfPlanks = 0;
+
+        if(l <= 300){
+            numbOfPlanks = 2;
+        } else if (l > 300 && l <= 600){
+            numbOfPlanks = 4;
+        } else if (l>600){
+            numbOfPlanks = 6;
+        }
+        return  numbOfPlanks;
+    }
 
 }
 
