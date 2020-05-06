@@ -1,6 +1,17 @@
 package FunctionLayer;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class StyklisteBeregner {
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
 
     public static int antalSpær(int length) {
         double antal = Math.ceil((length / 55.0)) + 1.0; //length/antalspær (får regning af arne?)
@@ -8,15 +19,14 @@ public class StyklisteBeregner {
         return spær;
     }
     public static int længdeSpær(int width){
-        int længde = 0;
-        // int længde = width;
+        int længde = width;
         /*if (width > 600){
         * længde = (width/2);
         * }
         * Spærlængder må ikke overskride 6m? Er det ligemeget i vores tilfælde, og så bare lave spær
         * længere end 6m? Behøves længdeSpær metoden, hvis spærets længde bare kan være width?
         */
-        switch(width){
+        /*switch(width){
             case 240: længde = 420;
             case 270: længde = 420;
             case 300: længde = 420;
@@ -35,15 +45,15 @@ public class StyklisteBeregner {
             case 690: længde = 600;
             case 720: længde = 600;
             case 750: længde = 600;
-        }
+        }*/
         return længde;
     }
     public static double spærPris(int spærLængde, int spærAntal){
-        double spærPris = spærLængde * spærAntal * 54.95; //meterprisen
+        double spærPris = round((spærLængde/100) * spærAntal * 54.95,2); //meterprisen
         return spærPris;
     }
     public static double remPris(int remLængde, int remAntal){
-        double remPris = remLængde * remAntal * 54.95; //meterprisen
+        double remPris = round((remLængde/100) * remAntal * 54.95,2); //meterprisen
         return remPris;
     }
     public static int beslagSkrueAntal(int længde){
@@ -161,27 +171,15 @@ public class StyklisteBeregner {
     private double amountWoodTotal = (amountWoodL * 2) + (amountWoodW * 2);
     private double priceWoodTotal = (priceWoodL * 2) + (priceWoodW * 2);
 
+    // Dør tilbehør materialer og pris:
+    private double doorPrice = doorAccesPrice();
+
         /*System.out.println("Træ total: "+amountWoodTotal);
         System.out.println("Pris for bræder total: "+priceWoodTotal);
         System.out.println("");
         System.out.println("Skruer total: "+screws);
         System.out.println("Skruer pris total: "+priceScrewsTotal);*/
 
-    // Dør tilbehør pris:
-    public double doorAccesPrice() {
-        double doorAccess = 0.0;
-        if(length !=0 && width !=0) {
-            int angleBracket = 4;
-            int hinge = 2;
-            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
-            // int abScrews = angleBracket * 4;
-            int abScrews = 1;
-            int doorHandle = 1;
-
-            doorAccess = doorAccesPrice(angleBracket, hinge, abScrews, doorHandle);
-        }
-        return doorAccess;
-    }
 
     // For én side - længde, med begge lag
     public double amountLengthWood(double length) {
@@ -275,30 +273,6 @@ public class StyklisteBeregner {
         return amtScrews;
     }
 
-     // @Vibeke
-    public void shed() {
-     // Regnestykke: (b*h*2)+(l*h*2)+dørtilbehør
-     // Antagelser:
-     // Dør i meter
-     double doorH = 2.15;
-     double doorW = 1.0;
-     // Dør vil blive placeret på en bredde side
-
-     // Skur højde i meter
-     double shedH = 2.5;
-
-     // Test mål i meter:
-     double length = 1.80;
-     double width = 2.40;
-     double area = length*width;
-
-     // Wood for walls:
-     double woodPriceM = 22.95;
-     double woodPriceOne = shedH*woodPriceM;
-
-     double wallL1 = length/0.16;
- }
-
     // Mængden af løsholter brædder:
     public double losholter() {
         double amount = 0.0;
@@ -321,19 +295,29 @@ public class StyklisteBeregner {
         return price;
     }
 
-    // Dør tilbehør pris sammenlagt:
-    public double doorAccesPrice(int angleBracket, int hinge, int abScrews, int doorHandle) {
+    // Dør tilbehør pris:
+    public double doorAccesPrice() {
         double price = 0.0;
-        double abPrice = 7.95;
-        double hingePrice = 99.95;
-        double abScrewsPrice = 259.0;
-        double dhPrice = 189.0;
+        if(length !=0 && width !=0) {
+            // Materialer:
+            int angleBracket = 4;
+            int hinge = 2;
+            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
+            // int abScrews = angleBracket * 4;
+            int abScrews = 1;
+            int doorHandle = 1;
 
-        price += abPrice * angleBracket;
-        price += hingePrice * hinge;
-        price += abScrewsPrice * abScrews;
-        price += dhPrice * doorHandle;
+            // Pris:
+            double abPrice = 7.95;
+            double hingePrice = 99.95;
+            double abScrewsPrice = 259.0;
+            double dhPrice = 189.0;
 
+            price += abPrice * angleBracket;
+            price += hingePrice * hinge;
+            price += abScrewsPrice * abScrews;
+            price += dhPrice * doorHandle;
+        }
         return price;
     }
 

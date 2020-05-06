@@ -25,15 +25,15 @@ public class MaterialHelper {
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalSpær = StyklisteBeregner.antalSpær(request.getLength());
         int spærLængde = StyklisteBeregner.længdeSpær(request.getWidth());
-        double spærPris = StyklisteBeregner.spærPris(spærLængde, antalSpær); //Her er det den samlede pris
+        double spærPris = StyklisteBeregner.spærPris(spærLængde, antalSpær); //Her er det den samlede pris på spær
         int antalRemme = 2;
         if(!(request.getLengthS() == 0)){
             antalRemme++;
         }
         double remPris = StyklisteBeregner.remPris(request.getLength(), antalRemme);
-        double beslagPris = antalSpær * 45.95;
+        double beslagPris = StyklisteBeregner.round(antalSpær * 45.95, 2);
         int beslagSkrueAntal = StyklisteBeregner.beslagSkrueAntal(request.getLength());
-        double beslagSkruePris = beslagSkrueAntal * 259;
+        double beslagSkruePris = StyklisteBeregner.round(beslagSkrueAntal * 259,2);
         //int remLængde = reviewReq.getLengthS(); RemlængdeS er jeg lidt i tvivl om
         Material spær = new Material("45x195 mm. spærtræ ubh.", "Spær, monteres på rem",
                 "stk", "Træ", spærLængde, spærPris, antalSpær);
@@ -55,11 +55,13 @@ public class MaterialHelper {
         stykliste.add(beslagSkruer);
 
     }
+
     public static void udregnStolpe(ArrayList<Material> stykliste, Request request) {
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
 
         Material stolper = new Material("97x97 mm. trykimp. Stolpe", "Stolper nedgraves 90 cm. i jord + skråstiver","stk","træ",360, styklisteBeregner.prisStolpe(request) ,styklisteBeregner.stolpeAntal(request));
         stykliste.add(stolper);
+
     }
 }
 
