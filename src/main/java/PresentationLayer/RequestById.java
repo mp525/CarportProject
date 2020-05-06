@@ -18,7 +18,7 @@ public class RequestById extends Command {
         try {
 
             //ArrayList<Request> requestsSolo = RequestMapper.searchIDRequest();
-           // request.setAttribute("requests", requestsSolo);
+
         } catch (Exception e) {
             request.setAttribute("errorDel", e.getMessage() );
             e.printStackTrace();

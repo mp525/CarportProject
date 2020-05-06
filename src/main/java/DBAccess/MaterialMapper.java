@@ -8,7 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MaterialMapper {
+    public static void main(String[] args) {
+        ArrayList<String>materialeNavn =findmaterials();
+        System.out.println(getMatsStykliste(materialeNavn));
 
+    }
     public static void insertFlat(Material mat){
         try {
             Connection con = Connector.connection();
@@ -135,6 +139,7 @@ public class MaterialMapper {
         return matList;
     }
 
+    //får for meget info, overvejer om vi skal bruge det fordi jeg tror jeg har fundet på noget andet
     public static ArrayList<Material> getMatsStykliste(ArrayList<String>materialeNavn){
         ArrayList<Material> materialList = new ArrayList();
         for (int i = 0; i < materialeNavn.size(); i++) {
@@ -142,7 +147,7 @@ public class MaterialMapper {
 
             try {
                 Connection con = Connector.connection();
-                String query = "select ? from materials;";
+                String query = "select * from materials where description = ?";
                 PreparedStatement ps = con.prepareStatement(query);
                 ps.setString(1, materialenavnet);
                 ResultSet rs = ps.executeQuery();
@@ -167,10 +172,10 @@ public class MaterialMapper {
         }
         return materialList;
     }
-    public ArrayList<String> findmaterials(){
+    public static ArrayList<String> findmaterials(){
         ArrayList<String> materials= new ArrayList<>();
         materials.add("97x97 mm. trykimp. Stolpe");
-        materials.add("");
+
         //TBD
         return materials;
     }
