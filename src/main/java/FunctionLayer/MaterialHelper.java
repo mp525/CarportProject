@@ -22,6 +22,7 @@ public class MaterialHelper {
     }
 
     public static void udregnSpær(ArrayList<Material> stykliste, Request request){
+        StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalSpær = StyklisteBeregner.antalSpær(request.getLength());
         int spærLængde = StyklisteBeregner.længdeSpær(request.getWidth());
         double spærPris = StyklisteBeregner.spærPris(spærLængde, antalSpær); //Her er det den samlede pris på spær
@@ -45,6 +46,8 @@ public class MaterialHelper {
         Material beslagSkruer = new Material("4,0x50mm. beslagskruer 250 stk.", "Til montering af universalbeslag " +
                 "+ hulbånd", "pakke", "Beslag og skruer", 0, beslagSkruePris, beslagSkrueAntal);
 
+
+
         stykliste.add(spær);
         stykliste.add(remme);
         stykliste.add(beslagHøjre);
@@ -52,9 +55,13 @@ public class MaterialHelper {
         stykliste.add(beslagSkruer);
 
     }
-    public static void udregnSkur(ArrayList<Material> stykliste, Request request){
 
+    public static void udregnStolpe(ArrayList<Material> stykliste, Request request) {
+        StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
 
+        Material stolper = new Material("97x97 mm. trykimp. Stolpe", "Stolper nedgraves 90 cm. i jord + skråstiver","stk","træ",360, styklisteBeregner.prisStolpe(request) ,styklisteBeregner.stolpeAntal(request));
+        stykliste.add(stolper);
 
     }
 }
+

@@ -31,6 +31,8 @@ public class Review extends Command {
 
         //Spærudregning
         MaterialHelper.udregnSpær(stykliste, reviewReq);
+        MaterialHelper.udregnStolpe(stykliste, reviewReq);
+
 
         double samletPris = 0.0;
         for (Material mat: stykliste) {
