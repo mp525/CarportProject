@@ -96,6 +96,50 @@
 
     </table>
 </div>
+<br>
+<br>
+<h1>Stykliste over forespørgslen</h1>
+<div class="shadow p-3 mb-5 bg-white rounded">
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><p>Materialenavn</p></th>
+            <th><p>Antal</p></th>
+            <th><p>Laengde</p></th>
+            <th><p>Enhed</p></th>
+            <th><p>Beskrivelse</p></th>
+            <th><p>Kategori</p></th>
+            <th><p>Pris</p></th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach var="material" items="${requestScope.stykliste}">
+            <tr>
+                <td> <p>${material.navn}</p></td>
+
+                <td><p>${material.antal}</p></td>
+
+                <td><p>${material.laengde}</p></td>
+
+                <td><p>${material.enhed}</p></td>
+
+                <td><p>${material.beskrivelse}</p></td>
+
+                <td><p>${material.kategori}</p></td>
+
+                <td> <p>${material.pris} kr</p></td>
+            </tr>
+
+        </c:forEach>
+        </tbody>
+    </table>
+
+    <h3>Samlet pris: ${requestScope.samletPris}</h3>
+
+</div>
 
 
 <br>

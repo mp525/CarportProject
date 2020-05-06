@@ -32,7 +32,7 @@ public class Request {
 
     private int findArea(int length, int width) {
         int area = 0;
-        area=length*width;
+        area=(length/100)*(width/100);
         return area;
     }
 

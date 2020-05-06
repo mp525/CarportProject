@@ -31,9 +31,15 @@ public class Review extends Command {
 
         //Spærudregning
         MaterialHelper.udregnSpær(stykliste, reviewReq);
-        
 
+        double samletPris = 0.0;
+        for (Material mat: stykliste) {
+            samletPris += mat.getPris();
+        }
+        samletPris = StyklisteBeregner.round(samletPris,2);
+        request.setAttribute("samletPris", samletPris);
 
+        request.setAttribute("stykliste", stykliste);
 
         return "requestReview";
     }

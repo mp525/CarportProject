@@ -2,9 +2,20 @@ package FunctionLayer;
 
 import sun.security.util.Length;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class StyklisteBeregner {
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
 
     public static int antalSpær(int length) {
         double antal = Math.ceil((length / 55.0)) + 1.0; //length/antalspær (får regning af arne?)
@@ -12,15 +23,14 @@ public class StyklisteBeregner {
         return spær;
     }
     public static int længdeSpær(int width){
-        int længde = 0;
-        // int længde = width;
+        int længde = width;
         /*if (width > 600){
         * længde = (width/2);
         * }
         * Spærlængder må ikke overskride 6m? Er det ligemeget i vores tilfælde, og så bare lave spær
         * længere end 6m? Behøves længdeSpær metoden, hvis spærets længde bare kan være width?
         */
-        switch(width){
+        /*switch(width){
             case 240: længde = 420;
             case 270: længde = 420;
             case 300: længde = 420;
@@ -39,15 +49,15 @@ public class StyklisteBeregner {
             case 690: længde = 600;
             case 720: længde = 600;
             case 750: længde = 600;
-        }
+        }*/
         return længde;
     }
     public static double spærPris(int spærLængde, int spærAntal){
-        double spærPris = spærLængde * spærAntal * 54.95; //meterprisen
+        double spærPris = round((spærLængde/100) * spærAntal * 54.95,2); //meterprisen
         return spærPris;
     }
     public static double remPris(int remLængde, int remAntal){
-        double remPris = remLængde * remAntal * 54.95; //meterprisen
+        double remPris = round((remLængde/100) * remAntal * 54.95,2); //meterprisen
         return remPris;
     }
     public static int beslagSkrueAntal(int længde){
