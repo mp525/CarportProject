@@ -1,9 +1,5 @@
 package FunctionLayer;
 
-import sun.security.util.Length;
-
-import java.util.ArrayList;
-
 public class StyklisteBeregner {
 
     public static int antalSpær(int length) {
@@ -103,9 +99,10 @@ public class StyklisteBeregner {
         return stolpeAntal;
     }
 
-    public void prisStolpe(Request r) {
+    public double prisStolpe(Request r) {
         int antal = stolpeAntal(r);
         double pris = antal * 3.40 * 41.95;
+        return pris;
     }
 
 

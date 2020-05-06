@@ -31,7 +31,7 @@ public class Review extends Command {
 
         //Spærudregning
         MaterialHelper.udregnSpær(stykliste, reviewReq);
-        
+        MaterialHelper.udregnStolpe(stykliste, reviewReq);
 
 
 
