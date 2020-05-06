@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class StyklisteBeregner {
 
     public static int antalSpær(int length) {
-        double antal = Math.round((length / 55.0)) + 1.0;
+        double antal = Math.ceil((length / 55.0)) + 1.0; //length/antalspær (får regning af arne?)
         int spær = (int) antal;
         return spær;
     }

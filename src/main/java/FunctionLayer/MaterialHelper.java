@@ -20,4 +20,8 @@ public class MaterialHelper {
         }
         return slopeSet;
     }
+
+    public static void udregnSpær(ArrayList<Material> stykliste){
+
+    }
 }
