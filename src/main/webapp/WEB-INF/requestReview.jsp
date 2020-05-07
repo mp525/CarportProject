@@ -142,9 +142,9 @@
 </div>
 
 <div class="col" align="center">
-    <form name="TilBilledet" action="FrontController" method="POST">
-        <input type="hidden" name="taget" value="TilBilledet">
-        <input type="submit" value="TilBilledet" class="btn btn-light">
+    <form name="svgdrawing" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="svgdrawing">
+        <input type="submit" value="svgdrawing" class="btn btn-light">
     </form>
 
 <br>
