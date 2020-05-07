@@ -63,5 +63,28 @@ public class MaterialHelper {
         stykliste.add(stolper);
 
     }
+
+    public static void udregnNoget(ArrayList<Material> stykliste, Request request) {
+        StyklisteBeregner stykLB = new StyklisteBeregner();
+
+        double amount = stykLB.amountWood(request.getLengthS(), request.getWidthS());
+
+        Material test = new Material("Alt tilbehør til dør", "En test fordi jeg har dumme metoder", "stk", "Beslag & Skruer",
+                250, stykLB.doorAccesPrice(), stykLB.doorAccesAmt());
+
+        Material wood = new Material("19x100 mm. trykimp. Brædt.", "til beklædning af skur, sider og stern", "stk", "Træ",
+                250, stykLB.priceWood(amount), stykLB.amountWood(request.getLengthS(), request.getWidthS()));
+
+        Material losholterL = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
+                request.getLengthS(), stykLB.priceLosholter(request.getLengthS()), stykLB.losholter()/2);
+
+        Material losholterW = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
+                request.getWidthS(), stykLB.priceLosholter(request.getWidthS()), stykLB.losholter()/2);
+
+        stykliste.add(test);
+        stykliste.add(wood);
+        stykliste.add(losholterL);
+        stykliste.add(losholterW);
+    }
 }
 

@@ -33,6 +33,9 @@ public class Review extends Command {
         MaterialHelper.udregnSpær(stykliste, reviewReq);
         MaterialHelper.udregnStolpe(stykliste, reviewReq);
 
+        //Vibeke test:
+        MaterialHelper.udregnNoget(stykliste, reviewReq);
+
 
         double samletPris = 0.0;
         for (Material mat: stykliste) {
