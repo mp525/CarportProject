@@ -87,8 +87,6 @@ public class StyklisteBeregner {
         //set i brochuren... //Forreste stolper skal være 208 cm. Høje og bagerste skal være 202 cm.
         int width = r.getWidth();
         int length = r.getLength();
-        System.out.println(width);
-        System.out.println(length);
         //bredde
 
         stolpeAntalBcWidth = width / 300;
