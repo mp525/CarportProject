@@ -272,46 +272,27 @@ public class StyklisteBeregner {
         return x;
     }
 
-    // Dør tilbehør mængde test:
-    public int doorAccesAmt() {
-        int amount = 0;
-        if(length !=0 && width !=0) {
-            // Materialer:
-            int angleBracket = 4;
-            int hinge = 2;
-            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
-            // int abScrews = angleBracket * 4;
-            int abScrews = 1;
-            int doorHandle = 1;
-
-            amount += angleBracket + hinge + abScrews + doorHandle;
-        }
-        return amount;
+    public double doorABPrice(int angleBracket) {
+        double abPrice = 7.95;
+        double price = angleBracket * abPrice;
+        return price;
     }
 
-    // Dør tilbehør pris:
-    public double doorAccesPrice() {
-        double price = 0.0;
-        if(length !=0 && width !=0) {
-            // Materialer:
-            int angleBracket = 4;
-            int hinge = 2;
-            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
-            // int abScrews = angleBracket * 4;
-            int abScrews = 1;
-            int doorHandle = 1;
+    public double doorHPrice(int hinge) {
+        double hingePrice = 99.95;
+        double price = hinge * hingePrice;
+        return price;
+    }
 
-            // Pris:
-            double abPrice = 7.95;
-            double hingePrice = 99.95;
-            double abScrewsPrice = 259.0;
-            double dhPrice = 189.0;
+    public double doorABScrewPrice(int abScrews) {
+        double abScrewsPrice = 259.0;
+        double price = abScrews * abScrewsPrice;
+        return price;
+    }
 
-            price += abPrice * angleBracket;
-            price += hingePrice * hinge;
-            price += abScrewsPrice * abScrews;
-            price += dhPrice * doorHandle;
-        }
+    public double doorHandlePrice(int doorHandle) {
+        double dhPrice = 189.0;
+        double price = doorHandle * dhPrice;
         return price;
     }
 
