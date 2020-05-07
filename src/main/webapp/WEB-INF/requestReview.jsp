@@ -141,6 +141,11 @@
 
 </div>
 
+<div class="col" align="center">
+    <form name="TilBilledet" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="TilBilledet">
+        <input type="submit" value="TilBilledet" class="btn btn-light">
+    </form>
 
 <br>
 <div class="col" align="center">

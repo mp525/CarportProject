@@ -3,21 +3,25 @@ package PresentationLayer;
 import DBAccess.RequestMapper;
 import FunctionLayer.*;
 
-import javax.crypto.Mac;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
+
 import java.util.ArrayList;
+
 
 public class Review extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         ArrayList<Material> stykliste = new ArrayList();
-
+        HttpSession s = request.getSession();
         String reqIDBefore = request.getParameter("reqID");
         String reqIDAfter = reqIDBefore.replace("Se forespoergsel ", "");
         int reqID = Integer.parseInt(reqIDAfter);
         Request reviewReq = RequestMapper.searchIDRequest(reqID);
+        s.setAttribute("reviewReq", reviewReq);
 
         request.setAttribute("reviewEmail", reviewReq.getEmail());
         request.setAttribute("reviewLength", reviewReq.getLength());
