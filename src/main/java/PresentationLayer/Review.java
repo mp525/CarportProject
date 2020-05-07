@@ -3,6 +3,7 @@ package PresentationLayer;
 import DBAccess.RequestMapper;
 import FunctionLayer.*;
 
+import javax.crypto.Mac;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -31,10 +32,11 @@ public class Review extends Command {
         //Spærudregning
         MaterialHelper.udregnSpær(stykliste, reviewReq);
         MaterialHelper.udregnStolpe(stykliste, reviewReq);
+        MaterialHelper.udregnTagDele(stykliste, reviewReq);
+
 
         //Vibeke test:
         MaterialHelper.udregnSkur(stykliste, reviewReq);
-
 
         double samletPris = 0.0;
         for (Material mat: stykliste) {
