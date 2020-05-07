@@ -53,7 +53,7 @@ public class Drawing extends Command {
         svg.addRect(0,35,lengthS,widthS);
         svg.addRect(0,565,4,780);
         request.setAttribute("svgdrawing", svg.toString());
-        return "drawing";
+        return "Drawing";
 
 //in progress...
 
