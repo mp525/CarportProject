@@ -41,8 +41,20 @@ public class UserMapperTest {
                 stmt.execute( "drop table if exists materials" );
                 stmt.execute( "create table materials like carbase.materials" );
                 stmt.execute( "insert into materials select * from carbase.materials" );
+
+                stmt.execute( "drop table if exists matflat" );
+                stmt.execute( "create table matflat like carbase.matflat" );
+                stmt.execute( "insert into matflat select * from carbase.matflat" );
+
+                stmt.execute( "drop table if exists matslope" );
+                stmt.execute( "create table matslope like carbase.matslope" );
+                stmt.execute( "insert into matslope select * from carbase.matslope" );
+
+
                 Material m = new Material("Super sejt materiale", "kan bruges på alt", "stk", "træ", 200, 25);
                 insertMat(m);
+                insertFlat(m);
+                insertSlope(m);
             }
 
         } catch ( ClassNotFoundException | SQLException ex ) {
@@ -70,37 +82,36 @@ public class UserMapperTest {
 
         assertTrue(getMats().contains("Super ikke sejt materiale"));
 
-        System.out.println("Materialer kan sættes ind");
     }
-/*
+
 
     @Test
-    public void testLogin01() throws LoginSampleException {
-        // Can we log in
-        User user = UserMapper.login( "jens@somewhere.com", "jensen" );
-        assertTrue( user != null );
+    public void testOmslopeKanKommeInd(){
+
+        assertTrue(getMats().contains("Super sejt materiale"));
+
+        System.out.println("Matslope kan sættes ind");
+    }
+    @Test (expected = java.lang.AssertionError.class)
+    public void testOmslopeTagKanKommeIndNegativ(){
+
+        assertTrue(getMats().contains("Super ikke sejt materiale"));
+
     }
 
-    @Test( expected = LoginSampleException.class )
-    public void testLogin02() throws LoginSampleException {
-        // We should get an exception if we use the wrong password
-        User user = UserMapper.login( "jens@somewhere.com", "larsen" );
-    }
-
-    @Test
-    public void testLogin03() throws LoginSampleException {
-        // Jens is supposed to be a customer
-        User user = UserMapper.login( "jens@somewhere.com", "jensen" );
-        assertEquals( "customer", user.getRole() );
-    }
 
     @Test
-    public void testCreateUser01() throws LoginSampleException {
-        // Can we create a new user - Notice, if login fails, this will fail
-        // but so would login01, so this is OK
-        User original = new User( "king@kong.com", "uhahvorhemmeligt", "konge" );
-        UserMapper.createUser( original );
-        User retrieved = UserMapper.login( "king@kong.com", "uhahvorhemmeligt" );
-        assertEquals( "konge", retrieved.getRole() );
-    }*/
+    public void testOmfladtKanKommeInd(){
+
+        assertTrue(getMats().contains("Super sejt materiale"));
+
+        System.out.println("Matfladt kan sættes ind");
+    }
+    @Test (expected = java.lang.AssertionError.class)
+    public void testOmfladtKanKommeIndNegativ(){
+
+        assertTrue(getMats().contains("Super ikke sejt materiale"));
+
+    }
+
 }

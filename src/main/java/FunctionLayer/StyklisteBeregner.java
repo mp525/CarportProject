@@ -1,10 +1,7 @@
 package FunctionLayer;
-import sun.security.util.Length;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class StyklisteBeregner {
 
@@ -125,40 +122,31 @@ public class StyklisteBeregner {
     // Dør i meter
     private double doorH = 2.15;
     private double doorW = 1.0;
+    private Request req;
 
     // Skur højde i meter
     private double shedH = 2.5;
 
     // Test mål i meter:
-    private double length = 1.80;
-    private double width = 2.40;
+    // Obsolete !!
+    private int length = 180;
+    private int width = 240;
 
     // Pris for et bræt:
     private double woodPriceM = 22.95;
     private double woodPriceOne = shedH * woodPriceM;
 
     // Brædder til længden (en side) af skuret
-    private double amountWoodL = amountLengthWood(length);
-    private double priceWoodL = priceLengthWood(amountWoodL, woodPriceOne);
-
-        /*System.out.println("Vi skal bruge: "+amountWoodL +" bræder til en side længde");
-        System.out.println("Det vil koste: "+priceWoodL +" kr.");*/
+    private double amountWoodL = amountWood(length, width);
+    private double priceWoodL = priceWood(amountWoodL);
 
     //Brædder til bredden (en side) af skuret
-    private double amountWoodW = amountWidthWood(width);
+    private double amountWoodW = amountWidthWood(shedH);
     private double priceWoodW = priceWidthWood(amountWoodW, woodPriceOne);
 
-        /*System.out.println("Vi skal bruge: "+amountWoodW +" bræder til en side bredde");
-        System.out.println("Det vil koste: "+priceWoodW +" kr.");
-        System.out.println("");*/
-
     // Løsholter:
-    private double amountLos = losholter();
-    private double priceLos = priceLosholter(length, width);
-
-        /*System.out.println("Løsholter antal brædder: "+amountLos);
-        System.out.println("Løsholter pris: "+priceLos);
-        System.out.println("");*/
+    private int amountLos = losholter();
+    private double priceLos = priceLosholter(length);
 
     // Antal skruer til brædderne og pris:
     public double beregnSkruer() {
@@ -174,66 +162,68 @@ public class StyklisteBeregner {
     private double amountWoodTotal = (amountWoodL * 2) + (amountWoodW * 2);
     private double priceWoodTotal = (priceWoodL * 2) + (priceWoodW * 2);
 
-        /*System.out.println("Træ total: "+amountWoodTotal);
-        System.out.println("Pris for bræder total: "+priceWoodTotal);
-        System.out.println("");
-        System.out.println("Skruer total: "+screws);
-        System.out.println("Skruer pris total: "+priceScrewsTotal);*/
+    // Dør tilbehør materialer og pris:
+    private double doorPrice = doorAccesPrice();
 
-    // Dør tilbehør pris:
-    public double doorAccesPrice() {
-        double doorAccess = 0.0;
-        if(length !=0 && width !=0) {
-            int angleBracket = 4;
-            int hinge = 2;
-            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
-            // int abScrews = angleBracket * 4;
-            int abScrews = 1;
-            int doorHandle = 1;
-
-            doorAccess = doorAccesPrice(angleBracket, hinge, abScrews, doorHandle);
-        }
-        return doorAccess;
-    }
-
-    // For én side - længde, med begge lag
-    public double amountLengthWood(double length) {
-        // Bræder og afstand mellem dem:
-        double woodWidth = 0.10;
-        double distanceBetWood = 0.06;
+    // Brædder for væggene:
+    public int amountWood(int length, int width) {
+        // Bræder bredde og afstand mellem dem i cm:
+        double woodWidth = 10.0;
+        double distanceBetWood = 6.0;
 
         double wallL = length / (woodWidth + distanceBetWood);
-        double rest = wallL % 1;
+        double restL = wallL%1;
+        double wallW = width / (woodWidth + distanceBetWood);
+        double restW = wallW%1;
 
-        //System.out.println("wallL: " + wallL);
-        //System.out.println("rest: " + rest);
-
-        // Inderste lag:
-        double lag1;
-        if (rest != 0) {
-            double addOn = 1 - rest;
-            lag1 = wallL + addOn;
+        // Inderste lag for længde:
+        double lag1L;
+        if(restL != 0) {
+            double addOn = 1 - restL;
+            lag1L = wallL + addOn;
         } else {
-            lag1 = wallL;
+            lag1L = wallL;
         }
 
-        // Yderste lag:
-        double lag2 = lag1 - 1;
+        // Yderste lag for længde:
+        double lag2L = lag1L - 1;
+
+
+        // Inderste lag for bredde:
+        double lag1W;
+        if(restW != 0) {
+            double addOn = 1 - restW;
+            lag1W = wallW + addOn;
+        } else {
+            lag1W = wallW;
+        }
+
+        // Yderste lag for bredde:
+        double lag2W = lag1W - 1;
+
 
         // Brædder ialt:
-        double ialt = lag1 + lag2;
+        int ialt = 0;
+        ialt += (lag1L + lag2L)*2;
+        ialt += (lag1W + lag2W)*2;
 
         return ialt;
     }
 
     // Pris for en af længde siderne, begge lag:
-    public double priceLengthWood(double amountWoodL, double woodPriceOne) {
-        double price = amountWoodL * woodPriceOne;
+    public double priceWood(double amount) {
+        double shedH = 2.5;
+        double woodPriceM = 22.95;
+        // Pris for ét bræt med shedH længde:
+        double woodPriceOne = shedH * woodPriceM;
+
+        double price = amount * woodPriceOne;
 
         return price;
     }
 
     // For én side - bredde, med begge lag
+    // Obsolete!!
     public double amountWidthWood(double width) {
         // Bræder og afstand mellem dem:
         double woodWidth = 0.10;
@@ -264,6 +254,7 @@ public class StyklisteBeregner {
     }
 
     // Pris for en af bredde siderne, begge lag:
+    // Obsolete !!
     public double priceWidthWood(double amountWoodW, double woodPriceOne) {
         double price = amountWoodW * woodPriceOne;
 
@@ -288,33 +279,9 @@ public class StyklisteBeregner {
         return amtScrews;
     }
 
-     // @Vibeke
-    public void shed() {
-     // Regnestykke: (b*h*2)+(l*h*2)+dørtilbehør
-     // Antagelser:
-     // Dør i meter
-     double doorH = 2.15;
-     double doorW = 1.0;
-     // Dør vil blive placeret på en bredde side
-
-     // Skur højde i meter
-     double shedH = 2.5;
-
-     // Test mål i meter:
-     double length = 1.80;
-     double width = 2.40;
-     double area = length*width;
-
-     // Wood for walls:
-     double woodPriceM = 22.95;
-     double woodPriceOne = shedH*woodPriceM;
-
-     double wallL1 = length/0.16;
- }
-
     // Mængden af løsholter brædder:
-    public double losholter() {
-        double amount = 0.0;
+    public int losholter() {
+        int amount = 0;
 
         amount += 4 * 3;
 
@@ -322,31 +289,76 @@ public class StyklisteBeregner {
     }
 
     // Prisen for løsholter brædder:
-    public double priceLosholter(double length, double width) {
+    public double priceLosholter(int length) {
         double price = 0.0;
         double priceM = 59.95;
 
-        double priceLengthWood = (length * priceM) * 3;
-        double priceWidthWood = (width * priceM) * 3;
+        double lengthM = length / 100;
 
-        price += (priceLengthWood * 2) + (priceWidthWood * 2);
+        double priceLengthWood = (lengthM * priceM) * 3;
+        //double priceWidthWood = (width * priceM) * 3;
+
+        price += (priceLengthWood * 2);
 
         return price;
     }
 
-    // Dør tilbehør pris sammenlagt:
-    public double doorAccesPrice(int angleBracket, int hinge, int abScrews, int doorHandle) {
+    // Prisen for løsholter brædder:
+    // Obsolete !!
+    public double priceLosholterW(int width) {
         double price = 0.0;
-        double abPrice = 7.95;
-        double hingePrice = 99.95;
-        double abScrewsPrice = 259.0;
-        double dhPrice = 189.0;
+        double priceM = 59.95;
 
-        price += abPrice * angleBracket;
-        price += hingePrice * hinge;
-        price += abScrewsPrice * abScrews;
-        price += dhPrice * doorHandle;
+        double widthM = width / 100;
 
+        //double priceLengthWood = (length * priceM) * 3;
+        double priceWidthWood = (widthM * priceM) * 3;
+
+        price += (priceWidthWood * 2);
+
+        return price;
+    }
+
+    // Dør tilbehør mængde test:
+    public int doorAccesAmt() {
+        int amount = 0;
+        if(length !=0 && width !=0) {
+            // Materialer:
+            int angleBracket = 4;
+            int hinge = 2;
+            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
+            // int abScrews = angleBracket * 4;
+            int abScrews = 1;
+            int doorHandle = 1;
+
+            amount += angleBracket + hinge + abScrews + doorHandle;
+        }
+        return amount;
+    }
+
+    // Dør tilbehør pris:
+    public double doorAccesPrice() {
+        double price = 0.0;
+        if(length !=0 && width !=0) {
+            // Materialer:
+            int angleBracket = 4;
+            int hinge = 2;
+            // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
+            // int abScrews = angleBracket * 4;
+            int abScrews = 1;
+            int doorHandle = 1;
+
+            // Pris:
+            double abPrice = 7.95;
+            double hingePrice = 99.95;
+            double abScrewsPrice = 259.0;
+            double dhPrice = 189.0;
+
+            price += abPrice * angleBracket;
+            price += hingePrice * hinge;
+            price += abScrewsPrice * abScrews;
+            price += dhPrice * doorHandle;
+        }
         return price;
     }
 
