@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
+
 import java.util.ArrayList;
 
 
@@ -35,6 +36,8 @@ public class Review extends Command {
 
         //Spærudregning
         MaterialHelper.udregnSpær(stykliste, reviewReq);
+
+        //Stopleudregning
         MaterialHelper.udregnStolpe(stykliste, reviewReq);
         MaterialHelper.udregnTagDele(stykliste, reviewReq);
 
