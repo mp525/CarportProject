@@ -147,10 +147,11 @@ public class StyklisteBeregner {
     private double priceLos = priceLosholter(length);
 
     // Antal skruer til brædderne og pris:
+    // Obsolete !!
     public double beregnSkruer() {
         double screws = 0.0;
-        screws += amountScrews(amountWoodL) *2;
-        screws += amountScrews(amountWoodW) *2;
+        screws += amountScrewsInner(amountWoodL) *2;
+        screws += amountScrewsInner(amountWoodW) *2;
         return screws;
     }
     private double screws = beregnSkruer();
@@ -259,20 +260,32 @@ public class StyklisteBeregner {
         return price;
     }
 
-    // Mængden af skruer der skal bruges:
-    public double amountScrews(double amountWood) {
-        double amtScrews = 0.0;
+    // Mængden af skruer der skal bruges til lag 1:
+    public int amountScrewsInner(double amountWood) {
+        int amtScrews = 0;
+        double innerLayer = (amountWood / 2);
 
-        double innerLayer = (amountWood / 2) + 0.5;
-        double outerLayer = (amountWood / 2) - 0.5;
+        if(innerLayer != (int)innerLayer) {
+            innerLayer = Math.ceil(innerLayer);
+        }
 
         double amtScrewsInner = innerLayer * 3;
+        amtScrews += amtScrewsInner;
+
+        return amtScrews;
+    }
+
+    // Mængden af skruer der skal bruges til lag 2:
+    public int amountScrewsOuter(double amountWood) {
+        int amtScrews = 0;
+        double outerLayer = (amountWood / 2);
+
+        if(outerLayer != (int)outerLayer) {
+            outerLayer = Math.ceil(outerLayer);
+        }
+
         double amtScrewsOuter = outerLayer * 6;
-
-        //System.out.println(amtScrewsInner);
-        //System.out.println(amtScrewsOuter);
-
-        amtScrews += amtScrewsInner + amtScrewsOuter;
+        amtScrews += amtScrewsOuter;
 
         return amtScrews;
     }
@@ -298,7 +311,9 @@ public class StyklisteBeregner {
 
         price += (priceLengthWood * 2);
 
-        return price;
+        double x = round(price, 2);
+
+        return x;
     }
 
     // Prisen for løsholter brædder:
@@ -363,11 +378,12 @@ public class StyklisteBeregner {
     // Pris for skruerne:
     // En tredjedel cirka går til de inderste brædder, resten til de yderste
     public double priceScrews(double screws) {
-        double innerScrews = screws / 3;
-        double outerScrews = innerScrews * 2;
+        int innerScrews = (int)(screws / 3);
+        int outerScrews = (int)(innerScrews * 2);
 
         double priceScrewsTotal = 0.0;
 
+        // Max is 600 screws!
         if (innerScrews <= 300) {
             double inScrPrice = 99.95;
             int inScrAmt = 1;
@@ -376,27 +392,381 @@ public class StyklisteBeregner {
             double inScrPrice = 109.95;
             int inScrAmt = 1;
             priceScrewsTotal += inScrPrice * inScrAmt;
-        } else if (innerScrews >= 351) {
+        } else if (351 <= innerScrews && innerScrews <= 600) {
             double inScrPrice = 99.95;
             int inScrAmt = 2;
             priceScrewsTotal += inScrPrice * inScrAmt;
         }
 
-        if (outerScrews <= 300) {
-            double inScrPrice = 99.95;
-            int inScrAmt = 1;
-            priceScrewsTotal += inScrPrice * inScrAmt;
-        } else if (301 <= outerScrews && outerScrews <= 350) {
-            double inScrPrice = 109.95;
-            int inScrAmt = 1;
-            priceScrewsTotal += inScrPrice * inScrAmt;
-        } else if (outerScrews >= 351) {
-            double inScrPrice = 99.95;
-            int inScrAmt = 2;
-            priceScrewsTotal += inScrPrice * inScrAmt;
+        // Max is 1200 screws!
+        if (outerScrews <= 200) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 1;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (201 <= outerScrews && outerScrews <= 400) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 2;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (401 <= outerScrews && outerScrews <= 600) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 3;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (601 <= outerScrews && outerScrews <= 800) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 4;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (801 <= outerScrews && outerScrews <= 1000) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 5;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (1001 <= outerScrews && outerScrews <= 1200) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 6;
+            priceScrewsTotal += outScrPrice * outScrAmt;
         }
 
         return priceScrewsTotal;
     }
+
+    // Tag Beregner 33000
+
+
+    public static int roofPlateLengths(Request req) {
+        // I antagelse af at der anvendes plader på L.600 W.109, derfor
+
+
+        int Mat = 0;
+        String tagmat = req.getRoofmat();
+
+
+        switch (tagmat) {
+
+            case "Plasttrapezplader":
+                Mat = 600;
+            case "StÃ¥ltag":
+                Mat = 250;
+            case "Tagpap":
+                Mat = 750;
+        }
+
+
+
+        return Mat;
+    }
+
+
+    public static int numRofPlatesSingls(Request req) {
+        // I antagelse af at der anvendes plader på L.600 W.109, derfor
+
+        double l = req.getLength();
+        double w = req.getWidth();
+        double LnW = l * w;
+        String tagmat = req.getRoofmat();
+
+        int LTW = 0;
+        // tallet 65400 er længde gange bredde af plastplade, altså 600 * 109
+
+        //Anvender den største af hver slags plade lige pt
+        switch (tagmat) {
+
+            case "Plasttrapezplader":
+                LTW = 600 * 109;
+            case "StÃ¥ltag":
+                LTW = 250 * 105;
+            case "Tagpap":
+                LTW = 750 * 60;
+        }
+        double stks = LnW / LTW;
+
+        int Pladtal = (int) Math.ceil(stks);
+        return Pladtal;
+    }
+
+
+
+    public static double roofMatPrice(Request req){
+
+
+        double l = req.getLength();
+        double w = req.getWidth();
+        double LnW = l * w;
+        String tagmat = req.getRoofmat();
+        double LTW = 0.0;
+        double stks = 0;
+
+        double PladTal = 0;
+        double PladPris = 0;
+
+
+        switch (tagmat) {
+
+            case "Plasttrapezplader":
+                LTW = 600.0 * 109.0;
+                stks = LnW / LTW;
+                PladTal = Math.ceil(stks);
+                PladPris = PladTal * 250.0;
+                break;
+            case "Ståltag":
+                LTW = 250.0 * 105.0;
+                stks = LnW / LTW;
+                PladTal = Math.ceil(stks);
+                PladPris = PladTal * 239.0;
+                break;
+            case "Tagpap":
+                LTW = 750.0 * 60.0;
+                stks = LnW / LTW;
+                PladTal = Math.ceil(stks);
+                PladPris = PladTal * 299.0;
+                break;
+        }
+        return PladPris;
+
+    }
+
+    public static int numOfRofScrews(Request req) {
+
+        double l = req.getLength();
+        double w = req.getWidth();
+        double LcW = l + w;
+
+        int Rscrews = (int) (LcW / 460);
+
+        if (Rscrews < 1) {
+            Rscrews = 1;
+        }
+
+        return Rscrews;
+    }
+
+    public static double RofScrewPrice(Request req) {
+
+        double l = req.getLength();
+        double w = req.getWidth();
+        double LcW = l + w;
+
+        int Rscrews = (int) (LcW / 460);
+
+        if (Rscrews < 1) {
+            Rscrews = 1;
+        }
+
+        double ScrPrice = 409.0 * Rscrews;
+
+        return ScrPrice;
+    }
+
+
+
+    public static int Cal25x200x300FnB(Request req) {
+        // for the front and back stern, here i have taken the smallest as examples
+        //Taken from the example of 780 x 600, and here using the 25x200x300
+        int max = 600;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+
+        if (w < quart){
+            return 1;
+        } else if (w >= quart && w <= half){
+            return 2;
+        }else if (w >= half && w <= max){
+            return 4;
+        }else { return 4;
+        }
+    }
+
+    public static double Cal25x200x300FnBPrice(Request req) {
+        // for the front and back stern, here i have taken the smallest as examples
+        //Taken from the example of 780 x 600, and here using the 25x200x300
+        int max = 600;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        double pricePlank = 33.95;
+
+        if (w < quart){
+            return pricePlank;
+        } else if (w >= quart && w <= half){
+            pricePlank = pricePlank * 2;
+            return pricePlank;
+        }else if (w >= half && w <= max){
+            pricePlank = pricePlank * 4;
+            return pricePlank;
+        }else {
+            return pricePlank;
+        }
+    }
+
+
+
+
+    public static int Cal25x125x300Front(Request req) {
+        // it calculates via a number of 300, because it will measure so it fits the length. Using
+
+        int max = 780;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfPlanks = 0;
+
+        if(w <= 300){
+            numbOfPlanks = 1;
+        } else if (w > 300 && w <= 600){
+            numbOfPlanks = 2;
+        } else if (w>600){
+            numbOfPlanks = 3;
+        }
+        return  numbOfPlanks;
+    }
+
+    public static double Cal25x125x300FrontPrice(Request req) {
+        // it calculates via a number of 300, because it will measure so it fits the length. Using
+
+        int max = 780;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfPlanks = 0;
+        double pricePlank = 27.95;
+
+        if(w <= 300){
+            return pricePlank;
+        } else if (w > 300 && w <= 600){
+            pricePlank = pricePlank * 2;
+            return pricePlank;
+        } else if (w>600){
+            pricePlank = pricePlank * 3;
+            return pricePlank;
+        }
+        return pricePlank;
+    }
+
+    public static int Cal25x125x360Sides(Request req) {
+        // it calculates via a number of 300, because it will measure so it fits the length. Using
+
+        int max = 600;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfPlanks = 0;
+
+        if(w <= 300){
+            numbOfPlanks = 2;
+        } else if (w > 300 && w <= 600){
+            numbOfPlanks = 4;
+        } else if (w>600){
+            numbOfPlanks = 6;
+        }
+        return  numbOfPlanks;
+    }
+
+    public static double Cal25x125x360SidesPrice(Request req) {
+        // it calculates via a number of 300, because it will measure so it fits the length. Using
+
+        int max = 600;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfPlanks = 2;
+        double pricePlank = 27.95;
+
+        if(w <= 300){
+            pricePlank = pricePlank * 2;
+        } else if (w > 300 && w <= 600){
+            pricePlank = pricePlank * 4;
+        } else if (w>600){
+            pricePlank = pricePlank * 6;
+        }
+        return pricePlank;
+    }
+
+    public static int CaL19x100x480(Request req){
+
+        // Lige pt, formodes det at brugeren saver til på matrialerne.
+        int max = 600;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfPlanks = 0;
+
+        if(w <= half){
+            numbOfPlanks = 1;
+        } else if (w > half && w <= max){
+            numbOfPlanks = 2;
+        } else if (w>half){
+            numbOfPlanks = 5;
+        }
+        return numbOfPlanks;
+    }
+
+    public static double CaL19x100x480Price(Request req){
+
+        // Lige pt, formodes det at brugeren saver til på matrialerne.
+        int max = 600;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfPlanks = 0;
+        double pricePlank = 22.95;
+
+        if(w <= half){
+            numbOfPlanks = 1;
+            pricePlank = 22.95 * numbOfPlanks;
+        } else if (w > half && w <= max){
+            numbOfPlanks = 2;
+            pricePlank = 22.95 * numbOfPlanks;
+        } else if (w>half){
+            numbOfPlanks = 5;
+            pricePlank = 22.95 * numbOfPlanks;
+        }
+        return pricePlank;
+    }
+
+    public static int CaL19x100x420Forend(Request req){
+
+        // Lige pt, formodes det at brugeren saver til på matrialerne.
+        //Der bruges her 19x100x420
+        int max = 780;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfFlanks = 0;
+
+        if(w <= 325){
+            numbOfFlanks = 1;
+        } else if (w > 325 && w <= 600){
+            numbOfFlanks = 2;
+        } else if (w>600){
+            numbOfFlanks = 2;
+        }
+        return numbOfFlanks;
+    }
+
+
+    public static double CaL19x100x420ForendPrice(Request req){
+
+        // Lige pt, formodes det at brugeren saver til på matrialerne.
+        //Der bruges her 19x100x420
+        int max = 780;
+        int half = max / 2;
+        int quart = half / 2;
+        double w = req.getWidth();
+        int numbOfFlanks = 0;
+        double pricePlank = 22.95;
+
+        if(w <= 325){
+            numbOfFlanks = 1;
+
+        } else if (w > 325 && w <= 600){
+            numbOfFlanks = 2;
+        } else if (w>600){
+            numbOfFlanks = 2;
+        }
+
+        pricePlank = pricePlank * numbOfFlanks;
+
+        return pricePlank;
+    }
+
 
 }

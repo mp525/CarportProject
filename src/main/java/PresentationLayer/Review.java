@@ -3,11 +3,11 @@ package PresentationLayer;
 import DBAccess.RequestMapper;
 import FunctionLayer.*;
 
+import javax.crypto.Mac;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Review extends Command {
     @Override
@@ -35,10 +35,11 @@ public class Review extends Command {
 
         //Stopleudregning
         MaterialHelper.udregnStolpe(stykliste, reviewReq);
+        MaterialHelper.udregnTagDele(stykliste, reviewReq);
+
 
         //Vibeke test:
-        MaterialHelper.udregnNoget(stykliste, reviewReq);
-
+        MaterialHelper.udregnSkur(stykliste, reviewReq);
 
         double samletPris = 0.0;
         for (Material mat: stykliste) {
