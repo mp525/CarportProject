@@ -45,8 +45,6 @@
             </thead>
             <tbody>
 
-
-             <%--   <td valign="top"> --%>
                     <c:forEach var="requezt" items="${requestScope.requests}">
              <tr>
                  <td>
@@ -56,15 +54,15 @@
                  </form>
                  </td>
                         <td>${requezt.email}</td>
-                        <td>${requezt.width}</td>
-                        <td>${requezt.length}</td>
+                        <td>${requezt.width} m</td>
+                        <td>${requezt.length} m</td>
                         <td>${requezt.cladding}</td>
                         <td>${requezt.rooftype}</td>
-                        <td>${requezt.area}</td>
+                        <td>${requezt.area} m^2</td>
                         <td>${requezt.roofmat}</td>
                         <td>${requezt.slopeangle}</td>
-                        <td>${requezt.lengthS}</td>
-                        <td>${requezt.widthS}</td>
+                        <td>${requezt.lengthS} m</td>
+                        <td>${requezt.widthS} m</td>
              </tr>
                     </c:forEach>
             </tbody>
