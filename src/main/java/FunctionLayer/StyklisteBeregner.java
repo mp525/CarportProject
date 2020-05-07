@@ -149,10 +149,11 @@ public class StyklisteBeregner {
     private double priceLos = priceLosholter(length);
 
     // Antal skruer til brædderne og pris:
+    // Obsolete !!
     public double beregnSkruer() {
         double screws = 0.0;
-        screws += amountScrews(amountWoodL) *2;
-        screws += amountScrews(amountWoodW) *2;
+        screws += amountScrewsInner(amountWoodL) *2;
+        screws += amountScrewsInner(amountWoodW) *2;
         return screws;
     }
     private double screws = beregnSkruer();
@@ -261,20 +262,32 @@ public class StyklisteBeregner {
         return price;
     }
 
-    // Mængden af skruer der skal bruges:
-    public double amountScrews(double amountWood) {
-        double amtScrews = 0.0;
+    // Mængden af skruer der skal bruges til lag 1:
+    public int amountScrewsInner(double amountWood) {
+        int amtScrews = 0;
+        double innerLayer = (amountWood / 2);
 
-        double innerLayer = (amountWood / 2) + 0.5;
-        double outerLayer = (amountWood / 2) - 0.5;
+        if(innerLayer != (int)innerLayer) {
+            innerLayer = Math.ceil(innerLayer);
+        }
 
         double amtScrewsInner = innerLayer * 3;
+        amtScrews += amtScrewsInner;
+
+        return amtScrews;
+    }
+
+    // Mængden af skruer der skal bruges til lag 2:
+    public int amountScrewsOuter(double amountWood) {
+        int amtScrews = 0;
+        double outerLayer = (amountWood / 2);
+
+        if(outerLayer != (int)outerLayer) {
+            outerLayer = Math.ceil(outerLayer);
+        }
+
         double amtScrewsOuter = outerLayer * 6;
-
-        //System.out.println(amtScrewsInner);
-        //System.out.println(amtScrewsOuter);
-
-        amtScrews += amtScrewsInner + amtScrewsOuter;
+        amtScrews += amtScrewsOuter;
 
         return amtScrews;
     }
@@ -300,7 +313,9 @@ public class StyklisteBeregner {
 
         price += (priceLengthWood * 2);
 
-        return price;
+        double x = round(price, 2);
+
+        return x;
     }
 
     // Prisen for løsholter brædder:
@@ -365,11 +380,12 @@ public class StyklisteBeregner {
     // Pris for skruerne:
     // En tredjedel cirka går til de inderste brædder, resten til de yderste
     public double priceScrews(double screws) {
-        double innerScrews = screws / 3;
-        double outerScrews = innerScrews * 2;
+        int innerScrews = (int)(screws / 3);
+        int outerScrews = (int)(innerScrews * 2);
 
         double priceScrewsTotal = 0.0;
 
+        // Max is 600 screws!
         if (innerScrews <= 300) {
             double inScrPrice = 99.95;
             int inScrAmt = 1;
@@ -378,24 +394,37 @@ public class StyklisteBeregner {
             double inScrPrice = 109.95;
             int inScrAmt = 1;
             priceScrewsTotal += inScrPrice * inScrAmt;
-        } else if (innerScrews >= 351) {
+        } else if (351 <= innerScrews && innerScrews <= 600) {
             double inScrPrice = 99.95;
             int inScrAmt = 2;
             priceScrewsTotal += inScrPrice * inScrAmt;
         }
 
-        if (outerScrews <= 300) {
-            double inScrPrice = 99.95;
-            int inScrAmt = 1;
-            priceScrewsTotal += inScrPrice * inScrAmt;
-        } else if (301 <= outerScrews && outerScrews <= 350) {
-            double inScrPrice = 109.95;
-            int inScrAmt = 1;
-            priceScrewsTotal += inScrPrice * inScrAmt;
-        } else if (outerScrews >= 351) {
-            double inScrPrice = 99.95;
-            int inScrAmt = 2;
-            priceScrewsTotal += inScrPrice * inScrAmt;
+        // Max is 1200 screws!
+        if (outerScrews <= 200) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 1;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (201 <= outerScrews && outerScrews <= 400) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 2;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (401 <= outerScrews && outerScrews <= 600) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 3;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (601 <= outerScrews && outerScrews <= 800) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 4;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (801 <= outerScrews && outerScrews <= 1000) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 5;
+            priceScrewsTotal += outScrPrice * outScrAmt;
+        } else if (1001 <= outerScrews && outerScrews <= 1200) {
+            double outScrPrice = 199.0;
+            int outScrAmt = 6;
+            priceScrewsTotal += outScrPrice * outScrAmt;
         }
 
         return priceScrewsTotal;

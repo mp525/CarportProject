@@ -64,10 +64,12 @@ public class MaterialHelper {
 
     }
 
-    public static void udregnNoget(ArrayList<Material> stykliste, Request request) {
+    public static void udregnSkur(ArrayList<Material> stykliste, Request request) {
         StyklisteBeregner stykLB = new StyklisteBeregner();
 
-        double amount = stykLB.amountWood(request.getLengthS(), request.getWidthS());
+        int amount = stykLB.amountWood(request.getLengthS(), request.getWidthS());
+        int screwAmtIn = stykLB.amountScrewsInner(amount);
+        int screwAmtOut = stykLB.amountScrewsOuter(amount);
 
         Material test = new Material("Alt tilbehør til dør", "En test fordi jeg har dumme metoder", "stk", "Beslag & Skruer",
                 250, stykLB.doorAccesPrice(), stykLB.doorAccesAmt());
@@ -81,10 +83,18 @@ public class MaterialHelper {
         Material losholterW = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
                 request.getWidthS(), stykLB.priceLosholter(request.getWidthS()), stykLB.losholter()/2);
 
+        Material skruerIndre = new Material("SkruerIndre", "Skruer bes", "pakke", "Skruer",
+                5, stykLB.priceScrews(screwAmtIn), screwAmtIn);
+
+        Material skruerYdre = new Material("SkruerYdre", "Skruer bes", "pakke", "Skruer",
+                5, stykLB.priceScrews(screwAmtOut), screwAmtOut);
+
         stykliste.add(test);
         stykliste.add(wood);
         stykliste.add(losholterL);
         stykliste.add(losholterW);
+        stykliste.add(skruerIndre);
+        stykliste.add(skruerYdre);
     }
 }
 

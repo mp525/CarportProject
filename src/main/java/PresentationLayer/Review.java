@@ -6,7 +6,6 @@ import FunctionLayer.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Review extends Command {
     @Override
@@ -34,7 +33,7 @@ public class Review extends Command {
         MaterialHelper.udregnStolpe(stykliste, reviewReq);
 
         //Vibeke test:
-        MaterialHelper.udregnNoget(stykliste, reviewReq);
+        MaterialHelper.udregnSkur(stykliste, reviewReq);
 
 
         double samletPris = 0.0;
