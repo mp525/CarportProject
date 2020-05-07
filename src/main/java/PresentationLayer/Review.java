@@ -31,6 +31,8 @@ public class Review extends Command {
 
         //Spærudregning
         MaterialHelper.udregnSpær(stykliste, reviewReq);
+
+        //Stopleudregning
         MaterialHelper.udregnStolpe(stykliste, reviewReq);
 
         //Vibeke test:
