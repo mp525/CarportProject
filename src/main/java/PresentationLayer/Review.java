@@ -35,7 +35,7 @@ public class Review extends Command {
         MaterialHelper.udregnTagDele(stykliste, reviewReq);
 
 
-        //Vibeke test:
+        //Skurudregning:
         MaterialHelper.udregnSkur(stykliste, reviewReq);
 
         double samletPris = 0.0;

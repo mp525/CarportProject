@@ -128,6 +128,9 @@ public class MaterialHelper {
         int screwAmtIn = stykLB.amountScrewsInner(amount);
         int screwAmtOut = stykLB.amountScrewsOuter(amount);
 
+        int boxAmtIn = stykLB.amtBoxScrewIn(screwAmtIn);
+        int boxAmtOut = stykLB.amtBoxScrewOut(screwAmtOut);
+
         Material test = new Material("Alt tilbehør til dør", "En test fordi jeg har dumme metoder", "stk", "Beslag & Skruer",
                 250, stykLB.doorAccesPrice(), stykLB.doorAccesAmt());
 
@@ -140,11 +143,11 @@ public class MaterialHelper {
         Material losholterW = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
                 request.getWidthS(), stykLB.priceLosholter(request.getWidthS()), stykLB.losholter()/2);
 
-        Material skruerIndre = new Material("SkruerIndre", "Skruer bes", "pakke", "Skruer",
-                5, stykLB.priceScrews(screwAmtIn), screwAmtIn);
+        Material skruerIndre = new Material("4,5 x 50 mm. Skruer 300 stk.", "Skruer bes", "pakke", "Skruer",
+                5, stykLB.priceScrewIn(boxAmtIn), boxAmtIn);
 
-        Material skruerYdre = new Material("SkruerYdre", "Skruer bes", "pakke", "Skruer",
-                5, stykLB.priceScrews(screwAmtOut), screwAmtOut);
+        Material skruerYdre = new Material("4,5 x 70 mm. Skruer 200 stk.", "Skruer bes", "pakke", "Skruer",
+                5, stykLB.priceScrewOut(boxAmtOut), boxAmtOut);
 
         stykliste.add(test);
         stykliste.add(wood);
