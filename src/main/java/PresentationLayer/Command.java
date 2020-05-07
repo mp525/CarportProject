@@ -28,6 +28,7 @@ abstract class Command {
         commands.put("Stykliste", new Styklisten());
 
 
+
     }
 
     static Command from( HttpServletRequest request ) {

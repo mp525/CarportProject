@@ -141,6 +141,11 @@
 
 </div>
 
+<div class="col" align="center">
+    <form name="svgdrawing" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="svgdrawing">
+        <input type="submit" value="svgdrawing" class="btn btn-light">
+    </form>
 
 <br>
 <div class="col" align="center">

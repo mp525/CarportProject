@@ -46,10 +46,6 @@ public class MaterialHelper {
         Material beslagSkruer = new Material("4,0x50mm. beslagskruer 250 stk.", "Til montering af universalbeslag " +
                 "+ hulbånd", "pakke", "Beslag og skruer", 0, beslagSkruePris, beslagSkrueAntal);
 
-
-
-
-
         stykliste.add(spær);
         stykliste.add(remme);
         stykliste.add(beslagHøjre);
@@ -73,7 +69,6 @@ public class MaterialHelper {
         double FemTyvHunTreTresPris = StyklisteBeregner.Cal25x125x360Sides(req);
         int antalFemOgTyvPlanksStern = StyklisteBeregner.Cal25x125x300Front(req);
         double FemOgTyvPlanksSternPris = StyklisteBeregner.Cal25x125x300FrontPrice(req);
-
 
         int antalFirFirsNulTilStern = StyklisteBeregner.CaL19x100x480(req);
         double FirFirsNulTilSternPrice = StyklisteBeregner.CaL19x100x480Price(req);
@@ -127,7 +122,7 @@ public class MaterialHelper {
         int amount = stykLB.amountWood(request.getLengthS(), request.getWidthS());
         int screwAmtIn = stykLB.amountScrewsInner(amount);
         int screwAmtOut = stykLB.amountScrewsOuter(amount);
-
+        
         int boxAmtIn = stykLB.amtBoxScrewIn(screwAmtIn);
         int boxAmtOut = stykLB.amtBoxScrewOut(screwAmtOut);
 
@@ -149,7 +144,6 @@ public class MaterialHelper {
         Material skruerYdre = new Material("4,5 x 70 mm. Skruer 200 stk.", "Skruer bes", "pakke", "Skruer",
                 5, stykLB.priceScrewOut(boxAmtOut), boxAmtOut);
 
-        stykliste.add(test);
         stykliste.add(wood);
         stykliste.add(losholterL);
         stykliste.add(losholterW);
