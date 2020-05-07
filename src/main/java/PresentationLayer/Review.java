@@ -3,14 +3,13 @@ package PresentationLayer;
 import DBAccess.RequestMapper;
 import FunctionLayer.*;
 
-import javax.servlet.ServletContext;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Scanner;
+
 
 public class Review extends Command {
     @Override
@@ -37,10 +36,11 @@ public class Review extends Command {
         //Spærudregning
         MaterialHelper.udregnSpær(stykliste, reviewReq);
         MaterialHelper.udregnStolpe(stykliste, reviewReq);
+        MaterialHelper.udregnTagDele(stykliste, reviewReq);
+
 
         //Vibeke test:
-        MaterialHelper.udregnNoget(stykliste, reviewReq);
-
+        MaterialHelper.udregnSkur(stykliste, reviewReq);
 
         double samletPris = 0.0;
         for (Material mat: stykliste) {
