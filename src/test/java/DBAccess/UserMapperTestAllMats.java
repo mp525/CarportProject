@@ -17,7 +17,7 @@ import org.junit.Before;
 
 import javax.validation.constraints.AssertTrue;
 
-public class UserMapperTest {
+public class UserMapperTestAllMats {
 
     private static Connection testConnection;
     private static String USER = "root";

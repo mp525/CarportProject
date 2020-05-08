@@ -46,10 +46,6 @@ public class MaterialHelper {
         Material beslagSkruer = new Material("4,0x50mm. beslagskruer 250 stk.", "Til montering af universalbeslag " +
                 "+ hulbånd", "pakke", "Beslag og skruer", 0, beslagSkruePris, beslagSkrueAntal);
 
-
-
-
-
         stykliste.add(spær);
         stykliste.add(remme);
         stykliste.add(beslagHøjre);
@@ -73,7 +69,6 @@ public class MaterialHelper {
         double FemTyvHunTreTresPris = StyklisteBeregner.Cal25x125x360SidesPrice(req);
         int antalFemOgTyvPlanksStern = StyklisteBeregner.Cal25x125x300Front(req);
         double FemOgTyvPlanksSternPris = StyklisteBeregner.Cal25x125x300FrontPrice(req);
-
 
         int antalFirFirsNulTilStern = StyklisteBeregner.CaL19x100x480(req);
         double FirFirsNulTilSternPrice = StyklisteBeregner.CaL19x100x480Price(req);
@@ -121,27 +116,66 @@ public class MaterialHelper {
 
     }
 
-    public static void udregnNoget(ArrayList<Material> stykliste, Request request) {
+    // @Vibeke
+    public static void udregnSkur(ArrayList<Material> stykliste, Request request) {
+        // Antagelser og værdier:
+        // Materialer:
+        int angleBracket = 4;
+        int hinge = 2;
+        // Vi skal altid bruge en pakke beslagskruer, der bliver aldrig brugt mere end en pakke!
+        // int abScrews = angleBracket * 4;
+        int abScrews = 1;
+        int doorHandle = 1;
+
         StyklisteBeregner stykLB = new StyklisteBeregner();
 
-        double amount = stykLB.amountWood(request.getLengthS(), request.getWidthS());
+        int amount = stykLB.amountWood(request.getLengthS(), request.getWidthS());
+        int screwAmtIn = stykLB.amountScrewsInner(amount);
+        int screwAmtOut = stykLB.amountScrewsOuter(amount);
 
-        Material test = new Material("Alt tilbehør til dør", "En test fordi jeg har dumme metoder", "stk", "Beslag & Skruer",
-                250, stykLB.doorAccesPrice(), stykLB.doorAccesAmt());
+        int boxAmtIn = stykLB.amtBoxScrewIn(screwAmtIn);
+        int boxAmtOut = stykLB.amtBoxScrewOut(screwAmtOut);
 
-        Material wood = new Material("19x100 mm. trykimp. Brædt.", "til beklædning af skur, sider og stern", "stk", "Træ",
-                250, stykLB.priceWood(amount), stykLB.amountWood(request.getLengthS(), request.getWidthS()));
+        if(request.getLengthS() != 0) {
+            Material wood = new Material("19x100 mm. trykimp. Brædt.", "til beklædning af skur, sider og stern", "stk", "Træ",
+                    250, stykLB.priceWood(amount), stykLB.amountWood(request.getLengthS(), request.getWidthS()));
 
-        Material losholterL = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
-                request.getLengthS(), stykLB.priceLosholter(request.getLengthS()), stykLB.losholter()/2);
+            Material losholterL = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
+                    request.getLengthS(), stykLB.priceLosholter(request.getLengthS()), stykLB.losholter()/2);
 
-        Material losholterW = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
-                request.getWidthS(), stykLB.priceLosholter(request.getWidthS()), stykLB.losholter()/2);
+            Material losholterW = new Material("45x95 mm. Reglar ubh.", "løsholter til skur, sider og gavle", "stk", "Træ",
+                    request.getWidthS(), stykLB.priceLosholter(request.getWidthS()), stykLB.losholter()/2);
 
-        stykliste.add(test);
-        stykliste.add(wood);
-        stykliste.add(losholterL);
-        stykliste.add(losholterW);
+            Material skruerIndre = new Material("4,5 x 50 mm. Skruer 300 stk.", "til montering af inderste beklædning", "pakke", "Beslag & Skruer",
+                    5, stykLB.priceScrewIn(boxAmtIn), boxAmtIn);
+
+            Material skruerYdre = new Material("4,5 x 70 mm. Skruer 200 stk.", "til montering af yderste bræt ved beklædning", "pakke", "Beslag & Skruer",
+                    7, stykLB.priceScrewOut(boxAmtOut), boxAmtOut);
+
+            Material dBracket = new Material("vinkelbeslag 35", "Til montering af løsholter i skur", "stk", "Beslag & Skruer",
+                    0, stykLB.doorABPrice(angleBracket), angleBracket);
+
+            Material dHinge = new Material("t hængsel 390 mm", "Til skurdør", "stk", "Beslag & Skruer",
+                    0, stykLB.doorHPrice(hinge), hinge);
+
+            Material dABScrews = new Material("5,0 x 40 mm. beslagskruer 250 stk.", "Til montering af universalbeslag + toplægte", "pakke", "Beslag & Skruer",
+                    4, stykLB.doorABScrewPrice(abScrews), abScrews);
+
+            Material dHandle = new Material("stalddørsgreb 50x75", "Til lås på dør i skur", "stk", "Beslag & Skruer",
+                    0, stykLB.doorHandlePrice(doorHandle), doorHandle);
+
+            stykliste.add(wood);
+            stykliste.add(losholterL);
+            stykliste.add(losholterW);
+            stykliste.add(skruerIndre);
+            stykliste.add(skruerYdre);
+            stykliste.add(dBracket);
+            stykliste.add(dHinge);
+            stykliste.add(dABScrews);
+            stykliste.add(dHandle);
+        }
+
+
     }
 }
 
