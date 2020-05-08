@@ -12,6 +12,7 @@ public class SVG {
 
         private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
         private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";
+        private final String lineTemplate ="<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:rgb(255,0,0);stroke-width:2\" />";
 
         public SVG(int width, int height, String viewbox, int x, int y) {
             this.width = width;
@@ -24,6 +25,9 @@ public class SVG {
 
         public void addRect(int x, int y, int height, int width){
             svg.append(String.format(rectTemplate, x, y, height, width));
+        }
+        public  void addLine(int x, int y, int x2, int y2){
+            svg.append(String.format(lineTemplate, x,  y,  x2, y2));
         }
 
         public int getWidth() {
