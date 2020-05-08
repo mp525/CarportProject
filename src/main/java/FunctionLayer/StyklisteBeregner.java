@@ -74,6 +74,7 @@ public class StyklisteBeregner {
 
     public int stolpeAntal(Request r) {
         //starter med en i hvert hjørne så 4
+        //er kommet i tvivl om det skal være sådan ...
         int stolpeAntal = 4;
         int stolpeAntalBcLength = 0;
         int stolpeAntalBcWidth = 0;
@@ -89,7 +90,7 @@ public class StyklisteBeregner {
 
         //bredde
 
-        stolpeAntalBcWidth = stolpeAntalBcWidth;
+        stolpeAntalBcWidth = stolpeAntalWidth(r);
 
         // længde
 
