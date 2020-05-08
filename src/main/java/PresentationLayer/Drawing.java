@@ -49,7 +49,7 @@ public class Drawing extends Command {
 //in progress...
 
         SVG svg = new SVG(800, 600, "0,0,800,600",0,0);
-        SVG udenforCarport = new SVG(1200, 1200, "0,0,1200,1200",0,0);
+        SVG sideSVG = new SVG(800, 600, "0,0,800,600",0,0);
         //Carport
         svg.addRect(0,0,length,width);
 
@@ -104,7 +104,12 @@ public class Drawing extends Command {
         //de der linjer som jeg kom til at starte på, sorry vibeke :-/
         svg.addLine( 0,length +50,width,length +50);
         svg.addLine( width, 0,width,length);
-        request.setAttribute("svgdrawing", svg.toString());
+
+        //Set fra siden begynder her
+        sideSVG.rectTemplateRotate(0,0,20,width);
+        sideSVG.rectTemplateRotate(0,20,20,width);
+        request.setAttribute("svgdrawing", svg.toString()+sideSVG.toString());
+
 
 
             return "Drawing";
