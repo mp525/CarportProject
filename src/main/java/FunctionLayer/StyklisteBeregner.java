@@ -591,15 +591,21 @@ public class StyklisteBeregner {
         int half = max / 2;
         int quart = half / 2;
         double w = req.getWidth();
-        int numbOfPlanks = 2;
+        int numbOfPlanks = 0;
         double pricePlank = 27.95;
 
         if(w <= 300){
-            pricePlank = pricePlank * 2;
+            numbOfPlanks = 2;
+            pricePlank = pricePlank * numbOfPlanks;
+            return pricePlank;
         } else if (w > 300 && w <= 600){
-            pricePlank = pricePlank * 4;
+            numbOfPlanks = 4;
+            pricePlank = pricePlank * numbOfPlanks;
+            return pricePlank;
         } else if (w>600){
-            pricePlank = pricePlank * 6;
+            numbOfPlanks = 6;
+            pricePlank = pricePlank * numbOfPlanks;
+            return pricePlank;
         }
         return pricePlank;
     }
