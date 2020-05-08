@@ -50,8 +50,7 @@ public class Drawing extends Command {
         SVG svg = new SVG(800, 600, "0,0,800,600",0,0);
         SVG svgInnerDrawing = new SVG(900,800,"0,0,900,800",0,0);
         svg.addRect(0,0,length,width);
-        svg.addRect(0,35,lengthS,widthS);
-        svg.addRect(0,565,4,780);
+        svg.addRect(0,0,lengthS,widthS);
         request.setAttribute("svgdrawing", svg.toString());
         return "Drawing";
 
