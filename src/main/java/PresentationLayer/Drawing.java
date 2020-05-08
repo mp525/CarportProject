@@ -6,6 +6,7 @@ import DBAccess.RequestMapper;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Request;
 import FunctionLayer.SVG;
+import FunctionLayer.StyklisteBeregner;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +28,7 @@ public class Drawing extends Command {
          int lengthS;
          int widthS;
 
-
+        StyklisteBeregner s = new StyklisteBeregner();
 
         Request reviewReq= (Request) request.getSession().getAttribute("reviewReq");
         request.setAttribute("reviewEmail", reviewReq.getEmail());
@@ -48,11 +49,61 @@ public class Drawing extends Command {
 //in progress...
 
         SVG svg = new SVG(800, 600, "0,0,800,600",0,0);
-        SVG svgInnerDrawing = new SVG(900,800,"0,0,900,800",0,0);
+
+        //Carport
         svg.addRect(0,0,length,width);
-        svg.addRect(0,0,lengthS,widthS);
+
+        //StolperLængde
+        int fordelLængde =length/s.stolpeAntalLength(reviewReq);
+        for (int i = 0; i < s.stolpeAntalLength(reviewReq)-1; i++) {
+            if(s.stolpeAntalLength(reviewReq)==1){
+                fordelLængde= fordelLængde/2;
+            }
+            svg.addRect(0,fordelLængde,10,10);
+
+            fordelLængde=+s.stolpeAntalLength(reviewReq);
+        }
+
+        int fordelLængde2 =length/s.stolpeAntalLength(reviewReq);
+        for (int i = 0; i < s.stolpeAntalLength(reviewReq)-1; i++) {
+            if(s.stolpeAntalLength(reviewReq)==1){
+                fordelLængde2= fordelLængde2/2;
+            }
+            svg.addRect(width-10,fordelLængde2,10,10);
+            fordelLængde2=+s.stolpeAntalLength(reviewReq);
+        }
+
+        //Stolper bredde
+        int fordelBredde= width/s.stolpeAntalWidth(reviewReq);
+        for (int i = 0; i < s.stolpeAntalWidth(reviewReq)-1; i++) {
+            if(s.stolpeAntalWidth(reviewReq)==1){
+                fordelBredde= fordelBredde/2;
+            }
+            svg.addRect(fordelBredde,0,10,10);
+            fordelBredde=+s.stolpeAntalWidth(reviewReq);
+        }
+
+        //Stolper hjørner
+        svg.addRect(0,length-10,10,10);
+        svg.addRect(width-10,length-10,10,10);
+
+        svg.addRect(width-10,0,10,10);
+
+        //Skuret
+        if(widthS!=0) {
+            //selve skuret
+            svg.addRect(0, 0, lengthS, widthS);
+
+            //Stolper hjørner
+            svg.addRect(widthS - 10, lengthS - 10, 10, 10);
+            svg.addRect(0, lengthS - 10, 10, 10);
+            svg.addRect(widthS - 10, 0, 10, 10);
+        }
+        svg.addRect(0,0,10,10);
+
+
         request.setAttribute("svgdrawing", svg.toString());
-        return "Drawing";
+            return "Drawing";
 
 //in progress...
 

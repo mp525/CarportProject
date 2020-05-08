@@ -4,7 +4,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class StyklisteBeregner {
-
+    public static void main(String[] args) {
+        StyklisteBeregner s = new StyklisteBeregner();
+        Request r = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
+        System.out.println(s.stolpeAntalWidth(r));
+    }
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -82,16 +86,15 @@ public class StyklisteBeregner {
         }
 //340 højde
         //set i brochuren... //Forreste stolper skal være 208 cm. Høje og bagerste skal være 202 cm.
-        int width = r.getWidth();
-        int length = r.getLength();
+
         //bredde
 
-        stolpeAntalBcWidth = width / 300;
+        stolpeAntalBcWidth = stolpeAntalBcWidth;
 
         // længde
 
-        stolpeAntalBcLength = length / 300;
-        stolpeAntalBcLength = stolpeAntalBcLength + stolpeAntalBcLength;
+        stolpeAntalBcLength = stolpeAntalLength(r);
+
         //leder videoen første møde havde det her info.. //20 kvadrat meter = 4 stolper // 30 kvadrat meter = 6 stolper
         //teknisk møde med håndværker gav denne information... //hver tredje meter skal der være en stolpe(i hver side)
 
@@ -106,7 +109,20 @@ public class StyklisteBeregner {
         stolpeAntal = stolpeAntal + stolpeAntalBcLength + stolpeAntalBcWidth + stolpeAntalShed;
         return stolpeAntal;
     }
+    public int stolpeAntalWidth(Request r){
+        int width = r.getWidth();
 
+        //bredde
+
+        int stolpeAntalBcWidth = width / 300;
+        return stolpeAntalBcWidth;
+    }
+    public int stolpeAntalLength(Request r){
+        int length = r.getLength();
+        int stolpeAntalBcLength = length / 300;
+        stolpeAntalBcLength = stolpeAntalBcLength + stolpeAntalBcLength;
+        return stolpeAntalBcLength;
+    }
     public double prisStolpe(Request r) {
         int antal = stolpeAntal(r);
         double pris = antal * 3.40 * 41.95;
