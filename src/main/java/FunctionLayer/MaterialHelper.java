@@ -70,7 +70,7 @@ public class MaterialHelper {
         int frontBackScrews25 = StyklisteBeregner.Cal25x200x300FnB(req);
         double frontBackScrews25pris = StyklisteBeregner.Cal25x200x300FnBPrice(req);
         int antalFemTyvHunTreTres = StyklisteBeregner.Cal25x125x360Sides(req);
-        double FemTyvHunTreTresPris = StyklisteBeregner.Cal25x125x360Sides(req);
+        double FemTyvHunTreTresPris = StyklisteBeregner.Cal25x125x360SidesPrice(req);
         int antalFemOgTyvPlanksStern = StyklisteBeregner.Cal25x125x300Front(req);
         double FemOgTyvPlanksSternPris = StyklisteBeregner.Cal25x125x300FrontPrice(req);
 
