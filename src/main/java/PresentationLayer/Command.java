@@ -26,6 +26,7 @@ abstract class Command {
         commands.put("review", new Review() );
         commands.put("svgdrawing", new Drawing() );
         commands.put("Stykliste", new Styklisten());
+        commands.put("svgdrawing2", new Drawing2());
 
 
 
