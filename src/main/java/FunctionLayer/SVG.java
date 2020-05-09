@@ -13,7 +13,7 @@ public class SVG {
         private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
         private final String lineTemplate ="<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:rgb(255,0,0);stroke-width:2\" />";
         private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\"/>";
-        private final String rectTemplateRotate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" transform = \"rotate(-5 100 100)\" style=\"stroke:#000000; fill: #ffffff\"/>";
+        private final String rectTemplateRotate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" transform = \"rotate(0 100 100)\" style=\"stroke:#000000; fill: #ffffff\"/>";
 
     public SVG(int width, int height, String viewbox, int x, int y) {
             this.width = width;

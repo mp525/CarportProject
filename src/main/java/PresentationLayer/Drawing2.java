@@ -57,16 +57,32 @@ public class Drawing2 extends Command {
 
         sideSVG.rectTemplateRotate(0,0,20,width);
         sideSVG.rectTemplateRotate(0,20,20,width);
+        sideSVG.rectTemplateRotate(0,40,(length/2)-20,widthS);
 
+        //stolper
+        sideSVG.rectTemplateRotate(width-10,20,length/2,10);
+        sideSVG.rectTemplateRotate(0,20,length/2,10);
+        //stolperekstrapgalængde
+        int fordelLængde =width/s.stolpeAntalLength(reviewReq);
+        for (int i = 0; i < s.stolpeAntalLength(reviewReq)-1; i++) {
+            if(s.stolpeAntalLength(reviewReq)==1){
+                fordelLængde=fordelLængde/2;
+            }
+            if(s.stolpeAntalLength(reviewReq)==2){
+                fordelLængde=fordelLængde-width/2;
+            }
+
+            sideSVG.addRect(fordelLængde,20,length/2,10);
+
+            fordelLængde=+width/2+width/4;
+
+
+        }
         request.setAttribute("svgdrawing2", sideSVG.toString());
 
 
         return "Drawing2";
 
-//in progress...
-
-
+//in progress..
     }
-
-
 }

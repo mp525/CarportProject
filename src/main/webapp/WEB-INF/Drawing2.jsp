@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>Drawing page</h1>
-${requestScope.svgdrawing}
+${requestScope.svgdrawing2}
 </body>
 </html>
