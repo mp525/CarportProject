@@ -514,12 +514,16 @@ public class StyklisteBeregner {
         } else if (w >= quart && w <= half){
             pricePlank = pricePlank * 2;
             return pricePlank;
-        }else if (w >= half && w <= max){
+        }else if (w >= half && w <= max) {
             pricePlank = pricePlank * 4;
             return pricePlank;
-        }else {
-            return pricePlank;
+        } else if (w > max) {
+            pricePlank = pricePlank * 6;
         }
+
+        pricePlank = round(pricePlank,2);
+            return pricePlank;
+
     }
 
 
