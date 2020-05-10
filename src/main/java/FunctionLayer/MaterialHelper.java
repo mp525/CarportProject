@@ -55,6 +55,11 @@ public class MaterialHelper {
     }
 
     public static void udregnTagDele(ArrayList<Material> stykliste, Request req){
+
+
+
+
+
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalPlader = StyklisteBeregner.numRofPlatesSingls(req);
         double pladerPris = StyklisteBeregner.roofMatPrice(req);
@@ -107,6 +112,113 @@ public class MaterialHelper {
         stykliste.add(D19D420DVand);
         stykliste.add(D19D480DVand);
 
+    }
+
+    public static void udregnTagDeleSLOP(ArrayList<Material> stykliste, Request req){
+
+
+        //tal
+
+        int antalBC = StyklisteBeregner.antalBnCDob(req);
+        double prispåBC = StyklisteBeregner.prisBnCDob(req);
+
+        int antalRygsten = StyklisteBeregner.antalRygsten(req);
+        double prisRygsten = StyklisteBeregner.prisRygsten(req);
+
+        int antalTopLaegH = StyklisteBeregner.antalTopLaegHolds(req);
+        double prisTopLaegH = StyklisteBeregner.prisTopLaegHolds(req);
+
+        int antalRygstensBeslag = StyklisteBeregner.antalRygstensBeslag(req);
+        double prisRygBeslag = StyklisteBeregner.prisRygstensBeslag(req);
+
+        int bindsNNakrog = StyklisteBeregner.bindsNNakrog();
+        double prisNNakrog = StyklisteBeregner.prisNNakrog();
+
+
+        int strlseSternSidder25n150nx = StyklisteBeregner.strlseSternSidder25n150nx(req);
+        int SternSidderAntal = StyklisteBeregner.SternSidderAntal(req);
+        double SternBrædderPris = StyklisteBeregner.SternBrædderPris(req);
+
+        int tagFodLægteStørrelse = StyklisteBeregner.tagFodLægteStørrelse(req);
+        int tagFodLægteAntal = StyklisteBeregner.tagFodLægteAntal();
+        double tagFodLægtePris = StyklisteBeregner.tagFodLægtePris(req);
+
+        int størrelseDoor = StyklisteBeregner.doorSize(req);
+        int antalDoor = StyklisteBeregner.doorAmount();
+        double prisDoor = StyklisteBeregner.doorPrice();
+
+        int antalH38x73mmotaglægteT1HRows = StyklisteBeregner.antalH38x73mmotaglægteT1HRows(req);
+        int sizeH38x73mmotaglægteT1HRows = StyklisteBeregner.sizeH38x73mmotaglægteT1HRows(req);
+        double prisH38x73mmotaglægteT1HRows = StyklisteBeregner.prisH38x73mmotaglægteT1HRows(req);
+
+
+        int antalH38x73mmotaglægteT1HHolders = 2;
+        int sizeH38x73mmotaglægteT1HHolders = StyklisteBeregner.sizeH38x73mmotaglægteT1HHolders(req);
+        double priceH38x73mmotaglægteT1HHolders = 22.95 * 2;
+
+        int amount4Komma5x60Skruer = 1;
+        double price4Komma5x60Skruer = 74.95;
+
+        int amount5Komma0x40Skruer = 1;
+        double price5Komma0x40Skruer = 259.0;
+
+        int amount5komma0x40100Skruer = 2;
+        double price5komma0x40100Skruer = 398.0;
+        //oprettelse
+
+        Material BNCDobb = new Material("B & C Dobbelt -s sort", "monteres på taglægter 6 rækker af 24 sten på hver side af taget",
+                "stk", "Tagpakken", 0, prispåBC, antalBC);
+
+        Material Rygsten = new Material("B & C Rygsten sort", "monteres på toplægte med medfølgende beslag se tagstens vejledning",
+                "stk", "Tagpakken", 0, prisRygsten, antalRygsten);
+
+        Material TopLaeug = new Material("B & C Toplægte holder", "monteres på toppen af spæret (til toplægte)",
+                "stk", "Tagpakken", 0, prisTopLaegH, antalTopLaegH);
+
+        Material RygstensBeslag = new Material("B & C rygstensbeslag", "Til montering af rygsten",
+                "stk", "Tagpakken", 0, prisRygBeslag, antalRygstensBeslag);
+
+        Material bindKrog = new Material("B & C tagstens bindere & nakkekroge", "til montering af tagsten, alle ydersten hver anden fastgøres",
+                "pk", "Tagpakken", 0, prisNNakrog, bindsNNakrog);
+
+        Material H25x150mmDotTrykImpDotBrædtH = new Material("25x150mm. trikimp. Bræt", "Sternbrædder til sider",
+                "stk", "Træ", strlseSternSidder25n150nx, SternBrædderPris, SternSidderAntal);
+
+        Material tagFodLægte = new Material("38x73 mm. taglægte T1", "toplægte, montering, z på bagside af dør",
+                "stk", "Træ", tagFodLægteStørrelse, tagFodLægtePris, tagFodLægteAntal);
+
+        Material door = new Material("38x73 mm. Lægte ubh.", "til z på bagside af dør",
+                "stk", "Træ", størrelseDoor, prisDoor, antalDoor);
+
+        Material H38x73mmotaglægteT1HRows = new Material("38x73 mm. taglægte T1", "til montering på spær, 7 rækker lægter på hver skiftevis 1 hel & 1 halv lægte",
+                "stk", "Træ", sizeH38x73mmotaglægteT1HRows, prisH38x73mmotaglægteT1HRows, antalH38x73mmotaglægteT1HRows);
+
+        Material H38x73mmotaglægteT1HHolders = new Material("38x73 mm. taglægte T1", "til montering på spær, 7 rækker lægter på hver skiftevis 1 hel & 1 halv lægte",
+                "stk", "Træ", sizeH38x73mmotaglægteT1HHolders, priceH38x73mmotaglægteT1HHolders, antalH38x73mmotaglægteT1HHolders);
+
+        Material firSkruer = new Material("4,5 x 60 mm. Skruer 200 stk", "Til montering af Stern, vindskeder, vindkryds & vand bræt",
+                "pakke", "Beslag & Skruer", 0, price4Komma5x60Skruer, amount4Komma5x60Skruer);
+
+
+        Material femFyre = new Material("5,0 x 40 mm. beslagskruer 250 stk.", "til taglægter",
+                "pakke", "Beslag & Skruer", 0, price5Komma0x40Skruer, amount5Komma0x40Skruer);
+
+        Material femHundred = new Material("5,0 x 100 mm. skruer 100 stk.", "",
+                "stk", "Beslag & Skruer", 0, price5komma0x40100Skruer, amount5komma0x40100Skruer);
+
+        //adder
+        stykliste.add(BNCDobb);
+        stykliste.add(Rygsten);
+        stykliste.add(TopLaeug);
+        stykliste.add(RygstensBeslag);
+        stykliste.add(H25x150mmDotTrykImpDotBrædtH);
+        stykliste.add(tagFodLægte);
+        stykliste.add(door);
+        stykliste.add(H38x73mmotaglægteT1HRows);
+        stykliste.add(H38x73mmotaglægteT1HHolders);
+        stykliste.add(firSkruer);
+        stykliste.add(femFyre);
+        stykliste.add(femHundred);
     }
 
 

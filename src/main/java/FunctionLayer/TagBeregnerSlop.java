@@ -528,7 +528,7 @@ if (length <= 420){
 
 return sizu;
     }
-
+    //Besla og Skruers
     //redundance inbound
 
     public static double priceH38x73mmotaglægteT1HHolders(){
@@ -562,7 +562,7 @@ public static double price4Komma5x60Skruer(){
     //redundance done
 
 
-    //Besla og Skruers
+
 
 
 
