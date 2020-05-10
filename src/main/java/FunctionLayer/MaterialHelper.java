@@ -27,9 +27,9 @@ public class MaterialHelper {
         int spærLængde = StyklisteBeregner.længdeSpær(request.getWidth());
         double spærPris = StyklisteBeregner.spærPris(spærLængde, antalSpær); //Her er det den samlede pris på spær
         int antalRemme = 2;
-        if(!(request.getLengthS() == 0)){
-            antalRemme++;
-        }
+        /*if(!(request.getLengthS() == 0)){ Dette er kun hvis skuret er for langt og remme ikke må være så lange,
+            antalRemme++;                   så remmene bliver skåret over hvor skur starter.
+        }*/
         double remPris = StyklisteBeregner.remPris(request.getLength(), antalRemme);
         double beslagPris = StyklisteBeregner.round(antalSpær * 45.95, 2);
         int beslagSkrueAntal = StyklisteBeregner.beslagSkrueAntal(request.getLength());
@@ -81,17 +81,19 @@ public class MaterialHelper {
                 "pakke", "Beslag og Skruer", 0, skruerPris, antalPlastSkruer);
         Material Skruer2 = new Material("4,5 x 60 mm. skruer 200 stk.", "Til montering af stern, vindskeder, vindkryds & vandbrædt",
                 "pakke", "Beslag & Skruer", 0, D4o5skruerDpris, D4o5skruerD);
+
         Material Stern300e = new Material("25x200 mm. trykimp. Brædt.", "understernbrædder til ender",
                 "stk", "Træ", 300, frontBackScrews25pris, frontBackScrews25);
         Material Stern300s = new Material("25x200 mm. trykimp. Brædt.", "understernbrædder til siderne",
-                "stk", "Træ", 300, frontBackScrews25pris, frontBackScrews25 + 2);
+                "stk", "Træ", 300, frontBackScrews25pris, frontBackScrews25);
+
         Material Sterni300S = new Material("25x125 mm. trykimp. Brædt.", "oversternbrædder til sider",
                 "stk", "Træ", 360, FemTyvHunTreTresPris, antalFemTyvHunTreTres);
         Material Sterni360F = new Material("25x125 mm. trykimp. Brædt.", "oversternbrædder til front",
                 "stk", "Træ", 300, FemOgTyvPlanksSternPris, antalFemOgTyvPlanksStern);
-        Material D19D420DVand = new Material("45x195 mm. spærtræ ubh.", "vandbrædt på stern i forende",
+        Material D19D420DVand = new Material("19x100 mm. trykimp. Brædt.", "vandbrædt på stern i forende",
                 "stk", "Træ", 480, FirFirsNulTilSternPrice, antalFirFirsNulTilStern);
-        Material D19D480DVand = new Material("45x195 mm. spærtræ ubh.", "vandbrædt på stern i sider",
+        Material D19D480DVand = new Material("19x100 mm. trykimp. Brædt.", "vandbrædt på stern i sider",
                 "stk", "Træ", 420, h420Pris, antal420);
 
 
@@ -175,6 +177,47 @@ public class MaterialHelper {
             stykliste.add(dHandle);
         }
 
+
+    }
+    public static void slopeSpær(Request request, ArrayList<Material> stykliste){
+        StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
+        int antalSpær = StyklisteBeregner.antalSpær(request.getLength());
+        int carportLængde = StyklisteBeregner.længdeSpær(request.getWidth());
+        int carportBredde = request.getWidth();
+        int carportVinkel = request.getSlopeangle();
+        double spærPris = StyklisteBeregner.spærPakkePris(antalSpær,carportBredde,carportVinkel, carportLængde);
+        int antalRemme = 2;
+        double remPris = StyklisteBeregner.remPris(request.getLength(), antalRemme);
+        double beslagPris = StyklisteBeregner.round(antalSpær * 45.95, 2);
+        int beslagSkrueAntal = StyklisteBeregner.beslagSkrueAntal(request.getLength());
+        double beslagSkruePris = StyklisteBeregner.round(beslagSkrueAntal * 259,2);
+
+        Material spærPakke = new Material("Færdigskåret (byg-selv spær)", "byg-selv spær (skal samles) " +
+                antalSpær + " stk.", "stk", "Træ", 0, spærPris, antalSpær);
+        Material remme = new Material("45x195 mm. spærtræ ubh.", "Remme i sider, sadles ned i stolper",
+                "stk", "Træ", request.getLength(), remPris, antalRemme);
+        Material beslagHøjre = new Material("universal beslag 190mm højre", "Til montering af spær på rem",
+                "stk", "Beslag og skruer", 0, beslagPris, antalSpær);
+        Material beslagVenstre = new Material("universal beslag 190mm venstre", "Til montering af spær på rem",
+                "stk", "Beslag og skruer", 0, beslagPris, antalSpær);
+        Material beslagSkruer = new Material("4,0x50mm. beslagskruer 250 stk.", "Til montering af universalbeslag " +
+                "+ hulbånd", "pakke", "Beslag og skruer", 0, beslagSkruePris, beslagSkrueAntal);
+
+        stykliste.add(spærPakke);
+        stykliste.add(remme);
+        stykliste.add(beslagHøjre);
+        stykliste.add(beslagVenstre);
+        stykliste.add(beslagSkruer);
+
+
+    }
+    public static void slopeStolper(){
+
+    }
+    public static void slopeSkur(){
+
+    }
+    public static void slopeTag(){
 
     }
 }
