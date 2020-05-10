@@ -146,6 +146,11 @@
         <input type="hidden" name="taget" value="svgdrawing">
         <input type="submit" value="svgdrawing" class="btn btn-light">
     </form>
+    <div class="col" align="center">
+        <form name="svgdrawing2" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="svgdrawing2">
+            <input type="submit" value="svgdrawing2" class="btn btn-light">
+        </form>
 
 <br>
 <div class="col" align="center">

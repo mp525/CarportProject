@@ -103,12 +103,14 @@ public class Drawing extends Command {
 
         //de der linjer som jeg kom til at starte på, sorry vibeke :-/
         svg.addLine( 0,length +50,width,length +50);
-        svg.addLine( width, 0,width,length);
+        svg.addLine( width + 50, 0,width + 50,length);
 
         //Set fra siden begynder her
-        sideSVG.rectTemplateRotate(0,0,20,width);
-        sideSVG.rectTemplateRotate(0,20,20,width);
-        request.setAttribute("svgdrawing", svg.toString()+sideSVG.toString());
+
+        /*sideSVG.rectTemplateRotate(0,0,20,width);
+        sideSVG.rectTemplateRotate(0,20,20,width);*/
+
+        request.setAttribute("svgdrawing", svg.toString());
 
 
 

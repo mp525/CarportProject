@@ -388,7 +388,6 @@ public class StyklisteBeregner {
 
     // Tag Beregner 33000
 
-
     public static int roofPlateLengths(Request req) {
         // I antagelse af at der anvendes plader på L.600 W.109, derfor
 
