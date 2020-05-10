@@ -49,7 +49,7 @@ public class Drawing2 extends Command {
 //in progress...
 
 
-        SVG sideSVG = new SVG(800, 600, "0,0,800,600", 0, 0);
+        SVG sideSVG = new SVG(width+100, length+100, "0,0,1300,1000",0,0);
         //Carport
 
 
