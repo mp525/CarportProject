@@ -7,7 +7,6 @@ import FunctionLayer.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
 
 import java.util.ArrayList;
 
@@ -34,16 +33,27 @@ public class Review extends Command {
         request.setAttribute("reviewWidthS", reviewReq.getWidthS());
         request.setAttribute("reviewID", reviewReq.getRequestID());
 
-        //Spærudregning
-        MaterialHelper.udregnSpær(stykliste, reviewReq);
+        if(reviewReq.getSlopeangle() == 0){
+            //Spærudregning
+            MaterialHelper.udregnSpær(stykliste, reviewReq);
 
-        //Stopleudregning
-        MaterialHelper.udregnStolpe(stykliste, reviewReq);
-        MaterialHelper.udregnTagDele(stykliste, reviewReq);
+            //Stopleudregning
+            MaterialHelper.udregnStolpe(stykliste, reviewReq);
 
 
-        //Skurudregning:
-        MaterialHelper.udregnSkur(stykliste, reviewReq);
+            //Skurudregning:
+            MaterialHelper.udregnSkur(stykliste, reviewReq);
+
+            //Tagudregning
+            MaterialHelper.udregnTagDele(stykliste, reviewReq);
+
+        } else{
+            MaterialHelper.slopeSpær(reviewReq, stykliste);
+            MaterialHelper.slopeStolper();
+            MaterialHelper.slopeSkur();
+            MaterialHelper.slopeTag();
+        }
+
 
         double samletPris = 0.0;
         for (Material mat: stykliste) {

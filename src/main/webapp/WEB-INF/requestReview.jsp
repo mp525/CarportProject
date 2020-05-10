@@ -137,7 +137,7 @@
         </tbody>
     </table>
 
-    <h3>Samlet pris: ${requestScope.samletPris}</h3>
+    <h3>Samlet pris: ${requestScope.samletPris} kr</h3>
 
 </div>
 

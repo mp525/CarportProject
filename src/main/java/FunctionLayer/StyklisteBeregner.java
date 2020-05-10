@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class StyklisteBeregner {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         StyklisteBeregner s = new StyklisteBeregner();
         Request r = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
         System.out.println(s.stolpeAntalWidth(r));
-    }
+    }*/
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -16,16 +16,19 @@ public class StyklisteBeregner {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
-    public static int antalSpærSlope(int length, int width){
-        int antalPåTvers = antalSpær(length);
-        int antalS = 0;
+    public static double spærPakkePris(int antal, int width, int slope, int length){
+        double angle = slope;
 
+        double højdeSpær = (width/2)*Math.tan(angle);
+        double hypotenusen = højdeSpær/Math.sin(angle);
 
+        double samletSpærLængder = (højdeSpær/100) + (hypotenusen/100) + ((width/2)/100);
 
+        double spærPris = round((samletSpærLængder * 54.95) * antal,2);
+        spærPris += (antal * 50.0) + beslagSkrueAntal(length); //For beslag der bruges i tagpakken + skruer der skal til
 
-        return antalS;
+        return spærPris;
     }
-
     public static int antalSpær(int length) {
         int antal = 0;
         switch(length){
@@ -461,7 +464,7 @@ public class StyklisteBeregner {
                 PladTal = Math.ceil(stks);
                 PladPris = PladTal * 250.0;
                 break;
-            case "Ståltag":
+            case "StÃ¥ltag":
                 LTW = 250.0 * 105.0;
                 stks = LnW / LTW;
                 PladTal = Math.ceil(stks);
