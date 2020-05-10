@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class StyklisteBeregner {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         StyklisteBeregner s = new StyklisteBeregner();
         Request r = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
         System.out.println(s.stolpeAntalWidth(r));
-    }
+    }*/
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -16,11 +16,44 @@ public class StyklisteBeregner {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+    public static double spærPakkePris(int antal, int width, int slope, int length){
+        double angle = slope;
 
+        double højdeSpær = (width/2)*Math.tan(angle);
+        double hypotenusen = højdeSpær/Math.sin(angle);
+
+        double samletSpærLængder = (højdeSpær/100) + (hypotenusen/100) + ((width/2)/100);
+
+        double spærPris = round((samletSpærLængder * 54.95) * antal,2);
+        spærPris += (antal * 50.0) + beslagSkrueAntal(length); //For beslag der bruges i tagpakken + skruer der skal til
+
+        return spærPris;
+    }
     public static int antalSpær(int length) {
-        double antal = Math.ceil((length / 55.0)) + 1.0; //length/antalspær (får regning af arne?)
-        int spær = (int) antal;
-        return spær;
+        int antal = 0;
+        switch(length){
+            case 750: antal = 16; //spærafstand 50cm
+            case 720: antal = 16; // 48
+            case 690: antal = 13; //57.5
+            case 660: antal = 13; //55
+            case 630: antal = 13; //52.5
+            case 600: antal = 13; //50
+            case 570: antal = 11; //57
+            case 540: antal = 10; //60
+            case 510: antal = 7; //85
+            case 480: antal = 7; //80
+            case 450: antal = 7; //75
+            case 420: antal = 7; //70
+            case 390: antal = 6; //78
+            case 360: antal = 6; //72
+            case 330: antal = 6; //66
+            case 300: antal = 5; //75
+            case 270: antal = 5; //67.5
+            case 240: antal = 4; //80
+        }
+        //antal = Math.ceil((length / 55.0)) + 1.0; //length/antalspær (får regning af arne?)
+        //int spær = (int) antal;
+        return antal;
     }
     public static int længdeSpær(int width){
         int længde = width;
@@ -355,7 +388,6 @@ public class StyklisteBeregner {
 
     // Tag Beregner 33000
 
-
     public static int roofPlateLengths(Request req) {
         // I antagelse af at der anvendes plader på L.600 W.109, derfor
 
@@ -431,7 +463,7 @@ public class StyklisteBeregner {
                 PladTal = Math.ceil(stks);
                 PladPris = PladTal * 250.0;
                 break;
-            case "Ståltag":
+            case "StÃ¥ltag":
                 LTW = 250.0 * 105.0;
                 stks = LnW / LTW;
                 PladTal = Math.ceil(stks);
