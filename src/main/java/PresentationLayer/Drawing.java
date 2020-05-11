@@ -54,13 +54,14 @@ public class Drawing extends Command {
         //Carport
         svg.addRect(0,0,width,length);
 
+
         //StolperLængde
         int fordelLængde =width/s.stolpeAntalWidth(reviewReq);
         for (int i = 0; i < s.stolpeAntalWidth(reviewReq)-1; i++) {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelLængde= fordelLængde/2;
             }
-            svg.addRect(fordelLængde,0,10,10);
+            svg.addRect(fordelLængde,20,10,10);
 
             fordelLængde=+s.stolpeAntalWidth(reviewReq);
         }
@@ -70,38 +71,45 @@ public class Drawing extends Command {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelLængde2= fordelLængde2/2;
             }
-            svg.addRect(fordelLængde2,length-10,10,10);
+            svg.addRect(fordelLængde2,width-30,10,10);
             fordelLængde2=+s.stolpeAntalWidth(reviewReq);
         }
 
         //Stolper bredde
-        int fordelBredde= length/s.stolpeAntalLength(reviewReq);
-        for (int i = 0; i < s.stolpeAntalLength(reviewReq)-1; i++) {
-            if(s.stolpeAntalLength(reviewReq)==1){
-                fordelBredde= fordelBredde/2;
+        if(reviewReq.getWidthS() == 0){
+            int fordelBredde= length/s.stolpeAntalWidth(reviewReq);
+            for (int i = 0; i < s.stolpeAntalWidth(reviewReq)-1; i++) {
+                if(s.stolpeAntalWidth(reviewReq)==1){
+                    fordelBredde= fordelBredde/2;
+                }
+                svg.addRect(length - 30,fordelBredde,10,10);
+                fordelBredde=+s.stolpeAntalLength(reviewReq);
             }
-            svg.addRect(length - 10,fordelBredde,10,10);
-            fordelBredde=+s.stolpeAntalLength(reviewReq);
         }
 
+
         //Stolper hjørner
-        svg.addRect(0,width-10,10,10);
-        svg.addRect(length-10,width-10,10,10);
-        svg.addRect(0,0,10,10);
+        svg.addRect(20,width-30,10,10);
+        svg.addRect(length-30,width-30,10,10);
+        svg.addRect(20,20,10,10);
 
 
         //Skuret
         if(widthS!=0) {
             //selve skuret
-            svg.addRect(length - lengthS, 0, widthS, lengthS);
+            svg.addRect(length - lengthS - 20, 20, widthS, lengthS);
 
             //Stolper hjørner
-            svg.addRect(length - lengthS, widthS - 10, 10, 10);
-            svg.addRect(length - 10, widthS - 10, 10, 10);
-            svg.addRect(length - lengthS, 0, 10, 10);
+            svg.addRect(length - lengthS - 20, widthS + 10, 10, 10);
+            svg.addRect(length - 30, widthS + 10, 10, 10);
+            svg.addRect(length - lengthS - 20, 20, 10, 10);
         }
 
-        svg.addRect(length-10,0,10,10);
+        svg.addRect(length-30,20,10,10);
+
+        //remme
+        svg.addRect(0,20, 5, length);
+        svg.addRect(0,width-30, 5, length);
 
         //de der linjer som jeg kom til at starte på, sorry vibeke :-/
         svg.addLine( 0,width +50,length,width +50);
@@ -109,16 +117,15 @@ public class Drawing extends Command {
 
         //Set fra siden begynder her
 
-        //Remme begynder her
-
         //Spær begynder her (remme skal laves først da spær ligger op remmene
         int xPosition = 0;
         for (int i = 0; i < s.antalSpær(length); i++){
             svg.addRect(xPosition, 0, width, 5);
             xPosition += s.spærAfstand(length);
         }
-        svg.addLine(0,widthS,length,width);
-        svg.addLine(0,width,length,widthS);
+
+        svg.addLine(20,20,length - lengthS - 20,width - 20);
+        svg.addLine(20,width - 20,length - lengthS - 20,20);
         /*sideSVG.rectTemplateRotate(0,0,20,width);
         sideSVG.rectTemplateRotate(0,20,20,width);*/
 

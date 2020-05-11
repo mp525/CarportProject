@@ -82,32 +82,6 @@ public class StyklisteBeregner {
 
     public static int længdeSpær(int width){
         int længde = width;
-        /*if (width > 600){
-        * længde = (width/2);
-        * }
-        * Spærlængder må ikke overskride 6m? Er det ligemeget i vores tilfælde, og så bare lave spær
-        * længere end 6m? Behøves længdeSpær metoden, hvis spærets længde bare kan være width?
-        */
-        /*switch(width){
-            case 240: længde = 420;
-            case 270: længde = 420;
-            case 300: længde = 420;
-            case 330: længde = 420;
-            case 360: længde = 420;
-            case 390: længde = 420;
-            case 420: længde = 420;
-            case 450: længde = 540;
-            case 480: længde = 540;
-            case 510: længde = 540;
-            case 540: længde = 540;
-            case 570: længde = 600;
-            case 600: længde = 600;
-            case 630: længde = 600;
-            case 660: længde = 660;
-            case 690: længde = 600;
-            case 720: længde = 600;
-            case 750: længde = 600;
-        }*/
         return længde;
     }
     public static double spærPris(int spærLængde, int spærAntal){
