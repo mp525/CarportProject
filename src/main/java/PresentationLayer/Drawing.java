@@ -117,7 +117,8 @@ public class Drawing extends Command {
             svg.addRect(xPosition, 0, width, 5);
             xPosition += s.spærAfstand(length);
         }
-
+        svg.addLine(0,widthS,length,width);
+        svg.addLine(0,width,length,widthS);
         /*sideSVG.rectTemplateRotate(0,0,20,width);
         sideSVG.rectTemplateRotate(0,20,20,width);*/
 
