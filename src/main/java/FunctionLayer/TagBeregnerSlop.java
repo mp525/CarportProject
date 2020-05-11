@@ -1,5 +1,7 @@
 package FunctionLayer;
 
+import com.mysql.cj.protocol.x.XProtocolRowInputStream;
+
 public class TagBeregnerSlop {
 
 
@@ -13,11 +15,25 @@ public class TagBeregnerSlop {
         double amount = 1.0;
         double LnW = length * width;
 
-
         amount = Math.ceil(LnW/enTinDel);
         int montus = (int) amount * 60;
         return montus;
     }
+    public static double prisBnCDob(Request req){
+
+        int enTinDel = 56250;
+        int width = req.getWidth();
+        int length = req.getLength();
+        double amount = 1.0;
+        double LnW = length * width;
+
+        amount = Math.ceil(LnW/enTinDel);
+        int montus = (int) amount * 60;
+        double prisnung = montus * 5.45;
+        return prisnung;
+
+    }
+
 
     public static int antalRygsten(Request req){
 
@@ -37,7 +53,27 @@ public class TagBeregnerSlop {
         return mallus;
     }
 
-public static int topLaegHolds(Request req){
+    public static double prisRygsten(Request req) {
+
+        int enTinDel = 56250;
+        int width = req.getWidth();
+        int length = req.getLength();
+        double amount = 1.0;
+        double LnW = length * width;
+
+
+        amount = Math.ceil(LnW / enTinDel);
+        double montus = amount * 2.1;
+
+        montus = Math.ceil(montus);
+        int mallus = (int) montus;
+
+        double prislus = mallus * 9.95;
+
+        return prislus;
+    }
+
+public static int antalTopLaegHolds(Request req){
 
     int enTinDel = 56250;
     int width = req.getWidth();
@@ -74,6 +110,45 @@ public static int topLaegHolds(Request req){
     return mallus;
 }
 
+    public static double prisTopLaegHolds(Request req){
+
+        int enTinDel = 56250;
+        int width = req.getWidth();
+        int length = req.getLength();
+        double amount = 1.0;
+        double LnW = length * width;
+
+
+        amount = Math.ceil(LnW/enTinDel);
+        double montus = amount * 0.8;
+
+        montus = Math.ceil(montus);
+        int mallus = (int) montus;
+
+        switch (mallus){
+            case 1:
+                mallus = 2;
+                break;
+            case 3:
+                mallus = 4;
+                break;
+            case 5:
+                mallus = 6;
+                break;
+            case 7:
+                mallus = 8;
+                break;
+            case 9:
+                mallus = 10;
+                break;
+        }
+
+
+        double pris = mallus * 1.1;
+
+        return mallus;
+    }
+
     public static int antalRygstensBeslag(Request req){
 
         int enTinDel = 56250;
@@ -92,9 +167,34 @@ public static int topLaegHolds(Request req){
         return mallus;
     }
 
-    public static int bindsNNakrog(Request req){
+    public static double prisRygstensBeslag(Request req){
+
+        int enTinDel = 56250;
+        int width = req.getWidth();
+        int length = req.getLength();
+        double amount = 1.0;
+        double LnW = length * width;
+
+
+        amount = Math.ceil(LnW/enTinDel);
+        double montus = amount * 2.1;
+
+        montus = Math.ceil(montus);
+        int mallus = (int) montus;
+
+        double prislus = mallus * 9.95;
+
+        return prislus;
+    }
+
+    public static int bindsNNakrog(){
 
         return 2;
+    }
+
+    public static double prisNNakrog(){
+
+        return 2 * 1.3;
     }
 
 
@@ -145,31 +245,8 @@ public static int topLaegHolds(Request req){
                 size = 600;
                 break;
         }
-                    //Measurements
-                        //240
-                        //270
-                        //300
-        //300
-                        //330
-                        //360
-                        //390
-        //360
-                        //420
-                        //450
-                        //480
-        //420
-                        //510
-                        //540
-                        //570
-        //480
-                        //600
-                        //630
-                        //660
-        //540
-                        //690
-                        //720
-                        //750
-        //600
+
+
 return size;
     }
 
@@ -184,320 +261,311 @@ return size;
     }
 
 
+    public static int tagFodLægteStørrelse(Request req) {
 
-    /*
+        int length = req.getLength();
+        int fodSiz = 240;
+        switch (length) {
 
-    public int numRofPlatesSingls(Request req) {
-        // I antagelse af at der anvendes plader på L.600 W.109, derfor
+            case 240:
+                fodSiz = 210;
+                break;
 
-        double l = req.getLength();
-        double w = req.getWidth();
-        double LnW = l * w;
-        String tagmat = req.getRoofmat();
+            case 270:
+                fodSiz = 240;
+                break;
 
-        int LTW = 0;
-        // tallet 65400 er længde gange bredde af plastplade, altså 600 * 109
+            case 300:
+            case 330:
+            case 390:
+                fodSiz = 270;
 
-        //Anvender den største af hver slags plade lige pt
-        switch (tagmat) {
+            case 420:
+            case 450:
+            case 480:
+                fodSiz = 300;
 
-            case "Plasttrapezplader":
-                LTW = 600 * 109;
-            case "StÃ¥ltag":
-                LTW = 250 * 105;
-            case "Tagpap":
-                LTW = 750 * 60;
+            case 510:
+            case 540:
+            case 570:
+                fodSiz = 360;
+                break;
+
+            case 600:
+            case 630:
+            case 660:
+                fodSiz = 450;
+                break;
+
+            case 690:
+            case 720:
+            case 750:
+                fodSiz = 540;
+                break;
         }
-        double stks = LnW / LTW;
-
-        int Pladtal = (int) Math.ceil(stks);
-        return Pladtal;
+return fodSiz;
     }
 
-
-
-    public double roofMatPrice(Request req){
-
-
-        double l = req.getLength();
-        double w = req.getWidth();
-        double LnW = l * w;
-        String tagmat = req.getRoofmat();
-        double LTW = 0.0;
-        double stks = 0;
-
-        double PladTal = 0;
-        double PladPris = 0;
-
-
-        switch (tagmat) {
-
-        case "Plasttrapezplader":
-            LTW = 600.0 * 109.0;
-            stks = LnW / LTW;
-            PladTal = Math.ceil(stks);
-            PladPris = PladTal * 250.0;
-            break;
-        case "Ståltag":
-            LTW = 250.0 * 105.0;
-            stks = LnW / LTW;
-            PladTal = Math.ceil(stks);
-            PladPris = PladTal * 239.0;
-            break;
-        case "Tagpap":
-            LTW = 750.0 * 60.0;
-            stks = LnW / LTW;
-            PladTal = Math.ceil(stks);
-            PladPris = PladTal * 299.0;
-            break;
-       }
-       return PladPris;
-
-    }
-
-    public int numOfRofScrews(Request req) {
-
-        double l = req.getLength();
-        double w = req.getWidth();
-        double LcW = l + w;
-
-        int Rscrews = (int) (LcW / 460);
-
-        if (Rscrews < 1) {
-            Rscrews = 1;
-        }
-
-        return Rscrews;
-    }
-
-    public double RofScrewPrice(Request req) {
-
-        double l = req.getLength();
-        double w = req.getWidth();
-        double LcW = l + w;
-
-        int Rscrews = (int) (LcW / 460);
-
-        if (Rscrews < 1) {
-            Rscrews = 1;
-        }
-
-        double ScrPrice = 409.0 * Rscrews;
-
-        return ScrPrice;
-    }
-
-
-
-    public int Cal25x200x300FnB(Request req) {
-        // for the front and back stern, here i have taken the smallest as examples
-        //Taken from the example of 780 x 600, and here using the 25x200x300
-        int max = 600;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-
-        if (w < quart){
-            return 1;
-        } else if (w >= quart && w <= half){
-            return 2;
-        }else if (w >= half && w <= max){
-            return 4;
-        }else { return 4;
-        }
-    }
-
-    public double Cal25x200x300FnBPrice(Request req) {
-        // for the front and back stern, here i have taken the smallest as examples
-        //Taken from the example of 780 x 600, and here using the 25x200x300
-        int max = 600;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        double pricePlank = 33.95;
-
-        if (w < quart){
-            return pricePlank;
-        } else if (w >= quart && w <= half){
-            pricePlank = pricePlank * 2;
-            return pricePlank;
-        }else if (w >= half && w <= max){
-            pricePlank = pricePlank * 4;
-            return pricePlank;
-        }else {
-            return pricePlank;
-        }
-    }
+            //Measurements in Width or Length
+            //240
+            //270
+            //300
+            //330
+            //360
+            //390
+            //420
+            //450
+            //480
+            //510
+            //540
+            //570
+            //600
+            //630
+            //660
+            //690
+            //720
+            //750
 
 
 
 
-    public int Cal25x125x300Front(Request req) {
-        // it calculates via a number of 300, because it will measure so it fits the length. Using
+    public static int doorSize(Request req){
+        int length = req.getLength();
 
-        int max = 780;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfPlanks = 0;
+        int størrelsen = 240;
 
-        if(w <= 300){
-            numbOfPlanks = 1;
-        } else if (w > 300 && w <= 600){
-            numbOfPlanks = 2;
-        } else if (w>600){
-            numbOfPlanks = 3;
-        }
-        return  numbOfPlanks;
-    }
+        switch(length){
+            case 240:
+            case 270:
+                størrelsen = 300;
+                break;
+            case 300:
+            case 330:
+                størrelsen = 330;
+                break;
+            case 360:
+            case 390:
+                størrelsen = 360;
+                break;
+            case 420:
+            case 450:
+                størrelsen = 390;
+                break;
+            case 480:
+            case 510:
+                størrelsen = 420;
+                break;
+            case 540:
+            case 570:
+                størrelsen = 450;
+                break;
+            case 600:
+            case 630:
+                størrelsen = 480;
+                break;
+            case 660:
+            case 690:
+                størrelsen = 510;
+                break;
+            case 720:
+            case 750:
+                størrelsen = 540;
+                break;
 
-    public double Cal25x125x300FrontPrice(Request req) {
-        // it calculates via a number of 300, because it will measure so it fits the length. Using
-
-        int max = 780;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfPlanks = 0;
-        double pricePlank = 27.95;
-
-        if(w <= 300){
-            return pricePlank;
-        } else if (w > 300 && w <= 600){
-            pricePlank = pricePlank * 2;
-            return pricePlank;
-        } else if (w>600){
-            pricePlank = pricePlank * 3;
-            return pricePlank;
-        }
-        return pricePlank;
-    }
-
-    public int Cal25x125x360Sides(Request req) {
-        // it calculates via a number of 300, because it will measure so it fits the length. Using
-
-        int max = 600;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfPlanks = 0;
-
-        if(w <= 300){
-            numbOfPlanks = 2;
-        } else if (w > 300 && w <= 600){
-            numbOfPlanks = 4;
-        } else if (w>600){
-            numbOfPlanks = 6;
-        }
-        return  numbOfPlanks;
-    }
-
-    public double Cal25x125x360SidesPrice(Request req) {
-        // it calculates via a number of 300, because it will measure so it fits the length. Using
-
-        int max = 600;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfPlanks = 2;
-        double pricePlank = 27.95;
-
-        if(w <= 300){
-            pricePlank = pricePlank * 2;
-        } else if (w > 300 && w <= 600){
-            pricePlank = pricePlank * 4;
-        } else if (w>600){
-            pricePlank = pricePlank * 6;
-        }
-        return pricePlank;
-    }
-
-    public int CaL19x100x480(Request req){
-
-       // Lige pt, formodes det at brugeren saver til på matrialerne.
-        int max = 600;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfPlanks = 0;
-
-        if(w <= half){
-            numbOfPlanks = 1;
-        } else if (w > half && w <= max){
-            numbOfPlanks = 2;
-        } else if (w>half){
-            numbOfPlanks = 5;
-        }
-        return numbOfPlanks;
-    }
-
-    public double CaL19x100x480Price(Request req){
-
-        // Lige pt, formodes det at brugeren saver til på matrialerne.
-        int max = 600;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfPlanks = 0;
-        double pricePlank = 22.95;
-
-        if(w <= half){
-            numbOfPlanks = 1;
-            pricePlank = 22.95 * numbOfPlanks;
-        } else if (w > half && w <= max){
-            numbOfPlanks = 2;
-            pricePlank = 22.95 * numbOfPlanks;
-        } else if (w>half){
-            numbOfPlanks = 5;
-            pricePlank = 22.95 * numbOfPlanks;
-        }
-        return pricePlank;
-    }
-
-    public int CaL19x100x420Forend(Request req){
-
-        // Lige pt, formodes det at brugeren saver til på matrialerne.
-        //Der bruges her 19x100x420
-        int max = 780;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfFlanks = 0;
-
-        if(w <= 325){
-            numbOfFlanks = 1;
-        } else if (w > 325 && w <= 600){
-            numbOfFlanks = 2;
-        } else if (w>600){
-            numbOfFlanks = 2;
-        }
-        return numbOfFlanks;
-    }
-
-
-    public double CaL19x100x420ForendPrice(Request req){
-
-        // Lige pt, formodes det at brugeren saver til på matrialerne.
-        //Der bruges her 19x100x420
-        int max = 780;
-        int half = max / 2;
-        int quart = half / 2;
-        double w = req.getWidth();
-        int numbOfFlanks = 0;
-        double pricePlank = 22.95;
-
-        if(w <= 325){
-            numbOfFlanks = 1;
-
-        } else if (w > 325 && w <= 600){
-            numbOfFlanks = 2;
-        } else if (w>600){
-            numbOfFlanks = 2;
         }
 
-        pricePlank = pricePlank * numbOfFlanks;
-
-        return pricePlank;
+        return  størrelsen;
     }
-*/
+
+    //Redundant methods here
+
+    public static int tagFodLægteAntal(){
+            return 3;
+    }
+
+    public static double tagFodLægtePris(Request req){
+
+            return 8.95 * 3;
+    }
+
+
+
+
+    public static int doorAmount(){
+        return 1;
+    }
+
+    public static double doorPrice(){
+        return 22.95 * 1.0;
+    }
+    //Redundant methods end;
+
+
+
+    public static int antalH38x73mmotaglægteT1HRows(Request req){
+        int width = req.getWidth();
+
+        int amount = width / 17;
+
+
+        switch (amount){
+
+            case 14:
+            case 16:
+            case 18:
+            case 20:
+            case 22:
+            case 24:
+            case 26:
+            case 28:
+            case 30:
+            case 32:
+            case 34:
+            case 36:
+            case 38:
+            case 40:
+            case 42:
+            case 44:
+
+                amount++;
+
+                break;
+        }
+
+        return amount;
+
+
+    }
+
+
+    public static double prisH38x73mmotaglægteT1HRows(Request req){
+        int width = req.getWidth();
+
+        int amount = width / 17;
+
+
+        switch (amount){
+
+            case 15:
+            case 17:
+            case 19:
+            case 21:
+            case 23:
+            case 25:
+            case 27:
+            case 29:
+            case 31:
+            case 33:
+            case 35:
+            case 37:
+            case 39:
+            case 41:
+            case 43:
+            case 45:
+
+                amount++;
+
+                break;
+        }
+
+
+        double pricee = amount * 22.95;
+
+        return pricee;
+
+
+    }
+
+    public static int sizeH38x73mmotaglægteT1HRows(Request req){
+        int length = req.getLength();
+
+        int størrelsen = 240;
+
+        switch(length){
+            case 240:
+            case 270:
+            case 300:
+                størrelsen = 240;
+                break;
+            case 330:
+            case 360:
+            case 390:
+                størrelsen = 360;
+                break;
+            case 420:
+            case 450:
+            case 480:
+            case 510:
+                størrelsen = 420;
+                break;
+            case 540:
+            case 570:
+            case 600:
+            case 630:
+                størrelsen = 480;
+                break;
+            case 660:
+            case 690:
+            case 720:
+            case 750:
+                størrelsen = 540;
+                break;
+
+        }
+
+        return  størrelsen;
+    }
+
+
+    public static int sizeH38x73mmotaglægteT1HHolders(Request req){
+
+int length = req.getLength();
+int sizu = 420;
+
+if (length <= 420){
+    sizu = 240;
+}
+
+return sizu;
+    }
+    //Besla og Skruers
+    //redundance inbound
+
+    public static double priceH38x73mmotaglægteT1HHolders(){
+        return 22.95 * 2;
+    }
+
+    public static int amountH38x73mmotaglægteT1HHolders(){
+        return 2;
+    }
+
+public static int amount4Komma5x60Skruer(){
+        return 1;
+}
+public static double price4Komma5x60Skruer(){
+        return 74.95;
+}
+    public static int amount5Komma0x40Skruer(){
+        return 1;
+    }
+    public static double price5Komma0x40Skruer(){
+        return 259.0;
+    }
+
+    public static int amount5komma0x40100Skruer(){
+        return 2;
+    }
+    public static double price5komma0x40100Skruer(){
+        return 398.0;
+    }
+
+    //redundance done
+
+
+
+
+
+
+
+
 }

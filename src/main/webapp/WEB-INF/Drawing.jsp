@@ -11,7 +11,7 @@
     <title>Drawing</title>
 </head>
 <body>
-<h1>Drawing page</h1>
-${requestScope.svgdrawing}
+<h1 align="center">Carport set ovenfra</h1>
+<div align="center">${requestScope.svgdrawing}</div>
 </body>
 </html>
