@@ -29,32 +29,57 @@ public class StyklisteBeregner {
 
         return spærPris;
     }
-    public static int antalSpær(int length) {
+    public int antalSpær(int length) {
         int antal = 0;
         switch(length){
-            case 750: antal = 16; //spærafstand 50cm
-            case 720: antal = 16; // 48
-            case 690: antal = 13; //57.5
-            case 660: antal = 13; //55
-            case 630: antal = 13; //52.5
-            case 600: antal = 13; //50
-            case 570: antal = 11; //57
-            case 540: antal = 10; //60
-            case 510: antal = 7; //85
-            case 480: antal = 7; //80
-            case 450: antal = 7; //75
-            case 420: antal = 7; //70
-            case 390: antal = 6; //78
-            case 360: antal = 6; //72
-            case 330: antal = 6; //66
-            case 300: antal = 5; //75
-            case 270: antal = 5; //67.5
-            case 240: antal = 4; //80
+            case 750: antal = 16; break;//spærafstand 50cm
+            case 720: antal = 16; break;// 48
+            case 690: antal = 16; break;//46
+            case 660: antal = 13; break;//55
+            case 630: antal = 11; break;//63
+            case 600: antal = 11; break;//60
+            case 570: antal = 11; break;//57
+            case 540: antal = 10; break;//60
+            case 510: antal = 7; break;//85
+            case 480: antal = 7; break;//80
+            case 450: antal = 7; break;//75
+            case 420: antal = 7; break;//70
+            case 390: antal = 6; break;//78
+            case 360: antal = 6; break;//72
+            case 330: antal = 6; break;//66
+            case 300: antal = 5; break;//75
+            case 270: antal = 4; break;//90
+            case 240: antal = 4; break;//80
+            default: antal = 0; break;
         }
-        //antal = Math.ceil((length / 55.0)) + 1.0; //length/antalspær (får regning af arne?)
-        //int spær = (int) antal;
         return antal;
     }
+    public double spærAfstand(int length){
+        double afstand = 0.0;
+        switch(length) {
+            case 750: afstand = 50; break;
+            case 720: afstand = 48; break;
+            case 690: afstand = 46; break;
+            case 660: afstand = 55; break;
+            case 630: afstand = 63; break;
+            case 600: afstand = 50; break;
+            case 570: afstand = 57; break;
+            case 540: afstand = 60; break;
+            case 510: afstand = 85; break;
+            case 480: afstand = 80; break;
+            case 450: afstand = 75; break;
+            case 420: afstand = 70; break;
+            case 390: afstand = 78; break;
+            case 360: afstand = 72; break;
+            case 330: afstand = 66; break;
+            case 300: afstand = 75; break;
+            case 270: afstand = 90; break;
+            case 240: afstand = 80; break;
+            default: afstand = 0; break;
+        }
+        return afstand;
+    }
+
     public static int længdeSpær(int width){
         int længde = width;
         /*if (width > 600){
