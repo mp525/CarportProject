@@ -78,6 +78,7 @@ public class Drawing2 extends Command {
 
 
         }
+
         request.setAttribute("svgdrawing2", sideSVG.toString());
 
 
