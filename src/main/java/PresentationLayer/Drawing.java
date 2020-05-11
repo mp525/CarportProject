@@ -50,6 +50,7 @@ public class Drawing extends Command {
 
         SVG svg = new SVG(length, width, "0,0,1300,1000",0,0);
         SVG sideSVG = new SVG(1300, 1000, "0,0,1300,1000",0,0);
+
         //Carport
         svg.addRect(0,0,width,length);
 
@@ -59,7 +60,7 @@ public class Drawing extends Command {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelLængde= fordelLængde/2;
             }
-            svg.addRect(0,fordelLængde,10,10);
+            svg.addRect(fordelLængde,0,10,10);
 
             fordelLængde=+s.stolpeAntalWidth(reviewReq);
         }
@@ -69,7 +70,7 @@ public class Drawing extends Command {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelLængde2= fordelLængde2/2;
             }
-            svg.addRect(length-10,fordelLængde2,10,10);
+            svg.addRect(fordelLængde2,length-10,10,10);
             fordelLængde2=+s.stolpeAntalWidth(reviewReq);
         }
 
@@ -79,33 +80,36 @@ public class Drawing extends Command {
             if(s.stolpeAntalLength(reviewReq)==1){
                 fordelBredde= fordelBredde/2;
             }
-            svg.addRect(fordelBredde,0,10,10);
+            svg.addRect(length - 10,fordelBredde,10,10);
             fordelBredde=+s.stolpeAntalLength(reviewReq);
         }
 
         //Stolper hjørner
         svg.addRect(0,width-10,10,10);
         svg.addRect(length-10,width-10,10,10);
+        svg.addRect(0,0,10,10);
 
-        svg.addRect(length-10,0,10,10);
 
         //Skuret
         if(widthS!=0) {
             //selve skuret
-            svg.addRect(0, 0, widthS, lengthS);
+            svg.addRect(length - lengthS, 0, widthS, lengthS);
 
             //Stolper hjørner
-            svg.addRect(lengthS - 10, widthS - 10, 10, 10);
-            svg.addRect(0, widthS - 10, 10, 10);
-            svg.addRect(lengthS - 10, 0, 10, 10);
+            svg.addRect(length - lengthS, widthS - 10, 10, 10);
+            svg.addRect(length - 10, widthS - 10, 10, 10);
+            svg.addRect(length - lengthS, 0, 10, 10);
         }
-        svg.addRect(0,0,10,10);
+
+        svg.addRect(length-10,0,10,10);
 
         //de der linjer som jeg kom til at starte på, sorry vibeke :-/
         svg.addLine( 0,width +50,length,width +50);
         svg.addLine( length + 50, 0,length + 50,width);
 
         //Set fra siden begynder her
+
+        //Remme begynder her
 
         //Spær begynder her (remme skal laves først da spær ligger op remmene
         int xPosition = 0;
@@ -118,8 +122,6 @@ public class Drawing extends Command {
         sideSVG.rectTemplateRotate(0,20,20,width);*/
 
         request.setAttribute("svgdrawing", svg.toString());
-
-
 
             return "Drawing";
 
