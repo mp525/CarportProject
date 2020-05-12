@@ -52,6 +52,9 @@ public class StyklisteBeregner {
             case 240: antal = 4; break;//80
             default: antal = 0; break;
         }
+        /*if(width > length){
+            antal += 2;
+        }*/
         return antal;
     }
     public double spærAfstand(int length){
@@ -135,7 +138,7 @@ public class StyklisteBeregner {
             //hver hjørne af skuret
 
             //hver side af døren ved skuret
-            stolpeAntalShed = 6;
+            stolpeAntalShed = 5;
         }
 
         //+ alt
