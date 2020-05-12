@@ -112,19 +112,11 @@ public class Drawing extends Command {
         svg.addRect(0,width-30, 5, length);
 
         //Målelinjer
-        //svg.addLine( 0,length +50,width,length +50);
         svg.markerDef();
-        svg.addArrowLine(0, length + 50, width, length + 50);
-        //svg.addText(width+50, length/2, 30, length);
-        //svg.addTextRotate(width+100, length/2, 30, length/2);
-        svg.addTextRotate(width+70, length/2, 90, length);
-        svg.addArrowLine(width + 50, 0,width + 50, length);
-        svg.addText(width/2, length+70, 0, width);
-        //svg.addLine( width + 50, 0,width + 50,length);
-
-        svg.addLine( 0,width +50,length,width +50);
         svg.addArrowLine(0,width+50, length, width+50);
-        svg.addLine( length + 50, 0,length + 50,width);
+        svg.addText(length/2, width+70, 0, length);
+        svg.addArrowLine(length + 50, 0, length + 50, width);
+        svg.addTextRotate(length+70, width/2, 90, width);
 
         //Set fra siden begynder her
 
