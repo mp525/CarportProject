@@ -76,7 +76,6 @@ public class Drawing extends Command {
         }
 
         //Stolper bredde
-        if(reviewReq.getWidthS() == 0){
             int fordelBredde= length/s.stolpeAntalWidth(reviewReq);
             for (int i = 0; i < s.stolpeAntalWidth(reviewReq)-1; i++) {
                 if(s.stolpeAntalWidth(reviewReq)==1){
@@ -85,7 +84,7 @@ public class Drawing extends Command {
                 svg.addRect(length - 30,fordelBredde,10,10);
                 fordelBredde=+s.stolpeAntalLength(reviewReq);
             }
-        }
+
 
 
         //Stolper hjørner
