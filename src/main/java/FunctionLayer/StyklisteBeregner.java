@@ -135,7 +135,7 @@ public class StyklisteBeregner {
             //hver hjørne af skuret
 
             //hver side af døren ved skuret
-            stolpeAntalShed = 6;
+            stolpeAntalShed = 5;
         }
 
         //+ alt
