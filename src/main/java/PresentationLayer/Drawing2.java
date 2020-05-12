@@ -79,6 +79,10 @@ public class Drawing2 extends Command {
 
         }
 
+        //Skur brædder:
+        sideSVG.rectTemplateRotate(10, 40, (length/2)-20, widthS-10);
+        sideSVG.addLine(10, 40, 10, (length/2)+20);
+
         request.setAttribute("svgdrawing2", sideSVG.toString());
 
 
