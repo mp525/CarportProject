@@ -55,7 +55,16 @@ public class Drawing extends Command {
         //Carport
         svg.addRect(0,0,width,length);
 
+            //Skuret
+        if(widthS!=0) {
+            //selve skuret
+            svg.addRect(length - lengthS - 20, 20, widthS, lengthS);
 
+            //Stolper hjørner
+            svg.addRect(length - lengthS - 20, widthS + 10, 10, 10);
+            svg.addRect(length - 30, widthS + 10, 10, 10);
+            svg.addRect(length - lengthS - 20, 20, 10, 10);
+        }
 
 
 
@@ -89,25 +98,16 @@ public class Drawing extends Command {
         //StolperLængde
 
 
-        //Skuret
-        if(widthS!=0) {
-            //selve skuret
-            svg.addRect(length - lengthS - 20, 20, widthS, lengthS);
 
-            //Stolper hjørner
-            svg.addRect(length - lengthS - 20, widthS + 10, 10, 10);
-            svg.addRect(length - 30, widthS + 10, 10, 10);
-            svg.addRect(length - lengthS - 20, 20, 10, 10);
-        }
 
         int fordelLængde =length/s.stolpeAntalLength(reviewReq);
         for (int i = 0; i < s.stolpeAntalWidth(reviewReq); i++) {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelLængde= length/2;
             }
-            svg.addRect(fordelLængde,20,10,10);
+            svg.addRect(fordelLængde+50,20,10,10);
 
-            fordelLængde=+s.stolpeAntalWidth(reviewReq);
+            fordelLængde=+(length/2)+50;
         }
 
         int fordelLængde2 = length /s.stolpeAntalLength(reviewReq);
@@ -115,8 +115,8 @@ public class Drawing extends Command {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelLængde2= length/2;
             }
-            svg.addRect(fordelLængde2,width-30,10,10);
-            fordelLængde2=+s.stolpeAntalWidth(reviewReq);
+            svg.addRect(fordelLængde2+50,width-30,10,10);
+            fordelLængde2=+(length/2)+50;
         }
 
         //Stolper bredde
@@ -125,16 +125,19 @@ public class Drawing extends Command {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelBredde= width/2;
             }
-            svg.addRect(length - 30,fordelBredde,10,10);
-            fordelBredde=+s.stolpeAntalLength(reviewReq);
+            svg.addRect(length - 30,fordelBredde-100,10,10);
+            fordelBredde=+(width/2)+200;
         }
         //Stolper hjørner
         svg.addRect(20,width-30,10,10);
         svg.addRect(length-30,width-30,10,10);
         svg.addRect(20,20,10,10);
         svg.addRect(length-30,20,10,10);
-        //stolper Hjørner
-
+        //stolper dør
+        if(widthS!=0) {
+            svg.addRect((length - lengthS) - 20, (widthS / 2) + 50, 10, 10);
+            svg.addRect((length - lengthS) - 20, (widthS / 2) - 50, 10, 10);
+        }
         request.setAttribute("svgdrawing", svg.toString());
 
             return "Drawing";
