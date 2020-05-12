@@ -102,8 +102,15 @@ public class Drawing extends Command {
         svg.addRect(0,0,10,10);
 
         //de der linjer som jeg kom til at starte på, sorry vibeke :-/
-        svg.addLine( 0,length +50,width,length +50);
-        svg.addLine( width + 50, 0,width + 50,length);
+        //svg.addLine( 0,length +50,width,length +50);
+        svg.markerDef();
+        svg.addArrowLine(0, length + 50, width, length + 50);
+        //svg.addText(width+50, length/2, 30, length);
+        //svg.addTextRotate(width+100, length/2, 30, length/2);
+        svg.addTextRotate(width+70, length/2, 90, length);
+        svg.addArrowLine(width + 50, 0,width + 50, length);
+        svg.addText(width/2, length+70, 0, width);
+        //svg.addLine( width + 50, 0,width + 50,length);
 
         //Set fra siden begynder her
 
