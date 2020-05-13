@@ -15,6 +15,7 @@ public class Review extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         ArrayList<Material> stykliste = new ArrayList();
+        StyklisteBeregner styklisteBeregner = new StyklisteBeregner();
         HttpSession s = request.getSession();
         String reqIDBefore = request.getParameter("reqID");
         String reqIDAfter = reqIDBefore.replace("Se forespoergsel ", "");
@@ -50,7 +51,10 @@ public class Review extends Command {
         } else{
             MaterialHelper.slopeSpær(reviewReq, stykliste);
             MaterialHelper.slopeStolper(stykliste,reviewReq);
+<<<<<<< HEAD
 
+=======
+>>>>>>> dece18d1c6a1500adb9c0f9f181a39b4dd0a230d
             MaterialHelper.udregnSkur(stykliste, reviewReq);
             MaterialHelper.udregnTagDeleSLOP(stykliste, reviewReq);
         }
@@ -60,7 +64,7 @@ public class Review extends Command {
         for (Material mat: stykliste) {
             samletPris += mat.getPris();
         }
-        samletPris = StyklisteBeregner.round(samletPris,2);
+        samletPris = styklisteBeregner.round(samletPris,2);
         request.setAttribute("samletPris", samletPris);
 
         request.setAttribute("stykliste", stykliste);

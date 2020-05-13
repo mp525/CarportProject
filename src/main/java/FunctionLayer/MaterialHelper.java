@@ -24,16 +24,16 @@ public class MaterialHelper {
     public static void udregnSpær(ArrayList<Material> stykliste, Request request){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalSpær = styklisteBeregner.antalSpær(request.getLength());
-        int spærLængde = StyklisteBeregner.længdeSpær(request.getWidth());
-        double spærPris = StyklisteBeregner.spærPris(spærLængde, antalSpær); //Her er det den samlede pris på spær
+        int spærLængde = styklisteBeregner.længdeSpær(request.getWidth());
+        double spærPris = styklisteBeregner.spærPris(spærLængde, antalSpær); //Her er det den samlede pris på spær
         int antalRemme = 2;
         /*if(!(request.getLengthS() == 0)){ Dette er kun hvis skuret er for langt og remme ikke må være så lange,
             antalRemme++;                   så remmene bliver skåret over hvor skur starter.
         }*/
-        double remPris = StyklisteBeregner.remPris(request.getLength(), antalRemme);
-        double beslagPris = StyklisteBeregner.round(antalSpær * 45.95, 2);
-        int beslagSkrueAntal = StyklisteBeregner.beslagSkrueAntal(request.getLength());
-        double beslagSkruePris = StyklisteBeregner.round(beslagSkrueAntal * 259,2);
+        double remPris = styklisteBeregner.remPris(request.getLength(), antalRemme);
+        double beslagPris = styklisteBeregner.round(antalSpær * 45.95, 2);
+        int beslagSkrueAntal = styklisteBeregner.beslagSkrueAntal(request.getLength());
+        double beslagSkruePris = styklisteBeregner.round(beslagSkrueAntal * 259,2);
         //int remLængde = reviewReq.getLengthS(); RemlængdeS er jeg lidt i tvivl om
         Material spær = new Material("45x195 mm. spærtræ ubh.", "Spær, monteres på rem",
                 "stk", "Træ", spærLængde, spærPris, antalSpær);
@@ -69,7 +69,7 @@ public class MaterialHelper {
         int D4o5skruerD = 1;
         double D4o5skruerDpris = 74.95 ;
         int frontBackScrews25 = StyklisteBeregner.Cal25x200x300FnB(req);
-        double frontBackScrews25pris = StyklisteBeregner.Cal25x200x300FnBPrice(req);
+        double frontBackScrews25pris = styklisteBeregner.Cal25x200x300FnBPrice(req);
         int antalFemTyvHunTreTres = StyklisteBeregner.Cal25x125x360Sides(req);
         double FemTyvHunTreTresPris = StyklisteBeregner.Cal25x125x360SidesPrice(req);
         int antalFemOgTyvPlanksStern = StyklisteBeregner.Cal25x125x300Front(req);
@@ -294,15 +294,15 @@ public class MaterialHelper {
     public static void slopeSpær(Request request, ArrayList<Material> stykliste){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalSpær = styklisteBeregner.antalSpær(request.getLength());
-        int carportLængde = StyklisteBeregner.længdeSpær(request.getWidth());
+        int carportLængde = styklisteBeregner.længdeSpær(request.getWidth());
         int carportBredde = request.getWidth();
         int carportVinkel = request.getSlopeangle();
-        double spærPris = StyklisteBeregner.spærPakkePris(antalSpær,carportBredde,carportVinkel, carportLængde);
+        double spærPris = styklisteBeregner.spærPakkePris(antalSpær,carportBredde,carportVinkel, carportLængde);
         int antalRemme = 2;
-        double remPris = StyklisteBeregner.remPris(request.getLength(), antalRemme);
-        double beslagPris = StyklisteBeregner.round(antalSpær * 45.95, 2);
-        int beslagSkrueAntal = StyklisteBeregner.beslagSkrueAntal(request.getLength());
-        double beslagSkruePris = StyklisteBeregner.round(beslagSkrueAntal * 259,2);
+        double remPris = styklisteBeregner.remPris(request.getLength(), antalRemme);
+        double beslagPris = styklisteBeregner.round(antalSpær * 45.95, 2);
+        int beslagSkrueAntal = styklisteBeregner.beslagSkrueAntal(request.getLength());
+        double beslagSkruePris = styklisteBeregner.round(beslagSkrueAntal * 259,2);
 
         Material spærPakke = new Material("Færdigskåret (byg-selv spær)", "byg-selv spær (skal samles) " +
                 antalSpær + " stk.", "stk", "Træ", 0, spærPris, antalSpær);
@@ -325,9 +325,6 @@ public class MaterialHelper {
     }
     public static void slopeStolper(ArrayList<Material>stykliste,Request r){
         udregnStolpe(stykliste, r);
-    }
-    public static void slopeSkur(){
-
     }
 }
 
