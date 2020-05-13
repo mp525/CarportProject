@@ -122,7 +122,7 @@ public class Drawing extends Command {
         svg.addText(length / 2, width + 70, 0, length);
         svg.addArrowLine(length + 50, 0, length + 50, width);
         svg.addTextRotate(length + 70, width / 2, 90, width);
-        
+
 
         //Set fra siden begynder her
 
