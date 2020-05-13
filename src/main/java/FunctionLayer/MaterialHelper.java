@@ -323,8 +323,8 @@ public class MaterialHelper {
 
 
     }
-    public static void slopeStolper(){
-
+    public static void slopeStolper(ArrayList<Material>stykliste,Request r){
+        udregnStolpe(stykliste, r);
     }
     public static void slopeSkur(){
 
