@@ -30,7 +30,7 @@ public class Drawing extends Command {
 
         StyklisteBeregner s = new StyklisteBeregner();
 
-        Request reviewReq= (Request) request.getSession().getAttribute("reviewReq");
+        Request reviewReq = (Request) request.getSession().getAttribute("reviewReq");
         request.setAttribute("reviewEmail", reviewReq.getEmail());
         request.setAttribute("reviewLength", reviewReq.getLength());
         request.setAttribute("reviewWidth", reviewReq.getWidth());
@@ -104,6 +104,15 @@ public class Drawing extends Command {
         //de der linjer som jeg kom til at starte på, sorry vibeke :-/
         svg.addLine( 0,length +50,width,length +50);
         svg.addLine( width + 50, 0,width + 50,length);
+
+
+
+
+        //Stern
+        svg.addRect(length + 20,width + 20,StyklisteBeregner.strlseSternSidder25n150nx(reviewReq),150);
+        svg.addRect(length - 50,width - 50,StyklisteBeregner.strlseSternSidder25n150nx(reviewReq),150);
+
+
 
         //Set fra siden begynder her
 
