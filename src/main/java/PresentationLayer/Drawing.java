@@ -122,10 +122,7 @@ public class Drawing extends Command {
         svg.addText(length / 2, width + 70, 0, length);
         svg.addArrowLine(length + 50, 0, length + 50, width);
         svg.addTextRotate(length + 70, width / 2, 90, width);
-
-        //de der linjer som jeg kom til at starte på, sorry vibeke :-/
-        svg.addLine( 0,width +50,length,width +50);
-        svg.addLine( length + 50, 0,length + 50,width);
+        
 
         //Set fra siden begynder her
 
