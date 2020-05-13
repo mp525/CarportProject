@@ -88,14 +88,14 @@ public class UserMapperTestAllMats {
     @Test
     public void testOmslopeKanKommeInd(){
 
-        assertTrue(getMats().contains("Super sejt materiale"));
+        assertTrue(getSlope().contains("Super sejt materiale"));
 
         System.out.println("Matslope kan sættes ind");
     }
     @Test (expected = java.lang.AssertionError.class)
     public void testOmslopeTagKanKommeIndNegativ(){
 
-        assertTrue(getMats().contains("Super ikke sejt materiale"));
+        assertTrue(getSlope().contains("Super ikke sejt materiale"));
 
     }
 
@@ -103,14 +103,14 @@ public class UserMapperTestAllMats {
     @Test
     public void testOmfladtKanKommeInd(){
 
-        assertTrue(getMats().contains("Super sejt materiale"));
+        assertTrue(getFlat().contains("Super sejt materiale"));
 
         System.out.println("Matfladt kan sættes ind");
     }
     @Test (expected = java.lang.AssertionError.class)
     public void testOmfladtKanKommeIndNegativ(){
 
-        assertTrue(getMats().contains("Super ikke sejt materiale"));
+        assertTrue(getFlat().contains("Super ikke sejt materiale"));
 
     }
 
