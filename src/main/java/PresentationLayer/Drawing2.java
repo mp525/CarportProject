@@ -86,12 +86,13 @@ public class Drawing2 extends Command {
         if(xStart<=xEnd) {
             sideSVG.addLine(10, 40, 10, (length/2)+20);
         }
-        for (int i = 10; i < xEnd; i+=16) {
-            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
-        }
         for (int i = 18; i < xEnd; i+=16) {
+            sideSVG.addLine(i, 40, i, (length/2)+20);
             sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
         }
+        /*for (int i = 18; i < xEnd; i+=16) {
+            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
+        }*/
         /*int x = 10;
         while (x < xEnd) {
             sideSVG.addLine(x+10, 40, x+10, (length/2)+20);
