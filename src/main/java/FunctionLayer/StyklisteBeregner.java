@@ -53,9 +53,9 @@ public class StyklisteBeregner {
             case 240: antal = 4; break;//80
             default: antal = 0; break;
         }
-        /*if(width > length){
+        if(length == 600){
             antal += 2;
-        }*/
+        }
         return antal;
     }
     public int spærAfstand(int length){
