@@ -78,6 +78,37 @@ public class Drawing2 extends Command {
 
 
         }
+
+        //Skur brædder:
+        sideSVG.rectTemplateRotate(10, 40, (length/2)-20, widthS-10);
+        int xStart = 10;
+        int xEnd = widthS-10;
+        if(xStart<=xEnd) {
+            sideSVG.addLine(10, 40, 10, (length/2)+20);
+        }
+        for (int i = 18; i < xEnd; i+=16) {
+            sideSVG.addLine(i, 40, i, (length/2)+20);
+            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
+        }
+        /*for (int i = 18; i < xEnd; i+=16) {
+            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
+        }*/
+        /*int x = 10;
+        while (x < xEnd) {
+            sideSVG.addLine(x+10, 40, x+10, (length/2)+20);
+            x+=16;
+        }*/
+
+        //Målelinjer
+        sideSVG.markerDef();
+        sideSVG.addArrowLine(0, (length/2)+40, width, (length/2)+40);
+        sideSVG.addText(width / 2, (length/2)+60, 0, width);
+
+        sideSVG.addArrowLine(width + 50, 0, width + 50, (length/2)+20);
+        sideSVG.addTextRotate(width + 70, ((length/2)+20)/2, 90, 250);
+        //sideSVG.addTextRotate(width + 70, (length/3), 90, (length/2)+20);
+
+
         request.setAttribute("svgdrawing2", sideSVG.toString());
 
 

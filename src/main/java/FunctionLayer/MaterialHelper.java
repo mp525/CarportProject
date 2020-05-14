@@ -23,7 +23,7 @@ public class MaterialHelper {
 
     public static void udregnSpær(ArrayList<Material> stykliste, Request request){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
-        int antalSpær = StyklisteBeregner.antalSpær(request.getLength());
+        int antalSpær = styklisteBeregner.antalSpær(request.getLength());
         int spærLængde = StyklisteBeregner.længdeSpær(request.getWidth());
         double spærPris = StyklisteBeregner.spærPris(spærLængde, antalSpær); //Her er det den samlede pris på spær
         int antalRemme = 2;
@@ -136,7 +136,7 @@ public class MaterialHelper {
 
 
         int strlseSternSidder25n150nx = StyklisteBeregner.strlseSternSidder25n150nx(req);
-        int SternSidderAntal = StyklisteBeregner.SternSidderAntal(req);
+        int SternSidderAntal = 2;
         double SternBrædderPris = StyklisteBeregner.SternBrædderPris(req);
 
         int tagFodLægteStørrelse = StyklisteBeregner.tagFodLægteStørrelse(req);
@@ -293,7 +293,7 @@ public class MaterialHelper {
     }
     public static void slopeSpær(Request request, ArrayList<Material> stykliste){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
-        int antalSpær = StyklisteBeregner.antalSpær(request.getLength());
+        int antalSpær = styklisteBeregner.antalSpær(request.getLength());
         int carportLængde = StyklisteBeregner.længdeSpær(request.getWidth());
         int carportBredde = request.getWidth();
         int carportVinkel = request.getSlopeangle();
@@ -327,9 +327,6 @@ public class MaterialHelper {
 
     }
     public static void slopeSkur(){
-
-    }
-    public static void slopeTag(){
 
     }
 }

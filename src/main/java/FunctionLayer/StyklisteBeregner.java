@@ -27,62 +27,67 @@ public class StyklisteBeregner {
         double spærPris = round((samletSpærLængder * 54.95) * antal,2);
         spærPris += (antal * 50.0) + beslagSkrueAntal(length); //For beslag der bruges i tagpakken + skruer der skal til
 
-        return spærPris;
+        return round(spærPris,2);
     }
-    public static int antalSpær(int length) {
+    public int antalSpær(int length) {
         int antal = 0;
         switch(length){
-            case 750: antal = 16; //spærafstand 50cm
-            case 720: antal = 16; // 48
-            case 690: antal = 13; //57.5
-            case 660: antal = 13; //55
-            case 630: antal = 13; //52.5
-            case 600: antal = 13; //50
-            case 570: antal = 11; //57
-            case 540: antal = 10; //60
-            case 510: antal = 7; //85
-            case 480: antal = 7; //80
-            case 450: antal = 7; //75
-            case 420: antal = 7; //70
-            case 390: antal = 6; //78
-            case 360: antal = 6; //72
-            case 330: antal = 6; //66
-            case 300: antal = 5; //75
-            case 270: antal = 5; //67.5
-            case 240: antal = 4; //80
+            case 750: antal = 16; break;//spærafstand 50cm
+            case 720: antal = 16; break;// 48
+            case 690: antal = 16; break;//46
+            case 660: antal = 13; break;//55
+            case 630: antal = 11; break;//63
+            case 600: antal = 11; break;//60
+            case 570: antal = 11; break;//57
+            case 540: antal = 10; break;//60
+            case 510: antal = 7; break;//85
+            case 480: antal = 7; break;//80
+            case 450: antal = 7; break;//75
+            case 420: antal = 7; break;//70
+            case 390: antal = 6; break;//78
+            case 360: antal = 6; break;//72
+            case 330: antal = 6; break;//66
+            case 300: antal = 5; break;//75
+            case 270: antal = 4; break;//90
+            case 240: antal = 4; break;//80
+            default: antal = 0; break;
         }
-        //antal = Math.ceil((length / 55.0)) + 1.0; //length/antalspær (får regning af arne?)
-        //int spær = (int) antal;
+        /*if(width > length){
+            antal += 2;
+        }*/
         return antal;
     }
+
+
+    //Til sizeH38x73mmotaglægteT1HRows
+    public double spærAfstand(int length){
+        double afstand = 0.0;
+        switch(length) {
+            case 750: afstand = 50; break;
+            case 720: afstand = 48; break;
+            case 690: afstand = 46; break;
+            case 660: afstand = 55; break;
+            case 630: afstand = 63; break;
+            case 600: afstand = 50; break;
+            case 570: afstand = 57; break;
+            case 540: afstand = 60; break;
+            case 510: afstand = 85; break;
+            case 480: afstand = 80; break;
+            case 450: afstand = 75; break;
+            case 420: afstand = 70; break;
+            case 390: afstand = 78; break;
+            case 360: afstand = 72; break;
+            case 330: afstand = 66; break;
+            case 300: afstand = 75; break;
+            case 270: afstand = 90; break;
+            case 240: afstand = 80; break;
+            default: afstand = 0; break;
+        }
+        return afstand;
+    }
+
     public static int længdeSpær(int width){
         int længde = width;
-        /*if (width > 600){
-        * længde = (width/2);
-        * }
-        * Spærlængder må ikke overskride 6m? Er det ligemeget i vores tilfælde, og så bare lave spær
-        * længere end 6m? Behøves længdeSpær metoden, hvis spærets længde bare kan være width?
-        */
-        /*switch(width){
-            case 240: længde = 420;
-            case 270: længde = 420;
-            case 300: længde = 420;
-            case 330: længde = 420;
-            case 360: længde = 420;
-            case 390: længde = 420;
-            case 420: længde = 420;
-            case 450: længde = 540;
-            case 480: længde = 540;
-            case 510: længde = 540;
-            case 540: længde = 540;
-            case 570: længde = 600;
-            case 600: længde = 600;
-            case 630: længde = 600;
-            case 660: længde = 660;
-            case 690: længde = 600;
-            case 720: længde = 600;
-            case 750: længde = 600;
-        }*/
         return længde;
     }
     public static double spærPris(int spærLængde, int spærAntal){
@@ -136,7 +141,7 @@ public class StyklisteBeregner {
             //hver hjørne af skuret
 
             //hver side af døren ved skuret
-            stolpeAntalShed = 6;
+            stolpeAntalShed = 5;
         }
 
         //+ alt
@@ -887,6 +892,9 @@ public class StyklisteBeregner {
         return mallus;
     }
 
+
+
+
     public static int antalRygstensBeslag(Request req){
 
         int enTinDel = 56250;
@@ -942,45 +950,71 @@ public class StyklisteBeregner {
     // der skal bruges 2 af dem her
     public static int strlseSternSidder25n150nx(Request req){
 
-        int width = req.getWidth();
+        int length = req.getLength();
 
         int size = 100;
 
-        switch (width){
+        switch (length){
             case 240:
+                size = 240;
+                break;
             case 270:
-            case 300:
-            case 330:
-            case 360:
-                size = 300;
+                size = 270;
                 break;
 
-            case 390:
-            case 420:
+            case 300:
+                size = 300;
+                break;
+            case 330:
+                size = 330;
+                break;
+            case 360:
                 size = 360;
                 break;
 
-            case 450:
-            case 480:
+            case 390:
+                size = 390;
+                break;
+            case 420:
                 size = 420;
                 break;
 
-            case 510:
-            case 540:
+            case 450:
+                size = 450;
+                break;
+            case 480:
                 size = 480;
                 break;
 
-            case 570:
-            case 600:
+            case 510:
+                size = 510;
+                break;
+            case 540:
                 size = 540;
                 break;
 
-            case 630:
-            case 660:
-            case 690:
-            case 720:
-            case 750:
+            case 570:
+                size = 570;
+                break;
+            case 600:
                 size = 600;
+                break;
+
+            case 630:
+                size = 630;
+                break;
+            case 660:
+                size = 660;
+                break;
+            case 690:
+                size = 690;
+                break;
+            case 720:
+                size = 720;
+                break;
+            case 750:
+                size = 750;
+
                 break;
         }
 
@@ -1136,7 +1170,7 @@ public class StyklisteBeregner {
 
     public static double tagFodLægtePris(Request req){
 
-        return 8.95 * 3;
+        return round(8.95 * 3,2);
     }
 
 
@@ -1177,6 +1211,8 @@ public class StyklisteBeregner {
             case 40:
             case 42:
             case 44:
+            case 46:
+            case 48:
 
                 amount++;
 
@@ -1213,6 +1249,9 @@ public class StyklisteBeregner {
             case 41:
             case 43:
             case 45:
+            case 47:
+            case 49:
+            case 51:
 
                 amount++;
 
@@ -1225,6 +1264,32 @@ public class StyklisteBeregner {
         return pricee;
 
 
+    }
+
+    public double LaegtAfstand(int width){
+        double LaegAfstand = 0;
+        switch(width) {
+            case 750: LaegAfstand = 14; break;
+            case 720: LaegAfstand = 16; break;
+            case 690: LaegAfstand = 18; break;
+            case 660: LaegAfstand = 24; break;
+            case 630: LaegAfstand = 26; break;
+            case 600: LaegAfstand = 28; break;
+            case 570: LaegAfstand = 30; break;
+            case 540: LaegAfstand = 32; break;
+            case 510: LaegAfstand = 34; break;
+            case 480: LaegAfstand = 36; break;
+            case 450: LaegAfstand = 38; break;
+            case 420: LaegAfstand = 40; break;
+            case 390: LaegAfstand = 42; break;
+            case 360: LaegAfstand = 44; break;
+            case 330: LaegAfstand = 46; break;
+            case 300: LaegAfstand = 48; break;
+            case 270: LaegAfstand = 50; break;
+            case 240: LaegAfstand = 52; break;
+            default: LaegAfstand = 0; break;
+        }
+        return LaegAfstand;
     }
 
     public static int sizeH38x73mmotaglægteT1HRows(Request req){
