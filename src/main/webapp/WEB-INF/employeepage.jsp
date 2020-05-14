@@ -91,6 +91,13 @@
                 <p>Du er logget ind som ansat.</p><p>
 
             </blockquote>
+            <br>
+            <br>
+
+            <form name="logout" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="logout">
+                <input type="submit" value="Logout" class="btn btn-light">
+            </form>
 
         </div>
     </footer>
