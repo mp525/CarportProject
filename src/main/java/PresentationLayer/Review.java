@@ -51,6 +51,10 @@ public class Review extends Command {
         } else{
             MaterialHelper.slopeSpær(reviewReq, stykliste);
             MaterialHelper.slopeStolper(stykliste,reviewReq);
+<<<<<<< HEAD
+
+=======
+>>>>>>> dece18d1c6a1500adb9c0f9f181a39b4dd0a230d
             MaterialHelper.udregnSkur(stykliste, reviewReq);
             MaterialHelper.udregnTagDeleSLOP(stykliste, reviewReq);
         }
