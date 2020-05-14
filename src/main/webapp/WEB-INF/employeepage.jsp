@@ -14,7 +14,10 @@
         <style>
             body {background-color: #174986;}
             h1 {color: white; text-align: center;}
+            h2 {color: white; text-align: center;}
             p {color: white; text-align: center;}
+            label{color: white; text-align: center;}
+            input{text-align: center;}
         </style>
     </head>
     <body>
@@ -22,11 +25,9 @@
     <div class="container" align="center">
         <img src="Images/fogs.jpg" class="img-fluid">
 
-        <h1>Hej ${sessionScope.email} </h1>
 
-        <p>Du er logget ind som ansat.</p>
     </div>
-
+    <h2 align="center">Liste med anmodninger</h2>
 
     <div style="text-align: center;display: block">
         <form name="requestLists" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left" action="FrontController" method="POST">
@@ -38,16 +39,18 @@
     </div>
 
 
+
+    <br>
     <br>
     <h2 align="center">Søg på requests via specific mail</h2>
-    <div style="text-align: center; display: block">
-        <form name="getOnesRequests" action="FrontController" align="center" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left">
+    <div style="text-align: center;display: block">
+        <form name="getOnesRequests" action="FrontController" align="center">
             <input type="hidden" name="taget" value="getOnesRequests">
             <label for="uzi">Se en specific email's tilhørende anmodninger:</label><br>
-            <input type="email" id="uzi" name="emaill" value="Indtast emailen på kontakten"><br>
+            <input type="email" id="uzi" name="emaill" value="Indtast kontaktens Email"><br>
             <br>
             <%--        <input type="submit" value="Slet">--%>
-            <button align="center" type="submit" class="btn btn-danger">Søg på denne mail</button>
+            <button align="center" type="submit" class="btn btn-primary">Søg på denne mail</button>
         </form>
     </div>
     </div>
@@ -60,10 +63,11 @@
 
         </c:if>
     </div>
+<br>
+<br>
+    <h2 align="center">Tilføj nyt materiale</h2>
 
 
-
-    <br><br>
     <div class="col" align="center">
         <form name="newMaterial" action="FrontController" method="POST">
             <input type="hidden" name="taget" value="newMaterialPage">
@@ -76,4 +80,26 @@
     <br>
 
     </body>
+    <br>
+    <br>
+    
+    <footer class="shadow-lg p-3 mb-5 bg-black rounded">
+        <div align="center">
+            <blockquote class="blockquote text-right">
+                <p class="mb-0"><h1>Hej ${sessionScope.email} </h1>
+
+                <p>Du er logget ind som ansat.</p><p>
+
+            </blockquote>
+            <br>
+            <br>
+
+            <form name="logout" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="logout">
+                <input type="submit" value="Logout" class="btn btn-light">
+            </form>
+
+        </div>
+    </footer>
+
 </html>

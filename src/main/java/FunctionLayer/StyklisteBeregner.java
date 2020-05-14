@@ -9,14 +9,15 @@ public class StyklisteBeregner {
         Request r = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
         System.out.println(s.stolpeAntalWidth(r));
     }*/
-    public static double round(double value, int places) {
+
+    public double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
         BigDecimal bd = BigDecimal.valueOf(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
-    public static double spærPakkePris(int antal, int width, int slope, int length){
+    public double spærPakkePris(int antal, int width, int slope, int length){
         double angle = slope;
 
         double højdeSpær = (width/2)*Math.tan(angle);
@@ -52,16 +53,15 @@ public class StyklisteBeregner {
             case 240: antal = 4; break;//80
             default: antal = 0; break;
         }
-        /*if(width > length){
+        if(length == 600){
             antal += 2;
-        }*/
+        }
         return antal;
     }
 
+    public int spærAfstand(int length){
+        int afstand = 0;
 
-    //Til sizeH38x73mmotaglægteT1HRows
-    public double spærAfstand(int length){
-        double afstand = 0.0;
         switch(length) {
             case 750: afstand = 50; break;
             case 720: afstand = 48; break;
@@ -86,19 +86,20 @@ public class StyklisteBeregner {
         return afstand;
     }
 
-    public static int længdeSpær(int width){
+    public int længdeSpær(int width){
         int længde = width;
         return længde;
     }
-    public static double spærPris(int spærLængde, int spærAntal){
-        double spærPris = round((spærLængde/100) * spærAntal * 54.95,2); //meterprisen
+    public double spærPris(int spærLængde, int spærAntal){
+        double spærPris = round(((spærLængde/100) * spærAntal * 54.95),2); //meterprisen
         return spærPris;
     }
-    public static double remPris(int remLængde, int remAntal){
-        double remPris = round((remLængde/100) * remAntal * 54.95,2); //meterprisen
+    public double remPris(int remLængde, int remAntal){
+        double længde = remLængde;
+        double remPris = round(((længde/100) * remAntal * 54.95),2); //meterprisen
         return remPris;
     }
-    public static int beslagSkrueAntal(int længde){
+    public int beslagSkrueAntal(int længde){
         int antalPakker = 0;
         if(længde <= 260){
             antalPakker = 1;
@@ -537,7 +538,7 @@ public class StyklisteBeregner {
         }
     }
 
-    public static double Cal25x200x300FnBPrice(Request req) {
+    public double Cal25x200x300FnBPrice(Request req) {
         // for the front and back stern, here i have taken the smallest as examples
         //Taken from the example of 780 x 600, and here using the 25x200x300
         int max = 600;
@@ -1168,7 +1169,7 @@ public class StyklisteBeregner {
         return 3;
     }
 
-    public static double tagFodLægtePris(Request req){
+    public double tagFodLægtePris(Request req){
 
         return round(8.95 * 3,2);
     }
@@ -1265,8 +1266,8 @@ public class StyklisteBeregner {
 
 
     }
-
-    public double LaegtAfstand(int width){
+/*
+    public double LaegtAfstand(width){
         double LaegAfstand = 0;
         switch(width) {
             case 750: LaegAfstand = 14; break;
@@ -1291,7 +1292,7 @@ public class StyklisteBeregner {
         }
         return LaegAfstand;
     }
-
+*/
     public static int sizeH38x73mmotaglægteT1HRows(Request req){
         int length = req.getLength();
 

@@ -11,7 +11,7 @@ public class SVG {
         private StringBuilder svg = new StringBuilder();
 
         private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
-        private final String lineTemplate ="<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:rgb(255,0,0);stroke-width:2\" />";
+        private final String lineTemplate ="<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000;stroke-width:2\" />";
         private final String arrowTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000;" +
                                             "stroke-width:2;marker-start:url(#beginArrow);marker-end:url(#endArrow);\" />";
         private final String textTemplate = "<text x=\"%d\" y=\"%d\" style=\"text-anchor: middle\" transform=\"rotate(\"%d\" \"%d\",\"%d\")\">%d cm</text>";
