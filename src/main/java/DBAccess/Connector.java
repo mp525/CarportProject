@@ -43,7 +43,7 @@ public class Connector {
             //Localhost
             URL = "jdbc:mysql://localhost:3306/carbase?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
-            PASSWORD = "cph39178";
+            PASSWORD = "AtM12K13BoC185";
 
         }
     }
