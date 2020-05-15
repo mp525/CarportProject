@@ -56,10 +56,6 @@ public class MaterialHelper {
 
     public static void udregnTagDele(ArrayList<Material> stykliste, Request req){
 
-
-
-
-
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalPlader = StyklisteBeregner.numRofPlatesSingls(req);
         double pladerPris = StyklisteBeregner.roofMatPrice(req);
@@ -136,7 +132,7 @@ public class MaterialHelper {
 
 
         int strlseSternSidder25n150nx = StyklisteBeregner.strlseSternSidder25n150nx(req);
-        int SternSidderAntal = StyklisteBeregner.SternSidderAntal(req);
+        int SternSidderAntal = 2;
         double SternBrædderPris = StyklisteBeregner.SternBrædderPris(req);
 
         int tagFodLægteStørrelse = StyklisteBeregner.tagFodLægteStørrelse(req);
