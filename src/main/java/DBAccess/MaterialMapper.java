@@ -1,5 +1,6 @@
 package DBAccess;
 
+import FunctionLayer.Log;
 import FunctionLayer.Material;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,11 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MaterialMapper {
-    public static void main(String[] args) {
-        ArrayList<String>materialeNavn =findmaterials();
-        System.out.println(getMatsStykliste(materialeNavn));
-
-    }
+    
     public static void insertFlat(Material mat){
         try {
             Connection con = Connector.connection();
@@ -30,6 +27,8 @@ public class MaterialMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
     }
@@ -51,6 +50,8 @@ public class MaterialMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
     }
@@ -72,6 +73,8 @@ public class MaterialMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
     }
@@ -91,6 +94,8 @@ public class MaterialMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
@@ -112,6 +117,8 @@ public class MaterialMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
@@ -133,6 +140,8 @@ public class MaterialMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
@@ -167,16 +176,12 @@ public class MaterialMapper {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
+                Log.finest("MaterialMapper"+" There was a SQL Exception");
+
                 e.printStackTrace();
             }
         }
         return materialList;
     }
-    public static ArrayList<String> findmaterials(){
-        ArrayList<String> materials= new ArrayList<>();
-        materials.add("97x97 mm. trykimp. Stolpe");
 
-        //TBD
-        return materials;
-    }
 }

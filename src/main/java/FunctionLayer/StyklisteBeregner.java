@@ -1169,7 +1169,7 @@ public class StyklisteBeregner {
         return 3;
     }
 
-    public double tagFodLægtePris(Request req){
+    public static double tagFodLægtePris(Request req){
 
         return round(8.95 * 3,2);
     }

@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.Log;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
@@ -23,7 +24,9 @@ public class Register extends Command {
             session.setAttribute( "role", user.getRole() );
             return user.getRole() + "page";
         } else {
+           Log.finest("Registrer"+" the two passwords did not match");
             throw new LoginSampleException( "the two passwords did not match" );
+
         }
     }
 
