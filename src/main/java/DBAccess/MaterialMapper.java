@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MaterialMapper {
-    
+
     public static void insertFlat(Material mat){
         try {
             Connection con = Connector.connection();

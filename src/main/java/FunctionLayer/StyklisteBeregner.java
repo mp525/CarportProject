@@ -10,7 +10,7 @@ public class StyklisteBeregner {
         System.out.println(s.stolpeAntalWidth(r));
     }*/
 
-    public double round(double value, int places) {
+    public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
         BigDecimal bd = BigDecimal.valueOf(value);
@@ -1171,7 +1171,9 @@ public class StyklisteBeregner {
 
     public static double tagFodLægtePris(Request req){
 
+
         return round(8.95 * 3,2);
+
     }
 
 
