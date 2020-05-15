@@ -50,7 +50,7 @@ public class UserMapper {
                 user.setId( id );
                 return user;
             } else {
-                Log.finest("UserMapper"+" Could not validate user");
+                Log.info("UserMapper"+" Could not validate user");
                 throw new LoginSampleException( "Could not validate user" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
