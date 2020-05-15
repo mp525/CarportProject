@@ -1,5 +1,6 @@
 package DBAccess;
 
+import FunctionLayer.Log;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
 import java.sql.Connection;
@@ -29,6 +30,7 @@ public class UserMapper {
             int id = ids.getInt( 1 );
             user.setId( id );
         } catch ( SQLException | ClassNotFoundException ex ) {
+            Log.finest("UserMapper createUser() "+" Noget gik galt "+ex);
             throw new LoginSampleException( ex.getMessage() );
         }
     }
@@ -49,7 +51,8 @@ public class UserMapper {
                 user.setId( id );
                 return user;
             } else {
-                throw new LoginSampleException( "Could not validate user" );
+                Log.info("UserMapper"+" Could not validate user");
+                throw new LoginSampleException( "UserMapper Login "+"Could not validate user" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new LoginSampleException(ex.getMessage());

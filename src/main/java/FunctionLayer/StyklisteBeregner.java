@@ -1180,8 +1180,10 @@ public class StyklisteBeregner {
     }
 
     public static double tagFodLægtePris(Request req){
-        double d = 8.95 * 3;
-        return round(d,2);
+
+
+        return round(8.95 * 3,2);
+
     }
 
 

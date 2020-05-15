@@ -12,10 +12,10 @@ public class Styklisten extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        MaterialMapper m = new MaterialMapper();
+        /*MaterialMapper m = new MaterialMapper();
         ArrayList <String>descriptions =m.findmaterials();
         ArrayList <Material>stykliste= m.getMatsStykliste(descriptions);
         request.setAttribute("Stykliste", stykliste);
-        return null;
+        */return null;
     }
 }
