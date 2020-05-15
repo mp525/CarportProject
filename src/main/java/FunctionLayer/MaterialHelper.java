@@ -111,7 +111,7 @@ public class MaterialHelper {
     }
 
     public static void udregnTagDeleSLOP(ArrayList<Material> stykliste, Request req){
-
+        StyklisteBeregner styklisteBeregner = new StyklisteBeregner();
 
         //tal
 
@@ -137,7 +137,7 @@ public class MaterialHelper {
 
         int tagFodLægteStørrelse = StyklisteBeregner.tagFodLægteStørrelse(req);
         int tagFodLægteAntal = StyklisteBeregner.tagFodLægteAntal();
-        double tagFodLægtePris = StyklisteBeregner.tagFodLægtePris(req);
+        double tagFodLægtePris = styklisteBeregner.tagFodLægtePris(req);
 
         int størrelseDoor = StyklisteBeregner.doorSize(req);
         int antalDoor = StyklisteBeregner.doorAmount();

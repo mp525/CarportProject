@@ -51,7 +51,7 @@ public class Connector {
 
             //PASSWORD = "SwordsAndSandals1337";
             //PASSWORD = "Matti12345h";
-            //PASSWORD = "cph39178";
+            PASSWORD = "cph39178";
             //PASSWORD = "AtM12K13BoC185";
 
 
