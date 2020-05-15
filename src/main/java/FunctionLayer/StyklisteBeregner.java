@@ -10,7 +10,7 @@ public class StyklisteBeregner {
         System.out.println(s.stolpeAntalWidth(r));
     }*/
 
-    public double round(double value, int places) {
+    public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
         BigDecimal bd = BigDecimal.valueOf(value);
@@ -28,7 +28,7 @@ public class StyklisteBeregner {
         double spærPris = round((samletSpærLængder * 54.95) * antal,2);
         spærPris += (antal * 50.0) + beslagSkrueAntal(length); //For beslag der bruges i tagpakken + skruer der skal til
 
-        return spærPris;
+        return round(spærPris,2);
     }
     public int antalSpær(int length) {
         int antal = 0;
@@ -58,8 +58,10 @@ public class StyklisteBeregner {
         }
         return antal;
     }
+
     public int spærAfstand(int length){
         int afstand = 0;
+
         switch(length) {
             case 750: afstand = 50; break;
             case 720: afstand = 48; break;
@@ -891,6 +893,9 @@ public class StyklisteBeregner {
         return mallus;
     }
 
+
+
+
     public static int antalRygstensBeslag(Request req){
 
         int enTinDel = 56250;
@@ -946,45 +951,71 @@ public class StyklisteBeregner {
     // der skal bruges 2 af dem her
     public static int strlseSternSidder25n150nx(Request req){
 
-        int width = req.getWidth();
+        int length = req.getLength();
 
         int size = 100;
 
-        switch (width){
+        switch (length){
             case 240:
+                size = 240;
+                break;
             case 270:
-            case 300:
-            case 330:
-            case 360:
-                size = 300;
+                size = 270;
                 break;
 
-            case 390:
-            case 420:
+            case 300:
+                size = 300;
+                break;
+            case 330:
+                size = 330;
+                break;
+            case 360:
                 size = 360;
                 break;
 
-            case 450:
-            case 480:
+            case 390:
+                size = 390;
+                break;
+            case 420:
                 size = 420;
                 break;
 
-            case 510:
-            case 540:
+            case 450:
+                size = 450;
+                break;
+            case 480:
                 size = 480;
                 break;
 
-            case 570:
-            case 600:
+            case 510:
+                size = 510;
+                break;
+            case 540:
                 size = 540;
                 break;
 
-            case 630:
-            case 660:
-            case 690:
-            case 720:
-            case 750:
+            case 570:
+                size = 570;
+                break;
+            case 600:
                 size = 600;
+                break;
+
+            case 630:
+                size = 630;
+                break;
+            case 660:
+                size = 660;
+                break;
+            case 690:
+                size = 690;
+                break;
+            case 720:
+                size = 720;
+                break;
+            case 750:
+                size = 750;
+
                 break;
         }
 
@@ -1139,8 +1170,8 @@ public class StyklisteBeregner {
     }
 
     public static double tagFodLægtePris(Request req){
-
-        return 8.95 * 3;
+        double d = 8.95 * 3;
+        return round(d,2);
     }
 
 
@@ -1181,6 +1212,8 @@ public class StyklisteBeregner {
             case 40:
             case 42:
             case 44:
+            case 46:
+            case 48:
 
                 amount++;
 
@@ -1217,6 +1250,9 @@ public class StyklisteBeregner {
             case 41:
             case 43:
             case 45:
+            case 47:
+            case 49:
+            case 51:
 
                 amount++;
 
@@ -1230,7 +1266,33 @@ public class StyklisteBeregner {
 
 
     }
-
+/*
+    public double LaegtAfstand(width){
+        double LaegAfstand = 0;
+        switch(width) {
+            case 750: LaegAfstand = 14; break;
+            case 720: LaegAfstand = 16; break;
+            case 690: LaegAfstand = 18; break;
+            case 660: LaegAfstand = 24; break;
+            case 630: LaegAfstand = 26; break;
+            case 600: LaegAfstand = 28; break;
+            case 570: LaegAfstand = 30; break;
+            case 540: LaegAfstand = 32; break;
+            case 510: LaegAfstand = 34; break;
+            case 480: LaegAfstand = 36; break;
+            case 450: LaegAfstand = 38; break;
+            case 420: LaegAfstand = 40; break;
+            case 390: LaegAfstand = 42; break;
+            case 360: LaegAfstand = 44; break;
+            case 330: LaegAfstand = 46; break;
+            case 300: LaegAfstand = 48; break;
+            case 270: LaegAfstand = 50; break;
+            case 240: LaegAfstand = 52; break;
+            default: LaegAfstand = 0; break;
+        }
+        return LaegAfstand;
+    }
+*/
     public static int sizeH38x73mmotaglægteT1HRows(Request req){
         int length = req.getLength();
 

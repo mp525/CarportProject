@@ -29,8 +29,8 @@ public class Drawing extends Command {
         int widthS;
 
         StyklisteBeregner s = new StyklisteBeregner();
+        Request reviewReq = (Request) request.getSession().getAttribute("reviewReq");
 
-        Request reviewReq= (Request) request.getSession().getAttribute("reviewReq");
         request.setAttribute("reviewEmail", reviewReq.getEmail());
         request.setAttribute("reviewLength", reviewReq.getLength());
         request.setAttribute("reviewWidth", reviewReq.getWidth());
@@ -53,6 +53,7 @@ public class Drawing extends Command {
 
         //Carport
         svg.addRect(0,0,width,length);
+
 
 
         //StolperLængde
@@ -108,12 +109,36 @@ public class Drawing extends Command {
             svg.addRect((length - lengthS) - 20, (widthS / 2) + 50, 10, 10);
             svg.addRect((length - lengthS) - 20, (widthS / 2) - 50, 10, 10);
         }
-
         svg.addRect(length-30,20,10,10);
+
+
+
+
+
+        //bagside af dør
+        //
+        //
+
 
         //remme
         svg.addRect(0,20, 5, length);
         svg.addRect(0,width-30, 5, length);
+
+
+
+
+
+        //Stern
+            int StrStSl = StyklisteBeregner.strlseSternSidder25n150nx(reviewReq);
+        if (reviewReq.getSlopeangle()>0){
+            System.out.println(StrStSl);
+            svg.addRect(0, 0,15,StrStSl);
+            svg.addRect(0, width-15,15,StrStSl); }
+      //  else {
+
+
+
+     //    }
 
 
         //Målelinjer
@@ -122,6 +147,12 @@ public class Drawing extends Command {
         svg.addText(length / 2, width + 70, 0, length);
         svg.addArrowLine(length + 50, 0, length + 50, width);
         svg.addTextRotate(length + 70, width / 2, 90, width);
+
+
+
+
+
+
 
 
         //Set fra siden begynder her
@@ -133,10 +164,37 @@ public class Drawing extends Command {
             xPosition += s.spærAfstand(length);
         }
 
+
+
         svg.addLine(20,20,length - lengthS - 20,width - 20);
         svg.addLine(20,width - 20,length - lengthS - 20,20);
         /*sideSVG.rectTemplateRotate(0,0,20,width);
         sideSVG.rectTemplateRotate(0,20,20,width);*/
+
+        //taglægter
+
+
+        //til sloped
+        if (reviewReq.getSlopeangle()>0){
+
+        int anti = StyklisteBeregner.antalH38x73mmotaglægteT1HRows(reviewReq);
+        int antiHal = anti / 2;
+        int leng = StyklisteBeregner.sizeH38x73mmotaglægteT1HRows(reviewReq);
+        int mellemstykke = (width / anti) * 2;
+
+        int Poisesx = 0;
+        int halfleng = length / 2 - 10;
+        //på spær 38 73,
+
+        for(int i = 0; i <= antiHal; i++){
+
+                svg.addRect(0,Poisesx,4,halfleng);
+                svg.addRect(halfleng + 25,Poisesx,4,halfleng);
+                Poisesx += mellemstykke;
+        }
+            svg.addRect(0,width - 4,4,halfleng);
+            svg.addRect(0,width - 4,4,halfleng);
+        }
 
         request.setAttribute("svgdrawing", svg.toString());
 
