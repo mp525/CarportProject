@@ -178,19 +178,22 @@ public class Drawing extends Command {
         if (reviewReq.getSlopeangle()>0){
 
         int anti = StyklisteBeregner.antalH38x73mmotaglægteT1HRows(reviewReq);
+        int antiHal = anti / 2;
         int leng = StyklisteBeregner.sizeH38x73mmotaglægteT1HRows(reviewReq);
-        int mellemstykke = width / anti;
+        int mellemstykke = (width / anti) * 2;
 
         int Poisesx = 0;
+        int halfleng = length / 2 - 10;
         //på spær 38 73,
 
-        for(int i = 0; i <= anti; i++){
+        for(int i = 0; i <= antiHal; i++){
 
-                svg.addRect(0,Poisesx,4,length);
-
+                svg.addRect(0,Poisesx,4,halfleng);
+                svg.addRect(halfleng + 25,Poisesx,4,halfleng);
                 Poisesx += mellemstykke;
         }
-        svg.addRect(0,width - 4,4,length);
+            svg.addRect(0,width - 4,4,halfleng);
+            svg.addRect(0,width - 4,4,halfleng);
         }
 
         request.setAttribute("svgdrawing", svg.toString());
