@@ -1,6 +1,7 @@
 package DBAccess;
 
 import FunctionLayer.Contact;
+import FunctionLayer.Log;
 
 
 import java.sql.Connection;
@@ -27,7 +28,9 @@ public class ContactMapper {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            Log.finest("ContactMapper insertContact "+e);
         } catch (SQLException e) {
+            Log.finest("ContactMapper insertContact SQL Exception"+ e);
             e.printStackTrace();
         }
     }
@@ -53,7 +56,11 @@ public class ContactMapper {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            Log.finest("ContactMapper getContacts "+e);
+
         } catch (SQLException e) {
+            Log.finest("ContactMapper getContacts SQL Exception"+ e);
+
             e.printStackTrace();
         }
 

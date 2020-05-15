@@ -104,7 +104,7 @@
                     <div class="col-md-12 mb-4 white-text text-center">
                         <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown" data-wow-delay="0.3s"><strong>Fog Carport</strong></h1>
                         <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
-                        <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>We Build, You design</strong></h5>
+                        <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Vi bygger, du designer</strong></h5>
 
 
 
@@ -116,7 +116,7 @@
                             <form name="CarportPortal" action="FrontController" method="POST">
                                 <input type="hidden" name="taget" value="CarportPortal">
 
-                                <button type="submit" class="btn btn-dark rounded-pill btn-lg">Start Customizing</button>
+                                <button type="submit" class="btn btn-dark rounded-pill btn-lg">Byg Carport</button>
 
                             </form>
 
