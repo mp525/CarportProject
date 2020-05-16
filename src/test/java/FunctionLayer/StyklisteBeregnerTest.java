@@ -36,6 +36,127 @@ public class StyklisteBeregnerTest {
         assertEquals(exp, result, 0.0);
     }
 
+
+    // Roof Flat tests begin
+
+    @Test
+    public void roofPlateLengthsTest(){
+        int result = StyklisteBeregner.roofPlateLengths(reqF);
+        int exp = 750;
+        assertEquals(exp, result);
+    }
+
+    @Test
+    public void numRofPlatesSinglsTest(){
+    int result = StyklisteBeregner.numRofPlatesSingls(reqF);
+    int exp = 10;
+    assertEquals(exp, result);
+    }
+
+@Test
+public void rofMatPris(){
+        double result = StyklisteBeregner.roofMatPrice(reqF);
+        double exp = 2990.0;
+        assertEquals(exp,result,0.0);
+}
+
+
+    @Test
+    public void RofScrewPrice(){
+        double result = StyklisteBeregner.RofScrewPrice(reqF);
+            double exp = 1227.0;
+            assertEquals(exp,result,0.0);
+    }
+
+    @Test
+    public void numOfRofScrews(){
+        int result = sb.numOfRofScrews(reqF);
+        int exp = 3;
+        assertEquals(exp,result);
+
+    }
+
+    @Test
+    public void Cal25x200x300FnBTest(){
+        int result = StyklisteBeregner.Cal25x200x300FnB(reqF);
+        int exp = 4;
+        assertEquals(exp,result);
+
+    }
+    @Test
+    public void Cal25x200x300FnBPriceTest(){
+        double result = StyklisteBeregner.Cal25x200x300FnBPrice(reqF);
+        double exp = 135.8;
+        assertEquals(exp,result,0.0);
+
+    }
+
+    @Test
+    public void Cal25x125x300FrontTest(){
+        int result = StyklisteBeregner.Cal25x125x300Front(reqF);
+        int exp = 2;
+        assertEquals(exp, result);
+    }
+
+    @Test
+    public void Cal25x125x300FrontPriceTest(){
+        double result = StyklisteBeregner.Cal25x125x300FrontPrice(reqF);
+        double exp = 55.9;
+        assertEquals(exp,result,0.0);
+    }
+
+    @Test
+    public void Cal25x125x360SidesTest(){
+        int result = StyklisteBeregner.Cal25x125x360Sides(reqF);
+        int exp = 4;
+        assertEquals(exp, result);
+    }
+
+    @Test
+    public void Cal25x125x360SidesPriceTest(){
+        double result = StyklisteBeregner.Cal25x125x360SidesPrice(reqF);
+        double exp = 111.8;
+        assertEquals(exp,result,0.0);
+    }
+
+
+    @Test
+    public void CaL19x100x480Test(){
+        int result = StyklisteBeregner.CaL19x100x480(reqF);
+        int exp = 2;
+        assertEquals(exp,result);
+
+    }
+
+    @Test
+    public void CaL19x100x480PriceTest(){
+        double result = StyklisteBeregner.CaL19x100x480Price(reqF);
+        double exp = 45.9;
+        assertEquals(exp,result,0.0);
+
+    }
+
+@Test
+public void CaL19x100x420ForendTest(){
+    int result = StyklisteBeregner.CaL19x100x420Forend(reqF);
+    int exp = 2;
+    assertEquals(exp,result);
+}
+
+@Test
+public void CaL19x100x420ForendPriceTest(){
+        double result = StyklisteBeregner.CaL19x100x420ForendPrice(reqF);
+        double exp = 45.9;
+        assertEquals(exp,result,0.0);
+}
+
+    //Roof Flat tests end
+
+    //Roof slop tests start
+
+    //Roof slop tests end
+
+
     @Test
     public void spærPakkePris() {
         double result = sb.spærPakkePris(sb.antalSpær(reqS.getLength()), reqS.getWidth(), reqS.getSlopeangle(),

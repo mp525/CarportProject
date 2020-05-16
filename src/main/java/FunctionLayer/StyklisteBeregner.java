@@ -392,6 +392,12 @@ public class StyklisteBeregner {
         return priceScrewsTotal;
     }
 
+
+
+
+
+
+
     // Tag Beregner 33000
 
     public static int roofPlateLengths(Request req) {
@@ -494,11 +500,13 @@ public class StyklisteBeregner {
 
         int Rscrews = (int) (LcW / 460);
 
+
+
         if (Rscrews < 1) {
             Rscrews = 1;
         }
-
-        return Rscrews;
+        int f = (int) (Math.ceil(Rscrews));
+        return f;
     }
 
     public static double RofScrewPrice(Request req) {
@@ -538,7 +546,7 @@ public class StyklisteBeregner {
         }
     }
 
-    public double Cal25x200x300FnBPrice(Request req) {
+    public static double Cal25x200x300FnBPrice(Request req) {
         // for the front and back stern, here i have taken the smallest as examples
         //Taken from the example of 780 x 600, and here using the 25x200x300
         int max = 600;
@@ -546,21 +554,23 @@ public class StyklisteBeregner {
         int quart = half / 2;
         double w = req.getWidth();
         double pricePlank = 33.95;
+        double p = 1.0;
 
         if (w < quart){
-            return pricePlank;
+            p = pricePlank;
         } else if (w >= quart && w <= half){
             pricePlank = pricePlank * 2;
-            return pricePlank;
+            p = pricePlank;
         }else if (w >= half && w <= max) {
             pricePlank = pricePlank * 4;
-            return pricePlank;
+            p = pricePlank;
         } else if (w > max) {
             pricePlank = pricePlank * 6;
+            p = pricePlank;
         }
 
         pricePlank = round(pricePlank,2);
-            return pricePlank;
+            return p;
 
     }
 

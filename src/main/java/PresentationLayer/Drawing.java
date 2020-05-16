@@ -183,13 +183,13 @@ public class Drawing extends Command {
         int mellemstykke = (width / anti) * 2;
 
         int Poisesx = 0;
-        int halfleng = length / 2 - 10;
+        int halfleng = length / 2;
         //på spær 38 73,
 
         for(int i = 0; i <= antiHal; i++){
 
                 svg.addRect(0,Poisesx,4,halfleng);
-                svg.addRect(halfleng + 25,Poisesx,4,halfleng);
+                svg.addRect(halfleng + 5,Poisesx,4,halfleng);
                 Poisesx += mellemstykke;
         }
             svg.addRect(0,width - 4,4,halfleng);
