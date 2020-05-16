@@ -60,10 +60,10 @@ public class Drawing2 extends Command {
         sideSVG.rectTemplateRotate(0,20,(length/2)-20,widthS);
 
         //stolper
-        sideSVG.rectTemplateRotate(width-10,20,length/2,10);
-        sideSVG.rectTemplateRotate(0,20,length/2,10);
+        sideSVG.rectTemplateRotate(width-10,40,length/2 - 20,10);
+        sideSVG.rectTemplateRotate(0,40,length/2 - 20,10);
         //stolperekstrapgalængde
-        int fordelLængde =width/s.stolpeAntalLength(reviewReq);
+       /* int fordelLængde =width/s.stolpeAntalLength(reviewReq);
         for (int i = 0; i < s.stolpeAntalLength(reviewReq)-1; i++) {
             if(s.stolpeAntalLength(reviewReq)==1){
                 fordelLængde=fordelLængde/2;
@@ -74,16 +74,16 @@ public class Drawing2 extends Command {
             sideSVG.addRect(fordelLængde,20,length/2,10);
 
             fordelLængde=+width/2+width/4;
-        }
-      /*  int fordelLængde =width/s.stolpeAntalWidth(reviewReq);
+        }*/
+        int fordelLængde =width/s.stolpeAntalWidth(reviewReq);
         for (int i = 0; i < s.stolpeAntalWidth(reviewReq)-1; i++) {
             if(s.stolpeAntalWidth(reviewReq)==1){
                 fordelLængde= width/2;
             }
-            sideSVG.addRect(fordelLængde,40,(length/2),10);
+            sideSVG.addRect(fordelLængde,40,(length/2) - 20,10);
 
             fordelLængde=+s.stolpeAntalWidth(reviewReq);
-        }*/
+        }
 
         //Skur brædder:
         sideSVG.rectTemplateRotate(10, 40, (length/2)-20, widthS-10);

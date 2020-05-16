@@ -112,7 +112,6 @@ public class MaterialHelper {
 
     public static void udregnTagDeleSLOP(ArrayList<Material> stykliste, Request req){
         StyklisteBeregner styklisteBeregner = new StyklisteBeregner();
-
         //tal
 
         int antalBC = StyklisteBeregner.antalBnCDob(req);
