@@ -50,7 +50,7 @@ public class Connector {
             USERNAME = "root";
             //PASSWORD = "SwordsAndSandals1337";
             //PASSWORD = "Matti12345h";
-            PASSWORD = "cph39178";
+            PASSWORD = "Matti12345h";
             //PASSWORD = "AtM12K13BoC185";
 
 

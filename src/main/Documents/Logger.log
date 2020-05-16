@@ -1,2 +1,10 @@
 2020-05-15T14:08:48.375+02:00 INFO    UserMapper Could not validate user
 2020-05-15T14:47:45.305+02:00 INFO    UserMapper Could not validate user
+2020-05-16T20:31:16.849+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-16T20:31:16.855+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-16T20:31:19.263+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-16T20:31:19.267+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-16T20:31:20.342+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-16T20:31:20.345+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-16T20:31:21.666+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-16T20:31:21.670+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception

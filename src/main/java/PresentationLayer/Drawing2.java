@@ -59,9 +59,64 @@ public class Drawing2 extends Command {
         sideSVG.rectTemplateRotate(0,20,20,width);
         sideSVG.rectTemplateRotate(0,20,(length/2)-20,widthS);
 
+        stolper(sideSVG, reviewReq);
+
+        skurBrædder( sideSVG,  reviewReq);
+
+        måleLinjer( sideSVG,  reviewReq);
+
+
+
+        request.setAttribute("svgdrawing2", sideSVG.toString());
+
+
+        return "Drawing2";
+
+//in progress..
+    }
+
+
+    public void måleLinjer(SVG sideSVG, Request reviewReq){
+       int length = reviewReq.getLength();
+       int width = reviewReq.getWidth();
+       int lengthS = reviewReq.getLengthS();
+       int widthS = reviewReq.getWidthS();
+        //Målelinjer
+        sideSVG.markerDef();
+        sideSVG.addArrowLine(0, (length/2)+40, width, (length/2)+40);
+        sideSVG.addText(width / 2, (length/2)+60, 0, width);
+
+        sideSVG.addArrowLine(width + 50, 0, width + 50, (length/2)+20);
+        sideSVG.addTextRotate(width + 70, ((length/2)+20)/2, 90, 250);
+        //sideSVG.addTextRotate(width + 70, (length/3), 90, (length/2)+20);
+
+    }
+    public void skurBrædder(SVG sideSVG, Request reviewReq){
+        int length = reviewReq.getLength();
+        int width = reviewReq.getWidth();
+        int lengthS = reviewReq.getLengthS();
+        int widthS = reviewReq.getWidthS();
+        //Skur brædder:
+        sideSVG.rectTemplateRotate(10, 40, (length/2)-20, widthS-10);
+        int xStart = 10;
+        int xEnd = widthS-10;
+        if(xStart<=xEnd) {
+            sideSVG.addLine(10, 40, 10, (length/2)+20);
+        }
+        for (int i = 18; i < xEnd; i+=16) {
+            sideSVG.addLine(i, 40, i, (length/2)+20);
+            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
+        }
+    }
+    public void stolper(SVG sideSVG, Request reviewReq) {
+        int length = reviewReq.getLength();
+        int width = reviewReq.getWidth();
+        int lengthS = reviewReq.getLengthS();
+        int widthS = reviewReq.getWidthS();
+        StyklisteBeregner s = new StyklisteBeregner();
         //stolper
-        sideSVG.rectTemplateRotate(width-10,40,length/2 - 20,10);
-        sideSVG.rectTemplateRotate(0,40,length/2 - 20,10);
+        sideSVG.rectTemplateRotate(width - 10, 40, length / 2 - 20, 10);
+        sideSVG.rectTemplateRotate(0, 40, length / 2 - 20, 10);
         //stolperekstrapgalængde
        /* int fordelLængde =width/s.stolpeAntalLength(reviewReq);
         for (int i = 0; i < s.stolpeAntalLength(reviewReq)-1; i++) {
@@ -75,51 +130,14 @@ public class Drawing2 extends Command {
 
             fordelLængde=+width/2+width/4;
         }*/
-        int fordelLængde =width/s.stolpeAntalWidth(reviewReq);
-        for (int i = 0; i < s.stolpeAntalWidth(reviewReq)-1; i++) {
-            if(s.stolpeAntalWidth(reviewReq)==1){
-                fordelLængde= width/2;
+        int fordelLængde = width / s.stolpeAntalWidth(reviewReq);
+        for (int i = 0; i < s.stolpeAntalWidth(reviewReq) - 1; i++) {
+            if (s.stolpeAntalWidth(reviewReq) == 1) {
+                fordelLængde = width / 2;
             }
-            sideSVG.addRect(fordelLængde,40,(length/2) - 20,10);
+            sideSVG.addRect(fordelLængde, 40, (length / 2) - 20, 10);
 
-            fordelLængde=+s.stolpeAntalWidth(reviewReq);
+            fordelLængde = +s.stolpeAntalWidth(reviewReq);
         }
-
-        //Skur brædder:
-        sideSVG.rectTemplateRotate(10, 40, (length/2)-20, widthS-10);
-        int xStart = 10;
-        int xEnd = widthS-10;
-        if(xStart<=xEnd) {
-            sideSVG.addLine(10, 40, 10, (length/2)+20);
-        }
-        for (int i = 18; i < xEnd; i+=16) {
-            sideSVG.addLine(i, 40, i, (length/2)+20);
-            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
-        }
-        /*for (int i = 18; i < xEnd; i+=16) {
-            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
-        }*/
-        /*int x = 10;
-        while (x < xEnd) {
-            sideSVG.addLine(x+10, 40, x+10, (length/2)+20);
-            x+=16;
-        }*/
-
-        //Målelinjer
-        sideSVG.markerDef();
-        sideSVG.addArrowLine(0, (length/2)+40, width, (length/2)+40);
-        sideSVG.addText(width / 2, (length/2)+60, 0, width);
-
-        sideSVG.addArrowLine(width + 50, 0, width + 50, (length/2)+20);
-        sideSVG.addTextRotate(width + 70, ((length/2)+20)/2, 90, 250);
-        //sideSVG.addTextRotate(width + 70, (length/3), 90, (length/2)+20);
-
-
-        request.setAttribute("svgdrawing2", sideSVG.toString());
-
-
-        return "Drawing2";
-
-//in progress..
     }
 }
