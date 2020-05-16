@@ -9,10 +9,9 @@ public class Log {
 
 
 
-    private static final String FILENAME = "demo.log";
-    private static final String FILEPATH = "/Users/nbh/Desktop/logs/";
+    private static final String FILENAME = "Logger.log";
+    private static final String FILEPATH = "/Users/matti/Desktop/gitfolder/CarportProject/src/main/Documents/";
 
-    //private static final String FILEPATH = "/var/log/tomcat8/";
     private static final String PATH = FILEPATH + FILENAME;
 
     private Log() {

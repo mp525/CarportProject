@@ -1,5 +1,6 @@
 package DBAccess;
 
+import FunctionLayer.Log;
 import FunctionLayer.Material;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,11 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MaterialMapper {
-    public static void main(String[] args) {
-        ArrayList<String>materialeNavn =findmaterials();
-        System.out.println(getMatsStykliste(materialeNavn));
 
-    }
     public static void insertFlat(Material mat){
         try {
             Connection con = Connector.connection();
@@ -29,7 +26,10 @@ public class MaterialMapper {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            Log.finest("MaterialMapper insertFlat "+e);
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
     }
@@ -49,8 +49,11 @@ public class MaterialMapper {
             ps.execute();
 
         } catch (ClassNotFoundException e) {
+            Log.finest("MaterialMapper insertSlope "+e);
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
     }
@@ -71,7 +74,10 @@ public class MaterialMapper {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            Log.finest("MaterialMapper insertMat "+e);
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
     }
@@ -89,8 +95,11 @@ public class MaterialMapper {
             }
 
         } catch (ClassNotFoundException e) {
+            Log.finest("MaterialMapper getFlat "+e);
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
@@ -110,8 +119,11 @@ public class MaterialMapper {
             }
 
         } catch (ClassNotFoundException e) {
+            Log.finest("MaterialMapper getSlope "+e);
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper getSlope"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
@@ -133,50 +145,13 @@ public class MaterialMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("MaterialMapper getMats"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
         return matList;
     }
 
-    //får for meget info, overvejer om vi skal bruge det fordi jeg tror jeg har fundet på noget andet
-    public static ArrayList<Material> getMatsStykliste(ArrayList<String>materialeNavn){
-        ArrayList<Material> materialList = new ArrayList();
-        for (int i = 0; i < materialeNavn.size(); i++) {
-            String materialenavnet=materialeNavn.get(i);
 
-            try {
-                Connection con = Connector.connection();
-                String query = "select * from materials where description = ?";
-                PreparedStatement ps = con.prepareStatement(query);
-                ps.setString(1, materialenavnet);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    String navn = rs.getString("description");
-                    String beskrivelse = rs.getString("usagedesc");
-                    String enhed = rs.getString("unit");
-                    String kategori = rs.getString("category");
-                    int laengde = rs.getInt("length");
-                    double pris = rs.getDouble("price");
-
-                    Material m = new Material(navn, beskrivelse, enhed, kategori, laengde, pris);
-                    materialList.add(m);
-
-                }
-
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return materialList;
-    }
-    public static ArrayList<String> findmaterials(){
-        ArrayList<String> materials= new ArrayList<>();
-        materials.add("97x97 mm. trykimp. Stolpe");
-
-        //TBD
-        return materials;
-    }
 }

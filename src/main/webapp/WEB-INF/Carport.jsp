@@ -37,7 +37,7 @@
     <h1 class="display-1 text-white">Carport</h1>
 
     <br>
-    <h2 class="display-4 text-white">Customize your Carport</h2>
+    <h2 class="display-4 text-white">Byg din Carport</h2>
     <br>
     <form name="form" action="FrontController" method="POST">
         <input type="hidden" name="taget" value="form">
@@ -264,7 +264,7 @@
         <br><br>
 
 
-        <h2 class="text-white">Personal Information</h2>
+        <h2 class="text-white">Personlig Information</h2>
         <br>
         <div class="row">
 

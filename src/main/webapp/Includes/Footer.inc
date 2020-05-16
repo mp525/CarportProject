@@ -7,7 +7,7 @@
         </blockquote>
         <form name="form" action="FrontController" method="POST">
             <input type="hidden" name="taget" value="tologin">
-            <input type="submit" value="Employee login Page" class="btn btn-dark btn-lg">
+            <input type="submit" value="Medarbejder login Side" class="btn btn-dark btn-lg">
         </form>
     </div>
 </footer>

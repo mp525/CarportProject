@@ -1,15 +1,15 @@
 @startuml
 actor User
-User -> index.jsp: Fill out form
-index.jsp -> Form.java: Send info from form
+User -> Carport.jsp: Fill out form
+Carport.jsp -> Form.java: Send info from form
 Form.java -> Form.java: Saves info
 Form.java -> formpage.jsp: Sends info
 formpage.jsp -> formpage.jsp: Displays info
 
 group User wants to make changes
-formpage.jsp --> index.jsp: Press button to\nmake changes
-index.jsp --> index.jsp: Make changes
-index.jsp --> Form.java: Send new info\nfrom form
+formpage.jsp --> Carport.jsp: Press button to\nmake changes
+Carport.jsp --> Carport.jsp: Make changes
+Carport.jsp --> Form.java: Send new info\nfrom form
 Form.java --> Form.java: Saves info
 Form.java --> formpage.jsp: Sends info
 end
@@ -19,4 +19,25 @@ formpage.jsp -> Database: Send to\ndatabase
 Database -> emppage.jsp: Send to page
 actor Fog
 Fog -> emppage.jsp: See form
+@enduml
+
+@startuml
+actor Employee
+Employee -> Carport.jsp
+Carport.jsp -> loginpage.jsp: Log in button
+database Database
+loginpage.jsp -> Database: log in
+Database -> employeepage.jsp: Verify user in\ndatabase (users)
+employeepage.jsp -> requestlists.jsp: List of requests\nfrom customers
+requestlists.jsp --> Database: Search for specific request\n(requests and contactinf)
+Database --> requestlists.jsp: Send information back
+requestlists.jsp --> Review.java: Gathers information\nin Arraylist
+Review.java --> Styklisteberegner.java: Calculates price\nand material list
+Styklisteberegner.java --> Review.java
+Review.java --> requestlists.jsp
+requestlists.jsp -> requestReview.jsp: Show specific request with material list and price
+requestReview.jsp --> Drawing.java: Sends information to\nmake calculations for\ndrawings
+Drawing.java --> SVG.java: Takes measurements\nto calculate drawing
+SVG.java --> Drawing.jsp: Sends calculated code\nto generate drawing
+requestReview.jsp -> Drawing.jsp: Show drawing\nseen from top
 @enduml

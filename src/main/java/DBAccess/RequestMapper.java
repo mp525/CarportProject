@@ -2,6 +2,7 @@
 
 package DBAccess;
 
+import FunctionLayer.Log;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Request;
 
@@ -31,6 +32,8 @@ public class RequestMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("RequestMapper insertRequest"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
     }
@@ -61,6 +64,8 @@ public class RequestMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("RequestMapper getRequests"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
@@ -118,6 +123,8 @@ public class RequestMapper {
 
             return reqList;
         } catch ( ClassNotFoundException | SQLException ex ) {
+            Log.finest("RequestMapper searchEmailRequest"+" There was a SQL Exception");
+
             throw new LoginSampleException(ex.getMessage());
         }
 
@@ -155,6 +162,8 @@ public class RequestMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("RequestMapper searchIDRequest"+" There was a SQL Exception");
+
             e.printStackTrace();
         }
 
@@ -192,6 +201,7 @@ public class RequestMapper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            Log.finest("RequestMapper searchIDRequestList" +" SQL Exception" +e);
             e.printStackTrace();
         }
 
