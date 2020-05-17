@@ -8,3 +8,25 @@
 2020-05-16T20:31:20.345+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
 2020-05-16T20:31:21.666+02:00 FINEST  MaterialMapper There was a SQL Exception
 2020-05-16T20:31:21.670+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:26.288+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:26.303+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:30.602+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:30.607+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:31.587+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:31.590+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:33.270+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:33.274+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:34.218+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:34.222+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:34.819+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:34.822+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:53.413+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:53.418+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:55.339+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:55.343+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T17:37:57.461+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-17T17:37:57.464+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-17T18:45:16.356+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-17T18:46:12.240+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-17T18:46:14.078+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-17T18:46:16.839+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'

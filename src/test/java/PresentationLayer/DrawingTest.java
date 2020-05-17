@@ -7,12 +7,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DrawingTest {
+
     Request reviewReq = new Request("Mattemanden@gmail.com", 780, 780, "oak", true, "oak",20, 200, 200);
     int length = reviewReq.getLength();
     int width = reviewReq.getWidth();
     int lengthS = reviewReq.getLengthS();
     int widthS = reviewReq.getWidthS();
     SVG svg = new SVG(length, width, "0,0,800,600", 0, 0);
+
     @Test
     public void addRemme() {
         Drawing d = new Drawing();
