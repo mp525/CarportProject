@@ -46,17 +46,8 @@ public class Drawing2 extends Command {
         width = reviewReq.getWidth();
         lengthS = reviewReq.getLengthS();
         widthS = reviewReq.getWidthS();
-//in progress...
-
 
         SVG sideSVG = new SVG(length+100, width+100, "0,0,1300,1000",0,0);
-        //Carport
-
-
-        //Set fra siden begynder her
-
-
-        // sideSVG.rectTemplateRotate(0,20,(length/2)-20,widthS);
 
         //stolper
         sideSVG.addRect(length-30,60,length/2 - 20,10);
@@ -76,6 +67,9 @@ public class Drawing2 extends Command {
         sideSVG.addRect(length-lengthS - 20, 56, (length/2)-16, lengthS-10);
         int xStart = length - lengthS - 10;
         int xEnd = widthS-10;
+        if(xStart<=xEnd) {
+            sideSVG.addLine(10, 40, 10, (length/2)+20);
+        }
         for (int i = xStart; i < length-30; i+=16) {
             sideSVG.addLine(i, 56, i, (length/2)+40);
             sideSVG.addLine(i+10, 56, i+10, (length/2)+40);
