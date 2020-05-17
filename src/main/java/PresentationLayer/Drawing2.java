@@ -49,69 +49,49 @@ public class Drawing2 extends Command {
 //in progress...
 
 
-        SVG sideSVG = new SVG(width+100, length+100, "0,0,1300,1000",0,0);
+        SVG sideSVG = new SVG(length+100, width+100, "0,0,1300,1000",0,0);
         //Carport
 
 
         //Set fra siden begynder her
 
-        sideSVG.rectTemplateRotate(0,0,20,width);
-        sideSVG.rectTemplateRotate(0,20,20,width);
-        sideSVG.rectTemplateRotate(0,20,(length/2)-20,widthS);
+
+        // sideSVG.rectTemplateRotate(0,20,(length/2)-20,widthS);
 
         //stolper
-        sideSVG.rectTemplateRotate(width-10,40,length/2 - 20,10);
-        sideSVG.rectTemplateRotate(0,40,length/2 - 20,10);
+        sideSVG.addRect(length-30,60,length/2 - 20,10);
+        sideSVG.addRect(20,50,length/2 - 10,10);
         //stolperekstrapgalængde
-       /* int fordelLængde =width/s.stolpeAntalLength(reviewReq);
-        for (int i = 0; i < s.stolpeAntalLength(reviewReq)-1; i++) {
-            if(s.stolpeAntalLength(reviewReq)==1){
-                fordelLængde=fordelLængde/2;
-            }
-            if(s.stolpeAntalLength(reviewReq)==2){
-                fordelLængde=fordelLængde-width/2;
-            }
-            sideSVG.addRect(fordelLængde,20,length/2,10);
-
-            fordelLængde=+width/2+width/4;
-        }*/
         int fordelLængde =width/s.stolpeAntalWidth(reviewReq);
         for (int i = 0; i < s.stolpeAntalWidth(reviewReq)-1; i++) {
             if(s.stolpeAntalWidth(reviewReq)==1){
-                fordelLængde= width/2;
+                fordelLængde= length/2;
             }
-            sideSVG.addRect(fordelLængde,40,(length/2) - 20,10);
+            sideSVG.addRect(fordelLængde,50,(length/2) - 10,10);
 
             fordelLængde=+s.stolpeAntalWidth(reviewReq);
         }
 
         //Skur brædder:
-        sideSVG.rectTemplateRotate(10, 40, (length/2)-20, widthS-10);
-        int xStart = 10;
+        sideSVG.addRect(length-lengthS - 20, 56, (length/2)-16, lengthS-10);
+        int xStart = length - lengthS - 10;
         int xEnd = widthS-10;
-        if(xStart<=xEnd) {
-            sideSVG.addLine(10, 40, 10, (length/2)+20);
+        for (int i = xStart; i < length-30; i+=16) {
+            sideSVG.addLine(i, 56, i, (length/2)+40);
+            sideSVG.addLine(i+10, 56, i+10, (length/2)+40);
         }
-        for (int i = 18; i < xEnd; i+=16) {
-            sideSVG.addLine(i, 40, i, (length/2)+20);
-            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
-        }
-        /*for (int i = 18; i < xEnd; i+=16) {
-            sideSVG.addLine(i+10, 40, i+10, (length/2)+20);
-        }*/
-        /*int x = 10;
-        while (x < xEnd) {
-            sideSVG.addLine(x+10, 40, x+10, (length/2)+20);
-            x+=16;
-        }*/
+
+        //tag
+        sideSVG.rectTemplateRotate(0,20,20,length, 1, length - 20,0);
+        sideSVG.rectTemplateRotate(4,40,20,length-8, 1, length - 20, 0);
 
         //Målelinjer
         sideSVG.markerDef();
-        sideSVG.addArrowLine(0, (length/2)+40, width, (length/2)+40);
-        sideSVG.addText(width / 2, (length/2)+60, 0, width);
+        sideSVG.addArrowLine(0, (length/2)+60, length, (length/2)+60);
+        sideSVG.addText(length / 2, (length/2)+80, 0, width);
 
-        sideSVG.addArrowLine(width + 50, 0, width + 50, (length/2)+20);
-        sideSVG.addTextRotate(width + 70, ((length/2)+20)/2, 90, 250);
+        sideSVG.addArrowLine(length + 50, 20, length + 50, (length/2)+40);
+        sideSVG.addTextRotate(length + 70, ((length/2)+20)/2 + 20, 90, 250);
         //sideSVG.addTextRotate(width + 70, (length/3), 90, (length/2)+20);
 
 
