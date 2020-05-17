@@ -17,7 +17,7 @@ public class SVG {
         private final String textTemplate = "<text x=\"%d\" y=\"%d\" style=\"text-anchor: middle\" transform=\"rotate(\"%d\" \"%d\",\"%d\")\">%d cm</text>";
         private final String textRotateTemplate = "<text x=\"%d\" y=\"%d\" style=\"text-anchor: middle\" transform=\"translate(%d, %d) rotate(%d)\">%d cm</text>";
         private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\"/>";
-        private final String rectTemplateRotate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" transform = \"rotate(0 100 100)\" style=\"stroke:#000000; fill: #ffffff\"/>";
+        private final String rectTemplateRotate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" transform=\"rotate(%d %d %d)\"style=\"stroke:#000000; fill: #ffffff\"/>";
 
     public SVG(int width, int height, String viewbox, int x, int y) {
             this.width = width;
@@ -32,8 +32,8 @@ public class SVG {
             svg.append(String.format(rectTemplate, x, y, height, width));
         }
 
-        public void rectTemplateRotate(int x, int y, int height, int width){
-            svg.append(String.format(rectTemplateRotate, x, y, height, width));
+        public void rectTemplateRotate(int x, int y, int height, int width, int rotation, int rotX, int rotY){
+            svg.append(String.format(rectTemplateRotate, x, y, height, width, rotation, rotX, rotY));
         }
 
         public  void addLine(int x, int y, int x2, int y2){
