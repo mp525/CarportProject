@@ -58,7 +58,7 @@
                 </label>
             </div>
                 </div>
-                <div class="col-4">
+                <!--<div class="col-4">
                     <div class="form-check-inline">
                         <label class="form-check-label text-white">
                             <input type="radio" class="form-check-input" onclick="enable2()" name="optradio">Redskabsrum
@@ -70,7 +70,7 @@
                             <input type="radio" class="form-check-input" onclick="disable2()" name="optradio">Intet redskabsrum
                         </label>
                     </div>
-                </div>
+                </div>-->
 
         </div>
         <br>
@@ -286,16 +286,6 @@
                     <input type="email" name="Email" class="form-control" placeholder="Email" id="Email">
                 </div>
             </div>
-
-            <div class="col-4">
-                <label class="mr-sm-2 text-white" for="inlineFormCustomSelect">Alder</label>
-                <div class="form-group">
-                    <label for="Alder"></label>
-                </div>
-
-                <input type="text" name="Alder" class="form-control" placeholder="Alder" id="Alder">
-            </div>
-
 
             <div class="col-4">
 
