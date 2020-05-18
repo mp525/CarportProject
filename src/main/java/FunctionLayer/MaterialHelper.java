@@ -3,7 +3,11 @@ package FunctionLayer;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+/**
 
+ @author Matti
+
+ */
 public class MaterialHelper {
 
     public static Set<String> flatSet(ArrayList<String> flatList){

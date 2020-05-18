@@ -1,6 +1,9 @@
 package FunctionLayer;
 
+/**
 
+ @author Matti
+ */
 public class SVG {
 
         private int width;

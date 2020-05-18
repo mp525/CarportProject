@@ -8,7 +8,10 @@ import FunctionLayer.Request;
 
 import java.sql.*;
 import java.util.ArrayList;
+/**
 
+ @author Matti
+ */
 public class RequestMapper {
 
 
