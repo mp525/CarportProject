@@ -152,9 +152,144 @@ public void CaL19x100x420ForendPriceTest(){
 
     //Roof Flat tests end
 
+
+
+
     //Roof slop tests start
 
+    @Test
+    public void antalBnCDobTest(){
+        int result = StyklisteBeregner.antalBnCDob(reqS);
+        int exp = 480;
+        assertEquals(exp,result);
+    }
+
+    @Test
+    public void prisBnCDob(){
+            double result = StyklisteBeregner.prisBnCDob(reqS);
+            double exp = 2616.0;
+            assertEquals(exp, result,0.0);
+    }
+
+    @Test
+    public void antalRygsten(){
+        int result = StyklisteBeregner.antalRygsten(reqS);
+        int exp = 17;
+        assertEquals(exp,result);
+    }
+
+    @Test
+    public void prisRygsten(){
+        double result = StyklisteBeregner.prisRygsten(reqS);
+        double exp = 169.0;
+        assertEquals(exp,result,0.0);
+    }
+
+
+    @Test
+    public void antalTopLaegHolds(){
+        int result = StyklisteBeregner.antalTopLaegHolds(reqS);
+        int exp = 8;
+        assertEquals(exp,result);
+    }
+    @Test
+    public void prisTopLaegHolds(){
+        double result = StyklisteBeregner.prisTopLaegHolds(reqS);
+        double exp = 8.8;
+        assertEquals(exp,result,0.0);
+    }
+    @Test
+    public void antalRygstensBeslagTest(){
+        int result = StyklisteBeregner.antalRygstensBeslag(reqS);
+        int exp = 17;
+        assertEquals(exp,result);
+    }
+    @Test
+    public void prisRygstensBeslagTest(){
+        double result = StyklisteBeregner.prisRygstensBeslag(reqS);
+        double exp = 169.0;
+        assertEquals(exp,result,0.0);
+    }
+
+
+    @Test
+    public void strlseSternSidder25n150nx(){
+        int result = StyklisteBeregner.strlseSternSidder25n150nx(reqS);
+        int exp = 720;
+        assertEquals(exp,result);
+    }
+
+    @Test
+    public void SternSidderAntalTest(){
+    int result = StyklisteBeregner.SternSidderAntal(reqS);
+    int exp = 2;
+    assertEquals(exp,result);
+    }
+
+    @Test
+    public void SternBrædderPris(){
+        double result = StyklisteBeregner.SternBrædderPris(reqS);
+        double exp = 59.9;
+        assertEquals(exp,result,0.0);
+
+    }
+
+    @Test
+    public void tagFodLægteStørrelsetEST(){
+        int result = StyklisteBeregner.tagFodLægteStørrelse(reqS);
+        int exp = 450;
+        assertEquals(exp,result);
+    }
+
+    @Test
+    public void doorSize(){
+        int result = StyklisteBeregner.doorSize(reqS);
+        int exp = 540;
+        assertEquals(exp,result);
+    }
+
+    @Test
+    public void tagFodLægtePris(){
+        double result = StyklisteBeregner.tagFodLægtePris(reqS);
+        double exp = 26.85;
+        assertEquals(exp,result,0.0);
+    }
+
+    @Test
+    public void antalH38x73mmotaglægteT1HRowsTest(){
+        int result = StyklisteBeregner.antalH38x73mmotaglægteT1HRows(reqS);
+        int exp = 34;
+        assertEquals(exp,result);
+    }
+
+    @Test
+    public void prisH38x73mmotaglægteT1HRowsTest(){
+        double result = StyklisteBeregner.prisH38x73mmotaglægteT1HRows(reqS);
+    double exp = 803.25;
+        assertEquals(exp,result,0.0);
+    }
+
+    @Test
+    public void sizeH38x73mmotaglægteT1HRowsTest(){
+        int result = StyklisteBeregner.sizeH38x73mmotaglægteT1HRows(reqS);
+        int exp =  540;
+        assertEquals(exp,result);
+    }
+
+
+    @Test
+    public void sizeH38x73mmotaglægteT1HHoldersTest(){
+        int result = StyklisteBeregner.sizeH38x73mmotaglægteT1HHolders(reqS);
+        int exp = 420;
+        assertEquals(exp,result);
+    }
+
+
+
+
     //Roof slop tests end
+
+
 
 
     @Test
