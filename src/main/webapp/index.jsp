@@ -1,9 +1,7 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: matti
-  Date: 4/22/2020
-  Time: 2:19 PM
-  To change this template use File | Settings | File Templates.
+
+@author Matti
+
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

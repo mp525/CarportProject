@@ -51,8 +51,8 @@ public class RequestTest {
 
                 Contact c = new Contact("matti@gmail.com","Matti",60909090,"Ellebusken","27",2750);
                 //Key Constraints is weird please help jesus
-                //insertContact(c);
-                //insertRequest(request);
+                insertContact(c);
+
             }
 
         } catch ( ClassNotFoundException | SQLException ex ) {
@@ -71,8 +71,8 @@ public class RequestTest {
     @Test
     public void testInsertRequest(){
         Request request = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
-
-      // assertTrue(getRequests().contains(request));
+        insertRequest(request);
+      //assertTrue(getRequests().contains(request));
     }
     @Test(expected =java.lang.AssertionError.class)
     public void testInsertRequestFail(){

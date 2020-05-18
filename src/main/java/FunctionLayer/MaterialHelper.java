@@ -3,7 +3,11 @@ package FunctionLayer;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+/**
 
+ @author Matti
+
+ */
 public class MaterialHelper {
 
     public static Set<String> flatSet(ArrayList<String> flatList){
@@ -111,8 +115,7 @@ public class MaterialHelper {
     }
 
     public static void udregnTagDeleSLOP(ArrayList<Material> stykliste, Request req){
-
-
+        StyklisteBeregner styklisteBeregner = new StyklisteBeregner();
         //tal
 
         int antalBC = StyklisteBeregner.antalBnCDob(req);
@@ -137,7 +140,7 @@ public class MaterialHelper {
 
         int tagFodLægteStørrelse = StyklisteBeregner.tagFodLægteStørrelse(req);
         int tagFodLægteAntal = StyklisteBeregner.tagFodLægteAntal();
-        double tagFodLægtePris = StyklisteBeregner.tagFodLægtePris(req);
+        double tagFodLægtePris = styklisteBeregner.tagFodLægtePris(req);
 
         int størrelseDoor = StyklisteBeregner.doorSize(req);
         int antalDoor = StyklisteBeregner.doorAmount();

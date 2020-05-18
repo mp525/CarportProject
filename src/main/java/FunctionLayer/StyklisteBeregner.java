@@ -2,7 +2,10 @@ package FunctionLayer;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+/**
 
+ @author Matti
+ */
 public class StyklisteBeregner {
     /*public static void main(String[] args) {
         StyklisteBeregner s = new StyklisteBeregner();
