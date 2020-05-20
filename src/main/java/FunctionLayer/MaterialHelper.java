@@ -17,6 +17,15 @@ import java.util.Set;
  */
 public class MaterialHelper {
 
+
+    /**
+     *
+     * @param flatList - arrayliste med strings
+     * @return et Set
+     *
+     * Denne metode tager en arrayliste med materialenavne til fladt tag fra databasen
+     * og returnerer et set lavet ud fra den liste.
+     */
     public static Set<String> flatSet(ArrayList<String> flatList){
         Set<String> flatSet = new HashSet<>();
         for (String flat: flatList) {
@@ -24,6 +33,15 @@ public class MaterialHelper {
         }
         return flatSet;
     }
+
+    /**
+     *
+     * @param slopeList - arraylist med Strings
+     * @return et set
+     *
+     * Denne metode tager en arrayliste med materialenavne til tag med rejsning fra databasen
+     * og returnerer et set lavet ud fra den liste.
+     */
     public static Set<String> slopeSet(ArrayList<String> slopeList){
         Set<String> slopeSet = new HashSet<>();
         for (String slope: slopeList) {
@@ -32,6 +50,15 @@ public class MaterialHelper {
         return slopeSet;
     }
 
+    /**
+     *
+     * @param stykliste - arrayliste der skal indeholde materialer
+     * @param request - den request en kunde har lavet
+     *
+     * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
+     * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
+     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med fladt tag.
+     */
     public static void udregnSpær(ArrayList<Material> stykliste, Request request){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalSpær = styklisteBeregner.antalSpær(request.getLength());
@@ -313,6 +340,16 @@ public class MaterialHelper {
 
 
     }
+
+    /**
+     *
+     * @param stykliste - arrayliste der skal indeholde materialer
+     * @param request - den request en kunde har lavet
+     *
+     * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
+     * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
+     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget.
+     */
     public static void slopeSpær(Request request, ArrayList<Material> stykliste){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
         int antalSpær = styklisteBeregner.antalSpær(request.getLength());

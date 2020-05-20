@@ -91,6 +91,13 @@ public class Drawing extends Command {
 
     }
 
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     * Denne metode tilføjer remme til tegningen ud fra reviewReq
+     */
     public void addRemme(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -101,7 +108,14 @@ public class Drawing extends Command {
 
 
     }
-
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     *
+     * Denne metode tegner stolper som ikke tilhøre skuret
+     */
     public void addStolperminusSkur(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -148,6 +162,14 @@ public class Drawing extends Command {
 
     }
 
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     *
+     * Denne metode tegner skur og de stolper der tilhøre skuret
+     */
     public void addSkurplusStolper(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -201,6 +223,13 @@ public class Drawing extends Command {
         svg.addTextRotate(length + 70, width / 2, 90, width);
     }
 
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     * Denne metode tilføjer spær til tegningen ud fra request
+     */
     public void addSpær(SVG svg, Request reviewReq) {
         StyklisteBeregner s = new StyklisteBeregner();
         int length = reviewReq.getLength();

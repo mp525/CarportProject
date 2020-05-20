@@ -17,7 +17,14 @@ import java.math.RoundingMode;
 
 public class StyklisteBeregner {
 
-
+    /**
+     *
+     * @param value
+     * @param places
+     * @return Afrundet tal.
+     *
+     * Denne metode afrunder en double til antal decimaler, places.
+     */
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -25,6 +32,18 @@ public class StyklisteBeregner {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+
+    /**
+     *
+     * @param antal - antal spærpakker
+     * @param width - caportens bredde
+     * @param slope - tagets hældning
+     * @param length - carportens længde
+     * @return Pris for hele spærpakken
+     *
+     * Denne metode udregner længden træ der skal bruges til tagpakken, og udregner
+     * derefter samlet pris. Denne metode er kun aktuel til tag med rejsning.
+     */
     public double spærPakkePris(int antal, int width, int slope, int length){
         double angle = slope;
 
@@ -38,6 +57,14 @@ public class StyklisteBeregner {
 
         return round(spærPris,2);
     }
+
+    /**
+     *
+     * @param length - carports længde
+     * @return antal spær
+     *
+     * Denne metode returnerer et passende antal spær ud fra længden.
+     */
     public int antalSpær(int length) {
         int antal = 0;
         switch(length){
@@ -67,6 +94,13 @@ public class StyklisteBeregner {
         return antal;
     }
 
+    /**
+     *
+     * @param length - carportens længde
+     * @return afstanden mellem spær
+     *
+     * Denne metode returnerer spærafstanden ud fra længden af carporten
+     */
     public int spærAfstand(int length){
         int afstand = 0;
 
@@ -94,19 +128,52 @@ public class StyklisteBeregner {
         return afstand;
     }
 
+    /**
+     *
+     * @param width - carports bredde
+     * @return spærlængden
+     *
+     * Denne metode returnerer den længde spærerne skal være, altså lig med bredden
+     */
     public int længdeSpær(int width){
         int længde = width;
         return længde;
     }
+
+    /**
+     *
+     * @param spærLængde
+     * @param spærAntal
+     * @return samlet pris på spær
+     *
+     * Denne metoder udregner prisen på spær. Kun aktuel for carport med fladt tag.
+     */
     public double spærPris(int spærLængde, int spærAntal){
         double spærPris = round(((spærLængde/100) * spærAntal * 54.95),2); //meterprisen
         return spærPris;
     }
+
+    /**
+     *
+     * @param remLængde
+     * @param remAntal
+     * @return prisen for remmene
+     *
+     * Denne metode udregner prisen for remmene ud fra remmenes længde og antal
+     */
     public double remPris(int remLængde, int remAntal){
         double længde = remLængde;
         double remPris = round(((længde/100) * remAntal * 54.95),2); //meterprisen
         return remPris;
     }
+
+    /**
+     *
+     * @param længde - carports længde
+     * @return antal skrue-pakker til beslag
+     *
+     * Denne metode returnerer et antal skrue-pakker ud fra carportens længde
+     */
     public int beslagSkrueAntal(int længde){
         int antalPakker = 0;
         if(længde <= 260){
@@ -119,6 +186,13 @@ public class StyklisteBeregner {
         return antalPakker;
     }
 
+    /**
+     *
+     * @param request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode returnerer et samlet antal stolper
+     */
     public int stolpeAntal(Request r) {
         //starter med en i hvert hjørne så 4
         //er kommet i tvivl om det skal være sådan ...
@@ -157,6 +231,14 @@ public class StyklisteBeregner {
         stolpeAntal = stolpeAntal + stolpeAntalBcLength + stolpeAntalBcWidth + stolpeAntalShed;
         return stolpeAntal;
     }
+
+    /**
+     *
+     * @param request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode returnerer antal stolper på grund af width
+     */
     public int stolpeAntalWidth(Request r){
         int width = r.getWidth();
 
@@ -165,12 +247,28 @@ public class StyklisteBeregner {
         int stolpeAntalBcWidth = width / 300;
         return stolpeAntalBcWidth;
     }
+
+    /**
+     *
+     * @param Request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode returnerer antal stolper på grund af længde
+     */
     public int stolpeAntalLength(Request r){
         int length = r.getLength();
         int stolpeAntalBcLength = length / 300;
         stolpeAntalBcLength = stolpeAntalBcLength + stolpeAntalBcLength;
         return stolpeAntalBcLength;
     }
+
+    /**
+     *
+     * @param Request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode retunere prisen af alle stolper i en carport
+     */
     public double prisStolpe(Request r) {
         int antal = stolpeAntal(r);
         double pris = antal * 3.40 * 41.95;
