@@ -1,6 +1,14 @@
 package FunctionLayer;
 
+/**
 
+ @author Matti
+ @author Mathias
+ @author Vibeke
+
+ Denne klasse genererer svg templates til svg objekterne som bruges til at tegne carporten.
+
+ */
 public class SVG {
 
         private int width;
@@ -18,6 +26,8 @@ public class SVG {
         private final String textRotateTemplate = "<text x=\"%d\" y=\"%d\" style=\"text-anchor: middle\" transform=\"translate(%d, %d) rotate(%d)\">%d cm</text>";
         private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\"/>";
         private final String rectTemplateRotate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" transform=\"rotate(%d %d %d)\"style=\"stroke:#000000; fill: #ffffff\"/>";
+
+
 
     public SVG(int width, int height, String viewbox, int x, int y) {
             this.width = width;

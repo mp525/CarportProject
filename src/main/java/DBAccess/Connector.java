@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- The purpose of Connector is to...
+ Formålet med connector er at skabe en forbindelse til databasen.
+ Både på produktionen og lokalt.
  @author kasper
  */
 public class Connector {
@@ -27,6 +28,13 @@ public class Connector {
         singleton = con;
     }
 
+    /**
+     *
+     * @return den returnerer en forbindelse
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     *
+     */
     public static Connection connection() throws ClassNotFoundException, SQLException {
         if ( singleton == null ) {
             setDBCredentials();
@@ -36,7 +44,14 @@ public class Connector {
         return singleton;
     }
 
+    /**
+     * Denne sætter JDBC connection, hvis det er på produktion.
+     * Hvis ikke det er muligt, så prøver den med localhost.
+     *
+     */
+
     public static void setDBCredentials() {
+
         String deployed = System.getenv("DEPLOYED");
         if (deployed != null) {
             //Prod: hent variabler fra setenv.sh

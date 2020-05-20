@@ -2,14 +2,29 @@ package FunctionLayer;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+/**
+ *
+ * @author Matti
+ * @author Nikolaj
+ * @author Vibeke
+ * @author Mathias
+ *
+ * Denne klasse beregner alle tal nødvendige for at lave styklisten.
+ *
+ * TO DO: Indsæt dit shizzle inden for dit afsnit.
+ *
+ */
 
 public class StyklisteBeregner {
-    /*public static void main(String[] args) {
-        StyklisteBeregner s = new StyklisteBeregner();
-        Request r = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
-        System.out.println(s.stolpeAntalWidth(r));
-    }*/
 
+    /**
+     *
+     * @param value
+     * @param places
+     * @return Afrundet tal.
+     *
+     * Denne metode afrunder en double til antal decimaler, places.
+     */
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -17,6 +32,18 @@ public class StyklisteBeregner {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+
+    /**
+     *
+     * @param antal - antal spærpakker
+     * @param width - caportens bredde
+     * @param slope - tagets hældning
+     * @param length - carportens længde
+     * @return Pris for hele spærpakken
+     *
+     * Denne metode udregner længden træ der skal bruges til tagpakken, og udregner
+     * derefter samlet pris. Denne metode er kun aktuel til tag med rejsning.
+     */
     public double spærPakkePris(int antal, int width, int slope, int length){
         double angle = slope;
 
@@ -30,6 +57,14 @@ public class StyklisteBeregner {
 
         return round(spærPris,2);
     }
+
+    /**
+     *
+     * @param length - carports længde
+     * @return antal spær
+     *
+     * Denne metode returnerer et passende antal spær ud fra længden.
+     */
     public int antalSpær(int length) {
         int antal = 0;
         switch(length){
@@ -59,6 +94,13 @@ public class StyklisteBeregner {
         return antal;
     }
 
+    /**
+     *
+     * @param length - carportens længde
+     * @return afstanden mellem spær
+     *
+     * Denne metode returnerer spærafstanden ud fra længden af carporten
+     */
     public int spærAfstand(int length){
         int afstand = 0;
 
@@ -86,19 +128,52 @@ public class StyklisteBeregner {
         return afstand;
     }
 
+    /**
+     *
+     * @param width - carports bredde
+     * @return spærlængden
+     *
+     * Denne metode returnerer den længde spærerne skal være, altså lig med bredden
+     */
     public int længdeSpær(int width){
         int længde = width;
         return længde;
     }
+
+    /**
+     *
+     * @param spærLængde
+     * @param spærAntal
+     * @return samlet pris på spær
+     *
+     * Denne metoder udregner prisen på spær. Kun aktuel for carport med fladt tag.
+     */
     public double spærPris(int spærLængde, int spærAntal){
         double spærPris = round(((spærLængde/100) * spærAntal * 54.95),2); //meterprisen
         return spærPris;
     }
+
+    /**
+     *
+     * @param remLængde
+     * @param remAntal
+     * @return prisen for remmene
+     *
+     * Denne metode udregner prisen for remmene ud fra remmenes længde og antal
+     */
     public double remPris(int remLængde, int remAntal){
         double længde = remLængde;
         double remPris = round(((længde/100) * remAntal * 54.95),2); //meterprisen
         return remPris;
     }
+
+    /**
+     *
+     * @param længde - carports længde
+     * @return antal skrue-pakker til beslag
+     *
+     * Denne metode returnerer et antal skrue-pakker ud fra carportens længde
+     */
     public int beslagSkrueAntal(int længde){
         int antalPakker = 0;
         if(længde <= 260){
@@ -395,7 +470,10 @@ public class StyklisteBeregner {
 
 
 
+    /**
 
+Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
+     */
 
 
     // Tag Beregner 33000
@@ -824,6 +902,8 @@ public class StyklisteBeregner {
 
         double prislus = mallus * 9.95;
 
+        prislus = round(2, (int) prislus);
+
         return prislus;
     }
 
@@ -940,6 +1020,8 @@ public class StyklisteBeregner {
         int mallus = (int) montus;
 
         double prislus = mallus * 9.95;
+
+        prislus = round(2, (int) prislus);
 
         return prislus;
     }
@@ -1206,31 +1288,6 @@ public class StyklisteBeregner {
         int amount = width / 17;
 
 
-        switch (amount){
-
-            case 14:
-            case 16:
-            case 18:
-            case 20:
-            case 22:
-            case 24:
-            case 26:
-            case 28:
-            case 30:
-            case 32:
-            case 34:
-            case 36:
-            case 38:
-            case 40:
-            case 42:
-            case 44:
-            case 46:
-            case 48:
-
-                amount++;
-
-                break;
-        }
 
         return amount;
 
@@ -1243,33 +1300,6 @@ public class StyklisteBeregner {
 
         int amount = width / 17;
 
-
-        switch (amount){
-
-            case 15:
-            case 17:
-            case 19:
-            case 21:
-            case 23:
-            case 25:
-            case 27:
-            case 29:
-            case 31:
-            case 33:
-            case 35:
-            case 37:
-            case 39:
-            case 41:
-            case 43:
-            case 45:
-            case 47:
-            case 49:
-            case 51:
-
-                amount++;
-
-                break;
-        }
 
 
         double pricee = amount * 22.95;
@@ -1346,7 +1376,7 @@ public class StyklisteBeregner {
     }
 
 
-    public static int sizeH38x73mmotaglægteT1HHolders(Request req){
+        public static int sizeH38x73mmotaglægteT1HHolders(Request req){
 
         int length = req.getLength();
         int sizu = 420;

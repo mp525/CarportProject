@@ -7,7 +7,26 @@ import FunctionLayer.Material;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Denne klasse tilføjer et matriale til en given tabel i databasen (matflat,matslope,materials).
+ *
+ * @author Mathias
+ *
+ */
+
+
+
+
 public class AddMaterial extends Command {
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @return String - JSP
+     * @throws LoginSampleException
+     *
+     */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 

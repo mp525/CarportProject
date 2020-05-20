@@ -10,6 +10,15 @@ import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 
+/**
+ * @author Nikolaj
+ * @author Mathias
+ * @author Matti
+ * @author Vibeke
+ *
+ * Denne klasse tager en request, udregner en stykliste og returnere requestreview.jsp, udfydt med den givne data.
+ *
+ */
 
 public class Review extends Command {
     @Override

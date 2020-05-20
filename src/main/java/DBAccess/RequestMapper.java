@@ -8,9 +8,23 @@ import FunctionLayer.Request;
 
 import java.sql.*;
 import java.util.ArrayList;
+/**
 
+ @author Nikolaj
+ @author Matti
+ @author Mathias
+ Denne klasse indsætter og henter requests i requests tabellen.
+ Den kan også søge efter en bestemt request efter forskelligt input.
+
+ */
 public class RequestMapper {
 
+
+    /**
+     *
+     * @param request
+     * Denne metode indsætter en request i requests tabellen.
+     */
 
     public static void insertRequest(Request request){
         try {
@@ -38,6 +52,12 @@ public class RequestMapper {
         }
     }
 
+    /**
+     *
+     *
+     * @return ArrayList - object requests
+     * Denne metode retunerer en liste over alle requests i tabellen requests.
+     */
     public static ArrayList<Request> getRequests(){
         ArrayList<Request> reqList = new ArrayList();
         try {
@@ -72,6 +92,14 @@ public class RequestMapper {
         return reqList;
     }
 
+    /**
+     *
+     *
+     * @param emailInput
+     * @return ArrayList - object requests
+     * @throws LoginSampleException
+     * Denne metode retunerer en liste over alle requests som indeholder en given email.
+     */
     public static ArrayList<Request> searchEmailRequest(String emailInput) throws LoginSampleException {
         ArrayList<Request> reqList = new ArrayList();
         try {
@@ -130,6 +158,12 @@ public class RequestMapper {
 
     }
 
+    /**
+     *
+     * @param IDInput
+     * @return request
+     * Denne metode returnerer en enkelt request via en given request id.
+     */
 
     public static Request searchIDRequest(int IDInput){
         //ArrayList<Request> reqList = new ArrayList();
@@ -170,41 +204,5 @@ public class RequestMapper {
         return returnReq;
     }
 
-    public static ArrayList<Request> searchIDRequestList(int IDInput){
-        ArrayList<Request> reqList = new ArrayList();
-        try {
-            Connection con = Connector.connection();
-            String query = "select * from requests where requestID = ?;";
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, IDInput);
 
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                String email = rs.getString("email");
-
-                int id = IDInput;
-                int width = rs.getInt("width");
-                int length = rs.getInt("length");
-
-                String cladding = rs.getString("cladding");
-                boolean rooftype = rs.getBoolean("rooftype");
-                String roofmat = rs.getString("roofmat");
-
-                int slope = rs.getInt("slope");
-                int lengthS = rs.getInt("lengthS");
-                int widthS = rs.getInt("widthS");
-
-                Request tmpReq = new Request(id, email, width, length, cladding, rooftype, roofmat, slope, lengthS, widthS);
-                reqList.add(tmpReq);
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            Log.finest("RequestMapper searchIDRequestList" +" SQL Exception" +e);
-            e.printStackTrace();
-        }
-
-        return reqList;
-    }
 }

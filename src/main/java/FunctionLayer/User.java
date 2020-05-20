@@ -1,7 +1,7 @@
 package FunctionLayer;
 
 /**
- * The purpose of User is to...
+ * Denne klasse indeholder information til user objektet.
  * @author kasper
  */
 public class User {

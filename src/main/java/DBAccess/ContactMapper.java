@@ -9,8 +9,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+/**
+
+ Formålet med denne klasse er at kunne tilføje og hente contacts i contactinf tabellen.
+ @author Matti
+ @author Mathias
+
+
+ */
+
 
 public class ContactMapper {
+
+
+    /**
+     *
+     * @param contact
+     * Metoden indsætter en contact i contactinf tabellen.
+     */
     public static void insertContact(Contact contact){
         try {
             Connection con = Connector.connection();
@@ -35,6 +51,11 @@ public class ContactMapper {
         }
     }
 
+    /**
+     *
+     * @return en ArrayList af contacts.
+     *
+     */
     public static ArrayList<Contact> getContacts(){
         ArrayList<Contact> conList = new ArrayList();
         try {

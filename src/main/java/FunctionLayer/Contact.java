@@ -1,5 +1,12 @@
 package FunctionLayer;
 
+
+/**
+ * @author Nikolaj
+ *
+ * Denne klasse indeholder kontakt information om en kunde.
+ */
+
 public class Contact {
 
 
@@ -9,6 +16,8 @@ public class Contact {
     private String streetName;
     private String houseNumber;
     private int postalCode;
+
+
 
     public Contact(String email, String name, int phoneNumber, String streetName, String houseNumber, int postalCode){
         

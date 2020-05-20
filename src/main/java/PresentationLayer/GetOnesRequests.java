@@ -8,6 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
+/**
+ * @author Nikolaj
+ *
+ * Denne klasse sender brugeren til en jsp med alle requests fra en bestemt kunde.
+ *
+ */
+
 public class GetOnesRequests extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {

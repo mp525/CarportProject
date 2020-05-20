@@ -6,25 +6,23 @@ import java.util.*;
 
 import java.util.stream.Stream;
 
+/**
+ * @author Matti
+ * Denne klasse er lavet til at sortere lister af requests.
+ *
+ *
+ */
 
 public class ListSorter {
 
 
-    public static void main(String[] args) {
-        ListSorter l= new ListSorter();
-        ArrayList<Request>requests=new ArrayList<>();
-        Request r = new Request(1, "mattibenhansen@gmail.com",  12, 20, "ok", true, "træ", 25, 25, 25);
-        Request e = new Request(1, "kattibenhansen@gmail.com",  11, 20, "ok", true, "træ", 25, 25, 25);
-        requests.add(r);
-        requests.add(e);
-
-
-        System.out.println(l.getSortedByWidth(requests));
-        System.out.println(l.getSortedByArea(requests));
-        System.out.println(l.getSortedByLength(requests));
-    }
-
-
+    /**
+     *
+     * @param sortedByLength
+     * @return ArrayList - object requests
+     * Denne metode sortere efter længde
+     *
+     */
     public ArrayList<Request> getSortedByLength(ArrayList<Request> sortedByLength) {
         sortedByLength = RequestMapper.getRequests();
 
@@ -34,6 +32,14 @@ public class ListSorter {
         return sortedByLength;
     }
 
+
+    /**
+     *
+     * @param requests
+     * @return ArrayList - object requests
+     * Denne metode sortere efter bredde
+     *
+     */
     public ArrayList getSortedByWidth (ArrayList<Request> requests) {
         requests = new ArrayList<>();
 
@@ -44,6 +50,14 @@ public class ListSorter {
 
         return requests;
     }
+
+    /**
+     *
+     * @param sortedByArea
+     * @return ArrayList - object requests
+     * Denne metode sortere efter areal
+     *
+     */
 
     public ArrayList getSortedByArea(ArrayList<Request> sortedByArea) {
         sortedByArea = RequestMapper.getRequests();

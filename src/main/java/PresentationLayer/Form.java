@@ -9,6 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * @author Vibeke
+ * @author Mathias
+ *
+ * Denne klasse henter informationer fra en udfyldt form på carport.jsp
+ *
+ */
+
 public class Form extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {

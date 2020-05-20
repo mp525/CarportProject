@@ -11,6 +11,17 @@ import FunctionLayer.StyklisteBeregner;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author Vibeke
+ * @author Mathias
+ * @author Matti
+ *
+ * Denne klasse tegner et svg tegning via given data fra en request.
+ * Den anvender også styklistebregner til at udregne antal materialer og størrelsen af visse materialer.
+ *
+ */
+
 public class Drawing2 extends Command {
 
 

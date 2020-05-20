@@ -1,5 +1,18 @@
 package PresentationLayer;
 
+/**
+ * @author Vibeke
+ * @author Matti
+ * @author Mathias
+ * @author Nikolaj
+ * Denne klasse tegner et svg tegning via given data fra en request.
+ * Den anvender også styklistebregner til at udregne antal materialer og størrelsen af visse materialer.
+ *
+ *
+ *
+ * TO DO: SKriv dig på hvor du har skrevet ting
+ */
+
 
 
 import DBAccess.RequestMapper;
@@ -12,6 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Drawing extends Command {
+
+
 
 
     @Override
@@ -46,7 +61,7 @@ public class Drawing extends Command {
         width = reviewReq.getWidth();
         lengthS = reviewReq.getLengthS();
         widthS = reviewReq.getWidthS();
-//in progress...
+
 
         SVG svg = new SVG(length, width, "0,0,1300,1000", 0, 0);
         SVG sideSVG = new SVG(1300, 1000, "0,0,1300,1000", 0, 0);
@@ -71,11 +86,18 @@ public class Drawing extends Command {
 
         return "Drawing";
 
-//in progress...
+
 
 
     }
 
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     * Denne metode tilføjer remme til tegningen ud fra reviewReq
+     */
     public void addRemme(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -186,6 +208,13 @@ public class Drawing extends Command {
         svg.addTextRotate(length + 70, width / 2, 90, width);
     }
 
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     * Denne metode tilføjer spær til tegningen ud fra request
+     */
     public void addSpær(SVG svg, Request reviewReq) {
         StyklisteBeregner s = new StyklisteBeregner();
         int length = reviewReq.getLength();
