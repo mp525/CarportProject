@@ -186,6 +186,13 @@ public class StyklisteBeregner {
         return antalPakker;
     }
 
+    /**
+     *
+     * @param request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode returnerer et samlet antal stolper
+     */
     public int stolpeAntal(Request r) {
         //starter med en i hvert hjørne så 4
         //er kommet i tvivl om det skal være sådan ...
@@ -224,6 +231,14 @@ public class StyklisteBeregner {
         stolpeAntal = stolpeAntal + stolpeAntalBcLength + stolpeAntalBcWidth + stolpeAntalShed;
         return stolpeAntal;
     }
+
+    /**
+     *
+     * @param request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode returnerer antal stolper på grund af width
+     */
     public int stolpeAntalWidth(Request r){
         int width = r.getWidth();
 
@@ -232,12 +247,28 @@ public class StyklisteBeregner {
         int stolpeAntalBcWidth = width / 300;
         return stolpeAntalBcWidth;
     }
+
+    /**
+     *
+     * @param Request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode returnerer antal stolper på grund af længde
+     */
     public int stolpeAntalLength(Request r){
         int length = r.getLength();
         int stolpeAntalBcLength = length / 300;
         stolpeAntalBcLength = stolpeAntalBcLength + stolpeAntalBcLength;
         return stolpeAntalBcLength;
     }
+
+    /**
+     *
+     * @param Request - En forespørgelse
+     * @return antal stolper
+     *
+     * Denne metode retunere prisen af alle stolper i en carport
+     */
     public double prisStolpe(Request r) {
         int antal = stolpeAntal(r);
         double pris = antal * 3.40 * 41.95;

@@ -108,7 +108,14 @@ public class Drawing extends Command {
 
 
     }
-
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     *
+     * Denne metode tegner stolper som ikke tilhøre skuret
+     */
     public void addStolperminusSkur(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -155,6 +162,14 @@ public class Drawing extends Command {
 
     }
 
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     *
+     * Denne metode tegner skur og de stolper der tilhøre skuret
+     */
     public void addSkurplusStolper(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
