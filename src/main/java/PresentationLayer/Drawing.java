@@ -219,6 +219,14 @@ public class Drawing extends Command {
         svg.addLine(20, width - 20, length - lengthS - 20, 20);
     }
 
+
+    /**
+     *
+     * @param svg
+     * @param reviewReq
+     * @author Nikolaj
+     * Denne metode tilføjer stern til sloped tag.
+     */
     public void addSloped(SVG svg, Request reviewReq) {
         //til sloped
         int length = reviewReq.getLength();

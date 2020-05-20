@@ -64,7 +64,7 @@ public void rofMatPris(){
     @Test
     public void RofScrewPrice(){
         double result = StyklisteBeregner.RofScrewPrice(reqF);
-            double exp = 1227.0;
+            double exp = 818.0;
             assertEquals(exp,result,0.0);
     }
 
@@ -195,7 +195,7 @@ public void CaL19x100x420ForendPriceTest(){
     @Test
     public void prisTopLaegHolds(){
         double result = StyklisteBeregner.prisTopLaegHolds(reqS);
-        double exp = 8.8;
+        double exp = 8.0;
         assertEquals(exp,result,0.0);
     }
     @Test
@@ -237,7 +237,7 @@ public void CaL19x100x420ForendPriceTest(){
     @Test
     public void tagFodLægteStørrelsetEST(){
         int result = StyklisteBeregner.tagFodLægteStørrelse(reqS);
-        int exp = 450;
+        int exp = 540;
         assertEquals(exp,result);
     }
 
@@ -250,7 +250,7 @@ public void CaL19x100x420ForendPriceTest(){
 
     @Test
     public void tagFodLægtePris(){
-        double result = StyklisteBeregner.tagFodLægtePris(reqS);
+        double result = StyklisteBeregner.tagFodLægtePris();
         double exp = 26.85;
         assertEquals(exp,result,0.0);
     }
