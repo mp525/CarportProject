@@ -20,8 +20,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+@author projektSkabelon
+@author Mathias
 
- @author kasper
+ Denne klasse bruges til nogle af dropdown menuerne på carport jsp siden.
+ Det er vores eneste servlet.
+
  */
 @WebServlet( name = "FrontController", urlPatterns = { "/FrontController" } )
 public class FrontController extends HttpServlet {

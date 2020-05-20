@@ -1,5 +1,5 @@
 /**
- * Functionlayer indeholder klasser med simple logic og og facader.
+ * Functionlayer indeholder klasser med simpel logic, object klasser og facader.
  *
  *
  */

@@ -3,7 +3,7 @@ package FunctionLayer;
 import DBAccess.UserMapper;
 
 /**
- * The purpose of LogicFacade is to...
+ * The purpose of LogicFacade is to login
  * @author kasper
  */
 public class LogicFacade {
@@ -12,10 +12,5 @@ public class LogicFacade {
         return UserMapper.login( email, password );
     } 
 
-    public static User createUser( String email, String password ) throws LoginSampleException {
-        User user = new User(email, password, "customer");
-        UserMapper.createUser( user );
-        return user;
-    }
 
 }

@@ -3,24 +3,20 @@ package FunctionLayer;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 /**
-*
-* @author Matti
-* @version 1.0
-* @since 2020-20-03-14
-*
+ *
+ * @author Matti
+ * @author Nikolaj
+ * @author Vibeke
+ * @author Mathias
+ *
+ * Denne klasse beregner alle tal nødvendige for at lave styklisten.
+ *
+ * TO DO: Indsæt dit shizzle inden for dit afsnit.
+ *
  */
 
 public class StyklisteBeregner {
 
-
-
-
-
-    /*public static void main(String[] args) {
-        StyklisteBeregner s = new StyklisteBeregner();
-        Request r = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
-        System.out.println(s.stolpeAntalWidth(r));
-    }*/
 
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();

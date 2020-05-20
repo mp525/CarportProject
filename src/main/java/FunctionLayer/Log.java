@@ -5,23 +5,24 @@ import java.util.Date;
 import java.util.logging.*;
 
 
+/**
+ * @author Matti
+ * @author Vibeke
+ * Denne klasse skriver alle fejlbeskeder ind i en tekstfil på computeren.
+ */
+
 public class Log {
 
 
 
     private static final String FILENAME = "Logger.log";
-    private static final String FILEPATH = "/Users/matti/Desktop/gitfolder/CarportProject/src/main/Documents/";
+ //   private static final String FILEPATH = "/Users/matti/Desktop/gitfolder/CarportProject/src/main/Documents/";
+    private static final String FILEPATH = "C:\\Users\\SJUBE\\Documents\\Intellij Projects\\CarportProject\\src\\main\\Documents\\";
 
     private static final String PATH = FILEPATH + FILENAME;
 
     private Log() {
     }
-
-
-
-
-
-
 
 
     private static void log(Level lvl, String decription) throws Exception {

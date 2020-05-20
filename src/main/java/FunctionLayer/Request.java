@@ -2,7 +2,9 @@ package FunctionLayer;
 /**
 
  @author Matti
-
+ @author Nikolaj
+ @author Mathias
+Denne klasse indeholder information om en request fra en kunde.
  */
 public class Request {
 

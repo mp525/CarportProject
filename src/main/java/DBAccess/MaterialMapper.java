@@ -10,14 +10,19 @@ import java.util.ArrayList;
 /**
 
  Indeholder metoder der opererer på databasen inde for matriale listerne. (Matflat,Matslop,Materials)
- Den kan skabe og finde data fra adskellige matrialer fra disse 3 databaser.
+ Den kan skabe og finde data fra adskellige materialer fra disse 3 tabeller.
  @author Matti
-
+ @author Mathias
 
  */
 
 public class MaterialMapper {
-
+    /**
+     *
+     * @param mat - material object
+     * Denne metode indsætter et materiale i matflat tabellen.
+     *
+     */
     public static void insertFlat(Material mat){
         try {
             Connection con = Connector.connection();
@@ -41,7 +46,12 @@ public class MaterialMapper {
             e.printStackTrace();
         }
     }
-
+    /**
+     *
+     * @param mat - material object
+     * Denne metode indsætter et materiale i matslope tabellen.
+     *
+     */
     public static void insertSlope(Material mat){
         try {
             Connection con = Connector.connection();
@@ -66,6 +76,12 @@ public class MaterialMapper {
         }
     }
 
+    /**
+     *
+     * @param mat - material object
+     * Denne metode indsætter et materiale i materials tabellen.
+     *
+     */
     public static void insertMat(Material mat){
         try {
             Connection con = Connector.connection();
@@ -90,6 +106,12 @@ public class MaterialMapper {
         }
     }
 
+    /**
+     *
+     * @return ArrayList - materialer fra matflat tabellen.
+     *
+     * Denne metode henter alle matrialer fra matflat tabellen.
+     */
     public static ArrayList<String> getFlat(){
         ArrayList<String> flatList = new ArrayList();
         try {
@@ -113,7 +135,12 @@ public class MaterialMapper {
 
         return flatList;
     }
-
+    /**
+     *
+     * @return ArrayList - materialer fra matslope tabellen.
+     *
+     * Denne metode henter alle matrialer fra matslope tabellen.
+     */
     public static ArrayList<String> getSlope(){
         ArrayList<String> slopeList = new ArrayList();
         try {
@@ -137,7 +164,12 @@ public class MaterialMapper {
 
         return slopeList;
     }
-
+    /**
+     *
+     * @return ArrayList - materialer fra materials tabellen.
+     *
+     * Denne metode henter alle matrialer fra materials tabellen.
+     */
     public static ArrayList<String> getMats(){
         ArrayList<String> matList = new ArrayList();
         try {

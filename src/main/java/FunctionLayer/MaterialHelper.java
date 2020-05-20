@@ -6,7 +6,14 @@ import java.util.Set;
 /**
 
  @author Matti
+ @author Nikolaj
+ @author Vibeke
+ @author Mathias
 
+ Denne klasse kalder alle styklisteberegner metoder, og fylder materialer i styklisten ud fra en request.
+
+
+ TO DO: Hver af os skal skrive lidt javaDoc ved hver af vores given afsnit
  */
 public class MaterialHelper {
 

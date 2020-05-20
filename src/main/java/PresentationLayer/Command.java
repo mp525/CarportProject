@@ -5,6 +5,16 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+/**
+ * @author Mathias
+ * @author Matti
+ * @author Nikolaj
+ * @author Vibeke
+ * Denne klasse indeholder adskellige commands som bruges i forbindelse med at navigere jsp siderne.
+ * Denne klasse er central i command pattern.
+ */
+
 abstract class Command {
 
     private static HashMap<String, Command> commands;
@@ -12,7 +22,6 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
         commands.put( "login", new Login() );
-        commands.put( "register", new Register() );
         commands.put( "form", new Form() );
         commands.put( "tologin", new ToLogin() );
         commands.put( "sendRequest", new SendRequest());
@@ -25,7 +34,6 @@ abstract class Command {
         commands.put("getOnesRequests", new GetOnesRequests() );
         commands.put("review", new Review() );
         commands.put("svgdrawing", new Drawing() );
-        commands.put("Stykliste", new Styklisten());
         commands.put("svgdrawing2", new Drawing2());
         commands.put("logout", new Logout());
 

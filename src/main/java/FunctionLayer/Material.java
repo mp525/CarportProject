@@ -5,6 +5,8 @@ public class Material {
     /**
 
      @author Nikolaj
+     @author Mathias
+     Denne klasse indeholder data for materiale objekter.
 
      */
     private String navn;

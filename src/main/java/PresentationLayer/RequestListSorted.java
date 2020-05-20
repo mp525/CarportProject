@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
  @author Matti
 
+  Denne klasse sortere.. returnere brugeren til listpage.jsp
+
  */
 public class RequestListSorted extends Command {
 
@@ -22,10 +24,7 @@ public class RequestListSorted extends Command {
 
 
 
-        int id= Integer.parseInt(request.getParameter("id"));
-        ArrayList<Request> searchlistID = RequestMapper.searchIDRequestList(id);
 
-        request.setAttribute("searchList", searchlistID);
 
         String email=request.getParameter("email");
         ArrayList<Request> searchlistEmail = RequestMapper.searchEmailRequest(email);
