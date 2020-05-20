@@ -9,7 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 /**
 
+ Indeholder metoder der opererer på databasen inde for matriale listerne. (Matflat,Matslop,Materials)
+ Den kan skabe og finde data fra adskellige matrialer fra disse 3 databaser.
  @author Matti
+
+
  */
 
 public class MaterialMapper {

@@ -7,10 +7,24 @@ import FunctionLayer.Material;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Denne metode tilføjer et matriale til en af listerne af matrialer
+ *
+ * @auther Nikolaj
+ * @Version 1.0
+ * @since 2020-20-19-05
+ *
+ */
+
 public class AddMaterial extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-
+        /**
+         *
+         * @param kategori matnavn matlaengde enhed beskrivelse pris
+         * @throws LoginSampleException
+         * @return a new material and sends the user to the material page
+         */
         String kategori = request.getParameter("kategori");
         String matnavn = request.getParameter("matNavn");
         String matlaengde = request.getParameter("matLaengde");

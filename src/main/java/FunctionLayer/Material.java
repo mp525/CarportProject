@@ -1,6 +1,12 @@
 package FunctionLayer;
 
 public class Material {
+
+    /**
+
+     @author Nikolaj
+
+     */
     private String navn;
     private String beskrivelse;
     private String enhed;

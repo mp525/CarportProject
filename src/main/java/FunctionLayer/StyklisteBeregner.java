@@ -3,10 +3,19 @@ package FunctionLayer;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 /**
-
- @author Matti
+*
+* @author Matti
+* @version 1.0
+* @since 2020-20-03-14
+*
  */
+
 public class StyklisteBeregner {
+
+
+
+
+
     /*public static void main(String[] args) {
         StyklisteBeregner s = new StyklisteBeregner();
         Request r = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
@@ -398,7 +407,10 @@ public class StyklisteBeregner {
 
 
 
+    /**
 
+Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
+     */
 
 
     // Tag Beregner 33000
