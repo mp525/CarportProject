@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
  @author Matti
 
-  Denne klasse sortere.. returnere brugeren til listpage.jsp
-
+  Denne klasse sortere listen af requests og returnere brugeren til listpage.jsp
+    Denne klasse blev ikke implementeret men den planlagte implementering er beskrevet i rapporten.
  */
 public class RequestListSorted extends Command {
 

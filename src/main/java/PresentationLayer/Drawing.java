@@ -108,7 +108,14 @@ public class Drawing extends Command {
 
 
     }
-
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     *
+     * Denne metode tegner stolper som ikke tilhøre skuret
+     */
     public void addStolperminusSkur(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -155,6 +162,14 @@ public class Drawing extends Command {
 
     }
 
+    /**
+     *
+     * @param svg
+     * @param reviewReq - request
+     *
+     *
+     * Denne metode tegner skur og de stolper der tilhøre skuret
+     */
     public void addSkurplusStolper(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -195,6 +210,12 @@ public class Drawing extends Command {
         }
     }
 
+    /**
+     * addMålelinjer() tilføjer målestregerne til SVG tegningerne. SVG kodelinjerne fra SVG.java bliver hentet og udfyldt
+     * med mål her.
+     * @param svg - SVG object
+     * @param reviewReq - Request
+     */
     public void addMålelinjer(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();
@@ -233,6 +254,14 @@ public class Drawing extends Command {
         svg.addLine(20, width - 20, length - lengthS - 20, 20);
     }
 
+
+    /**
+     *
+     * @param svg
+     * @param reviewReq
+     * @author Nikolaj
+     * Denne metode tilføjer stern til sloped tag.
+     */
     public void addSloped(SVG svg, Request reviewReq) {
         //til sloped
         int length = reviewReq.getLength();

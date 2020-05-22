@@ -92,6 +92,14 @@ public class MaterialHelper {
 
     }
 
+
+    /**
+     *
+     * @param stykliste
+     * @param req
+     *  Denne metode udregner adskellige parameter som priser og antal for hver materiale som skal bruges til et flattag.
+     *  Derefter sender den materialerne til review.
+     */
     public static void udregnTagDele(ArrayList<Material> stykliste, Request req){
 
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
@@ -148,6 +156,14 @@ public class MaterialHelper {
 
     }
 
+
+    /**
+     *
+     * @param stykliste
+     * @param req
+     *  Denne metode udregner adskellige parameter som priser og antal for hver materiale som skal bruges til et slopedtag.
+     *  Derefter sender den materialerne til review.
+     */
     public static void udregnTagDeleSLOP(ArrayList<Material> stykliste, Request req){
         StyklisteBeregner styklisteBeregner = new StyklisteBeregner();
         //tal
@@ -174,7 +190,7 @@ public class MaterialHelper {
 
         int tagFodLægteStørrelse = StyklisteBeregner.tagFodLægteStørrelse(req);
         int tagFodLægteAntal = StyklisteBeregner.tagFodLægteAntal();
-        double tagFodLægtePris = styklisteBeregner.tagFodLægtePris(req);
+        double tagFodLægtePris = styklisteBeregner.tagFodLægtePris();
 
         int størrelseDoor = StyklisteBeregner.doorSize(req);
         int antalDoor = StyklisteBeregner.doorAmount();
@@ -263,7 +279,12 @@ public class MaterialHelper {
 
     }
 
-    // @Vibeke
+    /**
+     * Denne metode sender alle materialer der skal bruges til at bygge skuret, skulle kunden ønske det i sin carport.
+     * Tallene bliver beregnet i styklisteBeregner.java og indsat i ArrayListen stykliste.
+     * @param stykliste - ArrayList
+     * @param request - Request
+     */
     public static void udregnSkur(ArrayList<Material> stykliste, Request request) {
         // Antagelser og værdier:
         // Materialer:

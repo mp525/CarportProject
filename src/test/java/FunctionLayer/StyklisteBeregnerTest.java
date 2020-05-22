@@ -64,7 +64,7 @@ public void rofMatPris(){
     @Test
     public void RofScrewPrice(){
         double result = StyklisteBeregner.RofScrewPrice(reqF);
-            double exp = 1227.0;
+            double exp = 818.0;
             assertEquals(exp,result,0.0);
     }
 
@@ -195,7 +195,7 @@ public void CaL19x100x420ForendPriceTest(){
     @Test
     public void prisTopLaegHolds(){
         double result = StyklisteBeregner.prisTopLaegHolds(reqS);
-        double exp = 8.8;
+        double exp = 8.0;
         assertEquals(exp,result,0.0);
     }
     @Test
@@ -237,7 +237,7 @@ public void CaL19x100x420ForendPriceTest(){
     @Test
     public void tagFodLægteStørrelsetEST(){
         int result = StyklisteBeregner.tagFodLægteStørrelse(reqS);
-        int exp = 450;
+        int exp = 540;
         assertEquals(exp,result);
     }
 
@@ -250,7 +250,7 @@ public void CaL19x100x420ForendPriceTest(){
 
     @Test
     public void tagFodLægtePris(){
-        double result = StyklisteBeregner.tagFodLægtePris(reqS);
+        double result = StyklisteBeregner.tagFodLægtePris();
         double exp = 26.85;
         assertEquals(exp,result,0.0);
     }
@@ -345,22 +345,20 @@ public void CaL19x100x420ForendPriceTest(){
     @Test
     public void stolpeAntal() {
         Request r = new Request("Mattemanden@gmail.com",400,400,"shed",true,"oak",0,200,200);
-        StyklisteBeregner s = new StyklisteBeregner();
         //hver hjørne
         //skur 3 hjørner + 2 dør stolper =5
         //2 sider hvor der hver skal være 1 ekstra =2
         //1 side med 1
         //4+5+2+1=12
-        int antalStolper= s.stolpeAntal(r);
+        int antalStolper= sb.stolpeAntal(r);
         assertEquals(antalStolper,12);
         System.out.println("korrekt antal stolper");
     }
     @Test
     public void stolpePris() {
         Request r = new Request("Mattemanden@gmail.com",400,400,"shed",true,"oak",0,200,200);
-        StyklisteBeregner s = new StyklisteBeregner();
 
-        double antalPris= s.prisStolpe(r);
+        double antalPris= sb.prisStolpe(r);
         assertEquals(antalPris,1711.56,0.1);
         System.out.println("korrekt pris");
     }
