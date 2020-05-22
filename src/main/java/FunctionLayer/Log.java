@@ -16,8 +16,8 @@ public class Log {
 
 
     private static final String FILENAME = "Logger.log";
- //   private static final String FILEPATH = "/Users/matti/Desktop/gitfolder/CarportProject/src/main/Documents/";
-    private static final String FILEPATH = "C:\\Users\\SJUBE\\Documents\\Intellij Projects\\CarportProject\\src\\main\\Documents\\";
+    private static final String FILEPATH = "/Users/matti/Desktop/gitfolder/CarportProject/src/main/Documents/";
+    //private static final String FILEPATH = "C:\\Users\\SJUBE\\Documents\\Intellij Projects\\CarportProject\\src\\main\\Documents\\";
 
     private static final String PATH = FILEPATH + FILENAME;
 
