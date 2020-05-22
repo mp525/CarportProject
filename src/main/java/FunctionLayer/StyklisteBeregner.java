@@ -276,17 +276,12 @@ public class StyklisteBeregner {
     }
 
 
-    
-    // @Vibeke
-    // Antagelser og værdier:
-    // Skur højde i meter
-    private double shedH = 2.5;
-
-    // Test mål i meter:
-    // Obsolete !!
-    private int length = 180;
-    private int width = 240;
-
+    /**
+     * amountWood udregner mængden af brædder der skal bruges til at beklæde et skur.
+     * @param length - int i cm
+     * @param width - int i cm
+     * @return antal brædder
+     */
     // Brædder for væggene:
     public int amountWood(int length, int width) {
         // Bræder bredde og afstand mellem dem i cm:
@@ -332,6 +327,11 @@ public class StyklisteBeregner {
         return ialt;
     }
 
+    /**
+     * priceWood beregner prisen for den mængde brædder der skal bruges til at beklæde skuret.
+     * @param amount - int fra metoden amountWood
+     * @return - double, prisen for brædderne
+     */
     // Pris for en af længde siderne, begge lag:
     public double priceWood(double amount) {
         double shedH = 2.5;
@@ -344,6 +344,11 @@ public class StyklisteBeregner {
         return price;
     }
 
+    /**
+     * amountScrewsInner beregner mængden af skruer der skal bruges til det inderste lag af brædder til skuret.
+     * @param amountWood - int fra metoden amountWood
+     * @return int, mængde af skruer
+     */
     // Mængden af skruer der skal bruges til lag 1:
     public int amountScrewsInner(double amountWood) {
         int amtScrews = 0;
@@ -359,6 +364,11 @@ public class StyklisteBeregner {
         return amtScrews;
     }
 
+    /**
+     * amountScrewsOuter beregner mængden af skruer der skal bruges til det yderste lag af brædder til skuret.
+     * @param amountWood - int fra metoden amountWood
+     * @return int, mængde af skruer
+     */
     // Mængden af skruer der skal bruges til lag 2:
     public int amountScrewsOuter(double amountWood) {
         int amtScrews = 0;
@@ -374,6 +384,12 @@ public class StyklisteBeregner {
         return amtScrews;
     }
 
+    /**
+     * amtBoxScrewIn beregner hvor mange pakker der skal bestilles til det inderste lag brædder, afhængig af tallet
+     * fra amountScrewsInner().
+     * @param amountScrewIn - int fra amountScrewsInner()
+     * @return int, antal pakker
+     */
     // Mængde af pakker med skruer der skal bestilles til lag 1:
     public int amtBoxScrewIn(int amountScrewIn) {
         int box = 0;
@@ -387,6 +403,12 @@ public class StyklisteBeregner {
         return box;
     }
 
+    /**
+     * amtBoxScrewOut beregner hvor mang epakker der skal bestilles til deet yderste lag brædder, afhængig af tallet
+     * fra amountScrewsOuter().
+     * @param amountScrewOut - int fra amountScrewsOuter()
+     * @return int, antal pakker
+     */
     // Mængde af pakker med skruer der skal bestilles til lag 2:
     public int amtBoxScrewOut(int amountScrewOut) {
         int box = 0;
@@ -408,6 +430,10 @@ public class StyklisteBeregner {
         return box;
     }
 
+    /**
+     * losholter() udregner hvor mange løsholter (brædder), der skal bruges til skuret.
+     * @return - int, antal løsholter
+     */
     // Mængden af løsholter brædder:
     public int losholter() {
         int amount = 0;
@@ -417,6 +443,11 @@ public class StyklisteBeregner {
         return amount;
     }
 
+    /**
+     * priceLosholter() udregner prisen for antal løsholter til skuret.
+     * @param length - int
+     * @return - double, prisen for mængden af løsholter
+     */
     // Prisen for løsholter brædder:
     public double priceLosholter(int length) {
         double price = 0.0;
@@ -434,30 +465,55 @@ public class StyklisteBeregner {
         return x;
     }
 
+    /**
+     * doorABPrice() beregner prisen for vinkelbeslagende til døren i skuret.
+     * @param angleBracket - int, antallet af vinkelbeslag til skuret
+     * @return - double, prisen for vinkelbeslagende
+     */
     public double doorABPrice(int angleBracket) {
         double abPrice = 7.95;
         double price = angleBracket * abPrice;
         return price;
     }
 
+    /**
+     * doorHPrice() beregner prisen for hængslerne til døren i skuret.
+     * @param hinge - int, antal håndtag (altid 1) til døren
+     * @return - double, prisen for hængslerne
+     */
     public double doorHPrice(int hinge) {
         double hingePrice = 99.95;
         double price = hinge * hingePrice;
         return price;
     }
 
+    /**
+     * doorABScrewPrice() beregner prisen for skruerne til vinkelbeslagende i døren.
+     * @param abScrews - int, antal skruer der skal bruges til vinkelbeslagende
+     * @return - double, prisen for pakken af skruer
+     */
     public double doorABScrewPrice(int abScrews) {
         double abScrewsPrice = 259.0;
         double price = abScrews * abScrewsPrice;
         return price;
     }
 
+    /**
+     * doorHandlePrice() beregner prisen for håndtaget til døren i skuret
+     * @param doorHandle - int, altid 1 håndtag
+     * @return - double, prisen for håndtaget
+     */
     public double doorHandlePrice(int doorHandle) {
         double dhPrice = 189.0;
         double price = doorHandle * dhPrice;
         return price;
     }
 
+    /**
+     * priceScrewIn() beregner prisen for de pakker af skruer der skal bruges til det inderste lag brædder til skuret.
+     * @param boxAmt - int, antal pakker af skruer
+     * @return - double, prisen for antal pakker
+     */
     // Pris for skruerne:
     // En tredjedel cirka går til de inderste brædder, resten til de yderste
     public double priceScrewIn(int boxAmt) {
@@ -474,6 +530,11 @@ public class StyklisteBeregner {
         return priceScrewsTotal;
     }
 
+    /**
+     * priceScrewOiut() beregner prisen for de pakker af skruer der skal bruges til det yderste lag brædder til skuret.
+     * @param boxAmt - int, antal pakker af skruer
+     * @return - double, prisen for antal pakker
+     */
     // Pris for skruerne:
     // En tredjedel cirka går til de inderste brædder, resten til de yderste
     public double priceScrewOut(int boxAmt) {

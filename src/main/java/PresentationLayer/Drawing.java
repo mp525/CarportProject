@@ -210,6 +210,12 @@ public class Drawing extends Command {
         }
     }
 
+    /**
+     * addMålelinjer() tilføjer målestregerne til SVG tegningerne. SVG kodelinjerne fra SVG.java bliver hentet og udfyldt
+     * med mål her.
+     * @param svg - SVG object
+     * @param reviewReq - Request
+     */
     public void addMålelinjer(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();

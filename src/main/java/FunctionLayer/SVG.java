@@ -59,11 +59,21 @@ public class SVG {
             svg.append(String.format(textRotateTemplate, 0, 0, x1, y1, rotate, wOrL));
         }
 
+    /**
+     * addArrowLine() fungerer ligesom addLine(), men bruger en anden template, arrowTemplate, for at få pilespidserne genereret
+     * @param x - startkoordinat x
+     * @param y - startkoordinat y
+     * @param x2 - slutkoordinat x
+     * @param y2 - slutkoordinat y
+     */
         public void addArrowLine(int x, int y, int x2, int y2) {
             svg.append(String.format(arrowTemplate, x, y, x2, y2));
         }
 
-        public void markerDef() {
+    /**
+     * markerDef() er den svg string der skal bruges for at generere pilespidser på målestreger til tegningerne.
+     */
+    public void markerDef() {
             String x = "<defs>\n" +
                 " <marker \n" +
                 " \tid=\"beginArrow\" \n" +

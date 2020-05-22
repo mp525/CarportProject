@@ -279,7 +279,12 @@ public class MaterialHelper {
 
     }
 
-    // @Vibeke
+    /**
+     * Denne metode sender alle materialer der skal bruges til at bygge skuret, skulle kunden ønske det i sin carport.
+     * Tallene bliver beregnet i styklisteBeregner.java og indsat i ArrayListen stykliste.
+     * @param stykliste - ArrayList
+     * @param request - Request
+     */
     public static void udregnSkur(ArrayList<Material> stykliste, Request request) {
         // Antagelser og værdier:
         // Materialer:
