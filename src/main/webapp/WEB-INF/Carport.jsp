@@ -173,12 +173,9 @@
                     <select disabled id="fladtag" class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roofFMat">
 <%--                        <option selected>Choose...</option>--%>
                         <option value="choose">Vælg...</option>
-                        <c:forEach items="${requestScope.flatSet}" var="element">
-                            <option value="${element}">${element}</option>
-                        </c:forEach>
-                        <!--<option value="Plasttrapezplader">Plasttrapezplader</option>
+                        <option value="Plasttrapezplader">Plasttrapezplader</option>
                         <option value="Tagpap">Tagpap</option>
-                        <option value="Ståltag">Ståltag</option>-->
+                        <option value="Ståltag">Ståltag</option>
                     </select>
                 </div>
                 <div class="col-4">
