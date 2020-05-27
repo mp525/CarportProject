@@ -4,7 +4,7 @@ package FunctionLayer;
 /**
  * @author Nikolaj
  *
- * Denne klasse indeholder kontakt information om en kunde.
+ * Denne klasse indeholder kontaktinformation om en kunde.
  */
 
 public class Contact {

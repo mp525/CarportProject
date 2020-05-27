@@ -10,10 +10,8 @@ import java.util.Set;
  @author Vibeke
  @author Mathias
 
- Denne klasse kalder alle styklisteberegner metoder, og fylder materialer i styklisten ud fra en request.
+ Denne klasse kalder alle Styklisteberegner metoder, og fylder materialer i styklisten ud fra en request.
 
-
- TO DO: Hver af os skal skrive lidt javaDoc ved hver af vores given afsnit
  */
 public class MaterialHelper {
 
@@ -24,7 +22,7 @@ public class MaterialHelper {
      * @return et Set
      *
      * Denne metode tager en arrayliste med materialenavne til fladt tag fra databasen
-     * og returnerer et set lavet ud fra den liste.
+     * og returnerer et Set lavet ud fra den liste.
      */
     public static Set<String> flatSet(ArrayList<String> flatList){
         Set<String> flatSet = new HashSet<>();
@@ -37,10 +35,10 @@ public class MaterialHelper {
     /**
      *
      * @param slopeList - arraylist med Strings
-     * @return et set
+     * @return et Set
      *
      * Denne metode tager en arrayliste med materialenavne til tag med rejsning fra databasen
-     * og returnerer et set lavet ud fra den liste.
+     * og returnerer et Set lavet ud fra den liste.
      */
     public static Set<String> slopeSet(ArrayList<String> slopeList){
         Set<String> slopeSet = new HashSet<>();
@@ -97,7 +95,7 @@ public class MaterialHelper {
      *
      * @param stykliste
      * @param req
-     *  Denne metode udregner adskellige parameter som priser og antal for hver materiale som skal bruges til et flattag.
+     *  Denne metode udregner adskellige parametre som priser og antal for hver materiale som skal bruges til et fladt tag.
      *  Derefter sender den materialerne til review.
      */
     public static void udregnTagDele(ArrayList<Material> stykliste, Request req){
@@ -161,7 +159,7 @@ public class MaterialHelper {
      *
      * @param stykliste
      * @param req
-     *  Denne metode udregner adskellige parameter som priser og antal for hver materiale som skal bruges til et slopedtag.
+     *  Denne metode udregner adskellige parametre som priser og antal for hver materiale som skal bruges til et tag med rejsning.
      *  Derefter sender den materialerne til review.
      */
     public static void udregnTagDeleSLOP(ArrayList<Material> stykliste, Request req){

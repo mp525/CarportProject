@@ -961,7 +961,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int numbofflanks
-     * Denne metode returnerer antallet af 19x100420brædder som skal bruges til carporten.
+     * Denne metode returnerer antallet af 19x100x420brædder som skal bruges til carporten.
      */
     public static int CaL19x100x420Forend(Request req){
 

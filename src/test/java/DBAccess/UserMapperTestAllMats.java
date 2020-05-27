@@ -21,7 +21,7 @@ public class UserMapperTestAllMats {
 
     private static Connection testConnection;
     private static String USER = "root";
-    private static String USERPW = "Matti12345h";
+    private static String USERPW = "cph39178";
     private static String DBNAME = "carbaseTest";
     private static String HOST = "localhost";
     @Before

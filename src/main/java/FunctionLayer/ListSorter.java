@@ -10,7 +10,6 @@ import java.util.stream.Stream;
  * @author Matti
  * Denne klasse er lavet til at sortere lister af requests.
  *
- *
  */
 
 public class ListSorter {
@@ -20,7 +19,7 @@ public class ListSorter {
      *
      * @param sortedByLength
      * @return ArrayList - object requests
-     * Denne metode sortere efter længde
+     * Denne metode sorterer efter længde
      *
      */
     public ArrayList<Request> getSortedByLength(ArrayList<Request> sortedByLength) {
@@ -37,7 +36,7 @@ public class ListSorter {
      *
      * @param requests
      * @return ArrayList - object requests
-     * Denne metode sortere efter bredde
+     * Denne metode sorterer efter bredde
      *
      */
     public ArrayList getSortedByWidth (ArrayList<Request> requests) {
@@ -55,7 +54,7 @@ public class ListSorter {
      *
      * @param sortedByArea
      * @return ArrayList - object requests
-     * Denne metode sortere efter areal
+     * Denne metode sorterer efter areal
      *
      */
 

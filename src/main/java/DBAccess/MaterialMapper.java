@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
 
  Indeholder metoder der opererer på databasen inde for matriale listerne. (Matflat,Matslop,Materials)
- Den kan skabe og finde data fra adskellige materialer fra disse 3 tabeller.
+ Den kan skabe og finde data på adskellige materialer fra disse 3 tabeller.
  @author Matti
  @author Mathias
 
@@ -110,7 +110,7 @@ public class MaterialMapper {
      *
      * @return ArrayList - materialer fra matflat tabellen.
      *
-     * Denne metode henter alle matrialer fra matflat tabellen.
+     * Denne metode henter alle materialer fra matflat tabellen.
      */
     public static ArrayList<String> getFlat(){
         ArrayList<String> flatList = new ArrayList();
@@ -139,7 +139,7 @@ public class MaterialMapper {
      *
      * @return ArrayList - materialer fra matslope tabellen.
      *
-     * Denne metode henter alle matrialer fra matslope tabellen.
+     * Denne metode henter alle materialer fra matslope tabellen.
      */
     public static ArrayList<String> getSlope(){
         ArrayList<String> slopeList = new ArrayList();
@@ -168,7 +168,7 @@ public class MaterialMapper {
      *
      * @return ArrayList - materialer fra materials tabellen.
      *
-     * Denne metode henter alle matrialer fra materials tabellen.
+     * Denne metode henter alle materialer fra materials tabellen.
      */
     public static ArrayList<String> getMats(){
         ArrayList<String> matList = new ArrayList();

@@ -10,11 +10,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- The purpose of UserMapper is to...
-
  @author kasper
+ Denne klasse håndterer databasekommunikation omhandlende User-objekter.
+
+
  */
 public class UserMapper {
+
+    /**
+     *
+     * @param email
+     * @param password
+     * @return User, som er logget ind.
+     * @throws LoginSampleException
+     * Denne metode tjekker om logininformationerne eksisterer i databasen, og lader brugeren logge ind, hvis de gør.
+     */
 
     public static User login( String email, String password ) throws LoginSampleException {
         try {

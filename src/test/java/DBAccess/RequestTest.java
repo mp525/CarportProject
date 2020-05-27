@@ -23,7 +23,7 @@ public class RequestTest {
 
     private static Connection testConnection;
     private static String USER = "root";
-    private static String USERPW = "Matti12345h";
+    private static String USERPW = "cph39178";
     private static String DBNAME = "carbaseTest";
     private static String HOST = "localhost";
     @Before
@@ -49,7 +49,7 @@ public class RequestTest {
                 stmt.execute( "insert into contactinf select * from carbase.contactinf" );
 
 
-                Contact c = new Contact("matti@gmail.com","Matti",60909090,"Ellebusken","27",2750);
+                Contact c = new Contact("testklasse@mail.com","Matti",60909090,"Ellebusken","27",2750);
                 //Key Constraints is weird please help jesus
                 insertContact(c);
 
@@ -70,7 +70,7 @@ public class RequestTest {
 
     @Test
     public void testInsertRequest(){
-        Request request = new Request(1,"matti@gmail.com",500,500,"oak",true,"oak",20,200,200);
+        Request request = new Request(1,"testklasse@mail.com",500,500,"oak",true,"oak",20,200,200);
         insertRequest(request);
       //assertTrue(getRequests().contains(request));
     }
