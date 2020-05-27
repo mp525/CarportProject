@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * @author Nikolaj
  *
- * Denne klasse sender brugeren til en jsp med alle requests fra en bestemt kunde.
+ * Denne klasse sender brugeren til en jsp-side med alle requests fra en bestemt kunde.
  *
  */
 

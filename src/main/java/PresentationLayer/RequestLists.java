@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Nikolaj
  *
  *
- * Denne klasse returnere brugeren til requestlists.jsp
+ * Denne klasse sender brugeren til requestlists.jsp
  *
  */
 

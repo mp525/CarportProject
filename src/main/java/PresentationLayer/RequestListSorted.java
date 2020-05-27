@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
  @author Matti
 
-  Denne klasse sortere listen af requests og returnere brugeren til listpage.jsp
+  Denne klasse sortere listen af requests og sender brugeren til listpage.jsp
     Denne klasse blev ikke implementeret men den planlagte implementering er beskrevet i rapporten.
  */
 public class RequestListSorted extends Command {
@@ -21,10 +21,6 @@ public class RequestListSorted extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         ListSorter l= new ListSorter();
-
-
-
-
 
         String email=request.getParameter("email");
         ArrayList<Request> searchlistEmail = RequestMapper.searchEmailRequest(email);

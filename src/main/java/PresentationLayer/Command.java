@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Nikolaj
  * @author Vibeke
  * Denne klasse indeholder adskellige commands som bruges i forbindelse med at navigere jsp siderne.
- * Denne klasse er central i command pattern.
+ * Denne klasse er central i vores command pattern.
  */
 
 abstract class Command {

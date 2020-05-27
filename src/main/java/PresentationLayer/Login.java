@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- The purpose of Login is to log in.
+ Denne klasse bruges til at logge ind.
 
  @author kasper
  */

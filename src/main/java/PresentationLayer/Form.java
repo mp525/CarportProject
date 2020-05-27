@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
  * @author Vibeke
  * @author Mathias
  *
- * Denne klasse henter informationer fra en udfyldt form på carport.jsp
+ * Denne klasse henter informationer fra en udfyldt form på Carport.jsp
  *
  */
 

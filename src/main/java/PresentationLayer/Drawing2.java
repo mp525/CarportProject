@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Matti
  *
  * Denne klasse tegner et svg tegning via given data fra en request.
- * Den anvender også styklistebregner til at udregne antal materialer og størrelsen af visse materialer.
+ * Den anvender også Styklistebregner til at udregne antal materialer og størrelsen af visse materialer.
  *
  */
 

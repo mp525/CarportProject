@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Vibeke
  *
- * Denne klasse returnerer en employee til employeepage
+ * Denne klasse sender en employee videre til employeepage
  */
 
 public class Employeepage extends Command {

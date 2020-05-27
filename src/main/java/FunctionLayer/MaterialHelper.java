@@ -55,7 +55,7 @@ public class MaterialHelper {
      *
      * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
      * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
-     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med fladt tag.
+     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med fladt tag. Denne metode tilføjer spær til styklisten.
      */
     public static void udregnSpær(ArrayList<Material> stykliste, Request request){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
@@ -275,7 +275,7 @@ public class MaterialHelper {
      *
      * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
      * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
-     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget.
+     * og tilføjet til styklisten. Denne metode indsætter stolper i styklisten.
      */
     public static void udregnStolpe(ArrayList<Material> stykliste, Request request) {
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
@@ -287,7 +287,7 @@ public class MaterialHelper {
 
     /**
      * Denne metode sender alle materialer der skal bruges til at bygge skuret, skulle kunden ønske det i sin carport.
-     * Tallene bliver beregnet i styklisteBeregner.java og indsat i ArrayListen stykliste.
+     * Tallene bliver beregnet i StyklisteBeregner.java og indsat i ArrayListen stykliste.
      * @param stykliste - ArrayList
      * @param request - Request
      */
@@ -359,7 +359,7 @@ public class MaterialHelper {
      *
      * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
      * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
-     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget.
+     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget. Denne metode tilføjer spær til styklisten.
      */
     public static void slopeSpær(Request request, ArrayList<Material> stykliste){
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
@@ -401,7 +401,7 @@ public class MaterialHelper {
      *
      * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
      * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
-     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget.
+     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget. Denne metode tilføjer stolper til styklisten.
      */
     public static void slopeStolper(ArrayList<Material>stykliste,Request r){
         udregnStolpe(stykliste, r);

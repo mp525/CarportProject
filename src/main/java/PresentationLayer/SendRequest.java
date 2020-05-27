@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mathias
  *
  * Denne klasse sender kundens request til databasen, samt kundes kontakt information.
- * Derefter sendes kunden til reciept.jsp
+ * Derefter sendes kunden til receipt.jsp
  *
  */
 

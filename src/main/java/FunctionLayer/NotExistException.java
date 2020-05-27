@@ -1,8 +1,9 @@
 package FunctionLayer;
 
 /**
- * The purpose of LoginSampleException is to...
+ *
  * @author kasper
+ * Denne exception bliver aldrig brugt.
  */
 public class NotExistException extends Exception {
 

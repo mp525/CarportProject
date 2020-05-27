@@ -11,8 +11,6 @@ import java.math.RoundingMode;
  *
  * Denne klasse beregner alle tal nødvendige for at lave styklisten.
  *
- * TO DO: Indsæt dit shizzle inden for dit afsnit.
- *
  */
 
 public class StyklisteBeregner {
@@ -188,7 +186,7 @@ public class StyklisteBeregner {
 
     /**
      *
-     * @param request - En forespørgelse
+     * @param request - En forespørgsel
      * @return antal stolper
      *
      * Denne metode returnerer et samlet antal stolper
@@ -234,10 +232,10 @@ public class StyklisteBeregner {
 
     /**
      *
-     * @param request - En forespørgelse
+     * @param request - En forespørgsel
      * @return antal stolper
      *
-     * Denne metode returnerer antal stolper på grund af width
+     * Denne metode returnerer antal stolper ud fra width
      */
     public int stolpeAntalWidth(Request r){
         int width = r.getWidth();
@@ -250,10 +248,10 @@ public class StyklisteBeregner {
 
     /**
      *
-     * @param Request - En forespørgelse
+     * @param Request - En forespørgsel
      * @return antal stolper
      *
-     * Denne metode returnerer antal stolper på grund af længde
+     * Denne metode returnerer antal stolper ud fra længde
      */
     public int stolpeAntalLength(Request r){
         int length = r.getLength();
@@ -264,7 +262,7 @@ public class StyklisteBeregner {
 
     /**
      *
-     * @param Request - En forespørgelse
+     * @param Request - En forespørgsel
      * @return antal stolper
      *
      * Denne metode retunere prisen af alle stolper i en carport
@@ -404,7 +402,7 @@ public class StyklisteBeregner {
     }
 
     /**
-     * amtBoxScrewOut beregner hvor mang epakker der skal bestilles til deet yderste lag brædder, afhængig af tallet
+     * amtBoxScrewOut beregner hvor mange pakker der skal bestilles til det yderste lag brædder, afhængig af tallet
      * fra amountScrewsOuter().
      * @param amountScrewOut - int fra amountScrewsOuter()
      * @return int, antal pakker
@@ -562,14 +560,8 @@ public class StyklisteBeregner {
 
 
 
-    /**
 
-Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
-     */
-    // Tag Beregner 33000
-
-
-
+    //Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
 
     //Starten af alle kalkulationer til flat tag
 
@@ -579,7 +571,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      * @param req
      * @return int Mat
      *
-     * Denne metode returnerer størrelsen af tag pladernes størrelse
+     * Denne metode returnerer tagpladernes størrelse
      */
     public static int roofPlateLengths(Request req) {
         // I antagelse af at der anvendes plader på L.600 W.109, derfor
@@ -643,7 +635,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double pladpris
-     * Denne metode returnerer prisen for alle tagpladerne tilsammen.
+     * Denne metode returnerer prisen for alle tagpladerne lagt sammen.
      */
     public static double roofMatPrice(Request req){
 
@@ -688,7 +680,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int f
-     * Denne metode returnerer antallet af skruer der skal anvendes for at sætte alle tag pladerne fast.
+     * Denne metode returnerer antallet af skruer der skal anvendes for at sætte alle tagpladerne fast.
      */
     public static int numOfRofScrews(Request req) {
 
@@ -712,7 +704,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double scrprice
-     * Denne metode returnerer prisen på alle pakkerne af skruer der skal anvendes til taget lagt sammen.
+     * Denne metode returnerer prisen på alle skruepakker der skal anvendes til taget lagt sammen.
      */
     public static double RofScrewPrice(Request req) {
 
@@ -736,7 +728,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int 1||2||4
-     * Denne metode returnerer antallet af sternbrædder25x200x300 der skal anvendes til carporten's for og bagside.
+     * Denne metode returnerer antallet af sternbrædder med mål 25x200x300 der skal anvendes til carportens for- og bagside.
      */
     public static int Cal25x200x300FnB(Request req) {
         // for the front and back stern, here i have taken the smallest as examples
@@ -759,7 +751,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double p
-     * Denne metode returnerer prisen på alle sternbrædder25x200x300 samlet.
+     * Denne metode returnerer prisen på alle sternbrædder med mål 25x200x300 samlet.
      */
     public static double Cal25x200x300FnBPrice(Request req) {
         // for the front and back stern, here i have taken the smallest as examples
@@ -788,14 +780,11 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
             return p;
 
     }
-
-
-
     /**
      *
      * @param req
      * @return int numbofplanks
-     * Denne metode returnerer antallet af sterbrædder25x125x300 der skal bruges til carporten.
+     * Denne metode returnerer antallet af sterbrædder med mål 25x125x300 der skal bruges til carporten.
      */
     public static int Cal25x125x300Front(Request req) {
         // it calculates via a number of 300, because it will measure so it fits the length. Using
@@ -820,7 +809,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double priceplank
-     * Denne metode returnerer prisen på alle sternbrædder25x125300 samlet.
+     * Denne metode returnerer prisen på alle sternbrædder med mål 25x125x300 samlet.
      */
     public static double Cal25x125x300FrontPrice(Request req) {
         // it calculates via a number of 300, because it will measure so it fits the length. Using
@@ -849,7 +838,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int numbofplanks
-     * Denne metode returnerer antallet af brædder25x125x360 i siderne.
+     * Denne metode returnerer antallet af brædder med mål 25x125x360 i siderne.
      */
     public static int Cal25x125x360Sides(Request req) {
         // it calculates via a number of 300, because it will measure so it fits the length.
@@ -873,7 +862,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double priceplank
-     * Denne metode returnerer prisen på alle brædder25x125x360 sammenlagt.
+     * Denne metode returnerer prisen på alle brædder med mål 25x125x360 sammenlagt.
      */
     public static double Cal25x125x360SidesPrice(Request req) {
         // it calculates via a number of 300, because it will measure so it fits the length. Using
@@ -905,7 +894,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int numbofplanks
-     * Denne metode returnerer antallet af 19x100x480brædder som skal bruges til carporten.
+     * Denne metode returnerer antallet af brædder med mål 19x100x480 som skal bruges til carporten.
      */
     public static int CaL19x100x480(Request req){
 
@@ -931,7 +920,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double priceplank
-     * Denne metode returnerer prisen på alle 19x100x480brædderne tilsammen.
+     * Denne metode returnerer prisen på alle brædder med mål 19x100x480 tilsammen.
      */
     public static double CaL19x100x480Price(Request req){
 
@@ -961,7 +950,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int numbofflanks
-     * Denne metode returnerer antallet af 19x100x420brædder som skal bruges til carporten.
+     * Denne metode returnerer antallet af brædder med mål 19x100x420 som skal bruges til carporten.
      */
     public static int CaL19x100x420Forend(Request req){
 
@@ -987,7 +976,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double priceplank
-     * Denne metode returnerer den samlede pris på alle 19x100x420brædder der bruges til carporten.
+     * Denne metode returnerer den samlede pris på alle brædder med mål 19x100x420 der bruges til carporten.
      */
     public static double CaL19x100x420ForendPrice(Request req){
 
@@ -1046,7 +1035,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double prisnung
-     * Denne metode returnerer prisen på alle B&C Dobbelt sort som skal bruges til sort tilsammen.
+     * Denne metode returnerer prisen på alle B&C Dobbelt sort som skal bruges til taget tilsammen.
      */
     public static double prisBnCDob(Request req){
 
@@ -1118,7 +1107,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return mallus
-     * Denne metode returnerer antallet af top lægter til taget.
+     * Denne metode returnerer antallet af toplægter til taget.
      */
     public static int antalTopLaegHolds(Request req){
 
@@ -1275,14 +1264,11 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
     }
 
 
-    //tree
-
-
     /**
      *
      * @param req
      * @return int size
-     * Denne metode returnerer størrelsen af 25x150xXBrædder til sternene på siderne.
+     * Denne metode returnerer størrelsen af brædder med mål 25x150xX til sternene på siderne.
      */
     // der skal bruges 2 af dem her
     public static int strlseSternSidder25n150nx(Request req){
@@ -1364,7 +1350,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int etellerto
-     * Denne metode returnerer antallet af 25x150xXBrædder som skal bruges til carporten.
+     * Denne metode returnerer antallet af brædder med mål 25x150xX som skal bruges til carporten.
      */
     public static int SternSidderAntal(Request req){
         int width = req.getWidth();
@@ -1380,7 +1366,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double prisu
-     * Denne metode returnerer prisen på alle 25x150xXBrædder tilsammen.
+     * Denne metode returnerer prisen på alle brædder med mål 25x150xX tilsammen.
      */
     public static double SternBrædderPris(Request req){
         int width = req.getWidth();
@@ -1550,7 +1536,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int amount
-     * Denne metode returnerer antallet af 38x73taglægter som skal bruges i alt.
+     * Denne metode returnerer antallet af taglægter med mål 38x73 som skal bruges i alt.
      */
     public static int antalH38x73mmotaglægteT1HRows(Request req){
         int width = req.getWidth();
@@ -1569,7 +1555,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return double pricee
-     * Denne metode returnerer prisen på alle 38x73taglægterne sammenlagt.
+     * Denne metode returnerer prisen på alle taglægterne med mål 38x73 sammenlagt.
      */
     public static double prisH38x73mmotaglægteT1HRows(Request req){
         int width = req.getWidth();
@@ -1589,7 +1575,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return størrelsen
-     * Denne metode returnerer størrelsen af 38x73xXTaglægterne til montering på spær.
+     * Denne metode returnerer størrelsen af Taglægterne med mål 38x73xX til montering på spær.
      */
     public static int sizeH38x73mmotaglægteT1HRows(Request req){
         int length = req.getLength();
@@ -1635,7 +1621,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
      *
      * @param req
      * @return int sizu
-     * Denne metode returnerer størrelsen på 38x73Toplægte som anvendes til toplægterne til montering af rygsten.
+     * Denne metode returnerer størrelsen på toplægten med mål 38x73 som anvendes til toplægterne til montering af rygsten.
      */
         public static int sizeH38x73mmotaglægteT1HHolders(Request req){
 
@@ -1655,7 +1641,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
     /**
      *
      * @return double 22.95 * 2.
-     * Denne metode returnerer prisen på alle 38x73taglægte holderne i alt.
+     * Denne metode returnerer prisen på alle taglægte holderne med mål 38x73 i alt.
      */
     public static double priceH38x73mmotaglægteT1HHolders(){
         return 22.95 * 2;
@@ -1663,7 +1649,7 @@ Alt nedenuder her, alt med tag, er skrevet af Nikolaj Trankjær
     /**
      *
      * @return int 2
-     * Denne metode returnerer 2, som er mængden af 38x73taglægter der skal bruges.
+     * Denne metode returnerer 2, som er mængden af taglægter med mål 38x73 der skal bruges.
      */
     public static int amountH38x73mmotaglægteT1HHolders(){
         return 2;

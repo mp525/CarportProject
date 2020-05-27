@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mathias
  *
- * Denne klasse navigere brugeren til newmatpage.jsp
+ * Denne klasse navigerer brugeren til newmatpage.jsp
  *
  */
 

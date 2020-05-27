@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 @author projektSkabelon
 @author Mathias
 
- Denne klasse bruges til nogle af dropdown menuerne på carport jsp siden.
+ Denne klasse bruges til at opdatere nogle af dropdown menuerne på carport jsp siden.
  Det er vores eneste servlet.
 
  */

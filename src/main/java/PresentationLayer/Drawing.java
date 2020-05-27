@@ -6,11 +6,8 @@ package PresentationLayer;
  * @author Mathias
  * @author Nikolaj
  * Denne klasse tegner et svg tegning via given data fra en request.
- * Den anvender også styklistebregner til at udregne antal materialer og størrelsen af visse materialer.
+ * Den anvender også Styklistebregner til at udregne antal materialer og størrelsen af visse materialer.
  *
- *
- *
- * TO DO: SKriv dig på hvor du har skrevet ting
  */
 
 
@@ -114,7 +111,7 @@ public class Drawing extends Command {
      * @param reviewReq - request
      *
      *
-     * Denne metode tegner stolper som ikke tilhøre skuret
+     * Denne metode tegner stolper som ikke tilhører skuret
      */
     public void addStolperminusSkur(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
@@ -168,7 +165,7 @@ public class Drawing extends Command {
      * @param reviewReq - request
      *
      *
-     * Denne metode tegner skur og de stolper der tilhøre skuret
+     * Denne metode tegner skur og de stolper der tilhører skuret
      */
     public void addSkurplusStolper(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
@@ -195,7 +192,12 @@ public class Drawing extends Command {
     }
 
 
-
+    /**
+     *
+     * @param svg
+     * @param reviewReq
+     * Denne metode tilføjer sterne til tegningen.
+     */
     public void addStern(SVG svg, Request reviewReq) {
         int length = reviewReq.getLength();
         int width = reviewReq.getWidth();

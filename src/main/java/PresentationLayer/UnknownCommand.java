@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- The purpose of UnknownCommand is to...
 
  @author kasper
+ Denne klasse bruges som default command, hvis en ukendt command bliver kaldt
  */
 public class UnknownCommand extends Command {
 

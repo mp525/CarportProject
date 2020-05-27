@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @author Matti
  * @author Vibeke
  *
- * Denne klasse tager en request, udregner en stykliste og returnere requestreview.jsp, udfydt med den givne data.
+ * Denne klasse tager en request, udregner en stykliste og returnerer requestreview.jsp, udfydt med den givne data.
  *
  */
 
