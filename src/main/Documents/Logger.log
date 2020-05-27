@@ -30,3 +30,13 @@
 2020-05-17T18:46:12.240+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
 2020-05-17T18:46:14.078+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
 2020-05-17T18:46:16.839+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-25T12:30:30.409+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-25T12:30:38.882+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-25T12:30:44.112+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-25T12:45:45.317+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-25T12:45:49.123+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-25T12:45:51.993+02:00 FINEST  ContactMapper insertContact SQL Exceptionjava.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'matti@gmail.com' for key 'contactinf.PRIMARY'
+2020-05-25T13:16:09.726+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-25T13:16:09.731+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception
+2020-05-25T13:16:16.214+02:00 FINEST  MaterialMapper There was a SQL Exception
+2020-05-25T13:16:16.220+02:00 FINEST  MaterialMapper getSlope There was a SQL Exception

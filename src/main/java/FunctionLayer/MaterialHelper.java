@@ -268,7 +268,15 @@ public class MaterialHelper {
         stykliste.add(femHundred);
     }
 
-
+    /**
+     *
+     * @param stykliste - arrayliste der skal indeholde materialer
+     * @param request - den request en kunde har lavet
+     *
+     * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
+     * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
+     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget.
+     */
     public static void udregnStolpe(ArrayList<Material> stykliste, Request request) {
         StyklisteBeregner styklisteBeregner= new StyklisteBeregner();
 
@@ -385,6 +393,16 @@ public class MaterialHelper {
 
 
     }
+
+    /**
+     *
+     * @param stykliste - arrayliste der skal indeholde materialer
+     * @param request - den request en kunde har lavet
+     *
+     * Denne metode modtager en arraylist og en request. Metoder fra StyklisteBeregner bliver kaldt
+     * og passende værdier bliver udregnet ud fra request. Herefter bliver Material objekter instantieret
+     * og tilføjet til styklisten. Denne metode er kun aktuel for carport med hældning på taget.
+     */
     public static void slopeStolper(ArrayList<Material>stykliste,Request r){
         udregnStolpe(stykliste, r);
     }

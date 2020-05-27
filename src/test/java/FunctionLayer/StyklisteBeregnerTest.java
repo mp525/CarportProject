@@ -360,7 +360,7 @@ public void CaL19x100x420ForendPriceTest(){
 
         double antalPris= sb.prisStolpe(r);
         assertEquals(antalPris,1711.56,0.1);
-        System.out.println("korrekt pris");
+        System.out.println("korrekt stolpe pris");
     }
 
     // Test til skurets metoder:
