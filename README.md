@@ -3,7 +3,7 @@ Carport projekt
 
 
 
-Et program som giver kunden mulighed for, at customisere sin egen carport.
+Et program som giver kunden mulighed for at customisere sin egen carport.
 
 
 
